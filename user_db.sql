@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS OAuthProvider
 (
     oAuthProviderID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    oAuthProviderName VARCHAR(20)
+    oAuthProviderName VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS EndUser
