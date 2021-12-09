@@ -17,7 +17,13 @@ router.use(json({limit: '200kb'}));
 router.use(urlencoded({extended: true}));
 router.use(cookieParser());
 
-router.get('/products/barcode/:barcode', getProduct)
+router.get('/welcome', (req, res) => {
+
+    res.status(200).send("Welcome 🙌 ");
+
+})
+
+//router.get('/products/barcode/:barcode', getProduct)
 // router.post('/api/login', login);
 // router.post('/api/sign', signup);
 // router.post('/api/isLoggedIn', isUserLoggedIn);
