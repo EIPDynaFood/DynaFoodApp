@@ -42,14 +42,12 @@ export const getProduct = async (req, res) => {
             nutriments: [],
             nutrimentsScores: []
         }
-        const url = `https://world.openfoodfacts.org/api/v0/product/${req.params.barcode}.json`
-        console.log(url)
-        const product = await axios.get('https://world.openfoodfacts.org/api/v0/product/737628064502.json')
+        const url = `https://world.openfoodfacts.org/api/2/product/${req.params.barcode}.json`
+        const product = await axios.get(url)
         if (typeof product === "undefined" || product == null) {
             res.status(500).send({error: "undefined response from OpenFoodFacts Api"})
         }
         if (product.data.status != 1) {
-            console.log(product)
             res.status(204).send({response: "Product not found"})
             return
         }
