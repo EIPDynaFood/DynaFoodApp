@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
     res.send('Hello world');
 });
 
-app.get('/products/barcode/:barcode', (req, res) => {
+app.get('/products/barcode/:barcode', async (req, res) => {
     try {
         let response = {
             keywords: [],
@@ -46,7 +46,7 @@ app.get('/products/barcode/:barcode', (req, res) => {
             nutriments: [],
             nutrimentsScores: []
         }
-        const product = await axios.get(`https://world.openfoodfacts.org/api/v0/product/${req.params}.json`)
+        const product = await axios.get(`https://world.openfoodfacts.org/api/v0/product/${req.params.barcode}.json`)
         if (product.status != 1) {
             res.status(204).send("Product not found")
             return
