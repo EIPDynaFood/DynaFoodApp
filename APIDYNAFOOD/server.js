@@ -4,10 +4,7 @@ import path from 'path'
 import logger from './src/middleware/logger.js'
 
 import router from './src/routes/index.mjs'; //DIR_IMPORT NOT SUPPORTED
-// import { HOST, PORT} from './src/config/index.js';
-
-let HOST = 'localhost';
-let PORT = 8080;
+import { HOST, PORT} from './src/config/index.js';
 
 export const app = new Express(); 
 const server = new http.Server(app);
