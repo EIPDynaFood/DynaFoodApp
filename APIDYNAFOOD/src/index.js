@@ -5,12 +5,31 @@ const app = express()
 const port = 8000
 
 //connection to database
-const pool = new Pool({
-    user: "postgres",
-    host: "localhost",
-    password: "password",
-    port: "5432"
-});
+let db_adm_conn;
+var start = new Date().getTime();
+  while (true) {
+    if ((new Date().getTime() - start) > 5000){
+      break;
+    }
+  }
+
+function connect() {
+    db_adm_conn = new Client({
+        connectionString: 'postgres://' + process.env.DB_USER + ':' + process.env.DB_PASSWORD + '@db/postgres'
+    });
+    db_adm_conn.on('error', error => {
+        connect();
+    });
+    db_adm_conn.connect().catch(() => { connect() });
+    return db_adm_conn
+}
+db_adm_conn = connect()
+// const pool = new Pool({
+//     user: "postgres",
+//     host: "localhost",
+//     password: "password",
+//     port: "5432"
+// });
 
 //allow frontend to access the backend
 app.use((req, res, next) => {
@@ -27,8 +46,15 @@ app.listen(port, () => {
 });
 
 //main route server access
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     res.send('Hello world');
+    let test = await db_adm_conn.query(`INSERT INTO public.restriction(
+        restrictionname)
+        VALUES ('tanya');`)
+    // res.send(test)
+    // pool.query("INSERT INTO Restriction (restrictionName)VALUES('testvalue')", (err, res) => {
+    //     console.log(err || res);
+    // });
 });
 
 app.get('/products/barcode/:barcode', async (req, res) => {
@@ -64,9 +90,7 @@ app.get('/products/barcode/:barcode', async (req, res) => {
 })
 
 // test queries
-pool.query("INSERT INTO Restriction (restrictionName)VALUES('testvalue')", (err, res) => {
-    console.log(err || res);
-});
-pool.query("SELECT * FROM Restriction", (err,res) => {
-    console.log(err || res);
-});
+
+// pool.query("SELECT * FROM Restriction", (err,res) => {
+//     console.log(err || res);
+// });

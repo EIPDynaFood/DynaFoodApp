@@ -21,3 +21,15 @@ services:
     environment:
       - "POSTGRES_USER=postgres"
       - "POSTGRES_PASSWORD=password"
+  server:
+    depends_on:
+      - db
+    build: .
+    restart: always
+    ports:
+      - "8000:8000"
+    networks:
+      - back-tier
+    environment:
+      - "DB_USER=postgres"
+      - "DB_PASSWORD=password"
