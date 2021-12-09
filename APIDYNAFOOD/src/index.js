@@ -47,11 +47,12 @@ app.listen(port, () => {
 
 //main route server access
 app.get('/', async (req, res) => {
-    res.send('Hello world');
+    // res.send('Hello world');
     let test = await db_adm_conn.query(`INSERT INTO public.restriction(
         restrictionname)
         VALUES ('tanya');`)
-    // res.send(test)
+    let resu = await db_adm_conn.query(`SELECT * FROM restriction`)
+    res.send(resu.rows)
     // pool.query("INSERT INTO Restriction (restrictionName)VALUES('testvalue')", (err, res) => {
     //     console.log(err || res);
     // });
@@ -60,19 +61,19 @@ app.get('/', async (req, res) => {
 app.get('/products/barcode/:barcode', async (req, res) => {
     try {
         let response = {
-            keywords: [],
-            allergens: [],
-            categories: [],
-            qualities: [],
-            warings: [],
-            ecoscoreDatas: [],
-            packing: [],
-            images: [],
-            ingredients: [],
-            nutriments: [],
-            nutrimentsScores: []
+            keywords: [], //marcel
+            allergens: [], //marcel
+            categories: [], //marcel
+            qualities: [], //marcel
+            warings: [], //marcel
+            ecoscoreDatas: [], //lucas
+            packing: [], //lucas
+            images: [], //lucas
+            ingredients: [], //karl
+            nutriments: [], //karl
+            nutrimentsScores: [] //karl
         }
-        const product = await axios.get(`https://world.openfoodfacts.org/api/v0/product/${req.params.barcode}.json`)
+        const product = await axios.get(`https://world.openfoodfacts.org/api/2/product/${req.params.barcode}.json`)
         if (product.status != 1) {
             res.status(204).send("Product not found")
             return
