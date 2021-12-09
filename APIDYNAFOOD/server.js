@@ -22,6 +22,13 @@ app.use(Express.json({ limit: '200kb' }));
 app.use(Express.urlencoded({extended: true }));
 app.use(cookieParser());
 
+
+// app.get('/welcome', (req, res) => {
+
+//     res.status(200).send("Welcome 🙌 ");
+
+// })
+
 app.use(router);
 
 app.use(logger);

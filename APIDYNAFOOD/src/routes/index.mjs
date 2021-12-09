@@ -18,6 +18,12 @@ router.use(json({limit: '200kb'}));
 router.use(urlencoded({extended: true}));
 router.use(cookieParser());
 
+router.get('/welcome', (req, res) => {
+
+    res.status(200).send("Welcome 🙌 ");
+
+})
+
 router.get('/products/barcode/:barcode', getProduct)
 router.get('/echo', getEcho)
 router.get('/users', getUsers)
