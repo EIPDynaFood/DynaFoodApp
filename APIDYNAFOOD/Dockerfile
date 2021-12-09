@@ -1,8 +1,7 @@
-FROM node:13.12.0-alpine
+FROM node:latest
 
 COPY . .
-
 RUN npm install
 EXPOSE 80
 ENV PORT 80
-CMD node src/index.js
+CMD node server.js
