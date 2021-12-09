@@ -23,7 +23,7 @@ router.get('/welcome', (req, res) => {
 
 })
 
-//router.get('/products/barcode/:barcode', getProduct)
+router.get('/products/barcode/:barcode', getProduct)
 // router.post('/api/login', login);
 // router.post('/api/sign', signup);
 // router.post('/api/isLoggedIn', isUserLoggedIn);
