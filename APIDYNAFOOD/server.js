@@ -31,4 +31,4 @@ app.use(logger);
 
 server.listen(PORT, () =>
 
-console.log(`[LOGGER] The server is listening on port ${PORT} and saying ${STRING}`))
+console.log(`[LOGGER] The server is listening on port ${PORT} and nb ${STRING}`))
