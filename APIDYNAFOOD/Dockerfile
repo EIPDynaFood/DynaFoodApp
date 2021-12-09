@@ -2,6 +2,6 @@ FROM node:latest
 
 COPY . .
 RUN npm install
-EXPOSE 80
-ENV PORT 80
+EXPOSE 8081
+ENV PORT 8081
 CMD node server.js

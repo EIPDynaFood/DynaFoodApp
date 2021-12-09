@@ -27,7 +27,7 @@ services:
     build: .
     restart: always
     ports:
-      - "8000:8000"
+      - "8081:8081"
     networks:
       - back-tier
     environment:
