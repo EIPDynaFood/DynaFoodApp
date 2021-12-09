@@ -24,7 +24,17 @@ const getInnerIngredients = (ingredient) => {
         }
         return ({vegan: vegan, vegetarian: vegetarian, ingredients: inner})
     }
-    return null    
+    return null
+}
+
+const getAllAllergenes = (hierarchy) => {
+    let allergenes = [];
+
+    hierarchy.forEach((entry) => {
+        allergenes.push(entry.substring(entry.indexOf(":") + 1));
+    })
+
+    return allergenes;
 }
 
 export const getProduct = async (req, res) => {
@@ -42,9 +52,9 @@ export const getProduct = async (req, res) => {
             nutriments: [],
             nutrimentsScores: []
         }
-        const url = `https://world.openfoodfacts.org/api/v0/product/${req.params.barcode}.json`
-        console.log(url)
-        const product = await axios.get('https://world.openfoodfacts.org/api/v0/product/737628064502.json')
+        const url = `https://world.openfoodfacts.org/api/2/product/${req.params.barcode}.json`
+        //const product = await axios.get('https://world.openfoodfacts.org/api/v0/product/737628064502.json')
+        const product = await axios.get(url)
         if (typeof product === "undefined" || product == null) {
             res.status(500).send({error: "undefined response from OpenFoodFacts Api"})
         }
@@ -57,7 +67,7 @@ export const getProduct = async (req, res) => {
 
         const data = product["data"]["product"];
         response.keywords = data["_keywords"];
-        response.allergens = data["allergens"];
+        response.allergens = getAllAllergenes(data["allergens_hierarchy"]);
         response.categories = data["categories"].split(',');
         response.qualities = data["data_quality_tags"];
         response.warings = data["data_quality_warnings_tags"];
