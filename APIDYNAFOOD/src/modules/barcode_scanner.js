@@ -24,7 +24,17 @@ const getInnerIngredients = (ingredient) => {
         }
         return ({vegan: vegan, vegetarian: vegetarian, ingredients: inner})
     }
-    return null    
+    return null
+}
+
+const getAllAllergenes = (hierarchy) => {
+    let allergenes = [];
+
+    hierarchy.forEach((entry) => {
+        allergenes.push(entry.substring(entry.indexOf(":") + 1));
+    })
+
+    return allergenes;
 }
 
 const getNutriments = (nutriments) => {
@@ -110,7 +120,7 @@ export const getProduct = async (req, res) => {
 
         const data = product["data"]["product"];
         response.keywords = data["_keywords"];
-        response.allergens = data["allergens"];
+        response.allergens = getAllAllergenes(data["allergens_hierarchy"]);
         response.categories = data["categories"].split(',');
         response.qualities = data["data_quality_tags"];
         response.warings = data["data_quality_warnings_tags"];
