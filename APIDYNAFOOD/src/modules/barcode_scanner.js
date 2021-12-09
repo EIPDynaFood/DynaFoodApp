@@ -42,7 +42,7 @@ export const getProduct = async (req, res) => {
             nutriments: [],
             nutrimentsScores: []
         }
-        const url = `https://world.openfoodfacts.org/api/v0/product/${req.query.barcode}.json`
+        const url = `https://world.openfoodfacts.org/api/v0/product/${req.params.barcode}.json`
         console.log(url)
         const product = await axios.get('https://world.openfoodfacts.org/api/v0/product/737628064502.json')
         if (typeof product === "undefined" || product == null) {
