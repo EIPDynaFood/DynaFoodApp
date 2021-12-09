@@ -47,10 +47,19 @@ export const getProduct = async (req, res) => {
         if (typeof product === "undefined" || product == null) {
             res.status(500).send({error: "undefined response from OpenFoodFacts Api"})
         }
+
         if (product.data.status != 1) {
             res.status(204).send({response: "Product not found"})
             return
         }
+
+        const data = product["data"]["product"];
+        response.keywords = data["_keywords"];
+        response.allergens = data["allergens"];
+        response.categories = data["categories"].split(',');
+        response.qualities = data["data_quality_tags"];
+        response.warings = data["data_quality_warnings_tags"];
+
         if (typeof product === "object") {
             if (product.data.product && product.data.product.ingredients) {
                 response.ingredients = getInnerIngredients(product.data.product)
