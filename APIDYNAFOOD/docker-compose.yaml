@@ -42,4 +42,5 @@ services:
     environment:
       - "DB_USER=postgres"
       - "DB_PASSWORD=password"
+      - "DB_STRING=@db:5432/postgres"
     command: npm start  
