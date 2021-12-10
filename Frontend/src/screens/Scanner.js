@@ -2,6 +2,7 @@ import {BarCodeScanner} from "expo-barcode-scanner";
 import {Button, StyleSheet, Text, View} from "react-native";
 import React, { useState, useEffect } from "react";
 import { useNavigation } from '@react-navigation/native';
+import {FAB} from "react-native-elements";
 
 export default function Scanner() {
 
@@ -29,6 +30,12 @@ export default function Scanner() {
             <BarCodeScanner
                 onBarCodeScanned={handleBarCodeScanned}
                 style={StyleSheet.absoluteFillObject}
+            />
+            <FAB
+                color="black"
+                title="<use debug code>"
+                style={{position: "absolute", bottom: 16, right: 16}}
+                onPress={() => {handleBarCodeScanned({data: 4017100759000})}}
             />
         </View>
     );
