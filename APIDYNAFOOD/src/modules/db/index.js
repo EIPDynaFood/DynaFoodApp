@@ -12,7 +12,7 @@ export const poolExample = () => {
     console.log('[EXAMPLE] I am DB Pool example func')
 
     const pool = new Pool({
-        connectionString,
+        connectionString: connectionString,
         max: 20,
         idleTimeoutMillis: 30000,
         connectionTimeoutMillis: 2000,
@@ -36,7 +36,7 @@ export const poolExample = () => {
 
 export function connect() {
     let db_adm_conn = new Client({
-        connectionString
+        connectionString : connectionString
     });
     db_adm_conn.on('error', error => {
         connect();
