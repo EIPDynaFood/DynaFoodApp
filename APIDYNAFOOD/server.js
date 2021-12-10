@@ -4,16 +4,17 @@ import path from 'path'
 import logger from './src/middleware/logger.js'
 
 import router from './src/routes/index.mjs'; //DIR_IMPORT NOT SUPPORTED
-import { HOST, PORT} from './src/config/index.js';
+import { HOST, PORT, DB_STRING} from './src/config/index.js';
 
 export const app = new Express(); 
 const server = new http.Server(app);
 // import logger from './src/middleware/logger.js';
-// import { connect } from "./src/config/mongo.js";
 import cookieParser from 'cookie-parser';
 // import jwt from 'express-jwt';
 import cors from 'cors'; //dont know what is it for
+import { poolExample } from './src/modules/db/index.js'
 
+poolExample();
 
 const STRING = "HELLO STRING";
 
@@ -21,13 +22,6 @@ app.use(cors());
 app.use(Express.json({ limit: '200kb' }));
 app.use(Express.urlencoded({extended: true }));
 app.use(cookieParser());
-
-
-// app.get('/welcome', (req, res) => {
-
-//     res.status(200).send("Welcome 🙌 ");
-
-// })
 
 app.use(router);
 

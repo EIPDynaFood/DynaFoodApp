@@ -92,6 +92,26 @@ const getNutrimentsScore = (data) => {
     return ret
 }
 
+const getEcoScore = (data) => {
+    let ret = {
+        eco_grade : null,
+        eco_score : null,
+        epi_score : null,
+        transportation_scores : null, // subdivided in countries // mostly empty
+        packaging : null, // information about packaging, // mostly empty
+        agribalyse : null, // Co2 emission from different parts
+    }
+    if (typeof data.ecoscore_data != "undefined" && data.ecoscore_data != null && data.ecoscore_grade !== "not-applicable") {
+        ret.eco_score = data.ecoscore_score
+        ret.epi_score = data.ecoscore_data.adjustments.origins_of_ingredients.epi_score
+        ret.transportation_scores = data.ecoscore_data.adjustments.origins_of_ingredients.transportation_scores
+        ret.packaging = data.ecoscore_data.adjustments.packaging
+        ret.agribalyse = data.ecoscore_data.agribalyse
+    }
+    ret.eco_grade = data.ecoscore_grade
+    return ret
+}
+
 export const getProduct = async (req, res) => {
     try {
         let response = {
@@ -101,7 +121,7 @@ export const getProduct = async (req, res) => {
             categories: [],
             qualities: [],
             warings: [],
-            ecoscoreDatas: [],
+            ecoscoreData: [],
             packing: [],
             images: [],
             ingredients: [],
@@ -118,7 +138,6 @@ export const getProduct = async (req, res) => {
             res.status(204).send({response: "Product not found"})
             return
         }
-        
 
         if (typeof product === "object" && product.data && product.data.product) {
             const data = product["data"]["product"];
@@ -127,6 +146,12 @@ export const getProduct = async (req, res) => {
             response.categories = data["categories"] ? data["categories"].split(',') : [];
             response.qualities = data["data_quality_tags"];
             response.warings = data["data_quality_warnings_tags"];
+            response.ecoscoreData = getEcoScore(data);
+            response.packing = data["packaging"];
+            if (typeof data["image_front_url"] === "undefined" || data["image_front_url"] == null)
+                response.images = null;
+            else
+                response.images = data["image_small_url"];
             if (product.data.product && product.data.product.ingredients) {
                 response.name = product.data.product.product_name
                 response.ingredients = getInnerIngredients(product.data.product)
