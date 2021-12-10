@@ -29,10 +29,11 @@ const getInnerIngredients = (ingredient) => {
 
 const getAllAllergenes = (hierarchy) => {
     let allergenes = [];
-
-    hierarchy.forEach((entry) => {
-        allergenes.push(entry.substring(entry.indexOf(":") + 1));
-    })
+    if (typeof hierarchy != "undefined" && hierarchy != null) {
+        hierarchy.forEach((entry) => {
+            allergenes.push(entry.substring(entry.indexOf(":") + 1));
+        })
+    }
 
     return allergenes;
 }
