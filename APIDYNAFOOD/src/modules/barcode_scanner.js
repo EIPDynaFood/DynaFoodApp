@@ -117,15 +117,15 @@ export const getProduct = async (req, res) => {
             res.status(204).send({response: "Product not found"})
             return
         }
+        
 
-        const data = product["data"]["product"];
-        response.keywords = data["_keywords"];
-        response.allergens = getAllAllergenes(data["allergens_hierarchy"]);
-        response.categories = data["categories"].split(',');
-        response.qualities = data["data_quality_tags"];
-        response.warings = data["data_quality_warnings_tags"];
-
-        if (typeof product === "object") {
+        if (typeof product === "object" && product.data && product.data.product) {
+            const data = product["data"]["product"];
+            response.keywords = data["_keywords"];
+            response.allergens = getAllAllergenes(data["allergens_hierarchy"]);
+            response.categories = data["categories"] ? data["categories"].split(',') : [];
+            response.qualities = data["data_quality_tags"];
+            response.warings = data["data_quality_warnings_tags"];
             if (product.data.product && product.data.product.ingredients) {
                 response.name = product.data.product.product_name
                 response.ingredients = getInnerIngredients(product.data.product)
