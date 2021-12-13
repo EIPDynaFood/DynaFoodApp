@@ -195,16 +195,17 @@ export const getToken = async (req, res) => {
     }
 
     if (user.rowCount == 0) {
+        res.status(404).send({"Error": `User has no rows`});
         return;
     }
 
     if (user.rows[0].email == email && user.rows[0].passcode == password) {
-        // creating the jwt with email and password
         const token = jwt.sign({ email: email, password: password }, process.env.JWT_SECRET, { expiresIn: "1h" });
         res.cookie("token", token, {
             httpOnly: true,
         });
-        return token;
+        res.status(200).send(token);
+        return;
     }
     res.status(401).send({ "Error": "Wrong credentials" });
 };
