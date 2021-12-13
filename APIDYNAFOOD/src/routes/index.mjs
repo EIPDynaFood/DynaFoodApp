@@ -7,6 +7,8 @@ import cookieParser from 'cookie-parser';
 import { getProduct } from '../modules/barcode_scanner.js'
 import {getEcho, getUsers, getUser, deleteUser, postUser} from '../modules/db/index.js'
 import logger from '../middleware/logger.js'
+import { checkDeleteElementReq, checkGetElementsFromHistoryReq } from '../middleware/security/history.js'
+import { getElementsFromHistory, deleteElementFromHistory } from '../modules/db/historyManagement.js'
 
 // import {
 //     login
@@ -27,11 +29,16 @@ router.get('/welcome', (req, res) => {
 })
 
 router.get('/products/barcode/:barcode', getProduct)
+
 router.get('/echo', getEcho)
+
 router.get('/users', getUsers)
 router.get('/user', getUser)
 router.post('/user', postUser)
 router.delete('/user', deleteUser)
+
+router.get('/history/', checkGetElementsFromHistoryReq, getElementsFromHistory)
+router.delete('/history/:elementID', checkDeleteElementReq, deleteElementFromHistory)
 // router.post('/api/login', login);
 // router.post('/api/sign', signup);
 // router.post('/api/isLoggedIn', isUserLoggedIn);
