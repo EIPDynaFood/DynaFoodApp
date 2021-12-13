@@ -21,6 +21,7 @@ export default function Product() {
 
     return (
         <View>
+            <Text>Product</Text>
             {productData === null ? (<FAB color="grey" size="small" loading/>) : (
                 <View>
                     <Text style={{fontSize: 50}}>{productData["name"]}</Text>
