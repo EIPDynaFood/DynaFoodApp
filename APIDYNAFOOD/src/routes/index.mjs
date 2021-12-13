@@ -5,10 +5,12 @@ import { json } from 'express';
 import jwt from 'express-jwt';
 import cookieParser from 'cookie-parser';
 import { getProduct } from '../modules/barcode_scanner.js'
-import {getEcho, getUsers, getUser, deleteUser, postUser} from '../modules/db/index.js'
+import { getEcho, getUsers, getUser, deleteUser, postUser, getToken } from '../modules/db/index.js'
 import logger from '../middleware/logger.js'
 import { checkDeleteElementReq, checkGetElementsFromHistoryReq } from '../middleware/security/history.js'
 import { getElementsFromHistory, deleteElementFromHistory } from '../modules/db/historyManagement.js'
+
+import { secureRouteMiddleware } from '../middleware/security/secureRouting.js'
 
 // import {
 //     login
@@ -36,6 +38,8 @@ router.get('/users', getUsers)
 router.get('/user', getUser)
 router.post('/user', postUser)
 router.delete('/user', deleteUser)
+
+router.get('/token', getToken);
 
 router.get('/history/', checkGetElementsFromHistoryReq, getElementsFromHistory)
 router.delete('/history/:elementID', checkDeleteElementReq, deleteElementFromHistory)
