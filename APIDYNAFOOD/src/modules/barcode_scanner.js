@@ -1,6 +1,7 @@
 
 import axios from 'axios';
 import https from 'https';
+import { insertIntoHistory } from './db/historyManagement.js'
 
 const getInnerIngredients = (ingredient) => {
     let inner = []
@@ -114,6 +115,8 @@ const getEcoScore = (data) => {
 
 export const getProduct = async (req, res) => {
     try {
+        const userID = "123e4567-e89b-12d3-a456-426614174000"//here insert checking for existing acces_token in EndUser and find user
+        
         let response = {
             name: null,
             keywords: [],
@@ -148,19 +151,21 @@ export const getProduct = async (req, res) => {
             response.warings = data["data_quality_warnings_tags"];
             response.ecoscoreData = getEcoScore(data);
             response.packing = data["packaging"];
+            response.name = product.data.product.product_name
             if (typeof data["image_front_url"] === "undefined" || data["image_front_url"] == null)
                 response.images = null;
             else
                 response.images = data["image_small_url"];
             if (product.data.product && product.data.product.ingredients) {
-                response.name = product.data.product.product_name
                 response.ingredients = getInnerIngredients(product.data.product)
             }
             if (product.data.product && product.data.product.nutriments) {
                 response.nutriments_g_pro_100g = getNutriments(product.data.product.nutriments)
             }
+            insertIntoHistory(userID, req.params.barcode, response)
             response.nutriments_scores = getNutrimentsScore(product.data.product)
         }
+
         res.status(200).send(response)
     } catch(error) {
         console.log(error)

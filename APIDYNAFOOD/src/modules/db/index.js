@@ -44,7 +44,7 @@ export function connect() {
     db_adm_conn.connect().catch(() => { connect() });
     return db_adm_conn
 }
-let db_adm_conn = connect()
+export let db_adm_conn = connect()
 
 export const getEcho = async (req, res) => {
     res.send(JSON.stringify(req.query));
