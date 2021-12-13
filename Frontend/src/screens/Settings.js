@@ -11,7 +11,10 @@ export default function Settings({navigation, route}) {
     return (
         <View style={StyleSheet.absoluteFillObject}>
             <Text>Settings</Text>
-            <Button style={{top: 10}} title="logout" onPress={() => logout()}/>
+            <Button style={{top: 10}} title="logout" onPress={() => {
+              logout()
+              navigation.navigate("Login")
+            }}/>
         </View>
     );
 }

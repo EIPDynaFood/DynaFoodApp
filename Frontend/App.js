@@ -42,7 +42,6 @@ export default function App() {
                   <Stack.Screen name="Settings" component={Settings}/>
                 </Stack.Navigator>
               </NavigationContainer>
-          )}
           </JwtProvider>
         </View>
   );

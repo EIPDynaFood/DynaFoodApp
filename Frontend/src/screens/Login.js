@@ -12,7 +12,10 @@ export default function Login({navigation, route}) {
         <View>
             <Text>Login</Text>
             <Button title="register" onPress={() => navigation.navigate("Register")}/>
-            <Button style={{top: 10}} title="simulate fake jwt" onPress={() => login("thisWountAuthForReal")}/>
+            <Button style={{top: 10}} title="simulate fake jwt" onPress={() => {
+              login("thisWountAuthForReal")
+              navigation.navigate("History")
+            }}/>
         </View>
     );
 }
