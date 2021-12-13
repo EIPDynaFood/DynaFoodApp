@@ -1,7 +1,11 @@
 import {Button, StyleSheet, Text, View} from "react-native";
 import React, { useState, useEffect } from "react";
 import {FAB} from "react-native-elements";
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import ProductGeneralInfo from "./ProductGeneralInfo";
+import ProductNeutritionalTable from "./ProductNeutritionalTable";
 
+const Tab = createMaterialTopTabNavigator();
 const axios = require('axios');
 
 export default function Product() {
@@ -20,12 +24,12 @@ export default function Product() {
     }, []);
 
     return (
-        <View>
-            <Text>Product</Text>
+        <View style={{flex: 1}}>
             {productData === null ? (<FAB color="grey" size="small" loading/>) : (
-                <View>
-                    <Text style={{fontSize: 50}}>{productData["name"]}</Text>
-                </View>
+                <Tab.Navigator>
+                    <Tab.Screen name="general" component={ProductGeneralInfo} initialParams={{productData}}/>
+                    <Tab.Screen name="table" component={ProductNeutritionalTable} initialParams={{productData}}/>
+                </Tab.Navigator>
             )}
         </View>
     );
