@@ -1,6 +1,8 @@
 import pg from 'pg'
 
 import { DB_STRING } from '../../config/index.js';
+import jwt from 'jsonwebtoken';
+
 // const port = 8081
 const Client = pg.Client;
 const Pool = pg.Pool;
@@ -174,4 +176,35 @@ export const postUser = async (req, res) =>
         res.status(400).send({"Error": "Unable to create new User.", "Details": `${error}`});
         return
     }
+};
+
+export const getToken = async (req, res) => {
+    const email = req.query.email;
+    const password = req.query.password;
+
+    const user = await db_adm_conn.query(`
+        SELECT *
+        FROM EndUser
+        WHERE email = '${email}';
+    `);
+
+    if (user.rows.length == 0) {
+        console.log(`There is no user with the email: ${email}`);
+        res.status(404).send({"Error": `There is no user with the email ${email}`});
+        return;
+    }
+
+    if (user.rowCount == 0) {
+        return;
+    }
+
+    if (user.rows[0].email == email && user.rows[0].passcode == password) {
+        // creating the jwt with email and password
+        const token = jwt.sign({ email: email, password: password }, process.env.JWT_SECRET, { expiresIn: "1h" });
+        res.cookie("token", token, {
+            httpOnly: true,
+        });
+        return token;
+    }
+    res.status(401).send({ "Error": "Wrong credentials" });
 };
