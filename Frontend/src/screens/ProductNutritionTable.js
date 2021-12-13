@@ -4,7 +4,7 @@ import {FAB} from "react-native-elements";
 
 const axios = require('axios');
 
-export default function ProductNeutritionalTable({navigation, route}) {
+export default function ProductNutritionTable({navigation, route}) {
     const { itemId, productData } = route.params;
 
     return (

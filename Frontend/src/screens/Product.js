@@ -3,11 +3,12 @@ import React, { useState, useEffect } from "react";
 import {FAB} from "react-native-elements";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import ProductGeneralInfo from "./ProductGeneralInfo";
-import ProductNeutritionalTable from "./ProductNeutritionalTable";
+import ProductNutritionTable from "./ProductNutritionTable";
 
 const Tab = createMaterialTopTabNavigator();
 const axios = require('axios');
 
+// Thou shall not change this file! To change content pls go into ProductGeneralInfo.js or ProductNutritionTable.js!
 export default function Product() {
     const [ productCode, setProductCode ] = useState(localStorage.getItem("productCode"));
     const [productData, setProductData] = useState(null);
@@ -28,7 +29,7 @@ export default function Product() {
             {productData === null ? (<FAB color="grey" size="small" loading/>) : (
                 <Tab.Navigator>
                     <Tab.Screen name="general" component={ProductGeneralInfo} initialParams={{productData}}/>
-                    <Tab.Screen name="table" component={ProductNeutritionalTable} initialParams={{productData}}/>
+                    <Tab.Screen name="table" component={ProductNutritionTable} initialParams={{productData}}/>
                 </Tab.Navigator>
             )}
         </View>
