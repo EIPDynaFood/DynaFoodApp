@@ -38,7 +38,7 @@ export default function Scanner() {
               title="<use debug code>"
               style={{position: "absolute", bottom: 16, right: 16}}
               onPress={() => {
-                handleBarCodeScanned({data: 5060335635266})
+                handleBarCodeScanned({data: "5060335635266"})
               }}
           />
         </View>
