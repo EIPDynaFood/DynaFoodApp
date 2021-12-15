@@ -5,31 +5,30 @@ import jwt from 'jsonwebtoken';
 
 const parseGetUserResponse = (rows) => {
     let userObj = {
-        firstName : rows[0].firstName,     
-        lastName : rows[0].lastName,
-        userName : rows[0].userName,
+        firstName : rows[0].firstname,     
+        lastName : rows[0].lastname,
+        userName : rows[0].username,
         email : rows[0].email,
-        phoneNumber : rows[0].phoneNumber,
+        phoneNumber : rows[0].phonenumber,
         restrictons: []
     }
     for (var row of rows) {
+        if (row.restrictionName != null)
         userObj.restrictons.push( {
-            alertActivation: row.alertActivation,
-            restrictionName: row.restrictionName
+            alertActivation: row.alertactivation,
+            restrictionName: row.restrictionname
         })
     }
     return userObj
 }
 
 export const getUser = async (req, res) => {
-    
     let newUser = await db_adm_conn.query(`
     SELECT EU.firstName, EU.lastName, EU.userName, EU.email, EU.phoneNumber, ER.alertActivation, R.restrictionName
     FROM EndUser EU
-    JOIN EndUser_Restriction ER ON ER.endUserID = EU.endUserID
-    JOIN Restriction R ON R.restrictionID = ER.restrictionID
-    WHERE EU.endUserID = '${req.user.userid}';`)
-
+    LEFT JOIN EndUser_Restriction ER ON ER.endUserID = EU.endUserID
+    LEFT JOIN Restriction R ON R.restrictionID = ER.restrictionID
+    WHERE EU.endUserID = '${checkInputBeforeSqlQuery(req.user.userid)}';`)
     if (newUser.rows.length == 0) {
         res.status(404).send("There is no EndUser with this id.")
         return
@@ -147,7 +146,8 @@ export const getToken = async (req, res) => {
     }
 
     if (user.rows[0].email == email && user.rows[0].passcode == password) {
-        const token = jwt.sign({ email: email, password: password }, process.env.JWT_SECRET, { expiresIn: "1h" });
+        const userid = user.rows[0].enduserid;
+        const token = jwt.sign({ userid: userid, password: password }, process.env.JWT_SECRET, { expiresIn: "1h" });
         res.cookie("token", token, {
             httpOnly: true,
         });

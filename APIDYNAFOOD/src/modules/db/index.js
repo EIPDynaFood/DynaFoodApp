@@ -55,3 +55,4 @@ export const getUsers = async (req, res) => {
     console.log('[LOGGER], getUsers func')
     res.send(await db_adm_conn.query(`SELECT * FROM EndUser`));
 };
+

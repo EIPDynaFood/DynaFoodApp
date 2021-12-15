@@ -16,7 +16,7 @@ export default function Product() {
 
   useEffect(() => {
     setProductCode(localStorage.getItem("productCode"));
-    axios.get("http://192.168.2.123:8081/products/barcode/" + productCode).then((res) => {
+    axios.get("https://dynafood.herokuapp.com/products/barcode/" + productCode).then((res) => { // 192.168.2.123
       setProductData(res.data);
       console.log(res.data);
     }).catch((err) => {
