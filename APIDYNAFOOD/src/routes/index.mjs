@@ -2,10 +2,10 @@ import { Router } from 'express'
 const router = Router();
 import { urlencoded } from 'express';
 import { json } from 'express';
-import jwt from 'express-jwt';
 import cookieParser from 'cookie-parser';
 import { getProduct } from '../modules/barcode_scanner.js'
-import { getEcho, getUsers, getUser, deleteUser, postUser, getToken } from '../modules/db/index.js'
+import { getUser, deleteUser, postUser, getToken } from '../modules/db/userManagement.js'
+import { getEcho, getUsers } from '../modules/db/index.js'
 import logger from '../middleware/logger.js'
 import { checkDeleteElementReq, checkGetElementsFromHistoryReq } from '../middleware/security/history.js'
 import { getElementsFromHistory, deleteElementFromHistory } from '../modules/db/historyManagement.js'
@@ -33,13 +33,15 @@ router.get('/welcome', (req, res) => {
 router.get('/products/barcode/:barcode', getProduct)
 
 router.get('/echo', getEcho)
+router.get('/users', getUsers) //should delete later
 
-router.get('/users', getUsers)
-router.get('/user', getUser)
+
+router.get('/user',secureRouteMiddleware, getUser)
 router.post('/user', postUser)
 router.delete('/user', deleteUser)
 
 router.get('/token', getToken);
+router.get('/login', getToken);
 
 router.get('/history/', checkGetElementsFromHistoryReq, getElementsFromHistory)
 router.delete('/history/:elementID', checkDeleteElementReq, deleteElementFromHistory)
