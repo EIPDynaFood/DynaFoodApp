@@ -200,7 +200,8 @@ export const getToken = async (req, res) => {
     }
 
     if (user.rows[0].email == email && user.rows[0].passcode == password) {
-        const token = jwt.sign({ email: email, password: password }, process.env.JWT_SECRET, { expiresIn: "1h" });
+        const userid = user.rows[0].enduserid;
+        const token = jwt.sign({ userid: userid, password: password }, process.env.JWT_SECRET, { expiresIn: "1h" });
         res.cookie("token", token, {
             httpOnly: true,
         });
