@@ -8,14 +8,14 @@ const axios = require('axios');
 export default function ProductGeneralInfo({navigation, route}) {
   const {itemId, productData} = route.params;
 
-  console.log(productData['ingredients']['ingredients'])
-
   return (
       <RequireJwt>
-        <View>
+        <View style={{flexDirection: "row"}}>
           <Text style={{fontSize: 50}}>{productData["name"]}</Text>
-          <Image source={{uri: productData['images']}}/>
-          <ScrollView>
+          <Image source={{uri: "https://images.openfoodfacts.org/images/products/506/033/563/5266/front_de.14.200.jpg"}}
+                 style={{resizeMode: "contain", width: 100, height: 100}}/>
+        </View>
+        <ScrollView>
             {
               productData['ingredients']['ingredients'].map((item, index) => (
                   <ListItem key={index}>
@@ -26,7 +26,8 @@ export default function ProductGeneralInfo({navigation, route}) {
               ))
             }
           </ScrollView>
-        </View>
       </RequireJwt>
   );
 }
+
+
