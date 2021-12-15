@@ -23,98 +23,52 @@ const parseGetUserResponse = (rows) => {
 }
 
 export const getUser = async (req, res) => {
-    let newUser = await db_adm_conn.query(`
-    SELECT EU.firstName, EU.lastName, EU.userName, EU.email, EU.phoneNumber, ER.alertActivation, R.restrictionName
-    FROM EndUser EU
-    LEFT JOIN EndUser_Restriction ER ON ER.endUserID = EU.endUserID
-    LEFT JOIN Restriction R ON R.restrictionID = ER.restrictionID
-    WHERE EU.endUserID = '${checkInputBeforeSqlQuery(req.user.userid)}';`)
-    if (newUser.rows.length == 0) {
-        res.status(404).send("There is no EndUser with this id.")
-        return
+    try {
+        let newUser = await db_adm_conn.query(`
+        SELECT EU.firstName, EU.lastName, EU.userName, EU.email, EU.phoneNumber, ER.alertActivation, R.restrictionName
+        FROM EndUser EU
+        LEFT JOIN EndUser_Restriction ER ON ER.endUserID = EU.endUserID
+        LEFT JOIN Restriction R ON R.restrictionID = ER.restrictionID
+        WHERE EU.endUserID = '${checkInputBeforeSqlQuery(req.user.userid)}';`)
+        if (newUser.rows.length == 0) {
+            res.status(404).send("There is no EndUser with this id.")
+            return
+        }
+        res.send(parseGetUserResponse(newUser.rows));
+    } catch(err) {
+        console.log(err.stack)
+        res.status(500).send({"Error": err, "Details": err.stack})
     }
-    res.send(parseGetUserResponse(newUser.rows));
     return
 };
 
 export const deleteUser = async (req, res) => {
-    if (req.query.email === undefined && req.query.id === undefined) {
-        res.status(400).send({"Error": "No valid search param provided. (Must be either 'email' or 'id'.)"})
-        return
-    }
-    if (req.query.email !== undefined && req.query.id !== undefined) {
-        res.status(400).send({"Error": "You must provide either 'email' or 'id' and cannot search by both."})
-        return
-    }
-
-    let newUser = (req.query.email !== undefined ?
-        await db_adm_conn.query(`SELECT *
-                                          FROM EndUser
-                                          WHERE email = '${req.query.email}';`) :
-        await db_adm_conn.query(`SELECT *
-                                          FROM EndUser
-                                          WHERE enduserid = '${req.query.id}';`))
-    if (req.query.email !== undefined) {
-        await db_adm_conn.query(`DELETE FROM EndUser
-                                 WHERE email = '${req.query.email}';`)
-    } else {
-        await db_adm_conn.query(`DELETE FROM EndUser
-                                 WHERE enduserid = '${req.query.id}';`)
-    }
-    if (req.query.email !== undefined) {
-        if (newUser.rows.length == 0) {
-            res.status(200).send("Nothing changed, as there is no EndUser with this email.")
-            return
-        }
-        res.send({"Deleted": newUser.rows[0]});
-        return
-    } else {
-        if (newUser.rows.length == 0) {
-            res.status(200).send("Nothing changed, as there is no EndUser with this id.")
-            return
-        }
-        res.send({"Deleted": newUser.rows[0]});
+    try {
+        let response = await db_adm_conn.query(`
+        DELETE FROM EndUser
+        WHERE endUserID = '${checkInputBeforeSqlQuery(req.user.userid)}' RETURNING *;`)
+        res.send({"Deleted": response.rows});
+    } catch (err) {
+        console.log(err.stack)
+        res.status(500).send({"Error": err, "Details": err.stack})
     }
 };
 
-export const postUser = async (req, res) =>
+export const createUser = async (req, res) =>
 {
-    if (req.query.firstName === undefined) {
-        res.status(400).send({"Error": "Missing required param 'firstName'."})
-        return
-    }
-    if (req.query.lastName === undefined) {
-        res.status(400).send({"Error": "Missing required param 'lastName'."})
-        return
-    }
-    if (req.query.userName === undefined) {
-        res.status(400).send({"Error": "Missing required param 'userName'."})
-        return
-    }
-    if (req.query.email === undefined) {
-        res.status(400).send({"Error": "Missing required param 'email'."})
-        return
-    }
-    if (req.query.phoneNumber === undefined) {
-        res.status(400).send({"Error": "Missing required param 'phoneNumber'."})
-        return
-    }
-    if (req.query.passcode === undefined) {
-        res.status(400).send({"Error": "Missing required param 'passcode'."})
-        return
-    }
-    if (req.query.emailConfirmed === undefined) {
-        res.status(400).send({"Error": "Missing required param 'emailConfirmed'."})
-        return
-    }
-
     try {
-        let newUser = await db_adm_conn.query(`INSERT INTO EndUser (firstName, lastName, userName, email, phoneNumber, passcode, emailConfirmed)
-                                 VALUES ('${req.query.firstName}', '${req.query.lastName}', '${req.query.userName}',
-                                     '${req.query.email}', '${req.query.phoneNumber}', '${req.query.passcode}',
-                                     '${req.query.emailConfirmed}')
-                                     RETURNING *;
-                                 `)
+        let newUser = await db_adm_conn.query(`
+        INSERT INTO EndUser (firstName, lastName, userName, email, phoneNumber, passcode, emailConfirmed)
+        VALUES 
+            (
+                '${req.query.firstName}',
+                '${req.query.lastName}',
+                '${req.query.userName}',
+                '${req.query.email}',
+                '${req.query.phoneNumber}', 
+                '${req.query.passcode}',
+                '${req.query.emailConfirmed}'
+            ) RETURNING *;`)
         res.send(newUser.rows[0]);
         return
     } catch (error)  {
