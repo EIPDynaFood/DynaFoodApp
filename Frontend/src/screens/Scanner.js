@@ -3,6 +3,28 @@ import React, {useState, useEffect} from "react";
 import {FAB} from "react-native-elements";
 import {RequireJwt} from "../components/RequireJwt";
 import { Camera } from 'expo-camera';
+function ScannerOverlay() {
+
+    return (
+        <View style={{
+            position: "absolute",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%",
+            width: "100%",
+            backgroundColor: 'rgba(255, 255, 255, 0.25)',
+        }}>
+            <View style={{
+                width: "70%",
+                aspectRatio: 2 / 1,
+                borderColor: "white",
+                borderWidth: 2,
+                borderStyle: "dashed",
+                borderRadius: 10,
+            }}/>
+        </View>
+    );
+}
 
 export default function Scanner({ navigation, route }) {
   const [productCode, setProductCode] = useState(null);
@@ -42,11 +64,13 @@ export default function Scanner({ navigation, route }) {
         <View style={StyleSheet.absoluteFillObject}>
             {shouldCameraMount &&
                 <Camera
-                    style={StyleSheet.absoluteFillObject}
+                    style={{height: "100%", aspectRatio: 9 / 16}}
+                    ratio="16:9"
                     type={type}
                     onBarCodeScanned={handleBarCodeScanned}
                 />
             }
+            <ScannerOverlay/>
           <FAB
               color="black"
               title="<use debug code>"
