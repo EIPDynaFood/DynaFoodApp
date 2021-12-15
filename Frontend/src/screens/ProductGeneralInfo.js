@@ -18,28 +18,11 @@ export default function ProductGeneralInfo({navigation, route}) {
           <ScrollView>
             {
               productData['ingredients']['ingredients'].map((item, index) => (
-                  item['ingredients'] === null ?
-                      <ListItem key={index}>
-                        <ListItem.Content>
-                          <Text>{item["name"]}</Text>
-                        </ListItem.Content>
-                      </ListItem> :
-                      <ListItem key={index}>
-                        <ListItem.Content>
-                          <Text>{item["name"]}</Text>
-                          <View>
-                            {
-                              item['ingredients']['ingredients'].map((item2, index2) => (
-                                  <ListItem key={index2}>
-                                    <ListItem.Content>
-                                      <Text>{item2["name"]}</Text>
-                                    </ListItem.Content>
-                                  </ListItem>
-                              ))
-                            }
-                          </View>
-                        </ListItem.Content>
-                      </ListItem>
+                  <ListItem key={index}>
+                    <ListItem.Content>
+                      <Text>{item["name"]}</Text>
+                    </ListItem.Content>
+                  </ListItem>
               ))
             }
           </ScrollView>
