@@ -1,38 +1,52 @@
-import {BarCodeScanner} from "expo-barcode-scanner";
 import {Button, StyleSheet, Text, View} from "react-native";
 import React, {useState, useEffect} from "react";
-import {useNavigation} from '@react-navigation/native';
 import {FAB} from "react-native-elements";
 import {RequireJwt} from "../components/RequireJwt";
+import { Camera } from 'expo-camera';
 
-export default function Scanner() {
-
-  const [hasPermission, setHasPermission] = useState();
+export default function Scanner({ navigation, route }) {
   const [productCode, setProductCode] = useState(null);
+    const [type, setType] = useState(Camera.Constants.Type.back);
+    const [shouldCameraMount, setShouldCameraMount] = useState(true);
 
-  const navigation = useNavigation();
+    const [hasPermission, setHasPermission] = useState(null);
 
-  useEffect(() => {
-    (async () => {
-      const {status} = await BarCodeScanner.requestPermissionsAsync();
-      setHasPermission(status === 'granted');
-    })();
-  }, []);
+    const focus = navigation.addListener('focus', (e) => {
+        setShouldCameraMount(true);
+    });
 
-  const handleBarCodeScanned = ({data}) => {
-    // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-    setProductCode(data);
-    localStorage.setItem("productCode", data);
-    navigation.navigate('Product');
+    useEffect(() => {
+        (async () => {
+            const { status } = await Camera.requestCameraPermissionsAsync();
+            setHasPermission(status === 'granted');
+        })();
+    }, []);
+
+  const handleBarCodeScanned = ({type, data}) => {
+      alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+      setProductCode(data);
+      localStorage.setItem("productCode", data);
+      setShouldCameraMount(false);
+      navigation.navigate('Product');
   };
+
+    if (hasPermission === null) {
+        return <View />;
+    }
+    if (hasPermission === false) {
+        return <Text>No access to camera</Text>;
+    }
 
   return (
       <RequireJwt>
         <View style={StyleSheet.absoluteFillObject}>
-          <BarCodeScanner
-              onBarCodeScanned={handleBarCodeScanned}
-              style={StyleSheet.absoluteFillObject}
-          />
+            {shouldCameraMount &&
+                <Camera
+                    style={StyleSheet.absoluteFillObject}
+                    type={type}
+                    onBarCodeScanned={handleBarCodeScanned}
+                />
+            }
           <FAB
               color="black"
               title="<use debug code>"
