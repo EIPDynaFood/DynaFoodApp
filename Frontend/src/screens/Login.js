@@ -1,4 +1,4 @@
-import {Button, StyleSheet, Text, View} from "react-native";
+import {Button, StyleSheet, Text, View, SafeAreaView, TextInput} from "react-native";
 import React, { useState, useEffect } from "react";
 import { FAB } from 'react-native-elements';
 import { Icon } from 'react-native-elements'
@@ -6,14 +6,43 @@ import {useNavigation} from "@react-navigation/native";
 import useJwt from "../../Jwt"
 import axios from "axios";
 
+
+const styles = StyleSheet.create({
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+    },
+});
+
 export default function Login({navigation, route}) {
     const {login} = useJwt()
-    const email = "twasdawadswdwadwdasaswadwadsest@test.com"
-    const password = "password"
+
+    const guestEmail = "twasdawadswdwadwdasaswadwadsest@test.com"
+    const guestPassword = "password"
+
+    const [email, onChangeEmail] = React.useState("");
+    const [password, onChangePassword] = React.useState("");
+
     return (
         <View>
+            <TextInput
+                style={styles.input}
+                onChangeText={onChangeEmail}
+                value={email}
+            />
+            <TextInput
+                style={styles.input}
+                onChangeText={onChangePassword}
+                value={password}
+                secureTextEntry={true}
+            />
             <Text>Login</Text>
             <Button title="register" onPress={() => navigation.navigate("Register")}/>
+            <Button title="test" onPress={() =>
+                console.log("email = " + email + "\tpassword= " + password)
+            }/>
             <Button style={{top: 10}} title="simulate fake jwt" onPress={() => {
               login("thisWountAuthForReal")
               navigation.navigate("History")

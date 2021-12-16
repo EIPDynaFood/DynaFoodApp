@@ -13,7 +13,7 @@ export default function Register() {
     const firstName = "firstName"
     const lastName = "lastName"
     const userName = "userName"
-    const email = "twasdawadswdwadwdasaswadwadsest@test.com"
+    const email = "i@i.com"
     const phoneNumber = "00000000"
     const password = "password"
 
