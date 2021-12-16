@@ -24,7 +24,15 @@ export default function App() {
         <View style={{flex: 1}}>
           <JwtProvider>
               <NavigationContainer>
-                <Stack.Navigator>
+                <Stack.Navigator screenOptions={{
+                  headerStyle: {
+                    backgroundColor: '#376D55',
+                  },
+                  headerTintColor: '#fff',
+                  headerTitleStyle: {
+                    fontWeight: 'bold'
+                  }
+                }}>
                   <Stack.Screen name="Login" component={Login}/>
                   <Stack.Screen name="Register" component={Register}/>
                   <Stack.Screen name="History" component={History}
@@ -33,6 +41,7 @@ export default function App() {
                                       <Icon
                                           onPress={() => navigation.navigate("Settings")}
                                           name="settings"
+                                          color="white"
                                       />
                                   )
                                 })}

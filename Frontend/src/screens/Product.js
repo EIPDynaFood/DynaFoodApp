@@ -31,7 +31,6 @@ export default function Product() {
   return (
       <RequireJwt>
         <View style={{flex: 1}}>
-          <StatusBar backgroundColor="40404c"/>
           {productData === null ? (<FAB color="grey" size="small" loading/>) : (
               <Tab.Navigator>
                 <Tab.Screen
