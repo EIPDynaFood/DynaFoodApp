@@ -3,6 +3,8 @@ import React, {useState, useEffect} from "react";
 import {FAB, ListItem} from "react-native-elements";
 import {RequireJwt} from "../components/RequireJwt";
 import {LinearGradient} from "expo-linear-gradient";
+import {assertBoolean} from "@babel/core/lib/config/validation/option-assertions";
+
 
 const axios = require('axios');
 
@@ -34,6 +36,10 @@ export default function ProductGeneralInfo({navigation, route}) {
           <View style={style.mainContainerStyle}>
             <Text style={style.ingredientStyle}>{ingredients}</Text>
           </View>
+          <View style={style.bottomContainer}>
+            <Image source={require("../../media/nutri-scores/nutri-score-A.svg")}
+                   style={style.nutriScoreStyle}/>
+          </View>
         </View>
       </RequireJwt>
   );
@@ -50,6 +56,7 @@ const style = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     height: "100%",
     top: 200,
+    justifyContent: 'space-between',
   },
   gradientStyle: {
     backgroundColor: "transparent",
@@ -75,6 +82,16 @@ const style = StyleSheet.create({
   ingredientStyle: {
     padding: 15,
     color: "rgba(0,0,0,0.6)"
+  },
+  bottomContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  nutriScoreStyle: {
+    height: 97.5,
+    width: 180,
+    marginLeft: 15,
+    bottom: 30
   }
 })
 
