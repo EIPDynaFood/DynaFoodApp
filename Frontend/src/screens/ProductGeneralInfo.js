@@ -40,8 +40,9 @@ export default function ProductGeneralInfo({navigation, route}) {
       nutriImage = require("../../media/nutri-scores/nutri-score-C.svg");
   }
 
-  /*let ecoImage
-  switch (productData['"ecoscoreData']['eco_grade']) {
+  console.log(productData['ecoscoreData']['eco_grade'])
+  let ecoImage
+  switch (productData['ecoscoreData']['eco_grade']) {
     case "a":
       ecoImage = require("../../media/eco-scores/eco-score-A.png");
       break;
@@ -59,7 +60,7 @@ export default function ProductGeneralInfo({navigation, route}) {
       break;
     default:
       ecoImage = require("../../media/eco-scores/eco-score-C.png");
-  }*/
+  }
 
   console.log(productData)
 
@@ -81,8 +82,8 @@ export default function ProductGeneralInfo({navigation, route}) {
           <View style={style.bottomContainer}>
             <Image source={nutriImage}
                    style={style.nutriScoreStyle}/>
-            {/*<Image source={ecoImage}
-                   style={style.nutriScoreStyle}/>*/}
+            <Image source={ecoImage}
+                   style={style.ecoScoreStyle}/>
           </View>
         </View>
       </RequireJwt>
@@ -130,15 +131,20 @@ const style = StyleSheet.create({
     color: "rgba(0,0,0,0.6)"
   },
   bottomContainer: {
-    // flexDirection: "row",
+    flexDirection: "row",
     flex: 1,
-    justifyContent: 'flex-end',
   },
   nutriScoreStyle: {
     height: 97.5,
     width: 180,
-    marginLeft: 15,
-    bottom: 30
+    marginLeft: 10,
+    bottom: 130
+  },
+  ecoScoreStyle: {
+    marginRight: 15,
+    bottom: 130,
+    width: 180,
+    height: 97.5,
   }
 })
 
