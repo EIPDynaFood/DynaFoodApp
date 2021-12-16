@@ -17,9 +17,9 @@ export default function ProductNutritionTable({navigation, route}) {
   // Use map to iterate over Array and return it as Text
   function display() {
     let arr = Object.entries(productData["nutriments_g_pro_100g"])
-    return arr.map((item) => {
+    return arr.map((item, index) => {
       return(
-        <Text>
+        <Text key={index}>
           {item}
         </Text>
       );
