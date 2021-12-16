@@ -1,6 +1,6 @@
 import {Button, StyleSheet, Text, View, ScrollView, FlatList} from "react-native";
 import React, {useState, useEffect} from "react";
-import {FAB} from "react-native-elements";
+import {Divider, FAB} from "react-native-elements";
 import {RequireJwt} from "../components/RequireJwt";
 
 const axios = require('axios');
@@ -26,9 +26,14 @@ export default function ProductNutritionTable({navigation, route}) {
             <Text style={styles.tableHeadTextStyle}>Nutriments</Text>
             <Text style={styles.tableHeadTextStyle}>pro 100g/L</Text>
           </View>
+          <Divider/>
           <View style={styles.mainContainerStyle}>
-            <FlatList data={nutriments} renderItem={(({item}) => <Text style={styles.nutrimentsTextStyle}>{item}</Text>)}/>
-            <FlatList data={values} renderItem={(({item}) => <Text style={styles.valuesTextStyle}>{item}</Text>)}/>
+            <FlatList data={nutriments}
+                      renderItem={(({item}) => <Text style={styles.nutrimentsTextStyle}>{item}</Text>)}
+                        ItemSeparatorComponent={(() => <Divider/>)}/>
+            <FlatList data={values}
+                      renderItem={(({item}) => <Text style={styles.valuesTextStyle}>{item}</Text>)}
+                      ItemSeparatorComponent={(() => <Divider/>)}/>
           </View>
         </View>
       </RequireJwt>
@@ -53,7 +58,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     justifyContent: 'space-between',
-    backgroundColor: "rgba(255,255,255,0.9)",
+    backgroundColor: "rgba(255,255,255,0.7)",
     height: 50,
     flexDirection: "row",
   },
@@ -67,11 +72,13 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingLeft: 15,
     paddingRight: 15,
+    paddingBottom: 5,
   },
   valuesTextStyle: {
     paddingTop: 20,
     paddingLeft: 15,
     paddingRight: 15,
+    paddingBottom: 5,
     textAlign: "right",
   }
 })
