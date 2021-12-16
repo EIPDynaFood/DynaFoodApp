@@ -30,7 +30,7 @@ export default function ProductNutritionTable({navigation, route}) {
           <View style={styles.mainContainerStyle}>
             <FlatList data={nutriments}
                       renderItem={(({item}) => <Text style={styles.nutrimentsTextStyle}>{item}</Text>)}
-                        ItemSeparatorComponent={(() => <Divider/>)}/>
+                      ItemSeparatorComponent={(() => <Divider/>)}/>
             <FlatList data={values}
                       renderItem={(({item}) => <Text style={styles.valuesTextStyle}>{item}</Text>)}
                       ItemSeparatorComponent={(() => <Divider/>)}/>
@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
     height: "100%",
     flexDirection: "row",
     justifyContent: 'space-between',
-
   },
   tableHeadStyle: {
     borderTopLeftRadius: 10,
@@ -69,16 +68,10 @@ const styles = StyleSheet.create({
     paddingRight: 15,
   },
   nutrimentsTextStyle: {
-    paddingTop: 20,
-    paddingLeft: 15,
-    paddingRight: 15,
-    paddingBottom: 5,
+    padding: 15,
   },
   valuesTextStyle: {
-    paddingTop: 20,
-    paddingLeft: 15,
-    paddingRight: 15,
-    paddingBottom: 5,
+    padding: 15,
     textAlign: "right",
   }
 })
