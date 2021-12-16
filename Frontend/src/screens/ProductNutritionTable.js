@@ -25,7 +25,7 @@ export default function ProductNutritionTable({navigation, route}) {
       var splitarray = item.toString().split(',')
       console.log(splitarray[0])
       return(
-          splitarray[0] + '\n'
+          splitarray[0] + '\n' //niffioutmanemarceltanya
       );
     });
   }
@@ -36,7 +36,7 @@ export default function ProductNutritionTable({navigation, route}) {
     return arr.map((item) => {
       var splitarray = item.toString().split(',')
       return(
-          splitarray[1] + '\n'
+          splitarray[1] + '\n' //051654654
       );
     });
   }
@@ -44,6 +44,8 @@ export default function ProductNutritionTable({navigation, route}) {
   return (
       <RequireJwt>
         <ScrollView style={styles.body}>
+          <Text style={styles.row} >Nutriments</Text>
+          <Text style={styles.row} >pro 100g/L</Text>
           <View style={styles.listWrapper}>
             <Text style={styles.row} >{displayIngredient()}</Text>
             <Text style={styles.row} >{displayValue()}</Text>
@@ -71,7 +73,8 @@ const styles=StyleSheet.create({
     backgroundColor:'white',
     flex:1,
     fontSize:18,
-    paddingHorizontal:5
+    paddingHorizontal:5,
+    paddingVertical:10
   }
 
 })
