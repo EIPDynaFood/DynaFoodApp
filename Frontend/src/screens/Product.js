@@ -6,6 +6,7 @@ import ProductGeneralInfo from "./ProductGeneralInfo";
 import ProductNutritionTable from "./ProductNutritionTable";
 import {RequireJwt} from "../components/RequireJwt";
 import { Ionicons } from '@expo/vector-icons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tab = createMaterialTopTabNavigator();
 const axios = require('axios');
@@ -32,38 +33,37 @@ export default function Product() {
       <RequireJwt>
         <View style={{flex: 1}}>
           {productData === null ? (<FAB color="grey" size="small" loading/>) : (
-              <Tab.Navigator>
-                <Tab.Screen
-                  name="general"
-                  component={ProductGeneralInfo}
-                  initialParams={{productData}}
-                  options={{
-                    tabBarShowLabel : false,
-                    tabBarIcon : ({ color, size }) => (
-                      <Ionicons
-                        name={'ios-thumbs-up'}
-                        size={size}
-                        color={color}
-                      />
-                    )
-                  }}
-                />
-                <Tab.Screen
-                  name="table"
-                  component={ProductNutritionTable}
-                  initialParams={{productData}}
-                  options={{
-                    tabBarShowLabel : false,
-                    tabBarIcon : ({ color, size }) => (
-                      <Ionicons
-                        name={'ios-thumbs-up'}
-                        size={size}
-                        color={color}
-                      />
-                    )
-                  }}
-                />
-              </Tab.Navigator>
+            <Tab.Navigator
+              screenOptions={{
+                tabBarInactiveTintColor: 'gray',
+                tabBarActiveTintColor: 'white',
+              }}
+            >
+               <Tab.Screen
+                 name="general"
+                 component={ProductGeneralInfo}
+                 initialParams={{productData}}
+                 options={{
+                   tabBarShowLabel: false,
+                   tabBarStyle: { backgroundColor: '#376D55' },
+                   tabBarIcon: ({ color }) => (
+                     <Icon name="information-circle" color={color} size={24} />
+                   ),
+                 }}
+               />
+               <Tab.Screen
+                 name="table"
+                 component={ProductNutritionTable}
+                 initialParams={{productData}}
+                 options={{
+                   tabBarShowLabel: false,
+                   tabBarStyle: { backgroundColor: '#376D55' },
+                   tabBarIcon: ({ color }) => (
+                     <Icon name="stats-chart" color={color} size={24} />
+                   ),
+                 }}
+               />
+           </Tab.Navigator>
           )}
         </View>
       </RequireJwt>
