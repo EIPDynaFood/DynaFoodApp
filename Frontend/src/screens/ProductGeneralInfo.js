@@ -66,31 +66,31 @@ export default function ProductGeneralInfo({navigation, route}) {
 
   return (
       <RequireJwt>
-        <View style={style.wrapperStyle}>
+        <View style={styles.wrapperStyle}>
           <View>
             <Image source={{uri: productData['images']}}
-                   style={style.imageStyle}/>
-            <LinearGradient style={style.gradientStyle}
+                   style={styles.imageStyle}/>
+            <LinearGradient style={styles.gradientStyle}
                             colors={['rgba(0,0,0,0.6)', 'transparent']}
                             start={{x: 0, y: 1}}
                             end={{x: 0, y: 0}}/>
-            <Text style={style.headlineStyle}>{productData["name"]}</Text>
+            <Text style={styles.headlineStyle}>{productData["name"]}</Text>
           </View>
-          <View style={style.mainContainerStyle}>
-            <Text style={style.ingredientStyle}>{ingredients}</Text>
+          <View style={styles.mainContainerStyle}>
+            <Text style={styles.ingredientStyle}>{ingredients}</Text>
           </View>
-          <View style={style.bottomContainer}>
+          <View style={styles.bottomContainer}>
             <Image source={nutriImage}
-                   style={style.nutriScoreStyle}/>
+                   style={styles.nutriScoreStyle}/>
             <Image source={ecoImage}
-                   style={style.ecoScoreStyle}/>
+                   style={styles.ecoScoreStyle}/>
           </View>
         </View>
       </RequireJwt>
   );
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   wrapperStyle: {
     paddingLeft: 15,
     paddingRight: 15,
@@ -111,8 +111,8 @@ const style = StyleSheet.create({
     height: 200,
   },
   imageStyle: {
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
     position: "absolute",
     top: 0,
     resizeMode: "cover",

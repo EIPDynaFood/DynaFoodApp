@@ -13,68 +13,65 @@ const axios = require('axios');
 export default function ProductNutritionTable({navigation, route}) {
   const {itemId, productData} = route.params;
 
-  // Printing to check what is inside of productdata
-  for (let key in productData["nutriments_g_pro_100g"]) {
-    console.log(key, productData["nutriments_g_pro_100g"][key])
-  }
-
-  // Function that return an array of ingredient
-  function displayIngredient() {
-    let arr = Object.entries(productData["nutriments_g_pro_100g"])
-    return arr.map((item) => {
-      var splitarray = item.toString().split(',')
-      console.log(splitarray[0])
-      return(
-          splitarray[0] + '\n' //niffioutmanemarceltanya
-      );
-    });
-  }
-
-  // Function that return the value of the ingredient as array
-  function displayValue() {
-    let arr = Object.entries(productData["nutriments_g_pro_100g"])
-    return arr.map((item) => {
-      var splitarray = item.toString().split(',')
-      return(
-          splitarray[1] + '\n' //051654654
-      );
-    });
-  }
+  let nutriments = Object.keys(productData["nutriments_g_pro_100g"])
+  let arr = Object.entries(productData["nutriments_g_pro_100g"])
+  let values = arr.map((item) => {
+    return item[1]
+  })
 
   return (
       <RequireJwt>
-        <ScrollView style={styles.body}>
-          <Text style={styles.row} >Nutriments</Text>
-          <Text style={styles.row} >pro 100g/L</Text>
-          <View style={styles.listWrapper}>
-            <Text style={styles.row} >{displayIngredient()}</Text>
-            <Text style={styles.row} >{displayValue()}</Text>
+        <View style={styles.wrapperStyle}>
+          <View style={styles.tableHeadStyle}>
+            <Text style={styles.tableHeadTextStyle}>Nutriments</Text>
+            <Text style={styles.tableHeadTextStyle}>pro 100g/L</Text>
           </View>
-        </ScrollView>
+          <View style={styles.mainContainerStyle}>
+            <FlatList data={nutriments} renderItem={(({item}) => <Text style={styles.nutrimentsTextStyle}>{item}</Text>)}/>
+            <FlatList data={values} renderItem={(({item}) => <Text style={styles.valuesTextStyle}>{item}</Text>)}/>
+          </View>
+        </View>
       </RequireJwt>
   );
 }
 
+const styles = StyleSheet.create({
+  wrapperStyle: {
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingTop: 15,
+    backgroundColor: "rgba(224,224,224,0.74)",
+  },
+  mainContainerStyle: {
+    backgroundColor: "#FFFFFF",
+    height: "100%",
+    flexDirection: "row",
+    justifyContent: 'space-between',
 
-// Pink background
-// listWrapper is to make ------------ between each text print < still not working
-// row is made for the view to stretch the text
-const styles=StyleSheet.create({
-  body:{
-    backgroundColor:'pink',
-    flex:1
   },
-  listWrapper:{
-    flexDirection:'row',
-    flexWrap:'wrap',
-    borderBottomWidth:2
+  tableHeadStyle: {
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    justifyContent: 'space-between',
+    backgroundColor: "rgba(255,255,255,0.9)",
+    height: 50,
+    flexDirection: "row",
   },
-  row:{
-    backgroundColor:'white',
-    flex:1,
-    fontSize:18,
-    paddingHorizontal:5,
-    paddingVertical:10
+  tableHeadTextStyle: {
+    color: "rgba(0,0,0,0.6)",
+    paddingTop: 20,
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
+  nutrimentsTextStyle: {
+    paddingTop: 20,
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
+  valuesTextStyle: {
+    paddingTop: 20,
+    paddingLeft: 15,
+    paddingRight: 15,
+    textAlign: "right",
   }
-
 })
