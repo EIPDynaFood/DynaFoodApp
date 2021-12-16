@@ -19,6 +19,49 @@ export default function ProductGeneralInfo({navigation, route}) {
       ingredients += ", " + item['name']
   })
 
+  let nutriImage
+  switch (productData['nutriments_scores']['total_grade']) {
+    case "a":
+      nutriImage = require("../../media/nutri-scores/nutri-score-A.svg");
+      break;
+    case "b":
+      nutriImage = require("../../media/nutri-scores/nutri-score-B.svg");
+      break;
+    case "c":
+      nutriImage = require("../../media/nutri-scores/nutri-score-C.svg");
+      break;
+    case "d":
+      nutriImage = require("../../media/nutri-scores/nutri-score-D.svg");
+      break;
+    case "e":
+      nutriImage = require("../../media/nutri-scores/nutri-score-E.svg");
+      break;
+    default:
+      nutriImage = require("../../media/nutri-scores/nutri-score-C.svg");
+  }
+
+  console.log(productData['ecoscoreData']['eco_grade'])
+  let ecoImage
+  switch (productData['ecoscoreData']['eco_grade']) {
+    case "a":
+      ecoImage = require("../../media/eco-scores/eco-score-A.png");
+      break;
+    case "b":
+      ecoImage = require("../../media/eco-scores/eco-score-B.png");
+      break;
+    case "c":
+      ecoImage = require("../../media/eco-scores/eco-score-C.png");
+      break;
+    case "d":
+      ecoImage = require("../../media/eco-scores/eco-score-D.png");
+      break;
+    case "e":
+      ecoImage = require("../../media/eco-scores/eco-score-E.png");
+      break;
+    default:
+      ecoImage = require("../../media/eco-scores/eco-score-C.png");
+  }
+
   console.log(productData)
 
   return (
@@ -37,8 +80,10 @@ export default function ProductGeneralInfo({navigation, route}) {
             <Text style={style.ingredientStyle}>{ingredients}</Text>
           </View>
           <View style={style.bottomContainer}>
-            <Image source={require("../../media/nutri-scores/nutri-score-A.svg")}
+            <Image source={nutriImage}
                    style={style.nutriScoreStyle}/>
+            <Image source={ecoImage}
+                   style={style.ecoScoreStyle}/>
           </View>
         </View>
       </RequireJwt>
@@ -66,6 +111,8 @@ const style = StyleSheet.create({
     height: 200,
   },
   imageStyle: {
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
     position: "absolute",
     top: 0,
     resizeMode: "cover",
@@ -84,14 +131,20 @@ const style = StyleSheet.create({
     color: "rgba(0,0,0,0.6)"
   },
   bottomContainer: {
+    flexDirection: "row",
     flex: 1,
-    justifyContent: 'flex-end',
   },
   nutriScoreStyle: {
     height: 97.5,
     width: 180,
-    marginLeft: 15,
-    bottom: 30
+    marginLeft: 10,
+    bottom: 130
+  },
+  ecoScoreStyle: {
+    marginRight: 15,
+    bottom: 130,
+    width: 180,
+    height: 97.5,
   }
 })
 
