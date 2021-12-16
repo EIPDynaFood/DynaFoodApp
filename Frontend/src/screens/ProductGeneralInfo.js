@@ -3,6 +3,8 @@ import React, {useState, useEffect} from "react";
 import {FAB, ListItem} from "react-native-elements";
 import {RequireJwt} from "../components/RequireJwt";
 import {LinearGradient} from "expo-linear-gradient";
+import {assertBoolean} from "@babel/core/lib/config/validation/option-assertions";
+
 
 const axios = require('axios');
 
@@ -21,48 +23,75 @@ export default function ProductGeneralInfo({navigation, route}) {
 
   return (
       <RequireJwt>
-        <View style={{flex: 1}}>
-          <Image source={{uri: productData['images']}}
-                 style={style.imageStyle}/>
-          <LinearGradient style={style.gradientStyle}
-                          colors={['rgba(0,0,0,0.5)', 'transparent']}
-                          start={{x: 0, y: 1.0}}
-                          end={{x: 0, y: 0}}/>
-          <Text style={style.headlineStyle}>{productData["name"]}</Text>
-        </View>
-        <View>
-          <Text style={style.ingredientStyle}>{ingredients}</Text>
+        <View style={style.wrapperStyle}>
+          <View>
+            <Image source={{uri: productData['images']}}
+                   style={style.imageStyle}/>
+            <LinearGradient style={style.gradientStyle}
+                            colors={['rgba(0,0,0,0.6)', 'transparent']}
+                            start={{x: 0, y: 1}}
+                            end={{x: 0, y: 0}}/>
+            <Text style={style.headlineStyle}>{productData["name"]}</Text>
+          </View>
+          <View style={style.mainContainerStyle}>
+            <Text style={style.ingredientStyle}>{ingredients}</Text>
+          </View>
+          <View style={style.bottomContainer}>
+            <Image source={require("../../media/nutri-scores/nutri-score-A.svg")}
+                   style={style.nutriScoreStyle}/>
+          </View>
         </View>
       </RequireJwt>
   );
 }
 
 const style = StyleSheet.create({
+  wrapperStyle: {
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingTop: 15,
+    backgroundColor: "rgba(224,224,224,0.74)",
+  },
+  mainContainerStyle: {
+    backgroundColor: "#FFFFFF",
+    height: "100%",
+    top: 200,
+    justifyContent: 'space-between',
+  },
   gradientStyle: {
-    //flex: 1,
     backgroundColor: "transparent",
     position: "absolute",
     top: 0,
     width: "100%",
-    height: 150,
+    height: 200,
   },
   imageStyle: {
-    flex: 1,
     position: "absolute",
     top: 0,
     resizeMode: "cover",
     width: "100%",
-    height: 150,
+    height: 200,
   },
   headlineStyle: {
     position: "absolute",
-    top: 90,
-    flex: 1,
-    fontSize: 50,
+    top: 140,
+    left: 15,
+    fontSize: 40,
     color: "rgba(255,255,255,1)"
   },
   ingredientStyle: {
-    //flex: 1,
+    padding: 15,
+    color: "rgba(0,0,0,0.6)"
+  },
+  bottomContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  nutriScoreStyle: {
+    height: 97.5,
+    width: 180,
+    marginLeft: 15,
+    bottom: 30
   }
 })
 
