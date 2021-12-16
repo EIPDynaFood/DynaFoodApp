@@ -1,10 +1,11 @@
-import {Button, StyleSheet, Text, View} from "react-native";
+import {Button, StyleSheet, Text, View, StatusBar} from "react-native";
 import React, {useState, useEffect} from "react";
 import {FAB} from "react-native-elements";
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import ProductGeneralInfo from "./ProductGeneralInfo";
 import ProductNutritionTable from "./ProductNutritionTable";
 import {RequireJwt} from "../components/RequireJwt";
+import { Ionicons } from '@expo/vector-icons';
 
 const Tab = createMaterialTopTabNavigator();
 const axios = require('axios');
@@ -30,10 +31,39 @@ export default function Product() {
   return (
       <RequireJwt>
         <View style={{flex: 1}}>
+          <StatusBar backgroundColor="40404c"/>
           {productData === null ? (<FAB color="grey" size="small" loading/>) : (
               <Tab.Navigator>
-                <Tab.Screen name="general" component={ProductGeneralInfo} initialParams={{productData}}/>
-                <Tab.Screen name="table" component={ProductNutritionTable} initialParams={{productData}}/>
+                <Tab.Screen
+                  name="general"
+                  component={ProductGeneralInfo}
+                  initialParams={{productData}}
+                  options={{
+                    tabBarShowLabel : false,
+                    tabBarIcon : ({ color, size }) => (
+                      <Ionicons
+                        name={'ios-thumbs-up'}
+                        size={size}
+                        color={color}
+                      />
+                    )
+                  }}
+                />
+                <Tab.Screen
+                  name="table"
+                  component={ProductNutritionTable}
+                  initialParams={{productData}}
+                  options={{
+                    tabBarShowLabel : false,
+                    tabBarIcon : ({ color, size }) => (
+                      <Ionicons
+                        name={'ios-thumbs-up'}
+                        size={size}
+                        color={color}
+                      />
+                    )
+                  }}
+                />
               </Tab.Navigator>
           )}
         </View>

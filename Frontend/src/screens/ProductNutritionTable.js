@@ -65,7 +65,7 @@ const styles=StyleSheet.create({
   listWrapper:{
     flexDirection:'row',
     flexWrap:'wrap',
-    borderBottomWidth:.5
+    borderBottomWidth:2
   },
   row:{
     backgroundColor:'white',
