@@ -38,7 +38,7 @@ export default function Register() {
             };
             axios(config)
                 .then(function (response) {
-                    console.log(JSON.stringify(response.data));
+//                    console.log(JSON.stringify(response.data));
                     login(JSON.stringify(response.data))
                     navigation.navigate("History");
                 })
@@ -83,7 +83,8 @@ export default function Register() {
                     margin:15
                 }}
                 buttonStyle={{
-                    width:"40%",
+                    marginTop:10,
+                    width:"50%",
                     borderRadius:5,
                     backgroundColor:"#2E4D44",
                 }}
@@ -94,13 +95,16 @@ export default function Register() {
                 />
             <Button
                 title="Cancel"
+                type="outline"
                 containerStyle= {{
                     margin:15
                 }}
                 buttonStyle={{
-                    width:"40%",
+                    width:"50%",
                     borderRadius:5,
                     backgroundColor:"#FFF",
+                    borderWidth:3,
+                    borderColor:"#2E4D44",
                 }}
                 titleStyle={{color:"#2E4D44", flex:1}}
                 onPress={() => {
@@ -120,15 +124,6 @@ const styles = StyleSheet.create({
         padding: 10,
         borderColor: "lightgrey",
         borderRadius: 5,
-    },
-    loginbtn: {
-        width: "50%",
-        backgroundColor: "#2E4D44",
-        height: 50,
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop: 40,
-        marginBottom: 10,
     },
     container: {
         flex: 1,

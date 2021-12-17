@@ -23,7 +23,7 @@ export default function Login({navigation, route}) {
         };
         axios(config)
             .then(function (response) {
-                // console.log(JSON.stringify(response.data));
+//                console.log(JSON.stringify(response.data));
                 navigation.navigate("History")
             })
             .catch(function (error) {
@@ -59,7 +59,8 @@ export default function Login({navigation, route}) {
                     margin:15
                 }}
                 buttonStyle={{
-                    width:"40%",
+                    marginTop:10,
+                    width:"50%",
                     borderRadius:5,
                     backgroundColor:"#2E4D44",
                 }}
@@ -71,32 +72,31 @@ export default function Login({navigation, route}) {
 
             <Button
                 title="Register"
+                type="outline"
                 containerStyle= {{
                     margin:15
                 }}
                 buttonStyle={{
-                    width:"40%",
+                    width:"50%",
                     borderRadius:5,
                     backgroundColor:"#FFF",
+                    borderWidth:3,
+                    borderColor:"#2E4D44",
                 }}
                 titleStyle={{color:"#2E4D44", flex:1}}
                 onPress={() => {
                     navigation.navigate("Register")
                 }}
                 />
-
-
-            {/* <Button title="Login" buttonStyle={{marginBottom:20, backgroundColor:"#2E4D44", width:120}}/>
-            <Button title="register" onPress={() => navigation.navigate("Register")}/> */}
-
             <FAB
               color="#2E4D44"
               title="Login as guest"
-              style={{position: "absolute", bottom: 16, right: 16}}
+              style={{position: "relative", top:60, left: 90}}
               onPress={() => {
                   onChangeEmail(guestEmail);
                   onChangePassword(guestPassword);
                 }}
+                hidden
                 />
         </View>
     );
@@ -117,14 +117,5 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         alignItems: "center",
         justifyContent: "center",
-    },
-    loginbtn: {
-        width: "50%",
-        backgroundColor: "#2E4D44",
-        height: 50,
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop: 40,
-        marginBottom: 10,
     },
 });
