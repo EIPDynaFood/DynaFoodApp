@@ -18,7 +18,7 @@ export default function ProductHistory() {
       alert("something went wrong getting history data: " + err.message);
       console.log(err);
     });
-  });
+  }, []);
 
   return (
       <View style={{flex: 1}}>

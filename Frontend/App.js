@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, StyleSheet, Button, LogBox} from 'react-native';
+import {Text, View, StyleSheet, Button, LogBox, StatusBar, StatusBarStyle} from 'react-native';
 import Scanner from "./src/screens/Scanner";
 import Product from "./src/screens/Product";
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -71,6 +71,10 @@ export default function App() {
 
   return (
       <View style={{flex: 1}}>
+          <StatusBar
+              animated={true}
+              backgroundColor="#2E4D44"
+          />
         <JwtProvider>
           <Navigation/>
         </JwtProvider>
