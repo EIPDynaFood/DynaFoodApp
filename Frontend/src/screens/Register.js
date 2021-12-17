@@ -67,6 +67,7 @@ export default function Register() {
                 onChangeText={onChangePassword}
                 value={password}
                 secureTextEntry={true}
+                autoCapitalize='none'
             />
             <TextInput
                 placeholder="Confirme your Password..."
@@ -74,6 +75,7 @@ export default function Register() {
                 onChangeText={onChangeConPassword}
                 value={ConPassword}
                 secureTextEntry={true}
+                autoCapitalize='none'
             />
             <Button
                 title="Register"
