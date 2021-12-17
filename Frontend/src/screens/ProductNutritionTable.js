@@ -5,7 +5,7 @@ import {RequireJwt} from "../components/RequireJwt";
 
 const axios = require('axios');
 
-/*  Documentation
+/*
 **  ________________
 ** | <  details     |  Stack.Screen from createNativeStackNavigator   ../../App.js
 ** |________________|
@@ -26,12 +26,15 @@ const axios = require('axios');
 export default function ProductNutritionTable({navigation, route}) {
   const {itemId, productData} = route.params;
 
-  // Object.key & Object.entries and changed it into an Array
-  // Array is needed for FlatList
+  /* Object.key & Object.entries and changed it into an Array
+  ** Array is needed for FlatList
+  */
+
   let arr = Object.entries(productData["nutriments_g_pro_100g"])
 
-  // Printing array for debugging purposes
-  // console.log(arr)
+  /* Printing array for debugging purposes
+  ** console.log(arr)
+  */
 
   return (
       <RequireJwt>
