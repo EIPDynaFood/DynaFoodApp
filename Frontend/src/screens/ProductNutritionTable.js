@@ -5,11 +5,6 @@ import {RequireJwt} from "../components/RequireJwt";
 
 const axios = require('axios');
 
-// TODO
-// Make it prettier
-// Divide item into 2 section with a table figure between them
-// Use icons to switch the top tab navigator
-
 export default function ProductNutritionTable({navigation, route}) {
   const {itemId, productData} = route.params;
 
@@ -18,6 +13,8 @@ export default function ProductNutritionTable({navigation, route}) {
   let values = arr.map((item) => {
     return item[1]
   })
+
+  console.log(arr)
 
   return (
       <RequireJwt>
@@ -28,11 +25,11 @@ export default function ProductNutritionTable({navigation, route}) {
           </View>
           <Divider/>
           <View style={styles.mainContainerStyle}>
-            <FlatList data={nutriments}
-                      renderItem={(({item}) => <Text style={styles.nutrimentsTextStyle}>{item}</Text>)}
-                      ItemSeparatorComponent={(() => <Divider/>)}/>
-            <FlatList data={values}
-                      renderItem={(({item}) => <Text style={styles.valuesTextStyle}>{item}</Text>)}
+            <FlatList data={arr}
+                      renderItem={(({item}) => <View style={{flexDirection: "row", justifyContent: "space-between"}}>
+                        <Text style={styles.nutrimentsTextStyle}>{item[0]}</Text>
+                        <Text style={styles.valuesTextStyle}>{item[1]}</Text>
+                      </View>)}
                       ItemSeparatorComponent={(() => <Divider/>)}/>
           </View>
         </View>

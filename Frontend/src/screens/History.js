@@ -42,8 +42,8 @@ function TrendBar() {
   ];
   return (
     <ScrollView horizontal>
-      {trendingProducts.map((item) => (
-        <TouchableWithoutFeedback style={{flex: 1}} onPress={() => {
+      {trendingProducts.map((item, index) => (
+        <TouchableWithoutFeedback key={index} style={{flex: 1}} onPress={() => {
           localStorage.setItem('productCode', item.barcode);
           navigation.navigate('Product');
         }}>
@@ -162,13 +162,13 @@ export default function History() {
             <Text style={{fontSize: 21, fontWeight: "bold"}}>
               Trending
             </Text>
-            <TrendBar />
+            <TrendBar/>
           </View>
           <View style={{alignSelf: 'center', width: '90%', flex: 1}}>
             <Text style={{fontSize: 21, fontWeight: 'bold'}}>
               Your products
             </Text>
-            <ProductHistory />
+            <ProductHistory/>
           </View>
           <FAB
               color="black"
