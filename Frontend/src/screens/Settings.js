@@ -122,18 +122,8 @@ export default function Settings({navigation, route}) {
                     titleStyle={{color:"white", flex:1}}
                     onPress={() => {
                         logout()
-                        navigation.navigate("Login")
-
-                        /*axios(configpost)
-                            .then(function (response) {
-                                console.log(JSON.stringify(response.data));
-                            })
-                            .catch(function (error) {
-                                console.log(error);
-                            });*/
-                    }}
-                />
-            </View>
+                    }}/>
+                </View>
         </RequireJwt>
     );
 }

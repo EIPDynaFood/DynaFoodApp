@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 import {FAB} from "react-native-elements";
 import {RequireJwt} from "../components/RequireJwt";
 import { Camera } from 'expo-camera';
+
 function ScannerOverlay() {
 
     return (
@@ -45,7 +46,6 @@ export default function Scanner({ navigation, route }) {
     }, []);
 
   const handleBarCodeScanned = ({type, data}) => {
-      alert(`Bar code with type ${type} and data ${data} has been scanned!`);
       setProductCode(data);
       localStorage.setItem("productCode", data);
       setShouldCameraMount(false);
