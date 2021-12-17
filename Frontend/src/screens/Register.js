@@ -58,7 +58,9 @@ export default function Register() {
                 placeholder="Email..."
                 style={styles.input}
                 onChangeText={onChangeEmail}
-                value={email}/>
+                value={email}
+                keyboardType="email-address"
+            />
             <TextInput
                 placeholder="Password..."
                 style={styles.input}
