@@ -5,6 +5,24 @@ import {RequireJwt} from "../components/RequireJwt";
 
 const axios = require('axios');
 
+/*  Documentation
+**  ________________
+** | <  details     |  Stack.Screen from createNativeStackNavigator   ../../App.js
+** |________________|
+** |  icon  |  icon |  Tab.Screen from createMaterialTopTabNavigator  src/screens/Product.js
+** |________|_______|
+** |  ____________  |  View.wrapperStyle (StyleSheets.create())
+** | |____________| |  Text field for tableHeadTextStyle
+** | |            | |  FlatList with mainContainerStyle
+** | |            | |  ItemSeparatorComponent to divide renderItem {{item}}
+** | |            | |
+** | |            | |
+** | |            | |
+** | |____________| |
+** |________________|  Padding of wrapperStyle (StyleSheets.create())
+**
+*/
+
 export default function ProductNutritionTable({navigation, route}) {
   const {itemId, productData} = route.params;
 
@@ -12,7 +30,8 @@ export default function ProductNutritionTable({navigation, route}) {
   // Array is needed for FlatList
   let arr = Object.entries(productData["nutriments_g_pro_100g"])
 
-  console.log(arr)
+  // Printing array for debugging purposes
+  // console.log(arr)
 
   return (
       <RequireJwt>
