@@ -3,13 +3,39 @@ import React, {useState, useEffect} from "react";
 import {FAB, ListItem} from "react-native-elements";
 import {RequireJwt} from "../components/RequireJwt";
 import {LinearGradient} from "expo-linear-gradient";
+// import {AdjustLabel} from "../components/AdjustLabel";
 import {assertBoolean} from "@babel/core/lib/config/validation/option-assertions";
 
 
 const axios = require('axios');
 
+function AdjustLabel(props) {
+
+  console.log(props)
+
+  const [currentFontSize, setCurrentFontSize] = useState(props.fontSize);
+
+  return (
+      <Text
+          numberOfLines={1}
+          adjustsFontSizeToFit
+          style={[props.style, {fontSize: currentFontSize}]}
+          onTextLayout={(e) => {
+            const {lines} = e.nativeEvent;
+            if (lines.length > 1) {
+              setCurrentFontSize(currentFontSize - 1);
+            }
+          }}
+      >
+        {props.text}
+      </Text>
+  );
+}
+
 export default function ProductGeneralInfo({navigation, route}) {
   const {itemId, productData} = route.params;
+
+  console.log(productData)
 
   let ingredients = ""
   productData['ingredients']['ingredients'].map((item, index) => {
@@ -62,8 +88,6 @@ export default function ProductGeneralInfo({navigation, route}) {
       ecoImage = require("../../media/eco-scores/eco-score-C.png");
   }
 
-  console.log(productData)
-
   return (
       <RequireJwt>
         <View style={styles.wrapperStyle}>
@@ -74,7 +98,7 @@ export default function ProductGeneralInfo({navigation, route}) {
                             colors={['rgba(0,0,0,0.6)', 'transparent']}
                             start={{x: 0, y: 1}}
                             end={{x: 0, y: 0}}/>
-            <Text style={styles.headlineStyle}>{productData["name"]}</Text>
+            <AdjustLabel text={productData["name"]} fontSize={40} style={styles.headlineStyle}/>
           </View>
           <View style={styles.mainContainerStyle}>
             <Text style={styles.ingredientStyle}>{ingredients}</Text>
@@ -123,7 +147,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 140,
     left: 15,
-    fontSize: 40,
     color: "rgba(255,255,255,1)"
   },
   ingredientStyle: {

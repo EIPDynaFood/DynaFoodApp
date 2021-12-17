@@ -8,13 +8,7 @@ const axios = require('axios');
 export default function ProductNutritionTable({navigation, route}) {
   const {itemId, productData} = route.params;
 
-  let nutriments = Object.keys(productData["nutriments_g_pro_100g"])
   let arr = Object.entries(productData["nutriments_g_pro_100g"])
-  let values = arr.map((item) => {
-    return item[1]
-  })
-
-  console.log(arr)
 
   return (
       <RequireJwt>
