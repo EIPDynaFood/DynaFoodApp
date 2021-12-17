@@ -35,7 +35,15 @@ function Navigation() {
             </Stack.Navigator>
           </NavigationContainer>) : (
           <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator screenOptions={{
+              headerStyle: {
+                backgroundColor: '#376D55',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold'
+              }
+            }}>
               <Stack.Screen name="History" component={History}
                             options={({navigation, route}) => ({
                               headerRight: () => (
