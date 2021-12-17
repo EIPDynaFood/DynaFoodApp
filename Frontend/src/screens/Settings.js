@@ -47,7 +47,7 @@ export default function Settings({navigation, route}) {
             <View style={{alignSelf: "center", width: "100%", marginTop: 12, borderBottomColor: 'rgba(0,0,0,0.16)', borderBottomWidth: 1}}>
                 <View style={{alignSelf: "center", width: "80%"}}>
                     <Text style={{fontSize: 12, fontWeight: "bold"}}>
-                        Generell
+                        General
                     </Text>
                     <Button style={{top: 10}} title="logout" onPress={() => {
                         logout()
