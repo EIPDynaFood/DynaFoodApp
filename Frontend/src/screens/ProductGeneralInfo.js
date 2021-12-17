@@ -11,7 +11,7 @@ const axios = require('axios');
 
 function AdjustLabel(props) {
 
-  console.log(props)
+  // console.log(props)
 
   const [currentFontSize, setCurrentFontSize] = useState(props.fontSize);
 
