@@ -24,6 +24,7 @@ export default function Login({navigation, route}) {
         axios(config)
             .then(function (response) {
                 // console.log(JSON.stringify(response.data));
+                login(response.data)
                 navigation.navigate("History")
             })
             .catch(function (error) {
@@ -58,12 +59,7 @@ export default function Login({navigation, route}) {
                 containerStyle= {{
                     margin:15
                 }}
-                buttonStyle={{
-                    marginTop:10,
-                    width:"50%",
-                    borderRadius:5,
-                    backgroundColor:"#2E4D44",
-                }}
+                buttonStyle={styles.primaryButtonStyle}
                 titleStyle={{color:"white", flex:1}}
                 onPress={() => {
                     sendLogin();
@@ -76,13 +72,7 @@ export default function Login({navigation, route}) {
                 containerStyle= {{
                     margin:15
                 }}
-                buttonStyle={{
-                    width:"50%",
-                    borderRadius:5,
-                    backgroundColor:"#FFF",
-                    borderWidth:3,
-                    borderColor:"#2E4D44",
-                }}
+                buttonStyle={styles.secondaryButtonStyle}
                 titleStyle={{color:"#2E4D44", flex:1}}
                 onPress={() => {
                     navigation.navigate("Register")
@@ -118,4 +108,17 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
+    primaryButtonStyle: {
+        marginTop:10,
+        width:"50%",
+        borderRadius:10,
+        backgroundColor:"#2E4D44",
+    },
+    secondaryButtonStyle: {
+        width:"50%",
+        borderRadius:10,
+        backgroundColor:"#FFF",
+        borderWidth:3,
+        borderColor:"#2E4D44",
+    }
 });

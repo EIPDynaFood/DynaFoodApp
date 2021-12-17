@@ -23,10 +23,10 @@ function useJwt() {
 }
 
 export function JwtProvider({ children }) {
-  const auth = useJwt();
+  const jwt = useJwt();
 
   return (
-      <authContext.Provider value={auth}>
+      <authContext.Provider value={jwt}>
         {children}
       </authContext.Provider>
   );

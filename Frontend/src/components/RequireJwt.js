@@ -3,9 +3,9 @@ import * as React from "react";
 import useJwt from "../../Jwt"
 
 export function RequireJwt({ children }) {
-  const { user } = useJwt();
+  const { jwt } = useJwt();
 
-  return user !== null
+  return jwt !== null
       ? children
       : <Navigate to="Login" replace />;
 }

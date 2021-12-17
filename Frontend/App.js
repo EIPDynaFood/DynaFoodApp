@@ -10,9 +10,50 @@ import Login from "./src/screens/Login";
 import Register from "./src/screens/Register";
 import Settings from "./src/screens/Settings";
 import {Icon} from "react-native-elements";
-import {JwtProvider} from "./Jwt"
+import useJwt, {JwtProvider} from "./Jwt"
 import {RequireJwt} from "./src/components/RequireJwt"
+
 const Stack = createNativeStackNavigator();
+
+function Navigation() {
+  const {jwt} = useJwt();
+
+  return (
+      jwt === null ? (
+          <NavigationContainer>
+            <Stack.Navigator screenOptions={{
+              headerStyle: {
+                backgroundColor: '#376D55',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold'
+              }
+            }}>
+              <Stack.Screen name="Login" component={Login}/>
+              <Stack.Screen name="Register" component={Register}/>
+            </Stack.Navigator>
+          </NavigationContainer>) : (
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen name="History" component={History}
+                            options={({navigation, route}) => ({
+                              headerRight: () => (
+                                  <Icon
+                                      onPress={() => navigation.navigate("Settings")}
+                                      name="settings"
+                                      color="white"
+                                  />
+                              )
+                            })}
+              />
+              <Stack.Screen name="Scanner" component={Scanner}/>
+              <Stack.Screen name="Product" component={Product}/>
+              <Stack.Screen name="Settings" component={Settings}/>
+            </Stack.Navigator>
+          </NavigationContainer>)
+  )
+}
 
 export default function App() {
   LogBox.ignoreLogs([
@@ -21,37 +62,10 @@ export default function App() {
   // I know that this seems weird, but the maintainer of react-native-navigation suggests this fix...
 
   return (
-        <View style={{flex: 1}}>
-          <JwtProvider>
-              <NavigationContainer>
-                <Stack.Navigator screenOptions={{
-                  headerStyle: {
-                    backgroundColor: '#376D55',
-                  },
-                  headerTintColor: '#fff',
-                  headerTitleStyle: {
-                    fontWeight: 'bold'
-                  }
-                }}>
-                  <Stack.Screen name="Login" component={Login}/>
-                  <Stack.Screen name="Register" component={Register}/>
-                  <Stack.Screen name="History" component={History}
-                                options={({navigation, route}) => ({
-                                  headerRight: () => (
-                                      <Icon
-                                          onPress={() => navigation.navigate("Settings")}
-                                          name="settings"
-                                          color="white"
-                                      />
-                                  )
-                                })}
-                  />
-                  <Stack.Screen name="Scanner" component={Scanner}/>
-                  <Stack.Screen name="Product" component={Product}/>
-                  <Stack.Screen name="Settings" component={Settings}/>
-                </Stack.Navigator>
-              </NavigationContainer>
-          </JwtProvider>
-        </View>
+      <View style={{flex: 1}}>
+        <JwtProvider>
+          <Navigation/>
+        </JwtProvider>
+      </View>
   );
 }
