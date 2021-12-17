@@ -41,7 +41,9 @@ export default function Login({navigation, route}) {
                 placeholder="Email..."
                 style={styles.input}
                 onChangeText={onChangeEmail}
-                value={email}/>
+                value={email}
+                keyboardType="email-address"
+            />
             <TextInput
                 placeholder="Password..."
                 style={styles.input}
