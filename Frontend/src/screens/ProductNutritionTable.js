@@ -1,12 +1,34 @@
-import {Button, StyleSheet, Text, View, ScrollView, FlatList} from "react-native";
-import React, {useState, useEffect} from "react";
-import {Divider, FAB} from "react-native-elements";
+import { StyleSheet, Text, View, FlatList} from "react-native";
+import React from "react";
+import { Divider } from "react-native-elements";
 import {RequireJwt} from "../components/RequireJwt";
 
 const axios = require('axios');
 
+/*
+**  ________________
+** | <  details     |  Stack.Screen from createNativeStackNavigator   ../../App.js
+** |________________|
+** |  icon  |  icon |  Tab.Screen from createMaterialTopTabNavigator  src/screens/Product.js
+** |________|_______|
+** |  ____________  |  View.wrapperStyle (StyleSheets.create())
+** | |____________| |  Text field for tableHeadTextStyle
+** | |            | |  FlatList with mainContainerStyle
+** | |            | |  ItemSeparatorComponent to divide renderItem {{item}}
+** | |            | |
+** | |            | |
+** | |            | |
+** | |____________| |
+** |________________|  Padding of wrapperStyle (StyleSheets.create())
+**
+*/
+
 export default function ProductNutritionTable({navigation, route}) {
   const {itemId, productData} = route.params;
+
+  /* Object.key & Object.entries and changed it into an Array
+  ** Array is needed for FlatList
+  */
 
   let arr = Object.entries(productData["nutriments_g_pro_100g"])
 
@@ -20,10 +42,12 @@ export default function ProductNutritionTable({navigation, route}) {
           <Divider/>
           <View style={styles.mainContainerStyle}>
             <FlatList data={arr}
-                      renderItem={(({item}) => <View style={{flexDirection: "row", justifyContent: "space-between"}}>
-                        <Text style={styles.nutrimentsTextStyle}>{item[0]}</Text>
-                        <Text style={styles.valuesTextStyle}>{item[1]}</Text>
-                      </View>)}
+                      keyExtractor={item => item[0]}
+                      renderItem={(({item}) =>
+                        <View style={{flexDirection: "row", justifyContent: "space-between"}}>
+                          <Text style={styles.nutrimentsTextStyle}>{item[0]}</Text>
+                          <Text style={styles.valuesTextStyle}>{item[1]}</Text>
+                        </View>)}
                       ItemSeparatorComponent={(() => <Divider/>)}/>
           </View>
         </View>

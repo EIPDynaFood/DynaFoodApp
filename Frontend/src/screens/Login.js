@@ -23,7 +23,7 @@ export default function Login({navigation, route}) {
         };
         axios(config)
             .then(function (response) {
-                console.log(JSON.stringify(response.data));
+                // console.log(JSON.stringify(response.data));
                 navigation.navigate("History")
             })
             .catch(function (error) {
@@ -35,19 +35,22 @@ export default function Login({navigation, route}) {
     return (
         <View style={styles.container}>
 
-            <Image source={require('../../assets/logo_frame.png')}
+            <Image source={require('../../assets/logo_frame_invisible.png')}
                     style={{width:270, height:150, marginBottom:50}}/>
             <TextInput
                 placeholder="Email..."
                 style={styles.input}
                 onChangeText={onChangeEmail}
-                value={email}/>
+                value={email}
+                keyboardType="email-address"
+            />
             <TextInput
                 placeholder="Password..."
                 style={styles.input}
                 onChangeText={onChangePassword}
                 value={password}
                 secureTextEntry={true}
+                autoCapitalize='none'
             />
 
             <Button

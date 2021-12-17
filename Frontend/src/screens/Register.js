@@ -52,26 +52,30 @@ export default function Register() {
 
     return (
         <View style={styles.container}>
-            <Image source={require('../../assets/logo_frame.png')}
+            <Image source={require('../../assets/logo_frame_invisible.png')}
                     style={{width:270, height:150, marginBottom:50}}/>
             <TextInput
                 placeholder="Email..."
                 style={styles.input}
                 onChangeText={onChangeEmail}
-                value={email}/>
+                value={email}
+                keyboardType="email-address"
+            />
             <TextInput
                 placeholder="Password..."
                 style={styles.input}
                 onChangeText={onChangePassword}
                 value={password}
                 secureTextEntry={true}
+                autoCapitalize='none'
             />
             <TextInput
-                placeholder="Confirme your Password..."
+                placeholder="Confirm your Password..."
                 style={styles.input}
                 onChangeText={onChangeConPassword}
                 value={ConPassword}
                 secureTextEntry={true}
+                autoCapitalize='none'
             />
             <Button
                 title="Register"

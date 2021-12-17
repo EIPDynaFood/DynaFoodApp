@@ -35,8 +35,6 @@ function AdjustLabel(props) {
 export default function ProductGeneralInfo({navigation, route}) {
   const {itemId, productData} = route.params;
 
-  console.log(productData)
-
   let ingredients = ""
   productData['ingredients']['ingredients'].map((item, index) => {
     if (index === 0)
@@ -66,7 +64,7 @@ export default function ProductGeneralInfo({navigation, route}) {
       nutriImage = require("../../media/nutri-scores/nutri-score-C.svg");
   }
 
-  console.log(productData['ecoscoreData']['eco_grade'])
+  // console.log(productData['ecoscoreData']['eco_grade'])
   let ecoImage
   switch (productData['ecoscoreData']['eco_grade']) {
     case "a":
@@ -87,6 +85,8 @@ export default function ProductGeneralInfo({navigation, route}) {
     default:
       ecoImage = require("../../media/eco-scores/eco-score-C.png");
   }
+
+  // console.log(productData)
 
   return (
       <RequireJwt>
@@ -147,6 +147,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 140,
     left: 15,
+    fontSize: 40,
     color: "rgba(255,255,255,1)"
   },
   ingredientStyle: {
