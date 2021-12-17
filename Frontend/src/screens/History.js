@@ -1,4 +1,4 @@
-import {Button, StyleSheet, Text, View, Image} from "react-native";
+import {Button, StyleSheet, Text, View, Image, ToastAndroid} from "react-native";
 import React, {useState, useEffect} from "react";
 import {FAB} from 'react-native-elements';
 import {Icon} from 'react-native-elements';
@@ -105,6 +105,11 @@ function ProductHistory() {
   const navigation = useNavigation();
 
   useEffect(() => {
+    navigation.addListener('beforeRemove', (e) => {
+      e.preventDefault();
+      ToastAndroid.show('You can not go back to login. If you want to logout, go to the settings.', ToastAndroid.SHORT);
+    });
+
     axios.get('https://dynafood.herokuapp.com/history').then((res) => {
       setHistoryData(res.data);
     }).catch((err) => {
@@ -112,7 +117,7 @@ function ProductHistory() {
       alert("something went wrong getting history data: " + err.message);
       console.log(err);
     });
-  });
+  }, []);
 
   return (
     <View style={{flex: 1}}>

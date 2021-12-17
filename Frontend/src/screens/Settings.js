@@ -51,7 +51,6 @@ export default function Settings({navigation, route}) {
                     </Text>
                     <Button style={{top: 10}} title="logout" onPress={() => {
                         logout()
-                        navigation.navigate("Login")
                     }}/>
                 </View>
             </View>
