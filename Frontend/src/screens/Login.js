@@ -50,6 +50,7 @@ export default function Login({navigation, route}) {
                 onChangeText={onChangePassword}
                 value={password}
                 secureTextEntry={true}
+                autoCapitalize='none'
             />
 
             <Button
