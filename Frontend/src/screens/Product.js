@@ -12,19 +12,24 @@ const Tab = createMaterialTopTabNavigator();
 const axios = require('axios');
 
 // Thou shall not change this file! To change content pls go into ProductGeneralInfo.js or ProductNutritionTable.js!
-export default function Product() {
+export default function Product({navigation, route}) {
   const [productCode, setProductCode] = useState(localStorage.getItem("productCode"));
   const [productData, setProductData] = useState(null);
 
   useEffect(() => {
     setProductCode(localStorage.getItem("productCode"));
-    axios.get("https://dynafood.herokuapp.com/products/barcode/" + productCode).then((res) => { // http://192.168.178.54:8081
-      console.log(res.status);
-      setProductData(res.data);
-      // console.log(res.data);
+    axios.get("https://dynafood.herokuapp.com/products/barcode/" + productCode).then((res) => {
+      if (res.status === 204) { // no data to return
+        alert("Unknown Product");
+        navigation.goBack(null);
+      } else {
+        setProductData(res.data);
+        // console.log(res.data);
+      }
     }).catch((err) => {
       console.log("catch");
       alert("something went wrong getting data about the product:\n" + err.message)
+      navigation.goBack(null);
       console.log(err);
     });
   }, []);

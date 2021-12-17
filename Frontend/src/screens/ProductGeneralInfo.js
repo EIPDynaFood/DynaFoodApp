@@ -40,7 +40,7 @@ export default function ProductGeneralInfo({navigation, route}) {
       nutriImage = require("../../media/nutri-scores/nutri-score-C.svg");
   }
 
-  console.log(productData['ecoscoreData']['eco_grade'])
+  // console.log(productData['ecoscoreData']['eco_grade'])
   let ecoImage
   switch (productData['ecoscoreData']['eco_grade']) {
     case "a":
@@ -62,7 +62,7 @@ export default function ProductGeneralInfo({navigation, route}) {
       ecoImage = require("../../media/eco-scores/eco-score-C.png");
   }
 
-  console.log(productData)
+  // console.log(productData)
 
   return (
       <RequireJwt>

@@ -12,7 +12,7 @@ export default function ProductNutritionTable({navigation, route}) {
   // Array is needed for FlatList
   let arr = Object.entries(productData["nutriments_g_pro_100g"])
 
-  console.log(arr)
+  // console.log(arr)
 
   return (
       <RequireJwt>
@@ -24,6 +24,7 @@ export default function ProductNutritionTable({navigation, route}) {
           <Divider/>
           <View style={styles.mainContainerStyle}>
             <FlatList data={arr}
+                      keyExtractor={item => item[0]}
                       renderItem={(({item}) =>
                         <View style={{flexDirection: "row", justifyContent: "space-between"}}>
                           <Text style={styles.nutrimentsTextStyle}>{item[0]}</Text>
