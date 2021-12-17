@@ -24,6 +24,7 @@ export default function Login({navigation, route}) {
         axios(config)
             .then(function (response) {
                 console.log(JSON.stringify(response.data));
+                login(response.data);
                 navigation.navigate("History")
             })
             .catch(function (error) {
