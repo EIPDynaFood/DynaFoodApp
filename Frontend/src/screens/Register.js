@@ -52,7 +52,7 @@ export default function Register() {
 
     return (
         <View style={styles.container}>
-            <Image source={require('../../assets/logo_frame.png')}
+            <Image source={require('../../assets/logo_frame_invisible.png')}
                     style={{width:270, height:150, marginBottom:50}}/>
             <TextInput
                 placeholder="Email..."
