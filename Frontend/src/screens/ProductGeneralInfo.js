@@ -116,9 +116,9 @@ export default function ProductGeneralInfo({navigation, route}) {
 
 const styles = StyleSheet.create({
   wrapperStyle: {
-    paddingLeft: 15,
-    paddingRight: 15,
-    paddingTop: 15,
+    paddingLeft: 16,
+    paddingRight: 16,
+    paddingTop: 16,
     backgroundColor: "rgba(224,224,224,0.74)",
   },
   mainContainerStyle: {
@@ -146,12 +146,12 @@ const styles = StyleSheet.create({
   headlineStyle: {
     position: "absolute",
     top: 140,
-    left: 15,
+    left: 16,
     fontSize: 40,
     color: "rgba(255,255,255,1)"
   },
   ingredientStyle: {
-    padding: 15,
+    padding: 16,
     color: "rgba(0,0,0,0.6)"
   },
   bottomContainer: {
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     bottom: 130
   },
   ecoScoreStyle: {
-    marginRight: 15,
+    marginRight: 16,
     bottom: 130,
     width: 180,
     height: 97.5,
