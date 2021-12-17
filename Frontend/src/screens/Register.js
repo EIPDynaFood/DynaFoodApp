@@ -70,7 +70,7 @@ export default function Register() {
                 autoCapitalize='none'
             />
             <TextInput
-                placeholder="Confirme your Password..."
+                placeholder="Confirm your Password..."
                 style={styles.input}
                 onChangeText={onChangeConPassword}
                 value={ConPassword}
