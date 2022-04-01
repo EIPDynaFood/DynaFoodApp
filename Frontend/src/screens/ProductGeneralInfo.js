@@ -46,44 +46,44 @@ export default function ProductGeneralInfo({navigation, route}) {
   let nutriImage
   switch (productData['nutriments_scores']['total_grade']) {
     case "a":
-      nutriImage = require("../../media/nutri-scores/nutri-score-A.svg");
+      nutriImage = require("../../assets/nutri-scores/nutri-score-A.svg");
       break;
     case "b":
-      nutriImage = require("../../media/nutri-scores/nutri-score-B.svg");
+      nutriImage = require("../../assets/nutri-scores/nutri-score-B.svg");
       break;
     case "c":
-      nutriImage = require("../../media/nutri-scores/nutri-score-C.svg");
+      nutriImage = require("../../assets/nutri-scores/nutri-score-C.svg");
       break;
     case "d":
-      nutriImage = require("../../media/nutri-scores/nutri-score-D.svg");
+      nutriImage = require("../../assets/nutri-scores/nutri-score-D.svg");
       break;
     case "e":
-      nutriImage = require("../../media/nutri-scores/nutri-score-E.svg");
+      nutriImage = require("../../assets/nutri-scores/nutri-score-E.svg");
       break;
     default:
-      nutriImage = require("../../media/nutri-scores/nutri-score-C.svg");
+      nutriImage = require("../../assets/nutri-scores/nutri-score-C.svg");
   }
 
   // console.log(productData['ecoscoreData']['eco_grade'])
   let ecoImage
   switch (productData['ecoscoreData']['eco_grade']) {
     case "a":
-      ecoImage = require("../../media/eco-scores/eco-score-A.png");
+      ecoImage = require("../../assets/eco-scores/eco-score-A.png");
       break;
     case "b":
-      ecoImage = require("../../media/eco-scores/eco-score-B.png");
+      ecoImage = require("../../assets/eco-scores/eco-score-B.png");
       break;
     case "c":
-      ecoImage = require("../../media/eco-scores/eco-score-C.png");
+      ecoImage = require("../../assets/eco-scores/eco-score-C.png");
       break;
     case "d":
-      ecoImage = require("../../media/eco-scores/eco-score-D.png");
+      ecoImage = require("../../assets/eco-scores/eco-score-D.png");
       break;
     case "e":
-      ecoImage = require("../../media/eco-scores/eco-score-E.png");
+      ecoImage = require("../../assets/eco-scores/eco-score-E.png");
       break;
     default:
-      ecoImage = require("../../media/eco-scores/eco-score-C.png");
+      ecoImage = require("../../assets/eco-scores/eco-score-C.png");
   }
 
   // console.log(productData)
