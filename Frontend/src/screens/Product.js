@@ -18,7 +18,7 @@ export default function Product({navigation, route}) {
 
   useEffect(() => {
     setProductCode(localStorage.getItem("productCode"));
-    axios.get("https://dynafood.herokuapp.com/products/barcode/" + productCode).then((res) => {
+    axios.get("https://dynafood-server.herokuapp.com/products/barcode/" + productCode).then((res) => {
       if (res.status === 204) { // no data to return
         alert("Unknown Product");
         navigation.goBack(null);

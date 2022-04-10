@@ -30,7 +30,7 @@ export default function Register() {
             });
             var config = {
                 method: 'post',
-                url: 'https://dynafood.herokuapp.com/signup',
+                url: 'https://dynafood-server.herokuapp.com/signup',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },

@@ -33,7 +33,7 @@ export default function Settings({navigation, route}) {
 
     var config = {
         method: 'get',
-        url: 'https://dynafood.herokuapp.com/settings'
+        url: 'https://dynafood-server.herokuapp.com/settings'
     };
     useEffect(() => {
         axios(config)
@@ -70,7 +70,7 @@ export default function Settings({navigation, route}) {
     });
     var configpost = {
         method: 'post',
-        url: 'https://dynafood.herokuapp.com/settings',
+        url: 'https://dynafood-server.herokuapp.com/settings',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Cookie': 'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiJiNzc2MjQ3Ni1kOWFkLTRiODUtODBmOS0xODE5MDcwYjUwYmYiLCJwYXNzd29yZCI6InBhc3N3b3JkIiwiaWF0IjoxNjM5NzQ0ODk3LCJleHAiOjE2Mzk3NDg0OTd9.Tj39MV0Eske2PQvI80oaABofXXi2RkTqHR3KRhCM2Ks'

@@ -9,7 +9,7 @@ export default function ProductItem(itemData) {
   const navigation = useNavigation();
 
   const deleteHistoryItem = () => {
-    axios.delete('https://dynafood.herokuapp.com/history/' + itemData.historyId).then((res) => {
+    axios.delete('https://dynafood-server.herokuapp.com/history/' + itemData.historyId).then((res) => {
     }).catch((err) => {
       console.log('catch');
       alert("something went wrong deleting history data: " + err.message);
