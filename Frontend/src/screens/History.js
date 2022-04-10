@@ -17,7 +17,6 @@ export default function History() {
   const [search, setSearch] = useState(null);
 
   return (
-      <RequireJwt>
         <View style={StyleSheet.absoluteFillObject}>
           <SearchBar
             inputContainerStyle={styles.searchBar}
@@ -33,18 +32,17 @@ export default function History() {
             <Text style={styles.headlineStyle}>
               Your products
             </Text>
-            <ProductHistory/>
+            <ProductHistory data={null}/>
           </View>
           <FAB
               color="black"
-              icon={{name: 'reorder', color: 'white', transform: [{rotate: '90deg'}]}}
+              icon={{name: 'reorder', color: 'white'}}
               style={styles.FABStyle}
               onPress={() => {
                 navigation.navigate('Scanner')
               }}
           />
         </View>
-      </RequireJwt>
   );
 }
 

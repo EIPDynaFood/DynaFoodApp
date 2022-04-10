@@ -6,12 +6,12 @@ import {FAB, Icon} from "react-native-elements";
 import {ScrollView, TouchableWithoutFeedback} from "react-native-gesture-handler";
 import ProductItem from "./ProductItem";
 
-export default function ProductHistory() {
-  const [historyData, setHistoryData] = useState(null);
+export default function ProductHistory(props) {
+  const [historyData, setHistoryData] = useState(props.data);
   const navigation = useNavigation();
 
   useEffect(() => {
-    axios.get('https://dynafood.herokuapp.com/history').then((res) => {
+    axios.get('https://dynafood-server.herokuapp.com/history').then((res) => {
       setHistoryData(res.data);
     }).catch((err) => {
       console.log('catch');
