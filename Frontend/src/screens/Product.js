@@ -1,14 +1,14 @@
 import {Button, StyleSheet, Text, View, StatusBar} from "react-native";
 import React, {useState, useEffect} from "react";
 import {FAB} from "react-native-elements";
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 import ProductGeneralInfo from "./ProductGeneralInfo";
 import ProductNutritionTable from "./ProductNutritionTable";
 import {RequireJwt} from "../components/RequireJwt";
 import { Ionicons } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const Tab = createMaterialTopTabNavigator();
+const Tab = createBottomTabNavigator();
 const axios = require('axios');
 
 // Thou shall not change this file! To change content pls go into ProductGeneralInfo.js or ProductNutritionTable.js!

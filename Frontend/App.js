@@ -12,15 +12,19 @@ import Settings from "./src/screens/Settings";
 import {Icon} from "react-native-elements";
 import useJwt, {JwtProvider} from "./Jwt"
 import {RequireJwt} from "./src/components/RequireJwt"
+import { navigationRef } from './RootNavigation';
+import isReadyRef from "react-native/Libraries/Components/DrawerAndroid/DrawerLayoutAndroid";
 
 const Stack = createNativeStackNavigator();
 
-function Navigation() {
+export function Navigation() {
   const {jwt} = useJwt();
 
   return (
       jwt === null ? (
-          <NavigationContainer>
+          <NavigationContainer ref={navigationRef} onReady={() => {
+              isReadyRef.current = true;
+          }}>
             <Stack.Navigator screenOptions={{
               headerStyle: {
                 backgroundColor: '#376D55',
@@ -34,7 +38,9 @@ function Navigation() {
               <Stack.Screen name="Register" component={Register}/>
             </Stack.Navigator>
           </NavigationContainer>) : (
-          <NavigationContainer>
+          <NavigationContainer ref={navigationRef} onReady={() => {
+              isReadyRef.current = true;
+          }}>
             <Stack.Navigator screenOptions={{
               headerStyle: {
                 backgroundColor: '#376D55',
