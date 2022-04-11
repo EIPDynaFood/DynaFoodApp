@@ -25,8 +25,7 @@ export default function ProductHistory(props) {
         {historyData === null ? (<FAB color="grey" size="small" loading/>) : (
             (historyData.elements.length === 0) ? (
                 <View style={styles.productHistory}>
-                  <TouchableWithoutFeedback onPress={() => navigation.navigate('Scanner')}>
-                    <View style={styles.productItem}>
+                    <View style={styles.productItem} onPress={() => navigation.navigate('Scanner')}>
                       <View style={{marginLeft: 10, width: '60%'}}>
                         <Text
                             numberOfLines={1}
@@ -36,7 +35,6 @@ export default function ProductHistory(props) {
                         <Icon name='reorder' iconStyle={{transform: [{rotate: '90deg'}]}}/>
                       </View>
                     </View>
-                  </TouchableWithoutFeedback>
                 </View>
             ) : (
                 <ScrollView style={styles.productHistory}>

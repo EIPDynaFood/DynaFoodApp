@@ -17,6 +17,7 @@ export default function History() {
   const [search, setSearch] = useState(null);
 
   return (
+      <RequireJwt>
         <View style={StyleSheet.absoluteFillObject}>
           <SearchBar
             inputContainerStyle={styles.searchBar}
@@ -43,6 +44,7 @@ export default function History() {
               }}
           />
         </View>
+      </RequireJwt>
   );
 }
 
