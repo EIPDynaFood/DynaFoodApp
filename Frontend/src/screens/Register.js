@@ -4,6 +4,7 @@ import { Button } from 'react-native-elements';
 import {useNavigation} from "@react-navigation/native";
 import useJwt from "../../Jwt"
 import axios from "axios";
+import { styles } from "../styles/Style";
 
 export default function Register() {
     const navigation = useNavigation();
@@ -38,7 +39,6 @@ export default function Register() {
             };
             axios(config)
                 .then(function (response) {
-//                    console.log(JSON.stringify(response.data));
                     login(JSON.stringify(response.data))
                     navigation.navigate("History");
                 })
@@ -51,7 +51,7 @@ export default function Register() {
     }
 
     return (
-        <View style={styles.container}>
+        <View style={styles.containerRegister}>
             <Image source={require('../../assets/logo_frame_invisible.png')}
                     style={{width:270, height:150, marginBottom:50}}/>
             <TextInput
@@ -114,21 +114,3 @@ export default function Register() {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    input: {
-        width: "70%",
-        height: 40,
-        margin: 12,
-        borderWidth: 1,
-        padding: 10,
-        borderColor: "lightgrey",
-        borderRadius: 5,
-    },
-    container: {
-        flex: 1,
-        backgroundColor: "white",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-});

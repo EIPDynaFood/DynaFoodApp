@@ -3,26 +3,13 @@ import React, {useState, useEffect} from "react";
 import {FAB} from "react-native-elements";
 import {RequireJwt} from "../components/RequireJwt";
 import { Camera } from 'expo-camera';
+import { styles } from "../styles/Style";
 
 function ScannerOverlay() {
 
     return (
-        <View style={{
-            position: "absolute",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-            width: "100%",
-            backgroundColor: 'rgba(255, 255, 255, 0.25)',
-        }}>
-            <View style={{
-                width: "70%",
-                aspectRatio: 2 / 1,
-                borderColor: "white",
-                borderWidth: 2,
-                borderStyle: "dashed",
-                borderRadius: 10,
-            }}/>
+        <View style={styles.cameraOne}>
+            <View style={styles.cameraTwo}/>
         </View>
     );
 }

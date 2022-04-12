@@ -5,6 +5,7 @@ import { Divider } from "react-native-elements";
 import useJwt from "../../Jwt"
 import {RequireJwt} from "../components/RequireJwt";
 import axios from "axios";
+import { styles } from "../styles/Style";
 
 export default function Settings({navigation, route}) {
     var axios = require('axios');
@@ -27,9 +28,6 @@ export default function Settings({navigation, route}) {
     useEffect(() => {
         axios(config)
             .then(function (response) {
-                //console.log(JSON.stringify(response.data));
-                //setSettings(response.data)
-                //console.log(response.data)
                 for (const restriction of response.data) {
                     console.log(restriction["restrictionname"]);
                     if (restriction["restrictionname"] === "lactose")
@@ -141,76 +139,3 @@ function Linear(props) {
         </View>
     );
   }
-
-const styles = StyleSheet.create({
-    wrapperStyle: {
-        paddingLeft: 20,
-        paddingRight: 20,
-        paddingTop: 30,
-        paddingBottom: 90,
-        backgroundColor: "#E2E6DB",
-        },
-    mainContainerStyle: {
-        backgroundColor: "#FFFFFF",
-        height: "100%",
-        flexDirection: "row",
-        justifyContent: 'space-between',
-        },
-    tableHeadStyle: {
-        fontSize: 20,
-        paddingBottom: 30,
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-        justifyContent: 'space-between',
-        backgroundColor: "rgba(255,255,255,0.7)",
-        height: 50,
-        paddingTop: 30,
-        },
-    tableHeadTextStyle: {
-        color: "rgba(0,0,0,0.6)",
-        paddingTop: 20,
-        paddingLeft: 20,
-        paddingRight: 15,
-        fontSize: 30,
-        paddingBottom: 20
-        },
-    nutrimentsTextStyle: {
-        padding: 15,
-        },
-    valuesTextStyle: {
-        padding: 15,
-        textAlign: "right",
-        },
-    screen:{
-        flex:1,
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center',
-        backgroundColor:'#00000025',
-    },
-    text:{
-        color:'#000',
-        fontWeight:'700',
-        fontSize:30
-    },
-    button:{
-        backgroundColor:'#fff',
-        paddingVertical: 5,
-        paddingHorizontal: 10
-    },
-    buttonText:{
-        color:'#fff',
-        fontSize:25
-    },
-    signIn: {
-        width: '100%',
-        height: 50,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10
-    },
-    textSign: {
-        fontSize: 18,
-        fontWeight: 'bold'
-    }
-})

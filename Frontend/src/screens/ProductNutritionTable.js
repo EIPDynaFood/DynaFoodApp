@@ -2,42 +2,21 @@ import { StyleSheet, Text, View, FlatList} from "react-native";
 import React from "react";
 import { Divider } from "react-native-elements";
 import {RequireJwt} from "../components/RequireJwt";
+import { styles } from "../styles/Style";
 
 const axios = require('axios');
 
-/*
-**  ________________
-** | <  details     |  Stack.Screen from createNativeStackNavigator   ../../App.js
-** |________________|
-** |  icon  |  icon |  Tab.Screen from createMaterialTopTabNavigator  src/screens/Product.js
-** |________|_______|
-** |  ____________  |  View.wrapperStyle (StyleSheets.create())
-** | |____________| |  Text field for tableHeadTextStyle
-** | |            | |  FlatList with mainContainerStyle
-** | |            | |  ItemSeparatorComponent to divide renderItem {{item}}
-** | |            | |
-** | |            | |
-** | |            | |
-** | |____________| |
-** |________________|  Padding of wrapperStyle (StyleSheets.create())
-**
-*/
-
 export default function ProductNutritionTable({navigation, route}) {
   const {itemId, productData} = route.params;
-
-  /* Object.key & Object.entries and changed it into an Array
-  ** Array is needed for FlatList
-  */
 
   let arr = Object.entries(productData["nutriments_g_pro_100g"])
 
   return (
       <RequireJwt>
-        <View style={styles.wrapperStyle}>
-          <View style={styles.tableHeadStyle}>
-            <Text style={styles.tableHeadTextStyle}>Nutriments</Text>
-            <Text style={styles.tableHeadTextStyle}>pro 100g/L</Text>
+        <View style={styles.wrapperStyleTable}>
+          <View style={styles.tableHeadStyleTable}>
+            <Text style={styles.tableHeadTextStyleTable}>Nutriments</Text>
+            <Text style={styles.tableHeadTextStyleTable}>pro 100g/L</Text>
           </View>
           <Divider/>
           <View style={styles.mainContainerStyle}>
@@ -54,39 +33,3 @@ export default function ProductNutritionTable({navigation, route}) {
       </RequireJwt>
   );
 }
-
-const styles = StyleSheet.create({
-  wrapperStyle: {
-    paddingLeft: 15,
-    paddingRight: 15,
-    paddingTop: 15,
-    backgroundColor: "rgba(224,224,224,0.74)",
-  },
-  mainContainerStyle: {
-    backgroundColor: "#FFFFFF",
-    height: "100%",
-    flexDirection: "row",
-    justifyContent: 'space-between',
-  },
-  tableHeadStyle: {
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    justifyContent: 'space-between',
-    backgroundColor: "rgba(255,255,255,0.7)",
-    height: 50,
-    flexDirection: "row",
-  },
-  tableHeadTextStyle: {
-    color: "rgba(0,0,0,0.6)",
-    paddingTop: 20,
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-  nutrimentsTextStyle: {
-    padding: 15,
-  },
-  valuesTextStyle: {
-    padding: 15,
-    textAlign: "right",
-  }
-})

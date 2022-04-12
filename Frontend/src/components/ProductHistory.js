@@ -5,6 +5,7 @@ import {StyleSheet, Text, View} from "react-native";
 import {FAB, Icon} from "react-native-elements";
 import {ScrollView, TouchableWithoutFeedback} from "react-native-gesture-handler";
 import ProductItem from "./ProductItem";
+import { styles } from "../styles/Style";
 
 export default function ProductHistory(props) {
   const [historyData, setHistoryData] = useState(props.data);
@@ -49,11 +50,3 @@ export default function ProductHistory(props) {
       </View>
   );
 }
-
-const styles = StyleSheet.create({
-  productHistory: {
-    flex: 1,
-    width: '100%',
-    alignSelf: 'center',
-  },
-})

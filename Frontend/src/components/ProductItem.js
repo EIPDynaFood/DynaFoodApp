@@ -4,6 +4,7 @@ import {Image, StyleSheet, Text, View} from "react-native";
 import {TouchableWithoutFeedback} from "react-native-gesture-handler";
 import {Icon} from "react-native-elements";
 import React from "react";
+import { styles } from "../styles/Style";
 
 export default function ProductItem(itemData) {
   const navigation = useNavigation();
@@ -43,13 +44,3 @@ export default function ProductItem(itemData) {
       </View>
   );
 }
-
-const styles = StyleSheet.create({
-  productItem: {
-    backgroundColor: '#fff',
-    flexDirection: "row",
-    marginTop: 10,
-    padding: 10,
-    borderRadius: 10
-  },
-})

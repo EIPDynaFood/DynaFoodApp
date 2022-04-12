@@ -3,15 +3,13 @@ import React, {useState, useEffect} from "react";
 import {FAB, ListItem} from "react-native-elements";
 import {RequireJwt} from "../components/RequireJwt";
 import {LinearGradient} from "expo-linear-gradient";
-// import {AdjustLabel} from "../components/AdjustLabel";
 import {assertBoolean} from "@babel/core/lib/config/validation/option-assertions";
-
+import { styles } from "../styles/Style";
 
 const axios = require('axios');
 
 function AdjustLabel(props) {
 
-  // console.log(props)
 
   const [currentFontSize, setCurrentFontSize] = useState(props.fontSize);
 
@@ -64,7 +62,6 @@ export default function ProductGeneralInfo({navigation, route}) {
       nutriImage = require("../../assets/nutri-scores/nutri-score-C.svg");
   }
 
-  // console.log(productData['ecoscoreData']['eco_grade'])
   let ecoImage
   switch (productData['ecoscoreData']['eco_grade']) {
     case "a":
@@ -86,21 +83,19 @@ export default function ProductGeneralInfo({navigation, route}) {
       ecoImage = require("../../assets/eco-scores/eco-score-C.png");
   }
 
-  // console.log(productData)
-
   return (
       <RequireJwt>
-        <View style={styles.wrapperStyle}>
+        <View style={styles.wrapperStyleInfo}>
           <View>
             <Image source={{uri: productData['images']}}
-                   style={styles.imageStyle}/>
+                   style={styles.imageStyleInfo}/>
             <LinearGradient style={styles.gradientStyle}
                             colors={['rgba(0,0,0,0.6)', 'transparent']}
                             start={{x: 0, y: 1}}
                             end={{x: 0, y: 0}}/>
             <AdjustLabel text={productData["name"]} fontSize={40} style={styles.headlineStyle}/>
           </View>
-          <View style={styles.mainContainerStyle}>
+          <View style={styles.mainContainerStyleInfo}>
             <Text style={styles.ingredientStyle}>{ingredients}</Text>
           </View>
           <View style={styles.bottomContainer}>
@@ -113,62 +108,3 @@ export default function ProductGeneralInfo({navigation, route}) {
       </RequireJwt>
   );
 }
-
-const styles = StyleSheet.create({
-  wrapperStyle: {
-    paddingLeft: 16,
-    paddingRight: 16,
-    paddingTop: 16,
-    backgroundColor: "rgba(224,224,224,0.74)",
-  },
-  mainContainerStyle: {
-    backgroundColor: "#FFFFFF",
-    height: "100%",
-    top: 200,
-    justifyContent: 'space-between',
-  },
-  gradientStyle: {
-    backgroundColor: "transparent",
-    position: "absolute",
-    top: 0,
-    width: "100%",
-    height: 200,
-  },
-  imageStyle: {
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    position: "absolute",
-    top: 0,
-    resizeMode: "cover",
-    width: "100%",
-    height: 200,
-  },
-  headlineStyle: {
-    position: "absolute",
-    top: 140,
-    left: 16,
-    fontSize: 40,
-    color: "rgba(255,255,255,1)"
-  },
-  ingredientStyle: {
-    padding: 16,
-    color: "rgba(0,0,0,0.6)"
-  },
-  bottomContainer: {
-    flexDirection: "row",
-    flex: 1,
-  },
-  nutriScoreStyle: {
-    height: 97.5,
-    width: 180,
-    marginLeft: 10,
-    bottom: 130
-  },
-  ecoScoreStyle: {
-    marginRight: 16,
-    bottom: 130,
-    width: 180,
-    height: 97.5,
-  }
-})
-

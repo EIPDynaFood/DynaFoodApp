@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Button, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import Onboarding from "react-native-onboarding-swiper";
+import { styles } from "../styles/Style";
 
 const Skip = ({...props}) => (
     <Button
@@ -66,32 +67,3 @@ const Swiper = ({navigation}) => {
 };
 
 export default Swiper;
-
-const deviceWidth = Math.round(Dimensions.get('window').width) - 80
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    imagineStyle: {
-        height: 100,
-        width: deviceWidth,
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
-        opacity: 0.9,
-        alignContent: 'center',
-        alignSelf: 'center',
-        resizeMode: 'contain',
-    },
-    imagineStyleTwo: {
-        height: 300,
-        width: 150,
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
-        opacity: 0.9,
-        alignContent: 'center',
-        alignSelf: 'center',
-        resizeMode: 'contain',
-    },
-});
