@@ -1,6 +1,6 @@
 import {useNavigation} from "@react-navigation/native";
 import axios from "axios";
-import {Image, StyleSheet, Text, View} from "react-native";
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {TouchableWithoutFeedback} from "react-native-gesture-handler";
 import {Icon} from "react-native-elements";
 import React from "react";
@@ -20,7 +20,8 @@ export default function ProductItem(itemData) {
 
   return (
       <View style={styles.productItem}>
-        <TouchableWithoutFeedback onPress={() => {
+        <TouchableOpacity style={styles.productItem} onPress={() => {
+            console.log('click to navigate')
           localStorage.setItem('productCode', itemData.barcode);
           navigation.navigate('Product');
         }}>
@@ -37,7 +38,7 @@ export default function ProductItem(itemData) {
                   style={{fontSize: 13}}>Barcode: {itemData.barcode}</Text>
             </View>
           </View>
-        </TouchableWithoutFeedback>
+        </TouchableOpacity>
         <View style={{flex: 1, flexDirection: 'row-reverse', alignItems: 'center'}}>
           <Icon name='delete' onPress={deleteHistoryItem}/>
         </View>
