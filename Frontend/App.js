@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-//testing test feature
+//testing test feature toto
 import {Text, View, StyleSheet, Button, LogBox, StatusBar, StatusBarStyle} from 'react-native';
 import Scanner from "./src/screens/Scanner";
 import Product from "./src/screens/Product";
