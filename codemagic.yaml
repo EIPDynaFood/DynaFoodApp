@@ -4,6 +4,7 @@ workflows:
     environment:
       node: latest
     scripts:
+      - npm install -g expo-cli
       - |
         # build and start
         npm install --legacy-peer-deps
