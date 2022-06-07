@@ -11,6 +11,9 @@ workflows:
       events:
         - push
       branch_patterns:
-        - pattern: develop
+        - pattern: setup-codemagic
+          include: true
+          source: true
+        - pattern: test
           include: true
           source: true
