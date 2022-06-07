@@ -5,11 +5,7 @@ workflows:
       node: latest
     scripts:
       - npm install -g expo-cli
-      - |
-        # build and start
-        npm install --legacy-peer-deps
-        npm start
-        npm stop
+      - npm install --legacy-peer-deps
       - npm test
     triggering:
       events:
