@@ -17,13 +17,6 @@ workflows:
          npm install -g expo-cli
          npm install --legacy-peer-deps
          npm test
-      - name: Increment build number
-        script: |
-          #!/bin/sh
-          set -e
-          set -x
-          cd $FCI_BUILD_DIR
-          agvtool new-version -all $(($BUILD_NUMBER + 1))
     triggering:
       events:
         - push
@@ -62,12 +55,12 @@ workflows:
             COMMIT=$(echo "${FCI_COMMIT}" | sed 's/^\(........\).*/\1/;q')
             
             # Get the name of the test .xml file so we can attach it to a Jira issue
-            if [ $ARTIFACT_TYPE == ".ipa" ]
-            then
-              XML_TEST_RESULTS=$(find -f build/ios/test/*.xml)
-            else
-              XML_TEST_RESULTS=$(find -f app/build/test-results/**/*.xml)
-            fi  
+            #if [ $ARTIFACT_TYPE == ".ipa" ]
+            #then
+            #  XML_TEST_RESULTS=$(find -f build/ios/test/*.xml)
+            #else
+            #  XML_TEST_RESULTS=$(find -f app/build/test-results/**/*.xml)
+            #fi  
             # Get the Git commit message for this build
             GIT_COMMIT_MESSAGE=$(git log --format=%B -n 1 $FCI_COMMIT)
             
