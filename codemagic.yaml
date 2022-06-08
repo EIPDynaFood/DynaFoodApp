@@ -7,7 +7,7 @@ workflows:
         - jira_credentials
         - others
       vars:
-        JIRA_AUTH: echo -n nikschef01@gmail.com:xWNum46TO4ak4pjfPLE83D9C | openssl base64
+        JIRA_AUTH: $(echo -n nikschef01@gmail.com:xWNum46TO4ak4pjfPLE83D9C)
         JIRA_BASE_URL: eipdynafood.atlassian.net
         JIRA_ISSUE: DYN-1
         JIRA_TRANSITION_ID: 711
