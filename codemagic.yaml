@@ -7,7 +7,7 @@ workflows:
         - jira_credentials
         - others
       vars:
-        JIRA_AUTH: $(echo -n nikschef01@gmail.com:xWNum46TO4ak4pjfPLE83D9C)
+        JIRA_AUTH: nikschef01@gmail.com:xWNum46TO4ak4pjfPLE83D9C
         JIRA_BASE_URL: eipdynafood.atlassian.net
         JIRA_ISSUE: DYN-1
         JIRA_TRANSITION_ID: 711
@@ -42,6 +42,8 @@ workflows:
             TYPE=$(echo $FCI_ARTIFACT_LINKS | jq -r '.[] | select(.name | endswith("'"$ARTIFACT_TYPE"'")) | .type')
             BUNDLE=$(echo $FCI_ARTIFACT_LINKS | jq -r '.[] | select(.name | endswith("'"$ARTIFACT_TYPE"'")) | .bundleId')
             VERSION_NAME=$(echo $FCI_ARTIFACT_LINKS | jq -r '.[] | select(.name | endswith("'"$ARTIFACT_TYPE"'")) | .versionName')
+            
+            JIRA_AUTH=$(echo -n nikschef01@gmail.com:xWNum46TO4ak4pjfPLE83D9C)
             
             BUILD_VERSION=$(( ${BUILD_NUMBER} + 1 ))
             
