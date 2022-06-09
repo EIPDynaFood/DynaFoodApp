@@ -43,7 +43,7 @@ workflows:
             BUNDLE=$(echo $FCI_ARTIFACT_LINKS | jq -r '.[] | select(.name | endswith("'"$ARTIFACT_TYPE"'")) | .bundleId')
             VERSION_NAME=$(echo $FCI_ARTIFACT_LINKS | jq -r '.[] | select(.name | endswith("'"$ARTIFACT_TYPE"'")) | .versionName')
             
-            JIRA_AUTH=$(echo -n nikschef01@gmail.com:xWNum46TO4ak4pjfPLE83D9C)
+            JIRA_AUTH=$(echo -n nikschef01@gmail.com:xWNum46TO4ak4pjfPLE83D9C | openssl base64)
             
             BUILD_VERSION=$(( ${BUILD_NUMBER} + 1 ))
             
