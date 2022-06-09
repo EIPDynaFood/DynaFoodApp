@@ -89,18 +89,18 @@ workflows:
             # Attach XML test results to the Jira issue 
             # See https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-attachments/#api-rest-api-3-issue-issueidorkey-attachments-post for details
             
-            if [[ -z ${XML_TEST_RESULTS} ]]
-            then
-              echo "No test results available to upload to JIRA"
-            else  
-              curl -X POST https://$JIRA_BASE_URL/rest/api/3/issue/$JIRA_ISSUE/attachments -H "Authorization: Basic $JIRA_AUTH" -H "X-Atlassian-Token: nocheck" -F "file=@$XML_TEST_RESULTS"  | jq "."
-            fi
+            #if [[ -z ${XML_TEST_RESULTS} ]]
+            #then
+            #  echo "No test results available to upload to JIRA"
+            #else  
+            #  curl -X POST https://$JIRA_BASE_URL/rest/api/3/issue/$JIRA_ISSUE/attachments -H "Authorization: Basic $JIRA_AUTH" -H "X-Atlassian-Token: nocheck" -F "file=@$XML_TEST_RESULTS"  | jq "."
+            #fi
             # Attach Release Notes to the Jira issue 
             # See https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-attachments/#api-rest-api-3-issue-issueidorkey-attachments-post for details
             
-            if [[ -e release_notes.txt ]]
-            then 
-              curl -X POST https://$JIRA_BASE_URL/rest/api/3/issue/$JIRA_ISSUE/attachments -H "Authorization: Basic $JIRA_AUTH" -H "X-Atlassian-Token: nocheck" -F "file=@release_notes.txt"  | jq "."
-            else
-              "No release_notes.txt available to upload to JIRA"
-            fi
+            #if [[ -e release_notes.txt ]]
+            #then 
+            #  curl -X POST https://$JIRA_BASE_URL/rest/api/3/issue/$JIRA_ISSUE/attachments -H "Authorization: Basic $JIRA_AUTH" -H "X-Atlassian-Token: nocheck" -F "file=@release_notes.txt"  | jq "."
+            #else
+            #  "No release_notes.txt available to upload to JIRA"
+            #fi
