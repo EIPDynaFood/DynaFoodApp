@@ -39,6 +39,7 @@
     "expo-camera": "~12.1.2",
     "expo-linear-gradient": "~11.0.3",
     "jest-expo": "^44.0.0",
+    "jsdom": "^19.0.0",
     "localstorage-polyfill": "^1.0.1",
     "qs": "^6.10.2",
     "react": "17.0.1",
