@@ -7,6 +7,32 @@ import ProductHistory from "../src/components/ProductHistory";
 import TrendBar from "../src/components/Trendbar";
 import * as router from 'react-router'
 import {TouchableOpacity} from "react-native";
+import ProductItem from "../src/components/ProductItem";
+
+
+class LocalStorageMock {
+    constructor() {
+        this.store = {};
+    }
+
+    clear() {
+        this.store = {};
+    }
+
+    getItem(key) {
+        return this.store[key] || null;
+    }
+
+    setItem(key, value) {
+        this.store[key] = String(value);
+    }
+
+    removeItem(key) {
+        delete this.store[key];
+    }
+}
+
+global.localStorage = new LocalStorageMock;
 
 jest.useFakeTimers()
 const mockedNavigate = jest.fn();
@@ -43,9 +69,16 @@ it("at least one item", () => {
     expect(item.exists()).toBe(true)
 });
 
-/*it("check TrendBar navigation", () => {
+it("at least one item + navigation", () => {
+    const navigation = useNavigation();
+    const inst = shallow(<ProductItem/>);
+    inst.find("ForwardRef").first().simulate("press")
+    expect(navigation.navigate).toHaveBeenCalledWith("Product")
+});
+
+it("check TrendBar navigation", () => {
     const navigation = useNavigation();
     const inst = shallow(<TrendBar/>);
-    inst.find("ForwardRef(mockConstructor)").first().simulate("press")
+    inst.find("ForwardRef").first().simulate("press")
     expect(navigation.navigate).toHaveBeenCalledWith("Product")
-});*/
+});
