@@ -168,7 +168,7 @@ export const styles = StyleSheet.create({
         paddingLeft: 16,
         paddingRight: 16,
         paddingTop: 16,
-        backgroundColor: "rgba(224,224,224,0.74)",
+        backgroundColor: "#E2E6DB",
       },
       mainContainerStyleInfo: {
         backgroundColor: "#FFFFFF",
@@ -189,7 +189,7 @@ export const styles = StyleSheet.create({
         paddingLeft: 15,
         paddingRight: 15,
         paddingTop: 15,
-        backgroundColor: "rgba(224,224,224,0.74)",
+        backgroundColor: "#E2E6DB",
       },
       tableHeadStyleTable: {
         borderTopLeftRadius: 10,

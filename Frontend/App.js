@@ -20,6 +20,9 @@ const Stack = createNativeStackNavigator();
 
 export function Navigation() {
   const {jwt} = useJwt();
+  let swiper = localStorage.getItem('Swiper');
+  console.log(swiper)
+  //setSwiper = localStorage.getItem('Swiper')
 
   return (
       jwt === null ? (
@@ -34,7 +37,9 @@ export function Navigation() {
                 fontWeight: 'bold'
               }
             }}>
+              {swiper === null ? 
               <Stack.Screen name="Swiper" component={Swiper}/>
+               : <></>}
               <Stack.Screen name="Login" component={Login}/>
               <Stack.Screen name="Register" component={Register}/>
             </Stack.Navigator>

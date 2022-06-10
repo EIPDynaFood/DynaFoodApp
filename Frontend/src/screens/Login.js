@@ -23,6 +23,7 @@ export default function Login({navigation, route}) {
         };
         axios(config)
             .then(function (response) {
+                localStorage.setItem('Swiper', false);
                 login(response.data)
                 navigation.navigate("History")
             })
