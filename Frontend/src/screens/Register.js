@@ -1,5 +1,5 @@
-import {StyleSheet, View, Image, TextInput} from "react-native";
-import React, { useState, useEffect } from "react";
+import {View, Image, TextInput} from "react-native";
+import React from "react";
 import { Button } from 'react-native-elements';
 import {useNavigation} from "@react-navigation/native";
 import useJwt from "../../Jwt"
@@ -53,7 +53,7 @@ export default function Register() {
     return (
         <View style={styles.containerRegister}>
             <Image source={require('../../assets/logo_frame_invisible.png')}
-                    style={{width:270, height:150, marginBottom:50}}/>
+                    style={styles.registerLoginLogo}/>
             <TextInput
                 placeholder="Email..."
                 style={styles.input}
@@ -82,12 +82,7 @@ export default function Register() {
                 containerStyle= {{
                     margin:15
                 }}
-                buttonStyle={{
-                    marginTop:10,
-                    width:"50%",
-                    borderRadius:5,
-                    backgroundColor:"#2E4D44",
-                }}
+                buttonStyle={styles.primaryButtonStyle}
                 titleStyle={{color:"white", flex:1}}
                 onPress={() => {
                     sendRegister();
@@ -99,13 +94,7 @@ export default function Register() {
                 containerStyle= {{
                     margin:15
                 }}
-                buttonStyle={{
-                    width:"50%",
-                    borderRadius:5,
-                    backgroundColor:"#FFF",
-                    borderWidth:3,
-                    borderColor:"#2E4D44",
-                }}
+                buttonStyle={styles.secondaryButtonStyle}
                 titleStyle={{color:"#2E4D44", flex:1}}
                 onPress={() => {
                     navigation.navigate("Login")
