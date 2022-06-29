@@ -10,6 +10,31 @@ export const styles = StyleSheet.create({
         width: "100%",
         backgroundColor: 'rgba(255, 255, 255, 0.25)',
     },
+    secondaryButtonStyle: {
+        width:"50%",
+        borderRadius:10,
+        backgroundColor:"#FFF",
+        borderWidth:3,
+        borderColor:"#2E4D44",
+    },
+    primaryButtonStyle: {
+        marginTop:10,
+        width:"50%",
+        borderRadius:10,
+        backgroundColor:"#2E4D44",
+    },
+    loginAsGuest: {
+        width:"50%",
+        borderRadius:10,
+        backgroundColor:"#2E4D44",
+        borderColor:"#2E4D44",
+        left: 170,
+    },
+    registerLoginLogo: {
+        width: 270,
+        height: 150,
+        marginBottom:50
+    },
     cameraTwo: {
         width: "70%",
         aspectRatio: 2 / 1,

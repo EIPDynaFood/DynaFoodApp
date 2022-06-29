@@ -1,6 +1,6 @@
 import {useNavigation} from "@react-navigation/native";
 import {ScrollView, TouchableWithoutFeedback} from "react-native-gesture-handler";
-import {Image, Text, View, StyleSheet} from "react-native";
+import {Image, Text, View, StyleSheet, TouchableOpacity} from "react-native";
 import React from "react";
 
 export default function TrendBar() {
@@ -61,7 +61,7 @@ export default function TrendBar() {
   return (
       <ScrollView horizontal style={{width: "100%"}}>
         {trendingProducts.map((item, index) => (
-            <TouchableWithoutFeedback key={index} style={{flex: 1}} onPress={() => {
+            <TouchableOpacity key={index} style={{flex: 1}} onPress={() => {
               localStorage.setItem('productCode', item.barcode);
               navigation.navigate('Product');
             }}>
@@ -71,7 +71,7 @@ export default function TrendBar() {
                   <Text style={{fontSize: 13, textAlign: 'center'}}>{item.name}</Text>
                 </View>
               </View>
-            </TouchableWithoutFeedback>
+            </TouchableOpacity>
         ))}
       </ScrollView>
   )
