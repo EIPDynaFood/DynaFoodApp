@@ -20,8 +20,7 @@ export default function ProductItem(itemData) {
 
   return (
       <View style={styles.productItem}>
-        <TouchableOpacity style={styles.productItem} onPress={() => {
-            console.log('click to navigate')
+        <TouchableOpacity onPress={() => {
           localStorage.setItem('productCode', itemData.barcode);
           navigation.navigate('Product');
         }}>
