@@ -5,6 +5,8 @@ import {RequireJwt} from "../components/RequireJwt";
 import {LinearGradient} from "expo-linear-gradient";
 import {assertBoolean} from "@babel/core/lib/config/validation/option-assertions";
 import { styles } from "../styles/Style";
+import AwesomeAlert from "react-native-awesome-alerts";
+
 
 const axios = require('axios');
 
@@ -32,6 +34,11 @@ function AdjustLabel(props) {
 
 export default function ProductGeneralInfo({navigation, route}) {
   const {itemId, productData} = route.params;
+  const alert = "lactose"
+  let isAlert = false;
+
+
+
 
   let ingredients = ""
   productData['ingredients']['ingredients'].map((item, index) => {
@@ -40,6 +47,49 @@ export default function ProductGeneralInfo({navigation, route}) {
     else
       ingredients += ", " + item['name']
   })
+
+  let popAlert
+  switch (alert) {
+    case "vegan":
+        popAlert = "This product contains animal related ingredients !";
+        isAlert = true;
+      break;
+    case "vegetarian":
+        popAlert = "This product contains meat or fish !";
+        isAlert = true;
+      break;
+    case "lactose":
+        popAlert = "This product contains lactose !";
+        isAlert = true;
+      break;
+    case "nuts":
+        popAlert = "This product contains nuts !";
+        isAlert = true;
+      break;
+    case "tomato":
+        popAlert = "This product contains tomato !";
+        isAlert = true;
+      break;
+    case "gluten":
+        popAlert = "This product contains gluten !";
+        isAlert = true;
+      break;
+    case "seed":
+        popAlert = "This product contains seed !";
+        isAlert = true;
+      break;
+    case "peanut":
+        popAlert = "This product contains peanut !";
+        isAlert = true;
+      break;
+    default:
+      isAlert = false
+      break;
+  }
+
+const [showAlert, setShowAlert] = useState(isAlert);
+
+  console.log(popAlert, isAlert);
 
   let nutriImage
   switch (productData['nutriments_scores']['total_grade']) {
@@ -87,6 +137,20 @@ export default function ProductGeneralInfo({navigation, route}) {
       <RequireJwt>
         <View style={styles.wrapperStyleInfo}>
           <View>
+            <AwesomeAlert
+            show={showAlert}
+            showProgress={false}
+            title="Warning !"
+            message={popAlert}
+            closeOnTouchOutside={true}
+            closeOnHardwareBackPress={false}
+            showConfirmButton={true}
+            confirmButtonColor="#FF0000"
+            confirmText="OK"
+            onConfirmPressed={() => {
+              setShowAlert(false);
+            }}
+            />
             <Image source={{uri: productData['images']}}
                    style={styles.imageStyleInfo}/>
             <LinearGradient style={styles.gradientStyle}
