@@ -4,6 +4,9 @@ import {shallow} from "enzyme";
 import Login from "../src/screens/Login"
 import JwtProvider from "../Jwt"
 import TrendBar from "../src/components/Trendbar";
+import {OAuthButton} from "../src/components/OAuthButton";
+import {Themed} from "react-navigation";
+import {SocialIcon} from "react-native-elements";
 jest.useFakeTimers()
 jest.mock('@react-navigation/native');
 jest.mock("react-native-gesture-handler");
@@ -28,3 +31,17 @@ it("click on register", () => {
     inst.find("Register").simulate("press");
     expect(navigation.navigate).toHaveBeenCalledWith("register");
 });
+
+it("OAuth Facebook", () => {
+    console.log = jest.fn();
+    const inst = shallow(<OAuthButton service={"Facebook"}/>)
+    inst.find(SocialIcon).simulate("press");
+    expect(console.log).toHaveBeenCalledWith("Facebook")
+})
+
+it("OAuth Google", () => {
+    console.log = jest.fn();
+    const inst = shallow(<OAuthButton service={"Google"}/>)
+    inst.find(SocialIcon).simulate("press");
+    expect(console.log).toHaveBeenCalledWith("Google")
+})

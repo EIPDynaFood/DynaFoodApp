@@ -1,12 +1,12 @@
-import {Text, TouchableHighlight, View} from "react-native";
+import {TouchableHighlight, View} from "react-native";
 import {SocialIcon} from "react-native-elements";
 
 export function OAuthButton(props) {
+    const signIn = () => {
+        console.log(props.service)
+    }
+
     return (
-        <TouchableHighlight>
-        <View type={"outline"}>
-            <SocialIcon
-                        type={props.service.toLowerCase()}/>
-        </View>
-    </TouchableHighlight>)
+            <SocialIcon type={props.service.toLowerCase()}
+                        onPress={() => {signIn()}}/>)
 }
