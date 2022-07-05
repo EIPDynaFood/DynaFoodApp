@@ -1,9 +1,10 @@
-import {StyleSheet, View, TextInput, Image } from "react-native";
+import {StyleSheet, View, TextInput, Image, Text} from "react-native";
 import React, { useState, useEffect } from "react";
 import { FAB, Button} from 'react-native-elements';
 import useJwt from "../../Jwt"
 import axios from "axios";
 import { styles } from "../styles/Style";
+import {OAuthButton} from "../components/OAuthButton";
 
 
 
@@ -65,7 +66,6 @@ export default function Login({navigation, route}) {
                         sendLogin();
                     }}
                     />
-
                 <Button
                     title="Register"
                     type="outline"
@@ -78,7 +78,13 @@ export default function Login({navigation, route}) {
                         navigation.navigate("Register")
                     }}
                     />
+                <Text>Or</Text>
+                <View style={{flexDirection:"row"}}>
+                    <OAuthButton service={"Facebook"}/>
+                    <OAuthButton service={"Google"}/>
+                </View>
             </View>
+
             <Button
                 title="Login as guest"
                 containerStyle={{margin: 15}} 

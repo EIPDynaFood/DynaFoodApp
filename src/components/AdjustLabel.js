@@ -2,9 +2,6 @@ import Text from "react-native";
 import React, {useState} from "react";
 
 export function AdjustLabel(props) {
-
-  console.log(props)
-
   const [currentFontSize, setCurrentFontSize] = useState(props.fontSize);
 
   return (
