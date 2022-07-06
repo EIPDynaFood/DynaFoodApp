@@ -11,7 +11,7 @@ export default function ProductNutritionTable({navigation, route}) {
 
   let arr = Object.entries(productData["nutriments_g_pro_100g"])
 
-  return (
+    return (
       <RequireJwt>
         <View style={styles.wrapperStyleTable}>
           <View style={styles.tableHeadStyleTable}>
@@ -24,8 +24,8 @@ export default function ProductNutritionTable({navigation, route}) {
                       keyExtractor={item => item[0]}
                       renderItem={(({item}) =>
                         <View style={{flexDirection: "row", justifyContent: "space-between"}}>
-                          <Text style={styles.nutrimentsTextStyle}>{item[0]}</Text>
-                          <Text style={styles.valuesTextStyle}>{item[1]}</Text>
+                          <Text style={styles.nutrimentsTextStyle}>{item[1]["name"]}</Text>
+                          <Text style={styles.valuesTextStyle}>{item[1]["score"]}</Text>
                         </View>)}
                       ItemSeparatorComponent={(() => <Divider/>)}/>
           </View>
