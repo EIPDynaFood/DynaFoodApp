@@ -78,7 +78,7 @@ export default function Login({navigation, route}) {
                         navigation.navigate("Register")
                     }}
                     />
-                <Text>Or</Text>
+                <Text style={styles.textInfo}>Or</Text>
                 <View style={{flexDirection:"row"}}>
                     <OAuthButton service={"Facebook"}/>
                     <OAuthButton service={"Google"}/>

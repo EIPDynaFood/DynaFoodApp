@@ -120,6 +120,12 @@ export const styles = StyleSheet.create({
         fontWeight:'700',
         fontSize:30
     },
+    textInfo:{
+        color:'#696969',
+        fontWeight:'500',
+        fontSize:24,
+        maxWidth: '80%'
+    },
     button:{
         backgroundColor:'#fff',
         paddingVertical: 5,
