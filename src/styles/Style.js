@@ -59,7 +59,6 @@ export const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        maxWidth: '80%'
     },
     imagineStyle: {
         height: 100,
@@ -124,7 +123,8 @@ export const styles = StyleSheet.create({
     textInfo:{
         color:'#696969',
         fontWeight:'500',
-        fontSize:24
+        fontSize:24,
+        maxWidth: '80%'
     },
     button:{
         backgroundColor:'#fff',

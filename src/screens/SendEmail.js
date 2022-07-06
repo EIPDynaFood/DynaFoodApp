@@ -26,7 +26,7 @@ export default function SendEmail({navigation}) {
         <View style={{flex:1}}>
             <View style={styles.container}>
                 <Text style={styles.textInfo}>
-                    Please enter the E-mail-address of your Account to reset your password
+                    Please enter the e-mail address of your Account to reset your password
                 </Text>
                 <TextInput
                     placeholder="Email..."
