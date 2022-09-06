@@ -80,8 +80,8 @@ export const styles = StyleSheet.create({
     mainContainerStyle: {
         backgroundColor: "#FFFFFF",
         height: "100%",
-        flexDirection: "row",
-        justifyContent: 'space-between',
+        // flexDirection: "row",
+        // justifyContent: 'space-between',
         },
     tableHeadStyle: {
         fontSize: 20,
@@ -99,8 +99,9 @@ export const styles = StyleSheet.create({
         paddingLeft: 20,
         paddingRight: 15,
         fontSize: 30,
-        paddingBottom: 20
-        },
+        paddingBottom: 20,
+        textAlign: "center",
+    },
     nutrimentsTextStyle: {
         padding: 15,
         },
@@ -230,4 +231,74 @@ export const styles = StyleSheet.create({
         paddingLeft: 15,
         paddingRight: 15,
       },
+      multilineInput: {
+        width: "90%",
+        height: 400,
+        margin: 12,
+        borderWidth: 1,
+        borderColor: "lightgrey",
+        borderRadius: 5,
+        textAlign: "left",
+        textAlignVertical: "top",
+        padding: 20,
+      },
+
+      centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22
+      },
+      modalView: {
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: 10,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+        height: "60%",
+        width: "80%"
+      },
+      buttonModal: {
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2
+      },
+      buttonClose: {
+        backgroundColor: '#376D55',
+        alignSelf: "flex-end"
+      },
+      textStyle: {
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center"
+      },
+      modalText: {
+        marginBottom: 15,
+        textAlign: "center"
+      },
+      dropdown: {
+        position: 'absolute',
+        backgroundColor: '#fff',
+        width: '100%',
+        shadowColor: '#000000',
+        shadowRadius: 4,
+        shadowOffset: { height: 4, width: 0 },
+        shadowOpacity: 0.5,
+      },
+      radioButton: {
+        alignItems: "center",
+        marginBottom: 50
+      },
+      radioButtonText: {
+        padding: 10,
+        fontSize: 20,
+      }
 })

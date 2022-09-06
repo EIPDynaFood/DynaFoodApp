@@ -3,7 +3,7 @@ import React, {useState} from "react";
 
 export function AdjustLabel(props) {
 
-  console.log(props)
+  // console.log(props)
 
   const [currentFontSize, setCurrentFontSize] = useState(props.fontSize);
 

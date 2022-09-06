@@ -89,7 +89,7 @@ export default function ProductGeneralInfo({navigation, route}) {
 
 const [showAlert, setShowAlert] = useState(isAlert);
 
-  console.log(popAlert, isAlert);
+  // console.log(popAlert, isAlert);
 
   let nutriImage
   switch (productData['nutriments_scores']['total_grade']) {
