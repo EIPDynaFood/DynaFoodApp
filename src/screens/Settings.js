@@ -19,7 +19,7 @@ export default function Settings({navigation, route}) {
     let [vegan, setVegan] = useState(false);
     let [color, setColor] = useState('#376D55');
     let [bgcolor, setBgcolor] = useState('#E2E6DB');
-    let [textcolor, setTextcolor] = useState('#00000');
+    let [textcolor, setTextcolor] = useState('#000000');
     let [pagecolor, setPagecolor] = useState("#FFFFFF");
     let [headercolor, setHeadercolor] = useState("rgba(0,0,0,0.6)");
     const isFocused = useIsFocused();
@@ -392,6 +392,16 @@ export default function Settings({navigation, route}) {
                                     marginTop: 5, marginBottom: 20}]}
                             >
                                 <Text style={[styles.textSign, { color: color}]}>Logout</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>Missing Product</Text>
+                        <View style={[styles.button, {backgroundColor: pagecolor}]}>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate("MissingProduct")}
+                                style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
+                                    marginTop: 5, marginBottom: 9, backgroundColor: '#ffff'}]}
+                            >
+                                <Text style={[styles.textSign, { color: '#376D55'}]}>Upload Information</Text>
                             </TouchableOpacity>
                         </View>
                     </View>

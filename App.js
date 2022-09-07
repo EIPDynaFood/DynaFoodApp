@@ -10,6 +10,7 @@ import History from "./src/screens/History";
 import Login from "./src/screens/Login";
 import Register from "./src/screens/Register";
 import Settings from "./src/screens/Settings";
+import MissingProduct from "./src/screens/MissingProduct";
 import Swiper from './src/screens/Swiper';
 import {Icon} from "react-native-elements";
 import useJwt, {JwtProvider} from "./Jwt"
@@ -68,6 +69,7 @@ export function Navigation() {
               <Stack.Screen name="Scanner" component={Scanner}/>
               <Stack.Screen name="Product" component={Product}/>
               <Stack.Screen name="Settings" component={Settings}/>
+              <Stack.Screen name="MissingProduct" component={MissingProduct}/>
             </Stack.Navigator>
           </NavigationContainer>)
   )
