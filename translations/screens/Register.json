@@ -1,0 +1,32 @@
+{
+  "Error": {
+    "de": "Etwas ist beim Registrierungsprozess schiefgelaufen:\n",
+    "en": "Something went wrong in your Registration process:\n",
+    "fr": ""
+  },
+  "Email": {
+    "de": "E-Mail Adresse...",
+    "en": "Email...",
+    "fr": ""
+  },
+  "Password": {
+    "de": "Passwort...",
+    "en": "Password...",
+    "fr": ""
+  },
+  "PasswordConfirm": {
+    "de": "Passwort bestätigen...",
+    "en": "Confirm your password...",
+    "fr": ""
+  },
+  "Register": {
+    "de": "Registrieren",
+    "en": "Register",
+    "fr": ""
+  },
+  "Cancel": {
+    "de": "Zurück",
+    "en": "Cancel",
+    "fr": ""
+  }
+}

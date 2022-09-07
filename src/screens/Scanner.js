@@ -15,6 +15,8 @@ function ScannerOverlay() {
 }
 
 export default function Scanner({ navigation, route }) {
+  const translations = require("../../translations/screens/Scanner.json")
+
   const [productCode, setProductCode] = useState(null);
     const [type, setType] = useState(Camera.Constants.Type.back);
     const [shouldCameraMount, setShouldCameraMount] = useState(true);
@@ -43,7 +45,7 @@ export default function Scanner({ navigation, route }) {
         return <View />;
     }
     if (hasPermission === false) {
-        return <Text>No access to camera</Text>;
+        return <Text>{translations["NoPermission"]}</Text>;
     }
 
   return (
@@ -60,7 +62,7 @@ export default function Scanner({ navigation, route }) {
             <ScannerOverlay/>
           <FAB
               color="black"
-              title="<use debug code>"
+              title={translations["Debug"]}
               style={{position: "absolute", bottom: 16, right: 16}}
               onPress={() => {
                 handleBarCodeScanned({data: "5060335635266"})

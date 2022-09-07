@@ -16,11 +16,13 @@ export default function Product({navigation, route}) {
   const [productCode, setProductCode] = useState(localStorage.getItem("productCode"));
   const [productData, setProductData] = useState(null);
 
+  const translations = require("../../translations/screens/Product.json")
+
   useEffect(() => {
     setProductCode(localStorage.getItem("productCode"));
     axios.get("https://dynafood-server.herokuapp.com/products/barcode/" + productCode).then((res) => {
       if (res.status === 204) { // no data to return
-        alert("Unknown Product");
+        alert(translations["Unknown"]);
         navigation.goBack(null);
       } else {
         setProductData(res.data);
@@ -28,7 +30,7 @@ export default function Product({navigation, route}) {
       }
     }).catch((err) => {
       console.log("catch");
-      alert("something went wrong getting data about the product:\n" + err.message)
+      alert(translations["Error"] + err.message)
       navigation.goBack(null);
       console.log(err);
     });

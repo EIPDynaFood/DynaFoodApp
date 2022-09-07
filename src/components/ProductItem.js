@@ -9,11 +9,13 @@ import { styles } from "../styles/Style";
 export default function ProductItem(itemData) {
   const navigation = useNavigation();
 
+  const translations = require("../../translations/components/ProductItem.json")
+
   const deleteHistoryItem = () => {
     axios.delete('https://dynafood-server.herokuapp.com/history/' + itemData.historyId).then((res) => {
     }).catch((err) => {
       console.log('catch');
-      alert("something went wrong deleting history data: " + err.message);
+      alert(translations["Error"] + err.message);
       console.log(err);
     });
   };

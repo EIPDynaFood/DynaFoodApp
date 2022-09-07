@@ -1,0 +1,58 @@
+{
+  "Skip": {
+    "de": "Überspringen",
+    "en": "Skip",
+    "fr": ""
+  },
+  "Next": {
+    "de": "Weiter",
+    "en": "Next",
+    "fr": ""
+  },
+  "Done": {
+    "de": "Fertig",
+    "en": "Done",
+    "fr": ""
+  },
+  "Page1Title": {
+    "de": "Willkommen bei DynaFood",
+    "en": "Welcome to DynaFood",
+    "fr": ""
+  },
+  "Page1Subtitle": {
+    "de": "Der dynamische Scanner für deine Lebensmittel",
+    "en": "The dynamic scanner for your groceries",
+    "fr": ""
+  },
+  "Page2Title": {
+    "de": "Scan",
+    "en": "Scan",
+    "fr": ""
+  },
+  "Page2Subtitle": {
+    "de": "Mit einem Klick kannst du dir alle Ernährungsinformationen eines Produkts anzeigen lassen",
+    "en": "Within one click you can access all nutritional information of a product",
+    "fr": ""
+  },
+  "Page3Title": {
+    "de": "Auswertung",
+    "en": "Evaluation",
+    "fr": ""
+  },
+  "Page3Subtitle": {
+    "de": "Wir analysieren deine Lebensmittel und geben dir eine Zusammenfassung mit gesunden Alternativen",
+    "en": "We evaluate your groceries and give you a summary with healthy alternatives",
+    "fr": ""
+  },
+
+  "Page4Title": {
+    "de": "Personalisierte Einstellungen",
+    "en": "Personalized Settings",
+    "fr": ""
+  },
+  "Page4Subtitle": {
+    "de": "Nutze die Einstellung um eine personalisierte Analyse zu bekommen. Nur für dich!",
+    "en": "Use the settings to get a personalized evaluation. Just for you!",
+    "fr": ""
+  }
+}

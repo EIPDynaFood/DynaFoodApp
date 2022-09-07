@@ -1,0 +1,107 @@
+{
+  "Lactose": {
+    "de": "Laktose",
+    "en": "Lactose",
+    "fr": ""
+  },
+  "LactoseMessage": {
+    "de": "Du wirst ab jetzt eine Benachrichtigung bekommen, wenn unser Scanner ein Produkt mit Laktose findet",
+    "en": "You will know receive notification if our scanner finds a product with lactose",
+    "fr": ""
+  },
+  "Nuts": {
+    "de": "Nüsse",
+    "en": "Nuts",
+    "fr": ""
+  },
+  "NutsMessage": {
+    "de": "Du wirst ab jetzt eine Benachrichtigung bekommen, wenn unser Scanner ein Produkt mit Nüssen findet",
+    "en": "You will know receive notification if our scanner finds a product with nuts",
+    "fr": ""
+  },
+  "Gluten": {
+    "de": "Gluten",
+    "en": "Gluten",
+    "fr": ""
+  },
+  "GlutenMessage": {
+    "de": "Du wirst ab jetzt eine Benachrichtigung bekommen, wenn unser Scanner ein Produkt mit Gluten findet",
+    "en": "You will know receive notification if our scanner finds a product with gluten",
+    "fr": ""
+  },
+  "Peanuts": {
+    "de": "Erdnüsse",
+    "en": "Peanuts",
+    "fr": ""
+  },
+  "PeanutsMessage": {
+    "de": "",
+    "en": "You will know receive notification if our scanner finds a product with peanuts",
+    "fr": ""
+  },
+  "Vegetarian": {
+    "de": "Vegetarisch",
+    "en": "Vegetarian",
+    "fr": ""
+  },
+  "VegetarianMessage": {
+    "de": "",
+    "en": "You will know receive notification if our scanner finds non-vegetarian ingredients",
+    "fr": ""
+  },
+  "Vegan": {
+    "de": "Vegan",
+    "en": "Vegan",
+    "fr": ""
+  },
+  "VeganMessage": {
+    "de": "",
+    "en": "You will know receive notification if our scanner finds non-vegan ingredients",
+    "fr": ""
+  },
+  "AllergenDeleted": {
+    "de": "Allergen erfolgreich entfernt",
+    "en": "Allergen successfully deleted",
+    "fr": ""
+  },
+  "DietDeleted": {
+    "de": "Diät erfolgreich entfernt",
+    "en": "Diet successfully deleted",
+    "fr": ""
+  },
+  "Allergies": {
+    "de": "Allergien",
+    "en": "Allergies",
+    "fr": ""
+  },
+  "Diets": {
+    "de": "Diäten",
+    "en": "Diets",
+    "fr": ""
+  },
+  "Theme": {
+    "de": "Modus",
+    "en": "Theme",
+    "fr": ""
+  },
+  "LightMode": {
+    "de": "Light-Modus",
+    "en": "Light mode",
+    "fr": ""
+  },
+  "DarkMode": {
+    "de": "Dark-Modus",
+    "en": "Dark mode",
+    "fr": ""
+  },
+  "Account": {
+    "de": "Konto",
+    "en": "Account",
+    "fr": ""
+  },
+  "Logout": {
+    "de": "Ausloggen",
+    "en": "Logout",
+    "fr": ""
+  }
+}

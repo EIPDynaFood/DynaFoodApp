@@ -6,13 +6,12 @@ import {LinearGradient} from "expo-linear-gradient";
 import {assertBoolean} from "@babel/core/lib/config/validation/option-assertions";
 import { styles } from "../styles/Style";
 import AwesomeAlert from "react-native-awesome-alerts";
+import translations from "../../translations/screens/ProductGeneralInfo.json";
 
 
 const axios = require('axios');
 
 function AdjustLabel(props) {
-
-
   const [currentFontSize, setCurrentFontSize] = useState(props.fontSize);
 
   return (
@@ -37,8 +36,7 @@ export default function ProductGeneralInfo({navigation, route}) {
   const alert = "lactose"
   let isAlert = false;
 
-
-
+  const translations = require("../../translations/screens/ProductGeneralInfo.json")
 
   let ingredients = ""
   productData['ingredients']['ingredients'].map((item, index) => {
@@ -51,35 +49,35 @@ export default function ProductGeneralInfo({navigation, route}) {
   let popAlert
   switch (alert) {
     case "vegan":
-        popAlert = "This product contains animal related ingredients !";
+        popAlert = translations["Vegan"];
         isAlert = true;
       break;
     case "vegetarian":
-        popAlert = "This product contains meat or fish !";
+        popAlert = translations["Vegetarian"];
         isAlert = true;
       break;
     case "lactose":
-        popAlert = "This product contains lactose !";
+        popAlert = translations["Lactose"];
         isAlert = true;
       break;
     case "nuts":
-        popAlert = "This product contains nuts !";
+        popAlert = translations["Nuts"];
         isAlert = true;
       break;
     case "tomato":
-        popAlert = "This product contains tomato !";
+        popAlert = translations["Tomato"];
         isAlert = true;
       break;
     case "gluten":
-        popAlert = "This product contains gluten !";
+        popAlert = translations["Gluten"];
         isAlert = true;
       break;
     case "seed":
-        popAlert = "This product contains seed !";
+        popAlert = translations["Seed"];
         isAlert = true;
       break;
     case "peanut":
-        popAlert = "This product contains peanut !";
+        popAlert = translations["Peanut"];
         isAlert = true;
       break;
     default:

@@ -16,6 +16,8 @@ export default function Login({navigation, route}) {
     const [email, onChangeEmail] = React.useState("");
     const [password, onChangePassword] = React.useState("");
 
+    const translations = require("../../translations/screens/Login.json")
+
     const sendLogin = () => {
         var config = {
             method: 'get',
@@ -27,7 +29,7 @@ export default function Login({navigation, route}) {
                 navigation.navigate("History")
             })
             .catch(function (error) {
-                alert("Wrong user credentials:\n" + error.message)
+                alert(translations["Error"] + error.message)
                 console.log(error);
             });
     };
@@ -39,14 +41,14 @@ export default function Login({navigation, route}) {
                 <Image source={require('../../assets/logo_frame_invisible.png')}
                         style={styles.registerLoginLogo}/>
                 <TextInput
-                    placeholder="Email..."
+                    placeholder={translations["Email"]}
                     style={styles.input}
                     onChangeText={onChangeEmail}
                     value={email}
                     keyboardType="email-address"
                     />
                 <TextInput
-                    placeholder="Password..."
+                    placeholder={translations["Password"]}
                     style={styles.input}
                     onChangeText={onChangePassword}
                     value={password}
@@ -55,7 +57,7 @@ export default function Login({navigation, route}) {
                     />
 
                 <Button
-                    title="Login"
+                    title={translations["Login"]}
                     containerStyle= {{
                         margin:15
                     }}
@@ -67,7 +69,7 @@ export default function Login({navigation, route}) {
                     />
 
                 <Button
-                    title="Register"
+                    title={translations["Register"]}
                     type="outline"
                     containerStyle= {{
                         margin:15
@@ -80,7 +82,7 @@ export default function Login({navigation, route}) {
                     />
             </View>
             <Button
-                title="Login as guest"
+                title={translations["Guest"]}
                 containerStyle={{margin: 15}} 
                 buttonStyle={styles.loginAsGuest}
                 titleStyle={{color:"#FFF", flex:1}}

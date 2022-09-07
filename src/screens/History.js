@@ -16,22 +16,24 @@ export default function History() {
   const navigation = useNavigation();
   const [search, setSearch] = useState(null);
 
+  const translations = require("../../translations/screens/History.json")
+
   return (
       <RequireJwt>
         <View style={StyleSheet.absoluteFillObject}>
           <SearchBar
             inputContainerStyle={styles.searchBar}
             value={search}
-            placeholder="Search a product"/>
+            placeholder={translations["SearchBar"]}/>
           <View style={styles.trendBar}>
             <Text style={styles.headlineStyle}>
-              Trending
+              {translations["TrendText"]}
             </Text>
             <TrendBar/>
           </View>
           <View style={{alignSelf: 'center', width: '90%', flex: 1}}>
             <Text style={styles.headlineStyle}>
-              Your products
+              {translations["ProductText"]}
             </Text>
             <ProductHistory data={null}/>
           </View>

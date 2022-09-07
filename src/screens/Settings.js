@@ -6,6 +6,7 @@ import useJwt from "../../Jwt"
 import {RequireJwt} from "../components/RequireJwt";
 import axios from "axios";
 import { styles } from "../styles/Style";
+import translations from "../../translations/screens/Settings.json";
 
 export default function Settings({navigation, route}) {
     var axios = require('axios');
@@ -23,6 +24,7 @@ export default function Settings({navigation, route}) {
     let [pagecolor, setPagecolor] = useState("#FFFFFF");
     let [headercolor, setHeadercolor] = useState("rgba(0,0,0,0.6)");
     const isFocused = useIsFocused();
+    const translations = require("../../translations/screens/Settings.json")
 
     var config = {
         method: 'get',
@@ -54,7 +56,7 @@ export default function Settings({navigation, route}) {
 
     function handleLactose() {
         if (!lactose) {
-            alert("You will know receive notification if we find a scanner ingredient with such option")
+            alert(translations["LactoseMessage"])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `lactose`,
@@ -73,7 +75,7 @@ export default function Settings({navigation, route}) {
                 }
             })
         } else {
-            alert("Allergen successfuly deleted")
+            alert(translations["AllergenDeleted"])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `lactose`,
@@ -98,7 +100,7 @@ export default function Settings({navigation, route}) {
 
     function handleNuts() {
         if (!nuts) {
-            alert("You will know receive notification if we find a scanner ingredient with such option")
+            alert(translations["NutsMessage"])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `nuts`,
@@ -117,7 +119,7 @@ export default function Settings({navigation, route}) {
                 }
             })
         } else {
-            alert("Allergen successfuly deleted")
+            alert(translations["AllergenDeleted"])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `nuts`,
@@ -142,7 +144,7 @@ export default function Settings({navigation, route}) {
 
     function handleGluten() {
         if (!gluten) {
-            alert("You will know receive notification if we find a scanner ingredient with such option")
+            alert(translations["GlutenMessage"])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `gluten`,
@@ -161,7 +163,7 @@ export default function Settings({navigation, route}) {
                 }
             })
         } else {
-            alert("Allergen successfuly deleted")
+            alert(translations["AllergenDeleted"])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `gluten`,
@@ -186,7 +188,7 @@ export default function Settings({navigation, route}) {
 
     function handlePeanut() {
         if (!peanut) {
-            alert("You will know receive notification if we find a scanner ingredient with such option")
+            alert(translations["PeanutsMessage"])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `peanut`,
@@ -205,7 +207,7 @@ export default function Settings({navigation, route}) {
                 }
             })
         } else {
-            alert("Allergen successfuly deleted")
+            alert(translations["AllergenDeleted"])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `peanut`,
@@ -230,7 +232,7 @@ export default function Settings({navigation, route}) {
 
     function handleVegetarian() {
         if (!nuts) {
-            alert("You will know receive notification if we find a scanner ingredient with such option")
+            alert(translations["VegetarianMessage"])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `vegetarian`,
@@ -249,7 +251,7 @@ export default function Settings({navigation, route}) {
                 }
             })
         } else {
-            alert("Diet successfuly deleted")
+            alert(translations["DietDeleted"])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `vegetarian`,
@@ -274,7 +276,7 @@ export default function Settings({navigation, route}) {
 
     function handleVegan() {
         if (!vegan) {
-            alert("You will know receive notification if we find a scanner ingredient with such option")
+            alert(translations["VeganMessage"])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `vegan`,
@@ -293,7 +295,7 @@ export default function Settings({navigation, route}) {
                 }
             })
         } else {
-            alert("Diet successfuly deleted")
+            alert(translations["DietDeleted"])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `vegan`,
@@ -350,48 +352,48 @@ export default function Settings({navigation, route}) {
                 <View style={[styles.mainContainerStyle, {backgroundColor: pagecolor}]}>
                     <View style={{marginLeft: 15, marginTop: 10, marginBottom: 10}}>
 
-                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>Allergies</Text>
-                        <Linear text='Lactose' value={lactose} onValueChange={() => handleLactose()}/>
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Allergies"]}</Text>
+                        <Linear text={translations["Lactose"]} value={lactose} onValueChange={() => handleLactose()}/>
                         <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-                        <Linear text='Nuts' value={nuts} onValueChange={() => handleNuts()}/>
+                        <Linear text={translations['Nuts']} value={nuts} onValueChange={() => handleNuts()}/>
                         <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-                        <Linear text='Gluten' value={gluten} onValueChange={() => handleGluten()}/>
+                        <Linear text={translations['Gluten']} value={gluten} onValueChange={() => handleGluten()}/>
                         <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-                        <Linear text='Peanut' value={peanut} onValueChange={() => handlePeanut()}/>
-                        <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-
-                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>Diets</Text>
-                        <Linear text='Vegetarian' value={vegetarian} onValueChange={() => handleVegetarian()}/>
-                        <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-                        <Linear text='Vegan' value={vegan} onValueChange={() => handleVegan()}/>
+                        <Linear text={translations['Peanut']} value={peanut} onValueChange={() => handlePeanut()}/>
                         <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
 
-                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>Theme</Text>
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Diets"]}</Text>
+                        <Linear text={translations['Vegetarian']} value={vegetarian} onValueChange={() => handleVegetarian()}/>
+                        <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
+                        <Linear text={translations['Vegan']} value={vegan} onValueChange={() => handleVegan()}/>
+                        <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
+
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Theme"]}</Text>
                         <View style={[styles.button, {backgroundColor: pagecolor}]}>
                             <TouchableOpacity
                                 onPress={() => handleTheme('#376D55', '#E2E6DB', '#000', "rgba(0,0,0,0.6)", "#FFFFFF")}
                                 style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
                                     marginTop: 5, marginBottom: 9, backgroundColor: '#ffff'}]}
                             >
-                                <Text style={[styles.textSign, { color: '#376D55'}]}>Light mode</Text>
+                                <Text style={[styles.textSign, { color: '#376D55'}]}>{translations["LightMode"]}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() => handleTheme("#FFFFFF",'#376D55',"#FFFFFF","#FFFFFF",'#376D55')}
                                 style={[styles.signIn, {borderColor: '#ffff', borderWidth: 1,
                                     marginTop: 5, marginBottom: 20, backgroundColor: '#376D55'}]}
                             >
-                                <Text style={[styles.textSign, { color: '#ffff'}]}>Dark mode</Text>
+                                <Text style={[styles.textSign, { color: '#ffff'}]}>{translations["DarkMode"]}</Text>
                             </TouchableOpacity>
                         </View>
 
-                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>SignOut</Text>
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Account"]}</Text>
                         <View style={[styles.button, {backgroundColor: pagecolor}]}>
                             <TouchableOpacity
                                 onPress={() => logoutUser()}
                                 style={[styles.signIn, {borderColor: color, borderWidth: 1,
                                     marginTop: 5, marginBottom: 20}]}
                             >
-                                <Text style={[styles.textSign, { color: color}]}>Logout</Text>
+                                <Text style={[styles.textSign, { color: color}]}>{translations["Logout"]}</Text>
                             </TouchableOpacity>
                         </View>
                     </View>

@@ -3,9 +3,11 @@ import { View, Text, Button, Image, StyleSheet, TouchableOpacity, Dimensions } f
 import Onboarding from "react-native-onboarding-swiper";
 import { styles } from "../styles/Style";
 
+const translations = require( "../../translations/screens/Swiper.json")
+
 const Skip = ({...props}) => (
     <Button
-        title="Skip"
+        title={translations["Skip"]}
         color="#000000"
         {...props}
     />
@@ -13,7 +15,7 @@ const Skip = ({...props}) => (
 
 const Next = ({...props}) => (
     <Button
-        title="Next"
+        title={translations["Next"]}
         color="#000000"
         {...props}
     />
@@ -24,7 +26,7 @@ const Done = ({...props}) => (
         style={{marginHorizontal:8}}
         {...props}
     >
-        <Text style={{fontSize:16}}>Done</Text>
+        <Text style={{fontSize:16}}>{translations["Done"]}</Text>
     </TouchableOpacity>
 );
 
@@ -40,26 +42,26 @@ const Swiper = ({navigation}) => {
                 {
                     backgroundColor: '#E2E6DB',
                     image: <Image style={styles.imagineStyle} source={require('../../assets/logo_frame.png')} />,
-                    title: 'Welcome to DynaFood',
-                    subtitle: 'dynamically scan your food in real life',
+                    title: translations["Page1Title"],
+                    subtitle: translations["Page1Subtitle"],
                 },
                 {
                     backgroundColor: '#bfeeb7',
                     image: <Image style={styles.imagineStyle} source={require('../../assets/scanner.png')} />,
-                    title: 'Scan',
-                    subtitle: 'Within one click you can access all nutritional information of a product',
+                    title: translations["Page2Title"],
+                    subtitle: translations["Page2Subtitle"],
                 },
                 {
                     backgroundColor: '#c2f70f',
                     image: <Image style={styles.imagineStyle} source={require('../../assets/eco-scores/eco-score-A.png')} />,
-                    title: 'Nutri-Score',
-                    subtitle: 'Get all nutriment of Scanned product in the desired language in your settings',
+                    title: translations["Page3Title"],
+                    subtitle: translations["Page3Subtitle"]
                 },
                 {
                     backgroundColor: '#f25e35',
                     image: <Image style={styles.imagineStyle} source={require('../../assets/settings.png')} />,
-                    title: 'Personalized Settings',
-                    subtitle: 'Make sure to get notified if any allergens is present',
+                    title: translations["Page4Title"],
+                    subtitle: translations["Page4Subtitle"],
                 },
             ]}
         />

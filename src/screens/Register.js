@@ -19,6 +19,8 @@ export default function Register() {
     const [password, onChangePassword] = React.useState("");
     const [ConPassword, onChangeConPassword] = React.useState("")
 
+    const translations = require("../../translations/screens/Register.json")
+
     const sendRegister = () => {
         var qs = require('qs');
             var data = qs.stringify({
@@ -43,7 +45,7 @@ export default function Register() {
                     navigation.navigate("History");
                 })
                 .catch(function (error) {
-                    alert("Something went wrong in your Registration process:\n" + error.message)
+                    alert(translations["Error"] + error.message)
                     console.log(error);
                     console.log(error.response);
                     console.log("email in use");
@@ -55,14 +57,14 @@ export default function Register() {
             <Image source={require('../../assets/logo_frame_invisible.png')}
                     style={styles.registerLoginLogo}/>
             <TextInput
-                placeholder="Email..."
+                placeholder={translations["Email"]}
                 style={styles.input}
                 onChangeText={onChangeEmail}
                 value={email}
                 keyboardType="email-address"
             />
             <TextInput
-                placeholder="Password..."
+                placeholder={translations["Password"]}
                 style={styles.input}
                 onChangeText={onChangePassword}
                 value={password}
@@ -70,7 +72,7 @@ export default function Register() {
                 autoCapitalize='none'
             />
             <TextInput
-                placeholder="Confirm your Password..."
+                placeholder={translations["PasswordConfirm"]}
                 style={styles.input}
                 onChangeText={onChangeConPassword}
                 value={ConPassword}
@@ -78,7 +80,7 @@ export default function Register() {
                 autoCapitalize='none'
             />
             <Button
-                title="Register"
+                title={translations["Register"]}
                 containerStyle= {{
                     margin:15
                 }}
@@ -89,7 +91,7 @@ export default function Register() {
                 }}
                 />
             <Button
-                title="Cancel"
+                title={translations["Cancel"]}
                 type="outline"
                 containerStyle= {{
                     margin:15

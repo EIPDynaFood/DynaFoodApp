@@ -11,12 +11,14 @@ export default function ProductHistory(props) {
   const [historyData, setHistoryData] = useState(props.data);
   const navigation = useNavigation();
 
+  const translations = require("../../translations/components/ProductHistory.json")
+
   useEffect(() => {
     axios.get('https://dynafood-server.herokuapp.com/history').then((res) => {
       setHistoryData(res.data);
     }).catch((err) => {
       console.log('catch');
-      alert("something went wrong getting history data: " + err.message);
+      alert(translations["Error"] + err.message);
       console.log(err);
     });
   }, []);

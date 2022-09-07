@@ -1,0 +1,17 @@
+{
+  "SearchBar": {
+    "de": "Ein Produkt suchen...",
+    "en": "Search for a product...",
+    "fr": ""
+  },
+  "TrendText": {
+    "de": "Trends",
+    "en": "Trending",
+    "fr": ""
+  },
+  "ProductText": {
+    "de": "Deine Produkte",
+    "en": "Your products",
+    "fr": ""
+  }
+}

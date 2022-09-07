@@ -1,0 +1,32 @@
+{
+  "Error": {
+    "de": "Falsches Passwort oder falsche E.Mail Adresse:\n",
+    "en": "Wrong user credentials:\n",
+    "fr": ""
+  },
+  "Email": {
+    "de": "E-Mail Adresse...",
+    "en": "Email...",
+    "fr": ""
+  },
+  "Password": {
+    "de": "Passwort...",
+    "en": "Password...",
+    "fr": ""
+  },
+  "Login": {
+    "de": "Einloggen",
+    "en": "Login",
+    "fr": ""
+  },
+  "Register": {
+    "de": "Registrieren",
+    "en": "Register",
+    "fr": ""
+  },
+  "Guest": {
+    "de": "Als Gast anmelden",
+    "en": "Login as guest",
+    "fr": ""
+  }
+}
