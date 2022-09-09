@@ -1,11 +1,10 @@
-import {StyleSheet, View, TextInput, Image } from "react-native";
-import React, { useState, useEffect } from "react";
-import { FAB, Button} from 'react-native-elements';
+import {View, TextInput, Image} from "react-native";
+import React from "react";
+import {Button} from 'react-native-elements';
 import useJwt from "../../Jwt"
 import axios from "axios";
-import { styles } from "../styles/Style";
-
-
+import {styles} from "../styles/Style";
+import useLang from "../../Language";
 
 export default function Login({navigation, route}) {
     const {login} = useJwt()
@@ -17,6 +16,7 @@ export default function Login({navigation, route}) {
     const [password, onChangePassword] = React.useState("");
 
     const translations = require("../../translations/screens/Login.json")
+    const {lang} = useLang()
 
     const sendLogin = () => {
         var config = {
@@ -29,7 +29,7 @@ export default function Login({navigation, route}) {
                 navigation.navigate("History")
             })
             .catch(function (error) {
-                alert(translations["Error"] + error.message)
+                alert(translations["Error"][lang] + error.message)
                 console.log(error);
             });
     };
@@ -41,14 +41,14 @@ export default function Login({navigation, route}) {
                 <Image source={require('../../assets/logo_frame_invisible.png')}
                         style={styles.registerLoginLogo}/>
                 <TextInput
-                    placeholder={translations["Email"]}
+                    placeholder={translations["Email"][lang]}
                     style={styles.input}
                     onChangeText={onChangeEmail}
                     value={email}
                     keyboardType="email-address"
                     />
                 <TextInput
-                    placeholder={translations["Password"]}
+                    placeholder={translations["Password"][lang]}
                     style={styles.input}
                     onChangeText={onChangePassword}
                     value={password}
@@ -57,7 +57,7 @@ export default function Login({navigation, route}) {
                     />
 
                 <Button
-                    title={translations["Login"]}
+                    title={translations["Login"][lang]}
                     containerStyle= {{
                         margin:15
                     }}
@@ -69,7 +69,7 @@ export default function Login({navigation, route}) {
                     />
 
                 <Button
-                    title={translations["Register"]}
+                    title={translations["Register"][lang]}
                     type="outline"
                     containerStyle= {{
                         margin:15
@@ -82,7 +82,7 @@ export default function Login({navigation, route}) {
                     />
             </View>
             <Button
-                title={translations["Guest"]}
+                title={translations["Guest"][lang]}
                 containerStyle={{margin: 15}} 
                 buttonStyle={styles.loginAsGuest}
                 titleStyle={{color:"#FFF", flex:1}}

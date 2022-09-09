@@ -13,6 +13,7 @@ import Settings from "./src/screens/Settings";
 import Swiper from './src/screens/Swiper';
 import {Icon} from "react-native-elements";
 import useJwt, {JwtProvider} from "./Jwt"
+import useLang, {LangProvider} from "./Language";
 import {RequireJwt} from "./src/components/RequireJwt"
 import isReadyRef from "react-native/Libraries/Components/DrawerAndroid/DrawerLayoutAndroid";
 
@@ -20,9 +21,11 @@ const Stack = createNativeStackNavigator();
 
 export function Navigation() {
   const {jwt} = useJwt();
+  const {translate} = useLang();
   let swiper = localStorage.getItem('Swiper');
-  console.log(swiper)
-  //setSwiper = localStorage.getItem('Swiper')
+  const currLang = localStorage.getItem('Language');
+  if (currLang !== null)
+      translate(currLang)
 
   return (
       jwt === null ? (
@@ -86,7 +89,9 @@ export default function App() {
               backgroundColor="#2E4D44"
           />
         <JwtProvider>
-          <Navigation/>
+            <LangProvider>
+                <Navigation/>
+            </LangProvider>
         </JwtProvider>
       </View>
   );

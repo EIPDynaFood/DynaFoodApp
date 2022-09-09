@@ -1,18 +1,16 @@
 import {Button, StyleSheet, Text, View, Image, FlatList, ScrollView} from "react-native";
-import React, {useState, useEffect} from "react";
-import {FAB, ListItem} from "react-native-elements";
+import React, {useState} from "react";
 import {RequireJwt} from "../components/RequireJwt";
 import {LinearGradient} from "expo-linear-gradient";
-import {assertBoolean} from "@babel/core/lib/config/validation/option-assertions";
 import { styles } from "../styles/Style";
 import AwesomeAlert from "react-native-awesome-alerts";
-import translations from "../../translations/screens/ProductGeneralInfo.json";
-
+import useLang from "../../Language"
 
 const axios = require('axios');
 
 function AdjustLabel(props) {
   const [currentFontSize, setCurrentFontSize] = useState(props.fontSize);
+
 
   return (
       <Text
@@ -37,6 +35,7 @@ export default function ProductGeneralInfo({navigation, route}) {
   let isAlert = false;
 
   const translations = require("../../translations/screens/ProductGeneralInfo.json")
+  const {lang} = useLang();
 
   let ingredients = ""
   productData['ingredients']['ingredients'].map((item, index) => {
@@ -49,35 +48,35 @@ export default function ProductGeneralInfo({navigation, route}) {
   let popAlert
   switch (alert) {
     case "vegan":
-        popAlert = translations["Vegan"];
+        popAlert = translations["Vegan"][lang];
         isAlert = true;
       break;
     case "vegetarian":
-        popAlert = translations["Vegetarian"];
+        popAlert = translations["Vegetarian"][lang];
         isAlert = true;
       break;
     case "lactose":
-        popAlert = translations["Lactose"];
+        popAlert = translations["Lactose"][lang];
         isAlert = true;
       break;
     case "nuts":
-        popAlert = translations["Nuts"];
+        popAlert = translations["Nuts"][lang];
         isAlert = true;
       break;
     case "tomato":
-        popAlert = translations["Tomato"];
+        popAlert = translations["Tomato"][lang];
         isAlert = true;
       break;
     case "gluten":
-        popAlert = translations["Gluten"];
+        popAlert = translations["Gluten"][lang];
         isAlert = true;
       break;
     case "seed":
-        popAlert = translations["Seed"];
+        popAlert = translations["Seed"][lang];
         isAlert = true;
       break;
     case "peanut":
-        popAlert = translations["Peanut"];
+        popAlert = translations["Peanut"][lang];
         isAlert = true;
       break;
     default:

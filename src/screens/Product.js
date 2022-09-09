@@ -5,8 +5,8 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import ProductGeneralInfo from "./ProductGeneralInfo";
 import ProductNutritionTable from "./ProductNutritionTable";
 import {RequireJwt} from "../components/RequireJwt";
-import { Ionicons } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/Ionicons';
+import useLang from "../../Language";
 
 const Tab = createMaterialTopTabNavigator();
 const axios = require('axios');
@@ -17,12 +17,13 @@ export default function Product({navigation, route}) {
   const [productData, setProductData] = useState(null);
 
   const translations = require("../../translations/screens/Product.json")
+  const {lang} = useLang();
 
   useEffect(() => {
     setProductCode(localStorage.getItem("productCode"));
     axios.get("https://dynafood-server.herokuapp.com/products/barcode/" + productCode).then((res) => {
       if (res.status === 204) { // no data to return
-        alert(translations["Unknown"]);
+        alert(translations["Unknown"][lang]);
         navigation.goBack(null);
       } else {
         setProductData(res.data);
@@ -30,7 +31,7 @@ export default function Product({navigation, route}) {
       }
     }).catch((err) => {
       console.log("catch");
-      alert(translations["Error"] + err.message)
+      alert(translations["Error"][lang] + err.message)
       navigation.goBack(null);
       console.log(err);
     });

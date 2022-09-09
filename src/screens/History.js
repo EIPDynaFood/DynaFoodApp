@@ -1,14 +1,12 @@
 import {Button, StyleSheet, Text, View, Image, ToastAndroid} from "react-native";
 import React, {useState, useEffect} from "react";
 import {FAB} from 'react-native-elements';
-import {Icon} from 'react-native-elements';
 import {useNavigation} from "@react-navigation/native";
 import {RequireJwt} from "../components/RequireJwt";
 import SearchBar from "react-native-elements/dist/searchbar/SearchBar-ios";
-import { ScrollView } from "react-native-gesture-handler";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import TrendBar from "../components/Trendbar";
 import ProductHistory from "../components/ProductHistory";
+import useLang from "../../Language";
 
 const axios = require('axios');
 
@@ -17,6 +15,7 @@ export default function History() {
   const [search, setSearch] = useState(null);
 
   const translations = require("../../translations/screens/History.json")
+  const {lang} = useLang();
 
   return (
       <RequireJwt>
@@ -24,16 +23,16 @@ export default function History() {
           <SearchBar
             inputContainerStyle={styles.searchBar}
             value={search}
-            placeholder={translations["SearchBar"]}/>
+            placeholder={translations["SearchBar"][lang]}/>
           <View style={styles.trendBar}>
             <Text style={styles.headlineStyle}>
-              {translations["TrendText"]}
+              {translations["TrendText"][lang]}
             </Text>
             <TrendBar/>
           </View>
           <View style={{alignSelf: 'center', width: '90%', flex: 1}}>
             <Text style={styles.headlineStyle}>
-              {translations["ProductText"]}
+              {translations["ProductText"][lang]}
             </Text>
             <ProductHistory data={null}/>
           </View>

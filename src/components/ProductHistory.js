@@ -6,19 +6,20 @@ import {FAB, Icon} from "react-native-elements";
 import {ScrollView, TouchableWithoutFeedback} from "react-native-gesture-handler";
 import ProductItem from "./ProductItem";
 import { styles } from "../styles/Style";
-
+import useLang from "../../Language"
 export default function ProductHistory(props) {
   const [historyData, setHistoryData] = useState(props.data);
   const navigation = useNavigation();
 
   const translations = require("../../translations/components/ProductHistory.json")
+  const {lang} = useLang()
 
   useEffect(() => {
     axios.get('https://dynafood-server.herokuapp.com/history').then((res) => {
       setHistoryData(res.data);
     }).catch((err) => {
       console.log('catch');
-      alert(translations["Error"] + err.message);
+      alert(translations["Error"][lang] + err.message);
       console.log(err);
     });
   }, []);

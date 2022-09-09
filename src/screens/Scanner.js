@@ -4,6 +4,7 @@ import {FAB} from "react-native-elements";
 import {RequireJwt} from "../components/RequireJwt";
 import { Camera } from 'expo-camera';
 import { styles } from "../styles/Style";
+import useLang from "../../Language";
 
 function ScannerOverlay() {
 
@@ -16,6 +17,7 @@ function ScannerOverlay() {
 
 export default function Scanner({ navigation, route }) {
   const translations = require("../../translations/screens/Scanner.json")
+  const {lang} = useLang();
 
   const [productCode, setProductCode] = useState(null);
     const [type, setType] = useState(Camera.Constants.Type.back);
@@ -45,7 +47,7 @@ export default function Scanner({ navigation, route }) {
         return <View />;
     }
     if (hasPermission === false) {
-        return <Text>{translations["NoPermission"]}</Text>;
+        return <Text>{translations["NoPermission"][lang]}</Text>;
     }
 
   return (
@@ -62,7 +64,7 @@ export default function Scanner({ navigation, route }) {
             <ScannerOverlay/>
           <FAB
               color="black"
-              title={translations["Debug"]}
+              title={translations["Debug"][lang]}
               style={{position: "absolute", bottom: 16, right: 16}}
               onPress={() => {
                 handleBarCodeScanned({data: "5060335635266"})

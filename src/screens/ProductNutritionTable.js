@@ -3,11 +3,15 @@ import React from "react";
 import { Divider } from "react-native-elements";
 import {RequireJwt} from "../components/RequireJwt";
 import { styles } from "../styles/Style";
+import useLang from "../../Language";
 
 const axios = require('axios');
 
 export default function ProductNutritionTable({navigation, route}) {
   const {itemId, productData} = route.params;
+
+  const translations = require("../../translations/screens/ProductNutritionTable.json")
+  const {lang} = useLang();
 
   let arr = Object.entries(productData["nutriments_g_pro_100g"])
 
@@ -15,8 +19,8 @@ export default function ProductNutritionTable({navigation, route}) {
       <RequireJwt>
         <View style={styles.wrapperStyleTable}>
           <View style={styles.tableHeadStyleTable}>
-            <Text style={styles.tableHeadTextStyleTable}>Nutriments</Text>
-            <Text style={styles.tableHeadTextStyleTable}>pro 100g/L</Text>
+            <Text style={styles.tableHeadTextStyleTable}>{translations["Nutriments"][lang]}</Text>
+            <Text style={styles.tableHeadTextStyleTable}>{translations["Unit"][lang]}</Text>
           </View>
           <Divider/>
           <View style={styles.mainContainerStyle}>

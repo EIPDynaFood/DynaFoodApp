@@ -5,6 +5,7 @@ import {useNavigation} from "@react-navigation/native";
 import useJwt from "../../Jwt"
 import axios from "axios";
 import { styles } from "../styles/Style";
+import useLang from "../../Language";
 
 export default function Register() {
     const navigation = useNavigation();
@@ -20,6 +21,7 @@ export default function Register() {
     const [ConPassword, onChangeConPassword] = React.useState("")
 
     const translations = require("../../translations/screens/Register.json")
+    const {lang} = useLang()
 
     const sendRegister = () => {
         var qs = require('qs');
@@ -45,7 +47,7 @@ export default function Register() {
                     navigation.navigate("History");
                 })
                 .catch(function (error) {
-                    alert(translations["Error"] + error.message)
+                    alert(translations["Error"][lang] + error.message)
                     console.log(error);
                     console.log(error.response);
                     console.log("email in use");
@@ -57,14 +59,14 @@ export default function Register() {
             <Image source={require('../../assets/logo_frame_invisible.png')}
                     style={styles.registerLoginLogo}/>
             <TextInput
-                placeholder={translations["Email"]}
+                placeholder={translations["Email"][lang]}
                 style={styles.input}
                 onChangeText={onChangeEmail}
                 value={email}
                 keyboardType="email-address"
             />
             <TextInput
-                placeholder={translations["Password"]}
+                placeholder={translations["Password"][lang]}
                 style={styles.input}
                 onChangeText={onChangePassword}
                 value={password}
@@ -72,7 +74,7 @@ export default function Register() {
                 autoCapitalize='none'
             />
             <TextInput
-                placeholder={translations["PasswordConfirm"]}
+                placeholder={translations["PasswordConfirm"][lang]}
                 style={styles.input}
                 onChangeText={onChangeConPassword}
                 value={ConPassword}
@@ -80,7 +82,7 @@ export default function Register() {
                 autoCapitalize='none'
             />
             <Button
-                title={translations["Register"]}
+                title={translations["Register"][lang]}
                 containerStyle= {{
                     margin:15
                 }}
@@ -91,7 +93,7 @@ export default function Register() {
                 }}
                 />
             <Button
-                title={translations["Cancel"]}
+                title={translations["Cancel"][lang]}
                 type="outline"
                 containerStyle= {{
                     margin:15

@@ -1,21 +1,22 @@
 import {useNavigation} from "@react-navigation/native";
 import axios from "axios";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {TouchableWithoutFeedback} from "react-native-gesture-handler";
 import {Icon} from "react-native-elements";
 import React from "react";
 import { styles } from "../styles/Style";
+import useLang from "../../Language";
 
 export default function ProductItem(itemData) {
   const navigation = useNavigation();
 
   const translations = require("../../translations/components/ProductItem.json")
+  const {lang} = useLang()
 
   const deleteHistoryItem = () => {
     axios.delete('https://dynafood-server.herokuapp.com/history/' + itemData.historyId).then((res) => {
     }).catch((err) => {
       console.log('catch');
-      alert(translations["Error"] + err.message);
+      alert(translations["Error"][lang] + err.message);
       console.log(err);
     });
   };

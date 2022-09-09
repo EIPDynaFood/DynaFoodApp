@@ -4,9 +4,8 @@ import { useIsFocused } from '@react-navigation/native';
 import { Divider } from "react-native-elements";
 import useJwt from "../../Jwt"
 import {RequireJwt} from "../components/RequireJwt";
-import axios from "axios";
 import { styles } from "../styles/Style";
-import translations from "../../translations/screens/Settings.json";
+import useLang from "../../Language";
 
 export default function Settings({navigation, route}) {
     var axios = require('axios');
@@ -25,6 +24,7 @@ export default function Settings({navigation, route}) {
     let [headercolor, setHeadercolor] = useState("rgba(0,0,0,0.6)");
     const isFocused = useIsFocused();
     const translations = require("../../translations/screens/Settings.json")
+    const {lang} = useLang()
 
     var config = {
         method: 'get',

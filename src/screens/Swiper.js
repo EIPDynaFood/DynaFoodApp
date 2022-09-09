@@ -1,36 +1,39 @@
 import React from "react";
-import { View, Text, Button, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import {Text, Button, Image, TouchableOpacity} from 'react-native';
 import Onboarding from "react-native-onboarding-swiper";
 import { styles } from "../styles/Style";
-
-const translations = require( "../../translations/screens/Swiper.json")
-
-const Skip = ({...props}) => (
-    <Button
-        title={translations["Skip"]}
-        color="#000000"
-        {...props}
-    />
-);
-
-const Next = ({...props}) => (
-    <Button
-        title={translations["Next"]}
-        color="#000000"
-        {...props}
-    />
-);
-
-const Done = ({...props}) => (
-    <TouchableOpacity
-        style={{marginHorizontal:8}}
-        {...props}
-    >
-        <Text style={{fontSize:16}}>{translations["Done"]}</Text>
-    </TouchableOpacity>
-);
+import useLang from "../../Language";
 
 const Swiper = ({navigation}) => {
+    const translations = require( "../../translations/screens/Swiper.json")
+    const {lang} = useLang()
+    console.log(lang)
+
+    const Skip = ({...props}) => (
+        <Button
+            title={translations["Skip"][lang]}
+            color="#000000"
+            {...props}
+        />
+    );
+
+    const Next = ({...props}) => (
+        <Button
+            title={translations["Next"][lang]}
+            color="#000000"
+            {...props}
+        />
+    );
+
+    const Done = ({...props}) => (
+        <TouchableOpacity
+            style={{marginHorizontal:8}}
+            {...props}
+        >
+            <Text style={{fontSize:16}}>{translations["Done"][lang]}</Text>
+        </TouchableOpacity>
+    );
+
     return (
         <Onboarding
             SkipButtonComponent={Skip}
@@ -42,26 +45,26 @@ const Swiper = ({navigation}) => {
                 {
                     backgroundColor: '#E2E6DB',
                     image: <Image style={styles.imagineStyle} source={require('../../assets/logo_frame.png')} />,
-                    title: translations["Page1Title"],
-                    subtitle: translations["Page1Subtitle"],
+                    title: translations["Page1Title"][lang],
+                    subtitle: translations["Page1Subtitle"][lang],
                 },
                 {
                     backgroundColor: '#bfeeb7',
                     image: <Image style={styles.imagineStyle} source={require('../../assets/scanner.png')} />,
-                    title: translations["Page2Title"],
-                    subtitle: translations["Page2Subtitle"],
+                    title: translations["Page2Title"][lang],
+                    subtitle: translations["Page2Subtitle"][lang],
                 },
                 {
                     backgroundColor: '#c2f70f',
                     image: <Image style={styles.imagineStyle} source={require('../../assets/eco-scores/eco-score-A.png')} />,
-                    title: translations["Page3Title"],
-                    subtitle: translations["Page3Subtitle"]
+                    title: translations["Page3Title"][lang],
+                    subtitle: translations["Page3Subtitle"][lang]
                 },
                 {
                     backgroundColor: '#f25e35',
                     image: <Image style={styles.imagineStyle} source={require('../../assets/settings.png')} />,
-                    title: translations["Page4Title"],
-                    subtitle: translations["Page4Subtitle"],
+                    title: translations["Page4Title"][lang],
+                    subtitle: translations["Page4Subtitle"][lang],
                 },
             ]}
         />
