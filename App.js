@@ -21,11 +21,7 @@ const Stack = createNativeStackNavigator();
 
 export function Navigation() {
   const {jwt} = useJwt();
-  const {translate} = useLang();
   let swiper = localStorage.getItem('Swiper');
-  const currLang = localStorage.getItem('Language');
-  if (currLang !== null)
-      translate(currLang)
 
   return (
       jwt === null ? (

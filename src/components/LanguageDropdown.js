@@ -1,47 +1,49 @@
 import useLang from "../../Language"
-import {Dropdown} from "rsuite";
-import React from "react";
+import React, {useEffect, useState} from "react";
+import DropDownPicker from 'react-native-dropdown-picker'
+import {Image} from "react-native";
+import german from "../../assets/flags/germany.png";
+import english from "../../assets/flags/united-kingdom.png";
+import french from "../../assets/flags/france.png";
 
 export default function LanguageDropdown() {
-    const {lang} = useLang()
+    const {lang, translate} = useLang()
 
-    const german = require("../../assets/flags/germany.svg")
-    const english = require("../../assets/flags/united.svg")
-    const french = require("../../assets/flags/france.svg");
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState(lang)
+    const [items, setItems] = useState([
+        {
+            label: "",
+            value: "de",
+            icon: () => (<Image source={german} style={{width: 50, height: 50}}/>)
+        },
+        {
+            label: "",
+            value: "en",
+            icon: () => (<Image source={english} style={{width: 50, height: 50}}/>)
+        },
+        {
+            label: "",
+            value: "fr",
+            icon: () => (<Image source={french} style={{width: 50, height: 50}}/>)
+        }
+    ])
+    const german = require("../../assets/flags/germany.png")
+    const english = require("../../assets/flags/united-kingdom.png")
+    const french = require("../../assets/flags/france.png");
 
-    let selected
-    let choice1
-    let choice2
-    switch (lang) {
-        case "en":
-            selected = english;
-            choice1 = german;
-            choice2 = french;
-            break;
-        case "de":
-            selected = german;
-            choice1 = english;
-            choice2 = french;
-            break;
-        case "fr":
-            selected = french;
-            choice1 = english;
-            choice1 = german;
-            break;
-        default:
-            selected = english;
-            choice1 = german;
-            choice2 = french;
-    }
+    useEffect(
+        () => {
+            localStorage.setItem("Language", value.toString());
+            translate(value)
+        }, [value]
+    )
 
-    const translate = (option) => {
-
-    }
-
-    return (
-        <Dropdown title="Language" icon={selected}>
-            <Dropdown.Item icon={choice1}></Dropdown.Item>
-            <Dropdown.Item icon={choice2}></Dropdown.Item>
-        </Dropdown>
+    return (<DropDownPicker
+            items={items} setItems={setItems}
+         open={open} value={value}
+        setOpen={setOpen} setValue={setValue}
+        placeholder={""} style={{borderColor: "#2E4D44", borderWidth: 3, paddingRight: 10}}
+        containerStyle={{width: "30%"}}/>
     )
 }

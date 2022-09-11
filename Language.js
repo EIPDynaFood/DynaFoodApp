@@ -10,7 +10,6 @@ function useLang() {
         translate(code) {
             return new Promise((res) => {
                 setLang(code)
-                localStorage.setItem("Language", code)
                 res();
             });
         }

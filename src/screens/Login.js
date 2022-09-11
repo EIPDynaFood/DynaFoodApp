@@ -5,7 +5,6 @@ import useJwt from "../../Jwt"
 import axios from "axios";
 import {styles} from "../styles/Style";
 import useLang from "../../Language";
-import {Dropdown} from "rsuite";
 import LanguageDropdown from "../components/LanguageDropdown";
 
 export default function Login({navigation, route}) {
@@ -38,7 +37,7 @@ export default function Login({navigation, route}) {
 
     return (
         <View style={{flex:1}}>
-            <View>
+            <View style={{alignItems: "flex-end", paddingRight: 10, paddingTop: 10}}>
                 <LanguageDropdown/>
             </View>
             <View style={styles.container}>
