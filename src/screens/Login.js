@@ -36,6 +36,9 @@ export default function Login({navigation, route}) {
 
     return (
         <View style={{flex:1}}>
+            <View>
+                <Dropdown title="" icon={}></Dropdown>
+            </View>
             <View style={styles.container}>
 
                 <Image source={require('../../assets/logo_frame_invisible.png')}
