@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { StatusBar, TextInput, Switch, View, ScrollView, Text, Button, StyleSheet, Dimensions, Image, TouchableOpacity, Platform, Linking } from 'react-native';
+import {
+    Switch,
+    View,
+    ScrollView,
+    Text,
+    TouchableOpacity,
+} from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 import { Divider } from "react-native-elements";
 import useJwt from "../../Jwt"
 import {RequireJwt} from "../components/RequireJwt";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
+import LanguageDropdown from "../components/LanguageDropdown";
+import translations from "../../translations/screens/Settings.json";
 
 export default function Settings({navigation, route}) {
     var axios = require('axios');
@@ -19,7 +27,7 @@ export default function Settings({navigation, route}) {
     let [vegan, setVegan] = useState(false);
     let [color, setColor] = useState('#376D55');
     let [bgcolor, setBgcolor] = useState('#E2E6DB');
-    let [textcolor, setTextcolor] = useState('#00000');
+    let [textcolor, setTextcolor] = useState('#000000');
     let [pagecolor, setPagecolor] = useState("#FFFFFF");
     let [headercolor, setHeadercolor] = useState("rgba(0,0,0,0.6)");
     const isFocused = useIsFocused();
@@ -56,7 +64,7 @@ export default function Settings({navigation, route}) {
 
     function handleLactose() {
         if (!lactose) {
-            alert(translations["LactoseMessage"])
+            alert(translations["LactoseMessage"][lang])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `lactose`,
@@ -75,7 +83,7 @@ export default function Settings({navigation, route}) {
                 }
             })
         } else {
-            alert(translations["AllergenDeleted"])
+            alert(translations["AllergenDeleted"][lang])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `lactose`,
@@ -100,7 +108,7 @@ export default function Settings({navigation, route}) {
 
     function handleNuts() {
         if (!nuts) {
-            alert(translations["NutsMessage"])
+            alert(translations["NutsMessage"][lang])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `nuts`,
@@ -119,7 +127,7 @@ export default function Settings({navigation, route}) {
                 }
             })
         } else {
-            alert(translations["AllergenDeleted"])
+            alert(translations["AllergenDeleted"][lang])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `nuts`,
@@ -144,7 +152,7 @@ export default function Settings({navigation, route}) {
 
     function handleGluten() {
         if (!gluten) {
-            alert(translations["GlutenMessage"])
+            alert(translations["GlutenMessage"][lang])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `gluten`,
@@ -163,7 +171,7 @@ export default function Settings({navigation, route}) {
                 }
             })
         } else {
-            alert(translations["AllergenDeleted"])
+            alert(translations["AllergenDeleted"][lang])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `gluten`,
@@ -188,7 +196,7 @@ export default function Settings({navigation, route}) {
 
     function handlePeanut() {
         if (!peanut) {
-            alert(translations["PeanutsMessage"])
+            alert(translations["PeanutsMessage"][lang])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `peanut`,
@@ -207,7 +215,7 @@ export default function Settings({navigation, route}) {
                 }
             })
         } else {
-            alert(translations["AllergenDeleted"])
+            alert(translations["AllergenDeleted"][lang])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `peanut`,
@@ -232,7 +240,7 @@ export default function Settings({navigation, route}) {
 
     function handleVegetarian() {
         if (!nuts) {
-            alert(translations["VegetarianMessage"])
+            alert(translations["VegetarianMessage"][lang])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `vegetarian`,
@@ -251,7 +259,7 @@ export default function Settings({navigation, route}) {
                 }
             })
         } else {
-            alert(translations["DietDeleted"])
+            alert(translations["DietDeleted"][lang])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `vegetarian`,
@@ -276,7 +284,7 @@ export default function Settings({navigation, route}) {
 
     function handleVegan() {
         if (!vegan) {
-            alert(translations["VeganMessage"])
+            alert(translations["VeganMessage"][lang])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `vegan`,
@@ -295,7 +303,7 @@ export default function Settings({navigation, route}) {
                 }
             })
         } else {
-            alert(translations["DietDeleted"])
+            alert(translations["DietDeleted"][lang])
             var qs = require('qs');
             var data = qs.stringify({
                 'restrictionName': `vegan`,
@@ -348,52 +356,54 @@ export default function Settings({navigation, route}) {
 
     return (
         <RequireJwt>
-            <ScrollView style={[styles.wrapperStyle, {backgroundColor: bgcolor}]}>
+            <ScrollView style={[styles.wrapperStyle, {backgroundColor: bgcolor}]} nestedScrollEnabled = {true}>
                 <View style={[styles.mainContainerStyle, {backgroundColor: pagecolor}]}>
                     <View style={{marginLeft: 15, marginTop: 10, marginBottom: 10}}>
-
-                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Allergies"]}</Text>
-                        <Linear text={translations["Lactose"]} value={lactose} onValueChange={() => handleLactose()}/>
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Language"][lang]}</Text>
+                        <LanguageDropdown/>
                         <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-                        <Linear text={translations['Nuts']} value={nuts} onValueChange={() => handleNuts()}/>
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Allergies"][lang]}</Text>
+                        <Linear text={translations["Lactose"][lang]} value={lactose} onValueChange={() => handleLactose()}/>
                         <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-                        <Linear text={translations['Gluten']} value={gluten} onValueChange={() => handleGluten()}/>
+                        <Linear text={translations['Nuts'][lang]} value={nuts} onValueChange={() => handleNuts()}/>
                         <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-                        <Linear text={translations['Peanut']} value={peanut} onValueChange={() => handlePeanut()}/>
+                        <Linear text={translations['Gluten'][lang]} value={gluten} onValueChange={() => handleGluten()}/>
                         <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-
-                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Diets"]}</Text>
-                        <Linear text={translations['Vegetarian']} value={vegetarian} onValueChange={() => handleVegetarian()}/>
-                        <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-                        <Linear text={translations['Vegan']} value={vegan} onValueChange={() => handleVegan()}/>
+                        <Linear text={translations['Peanuts'][lang]} value={peanut} onValueChange={() => handlePeanut()}/>
                         <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
 
-                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Theme"]}</Text>
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Diets"][lang]}</Text>
+                        <Linear text={translations['Vegetarian'][lang]} value={vegetarian} onValueChange={() => handleVegetarian()}/>
+                        <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
+                        <Linear text={translations['Vegan'][lang]} value={vegan} onValueChange={() => handleVegan()}/>
+                        <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
+
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Theme"][lang]}</Text>
                         <View style={[styles.button, {backgroundColor: pagecolor}]}>
                             <TouchableOpacity
                                 onPress={() => handleTheme('#376D55', '#E2E6DB', '#000', "rgba(0,0,0,0.6)", "#FFFFFF")}
                                 style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
                                     marginTop: 5, marginBottom: 9, backgroundColor: '#ffff'}]}
                             >
-                                <Text style={[styles.textSign, { color: '#376D55'}]}>{translations["LightMode"]}</Text>
+                                <Text style={[styles.textSign, { color: '#376D55'}]}>{translations["LightMode"][lang]}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() => handleTheme("#FFFFFF",'#376D55',"#FFFFFF","#FFFFFF",'#376D55')}
                                 style={[styles.signIn, {borderColor: '#ffff', borderWidth: 1,
                                     marginTop: 5, marginBottom: 20, backgroundColor: '#376D55'}]}
                             >
-                                <Text style={[styles.textSign, { color: '#ffff'}]}>{translations["DarkMode"]}</Text>
+                                <Text style={[styles.textSign, { color: '#ffff'}]}>{translations["DarkMode"][lang]}</Text>
                             </TouchableOpacity>
                         </View>
 
-                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Account"]}</Text>
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Account"][lang]}</Text>
                         <View style={[styles.button, {backgroundColor: pagecolor}]}>
                             <TouchableOpacity
                                 onPress={() => logoutUser()}
                                 style={[styles.signIn, {borderColor: color, borderWidth: 1,
                                     marginTop: 5, marginBottom: 20}]}
                             >
-                                <Text style={[styles.textSign, { color: color}]}>{translations["Logout"]}</Text>
+                                <Text style={[styles.textSign, { color: color}]}>{translations["Logout"][lang]}</Text>
                             </TouchableOpacity>
                         </View>
                     </View>

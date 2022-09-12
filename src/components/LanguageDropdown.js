@@ -1,7 +1,7 @@
 import useLang from "../../Language"
 import React, {useEffect, useState} from "react";
 import DropDownPicker from 'react-native-dropdown-picker'
-import {Image} from "react-native";
+import {Image, SafeAreaView} from "react-native";
 import german from "../../assets/flags/germany.png";
 import english from "../../assets/flags/united-kingdom.png";
 import french from "../../assets/flags/france.png";
@@ -43,7 +43,8 @@ export default function LanguageDropdown() {
             items={items} setItems={setItems}
          open={open} value={value}
         setOpen={setOpen} setValue={setValue}
-        placeholder={""} style={{borderColor: "#2E4D44", borderWidth: 3, paddingRight: 10}}
-        containerStyle={{width: "30%"}}/>
+        placeholder={""} style={{borderColor: "#2E4D44", borderWidth: 3}}
+        containerStyle={{width: "35%"}}
+            nestedScrollEnabled = {true} listMode="SCROLLVIEW"/>
     )
 }
