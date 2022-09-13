@@ -2,6 +2,6 @@
   "Error": {
     "de": "Beim Laden des Verlaufs ist ein Fehler aufgetreten: ",
     "en": "Something went wrong while getting history data: ",
-    "fr": ""
+    "fr" : "Quelque chose s'est mal passé lors de l'obtention des données de l'historique: "
   }
 }

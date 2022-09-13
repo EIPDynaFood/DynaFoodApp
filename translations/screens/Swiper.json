@@ -2,57 +2,56 @@
   "Skip": {
     "de": "Überspringen",
     "en": "Skip",
-    "fr": ""
+    "fr": "Sauter"
   },
   "Next": {
     "de": "Weiter",
     "en": "Next",
-    "fr": ""
+    "fr": "Suivant"
   },
   "Done": {
     "de": "Fertig",
     "en": "Done",
-    "fr": ""
+    "fr": "Terminé"
   },
   "Page1Title": {
     "de": "Willkommen bei DynaFood",
     "en": "Welcome to DynaFood",
-    "fr": ""
+    "fr" : "Bienvenue chez DynaFood"
   },
   "Page1Subtitle": {
     "de": "Der dynamische Scanner für deine Lebensmittel",
     "en": "The dynamic scanner for your groceries",
-    "fr": ""
+    "fr" : "Le scanner dynamique pour vos courses"
   },
   "Page2Title": {
     "de": "Scan",
     "en": "Scan",
-    "fr": ""
+    "fr": "Scan"
   },
   "Page2Subtitle": {
     "de": "Mit einem Klick kannst du dir alle Ernährungsinformationen eines Produkts anzeigen lassen",
     "en": "Within one click you can access all nutritional information of a product",
-    "fr": ""
+    "fr" : "En un clic, vous pouvez accéder à toutes les informations nutritionnelles d'un produit"
   },
   "Page3Title": {
     "de": "Auswertung",
     "en": "Evaluation",
-    "fr": ""
+    "fr": "Evaluation"
   },
   "Page3Subtitle": {
     "de": "Wir analysieren deine Lebensmittel und geben dir eine Zusammenfassung mit gesunden Alternativen",
     "en": "We evaluate your groceries and give you a summary with healthy alternatives",
-    "fr": ""
+    "fr" : "Nous évaluons vos courses et vous donnons un résumé avec des alternatives saines"
   },
-
   "Page4Title": {
     "de": "Personalisierte Einstellungen",
     "en": "Personalized Settings",
-    "fr": ""
+    "fr" : "Paramètres personnalisés"
   },
   "Page4Subtitle": {
     "de": "Nutze die Einstellung um eine personalisierte Analyse zu bekommen. Nur für dich!",
     "en": "Use the settings to get a personalized evaluation. Just for you!",
-    "fr": ""
+    "fr" : "Utilisez les paramètres pour obtenir une évaluation personnalisée. Rien que pour vous !"
   }
 }

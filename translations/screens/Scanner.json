@@ -2,11 +2,11 @@
   "NoPermission": {
     "de": "Keine Kamera-Berechtigung",
     "en": "No access to camera",
-    "fr": ""
+    "fr": "Pas d'accès à la caméra"
   },
   "Debug": {
     "de": "Debug Code benutzen",
     "en": "use debug code",
-    "fr": ""
+    "fr": "utiliser le code de débogage"
   }
 }

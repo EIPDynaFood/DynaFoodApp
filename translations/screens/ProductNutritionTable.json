@@ -2,11 +2,11 @@
   "Nutriments": {
     "de": "Nährstoffe",
     "en": "Nutriments",
-    "fr": ""
+    "fr": "Nutriments"
   },
   "Unit": {
     "de": "pro 100g/ml",
     "en": "per 100g/ml",
-    "fr": ""
+    "fr": "par 100g/ml"
   }
 }

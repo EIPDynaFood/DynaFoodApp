@@ -2,41 +2,41 @@
   "Vegan": {
     "de": "Dieses Produkt enthält tierische Inhaltsstoffe!",
     "en": "This product contains animal related ingredients!",
-    "fr": ""
+    "fr": "Ce produit contient des ingrédients liés aux animaux!"
   },
   "Vegetarian": {
     "de": "Dieses Produkt enthält Fleisch und/oder Fisch!",
     "en": "This product contains meat and/or fish!",
-    "fr": ""
+    "fr": "Ce produit contient de la viande et/ou du poisson!"
   },
   "Lactose": {
     "de": "Dieses Produkt enthält Lactose!",
-    "en": "This product comntains lactose!",
-    "fr": ""
+    "en": "This product contains lactose!",
+    "fr": "Ce produit contient du lactose!"
   },
   "Nuts": {
     "de": "Dieses Produkt enthält Nüsse!",
     "en": "This product contains nuts!",
-    "fr": ""
+    "fr": "Ce produit contient des noix!"
   },
   "Tomato": {
     "de": "Dieses Produkt enthält Tomaten!",
     "en": "This product contains tomatoes!",
-    "fr": ""
+    "fr": "Ce produit contient des tomates!"
   },
   "Gluten": {
     "de": "Dieses Produkt enthält Gluten!",
     "en": "This product contains gluten!",
-    "fr": ""
+    "fr": "Ce produit contient du gluten!"
   },
   "Seed": {
     "de": "Dieses Produkt enthält Samen!",
     "en": "This product contains seeds!",
-    "fr": ""
+    "fr": "Ce produit contient des graines!"
   },
   "Peanut": {
     "de": "Dieses Produkt enthält Erdnüsse!",
     "en": "This product contains peanuts!",
-    "fr": ""
+    "fr": "Ce produit contient des cacahuètes!"
   }
 }

@@ -2,31 +2,31 @@
   "Error": {
     "de": "Falsches Passwort oder falsche E.Mail Adresse:\n",
     "en": "Wrong user credentials:\n",
-    "fr": ""
+    "fr": "Mauvaise identification de l'utilisateur :\n"
   },
   "Email": {
     "de": "E-Mail Adresse...",
     "en": "Email...",
-    "fr": ""
+    "fr": "Email..."
   },
   "Password": {
     "de": "Passwort...",
     "en": "Password...",
-    "fr": ""
+    "fr": "Mot de passe..."
   },
   "Login": {
     "de": "Einloggen",
     "en": "Login",
-    "fr": ""
+    "fr": "Connexion"
   },
   "Register": {
     "de": "Registrieren",
     "en": "Register",
-    "fr": ""
+    "fr": "Enregistrez"
   },
   "Guest": {
     "de": "Als Gast anmelden",
     "en": "Login as guest",
-    "fr": ""
+    "fr": "Se connecter en tant qu'invité"
   }
 }

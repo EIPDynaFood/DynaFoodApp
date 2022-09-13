@@ -2,31 +2,31 @@
   "Error": {
     "de": "Etwas ist beim Registrierungsprozess schiefgelaufen:\n",
     "en": "Something went wrong in your Registration process:\n",
-    "fr": ""
+    "fr": "Quelque chose s'est mal passé dans votre processus d'enregistrement :\n"
   },
   "Email": {
     "de": "E-Mail Adresse...",
     "en": "Email...",
-    "fr": ""
+    "fr": "Email..."
   },
   "Password": {
     "de": "Passwort...",
     "en": "Password...",
-    "fr": ""
+    "fr": "Mot de passe..."
   },
   "PasswordConfirm": {
     "de": "Passwort bestätigen...",
     "en": "Confirm your password...",
-    "fr": ""
+    "fr": "Confirmez votre mot de passe..."
   },
   "Register": {
     "de": "Registrieren",
     "en": "Register",
-    "fr": ""
+    "fr": "Enregistrez"
   },
   "Cancel": {
     "de": "Zurück",
     "en": "Cancel",
-    "fr": ""
+    "fr": "Annuler"
   }
 }

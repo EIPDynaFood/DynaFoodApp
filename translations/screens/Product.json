@@ -2,11 +2,11 @@
   "Unknown": {
     "de": "Unbekanntes Produkt",
     "en": "Unknown product",
-    "fr": ""
+    "fr": "Produit inconnu"
   },
   "Error": {
     "de": "Etwas ist beim Laden der Produktdaten schiefgelaufen:\n",
     "en": "Something went wrong getting data about the product:\n",
-    "fr": ""
+    "fr": "Quelque chose s'est mal passé lors de l'obtention des données sur le produit :\n"
   }
 }

@@ -2,111 +2,111 @@
   "Language": {
     "de": "Sprache",
     "en": "Language",
-    "fr": ""
+    "fr": "Langue"
   },
   "Lactose": {
     "de": "Laktose",
     "en": "Lactose",
-    "fr": ""
+    "fr": "Lactose"
   },
   "LactoseMessage": {
     "de": "Du wirst ab jetzt eine Benachrichtigung bekommen, wenn unser Scanner ein Produkt mit Laktose findet",
     "en": "You will know receive notification if our scanner finds a product with lactose",
-    "fr": ""
+    "fr" : "Vous saurez recevoir une notification si notre scanner trouve un produit contenant du lactose"
   },
   "Nuts": {
     "de": "Nüsse",
     "en": "Nuts",
-    "fr": ""
+    "fr": "Noix"
   },
   "NutsMessage": {
     "de": "Du wirst ab jetzt eine Benachrichtigung bekommen, wenn unser Scanner ein Produkt mit Nüssen findet",
     "en": "You will know receive notification if our scanner finds a product with nuts",
-    "fr": ""
+    "fr" : "Vous recevrez une notification si notre scanner trouve un produit contenant des noix"
   },
   "Gluten": {
     "de": "Gluten",
     "en": "Gluten",
-    "fr": ""
+    "fr": "Gluten"
   },
   "GlutenMessage": {
     "de": "Du wirst ab jetzt eine Benachrichtigung bekommen, wenn unser Scanner ein Produkt mit Gluten findet",
     "en": "You will know receive notification if our scanner finds a product with gluten",
-    "fr": ""
+    "fr" : "Vous saurez recevoir une notification si notre scanner trouve un produit contenant du gluten"
   },
   "Peanuts": {
     "de": "Erdnüsse",
     "en": "Peanuts",
-    "fr": ""
+    "fr": "Cacahuètes"
   },
   "PeanutsMessage": {
     "de": "",
     "en": "You will know receive notification if our scanner finds a product with peanuts",
-    "fr": ""
+    "fr" : "Vous saurez recevoir une notification si notre scanner trouve un produit contenant des arachides"
   },
   "Vegetarian": {
     "de": "Vegetarisch",
     "en": "Vegetarian",
-    "fr": ""
+    "fr" : "Végétarien"
   },
   "VegetarianMessage": {
     "de": "",
     "en": "You will know receive notification if our scanner finds non-vegetarian ingredients",
-    "fr": ""
+    "fr" : "Vous saurez recevoir une notification si notre scanner trouve des ingrédients non-végétariens"
   },
   "Vegan": {
     "de": "Vegan",
     "en": "Vegan",
-    "fr": ""
+    "fr": "Vegan"
   },
   "VeganMessage": {
     "de": "",
     "en": "You will know receive notification if our scanner finds non-vegan ingredients",
-    "fr": ""
+    "fr" : "Vous saurez recevoir une notification si notre scanner trouve des ingrédients non végétaliens"
   },
   "AllergenDeleted": {
     "de": "Allergen erfolgreich entfernt",
     "en": "Allergen successfully deleted",
-    "fr": ""
+    "fr" : "Allergène supprimé avec succès"
   },
   "DietDeleted": {
     "de": "Diät erfolgreich entfernt",
     "en": "Diet successfully deleted",
-    "fr": ""
+    "fr" : "Régime supprimé avec succès"
   },
   "Allergies": {
     "de": "Allergien",
     "en": "Allergies",
-    "fr": ""
+    "fr": "Allergies"
   },
   "Diets": {
     "de": "Diäten",
     "en": "Diets",
-    "fr": ""
+    "fr": "Régimes"
   },
   "Theme": {
     "de": "Modus",
     "en": "Theme",
-    "fr": ""
+    "fr": "Thème"
   },
   "LightMode": {
     "de": "Light-Modus",
     "en": "Light mode",
-    "fr": ""
+    "fr": "Mode d'éclairage"
   },
   "DarkMode": {
     "de": "Dark-Modus",
     "en": "Dark mode",
-    "fr": ""
+    "fr": "mode sombre"
   },
   "Account": {
     "de": "Konto",
     "en": "Account",
-    "fr": ""
+    "fr": "Compte"
   },
   "Logout": {
     "de": "Ausloggen",
     "en": "Logout",
-    "fr": ""
+    "fr": "Déconnexion"
   }
 }

@@ -2,16 +2,16 @@
   "SearchBar": {
     "de": "Ein Produkt suchen...",
     "en": "Search for a product...",
-    "fr": ""
+    "fr" : "Rechercher un produit..."
   },
   "TrendText": {
     "de": "Trends",
     "en": "Trending",
-    "fr": ""
+    "fr": "Tendance"
   },
   "ProductText": {
     "de": "Deine Produkte",
     "en": "Your products",
-    "fr": ""
+    "fr" : "Vos produits"
   }
 }
