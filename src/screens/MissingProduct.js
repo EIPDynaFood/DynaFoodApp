@@ -10,29 +10,61 @@ import { styles } from "../styles/Style";
 import * as ImagePicker from 'expo-image-picker';
 import { Dimensions } from "react-native";
 import { Surface } from "react-native-paper";
+import * as DocumentPicker from 'expo-document-picker';
 
 
 const axios = require('axios');
 
+const toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+});
 
 export default function MissingProduct({ navigation }) {
     const [images, setImages ] = useState([]);
+    const [doc, setDoc] = useState()
+    const formData = new FormData()
 
     const uploader = async () => {
-        const response = await ImagePicker.launchImageLibraryAsync({mediaTypes: ImagePicker.MediaTypeOptions.All,
-            allowsEditing: true,
-            base64: true,
-            quality: 1,})
-            if (response.cancelled) {
-                return;
-            }
+        // const response = await ImagePicker.launchImageLibraryAsync({mediaTypes: ImagePicker.MediaTypeOptions.All,
+        //     allowsEditing: true,
+        //     base64: true,
+        //     quality: 1,})
+        //     if (response.cancelled) {
+        //         return;
+        //     }
+        //     console.log(response.uri)
+        //     console.log(response.base64.length)
+        try {
+            const response = await DocumentPicker.getDocumentAsync()
             const img = {
                 uri: response.uri,
-                name: response.uri.substr(response.uri.lastIndexOf('/') + 1),
-                base64: response.base64
+                name: response.name,
+                type: response.type
             };
             setImages(prevImages => prevImages.concat(img));
-            console.log(images[images.length - 1].uri)
+            console.log(images)
+            console.log(img)
+            console.log(response)
+            setDoc(response)
+            formData.append('document', doc)
+            console.log(formData)
+            let options = {
+                method: 'POST',
+                body: formData,
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'multipart/form-data',
+                },
+              };
+            fetch('https://dynafood-server.herokuapp.com/upload', options).catch((err) => {console.log(err)})
+        }
+        catch (err) {
+            
+                throw err
+        }
     }
 
     useLayoutEffect(() => {
