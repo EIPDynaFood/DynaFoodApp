@@ -11,6 +11,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { Dimensions } from "react-native";
 import { Surface } from "react-native-paper";
 import * as DocumentPicker from 'expo-document-picker';
+import mime from "mime";
 
 
 const axios = require('axios');
@@ -38,18 +39,28 @@ export default function MissingProduct({ navigation }) {
         //     console.log(response.uri)
         //     console.log(response.base64.length)
         try {
-            const response = await DocumentPicker.getDocumentAsync()
+            console.log("nice")
+            const response = await DocumentPicker.getDocumentAsync({
+                type: "*/*",
+                copyToCachesDirectory: true,
+        multiple: false,
+            })
+            console.log("not nice")
+
+            console.log(response)
+            response.uri =  "file:///" + response.uri.split("file:/").join("");
             const img = {
                 uri: response.uri,
                 name: response.name,
                 type: response.type
             };
             setImages(prevImages => prevImages.concat(img));
-            console.log(images)
-            console.log(img)
-            console.log(response)
             setDoc(response)
-            formData.append('document', doc)
+            formData.append('image', {
+                uri : response.uri,
+                type: mime.getType(response.uri),
+                name: response.uri.split("/").pop()
+               })
             console.log(formData)
             let options = {
                 method: 'POST',
@@ -62,7 +73,7 @@ export default function MissingProduct({ navigation }) {
             fetch('https://dynafood-server.herokuapp.com/upload', options).catch((err) => {console.log(err)})
         }
         catch (err) {
-            
+            console.log(err)
                 throw err
         }
     }
