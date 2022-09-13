@@ -8,6 +8,8 @@ import TrendBar from "../src/components/Trendbar";
 import * as router from 'react-router'
 import {TouchableOpacity} from "react-native";
 import ProductItem from "../src/components/ProductItem";
+import * as LangContext from "../Language";
+import LangProvider from "../Language";
 
 
 class LocalStorageMock {
@@ -50,35 +52,36 @@ jest.mock("react-native-elements");
 
 it("navigate to scanner", () => {
     const navigation = useNavigation();
-    const inst = shallow(<History/>);
+    const inst = shallow(<LangProvider><History/></LangProvider>);
+    console.log(inst.debug())
     inst.find(FAB).simulate("press")
     expect(mockedNavigate).toHaveBeenCalledTimes(1)
 });
 
 it("no item", () => {
     const navigation = useNavigation();
-    const inst = shallow(<ProductHistory data={{"elements": []}}/>);
+    const inst = shallow(<LangProvider><ProductHistory data={{"elements": []}}/></LangProvider>);
     const views = inst.find("View")
     views.at(3).simulate("press")
     expect(mockedNavigate).toHaveBeenCalledWith("Scanner")
 });
 
 it("at least one item", () => {
-    const inst = shallow(<ProductHistory data={{"elements": [{}, {}, {}]}}/>);
+    const inst = shallow(<LangProvider><ProductHistory data={{"elements": [{}, {}, {}]}}/></LangProvider>);
     const item = inst.find("ProductItem").first()
     expect(item.exists()).toBe(true)
 });
 
 it("at least one item + navigation", () => {
     const navigation = useNavigation();
-    const inst = shallow(<ProductItem/>);
-    inst.find("ForwardRef").first().simulate("press")
+    const inst = shallow(<LangProvider><ProductItem/></LangProvider>);
+    inst.find("TouchableOpacity").first().simulate("press")
     expect(navigation.navigate).toHaveBeenCalledWith("Product")
 });
 
 it("check TrendBar navigation", () => {
     const navigation = useNavigation();
-    const inst = shallow(<TrendBar/>);
-    inst.find("ForwardRef").first().simulate("press")
+    const inst = shallow(<LangProvider><TrendBar/></LangProvider>);
+    inst.find("TouchableOpacity").first().simulate("press")
     expect(navigation.navigate).toHaveBeenCalledWith("Product")
 });

@@ -15,17 +15,17 @@ export default function LanguageDropdown() {
         {
             label: "",
             value: "de",
-            icon: () => (<Image source={german} style={{width: 50, height: 50}}/>)
+            icon: () => (<Image source={german} style={{width: 40, height: 40}}/>)
         },
         {
             label: "",
             value: "en",
-            icon: () => (<Image source={english} style={{width: 50, height: 50}}/>)
+            icon: () => (<Image source={english} style={{width: 40, height: 40}}/>)
         },
         {
             label: "",
             value: "fr",
-            icon: () => (<Image source={french} style={{width: 50, height: 50}}/>)
+            icon: () => (<Image source={french} style={{width: 40, height: 40}}/>)
         }
     ])
     const german = require("../../assets/flags/germany.png")
@@ -44,7 +44,8 @@ export default function LanguageDropdown() {
          open={open} value={value}
         setOpen={setOpen} setValue={setValue}
         placeholder={""} style={{borderColor: "#2E4D44", borderWidth: 3}}
-        containerStyle={{width: "35%"}}
+            containerStyle={{width: "35%"}}
+         dropDownContainerStyle={{borderColor: "#2E4D44", borderWidth: 2}}
             nestedScrollEnabled = {true} listMode="SCROLLVIEW"/>
     )
 }

@@ -360,8 +360,10 @@ export default function Settings({navigation, route}) {
                 <View style={[styles.mainContainerStyle, {backgroundColor: pagecolor}]}>
                     <View style={{marginLeft: 15, marginTop: 10, marginBottom: 10}}>
                         <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Language"][lang]}</Text>
-                        <LanguageDropdown/>
-                        <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
+                        <View style={{alignItems: "center"}}>
+                            <LanguageDropdown/>
+                        </View>
+                        <Divider style={{ paddingTop: 15, paddingBottom: 2}}/>
                         <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Allergies"][lang]}</Text>
                         <Linear text={translations["Lactose"][lang]} value={lactose} onValueChange={() => handleLactose()}/>
                         <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
