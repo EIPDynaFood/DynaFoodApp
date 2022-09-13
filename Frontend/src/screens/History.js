@@ -12,11 +12,18 @@ const axios = require('axios');
 
 export default function History() {
   const navigation = useNavigation();
-  const [search, setSearch] = useState(null);
+  const [search, setSearch] = useState(String);
 
   const handleOnChangeText = (text) => {
     console.log(text);
     setSearch(text)
+  }
+
+  const handleOnPress = () => {
+    if (search.length == 0)
+      return;
+    localStorage.setItem("Search", search)
+    navigation.navigate('Search Result');
   }
   
 
@@ -27,12 +34,7 @@ export default function History() {
             darkMode={true}
             style={styles.searchBar}
             onChangeText={handleOnChangeText}
-            onSearchPress={() => {
-              console.log(search)
-              if (search == null)
-                return;
-              navigation.navigate('SearchResult');
-            }}
+            onSearchPress={handleOnPress}
             placeholder="Search a product"/>
           <View style={styles.trendBar}>
             <Text style={styles.headlineStyle}>

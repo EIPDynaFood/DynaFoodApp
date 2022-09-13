@@ -64,7 +64,7 @@ export function Navigation() {
               <Stack.Screen name="Scanner" component={Scanner}/>
               <Stack.Screen name="Product" component={Product}/>
               <Stack.Screen name="Settings" component={Settings}/>
-              <Stack.Screen name="SearchResult" component={SearchResult}/>
+              <Stack.Screen name="Search Result" component={SearchResult}/>
             </Stack.Navigator>
           </NavigationContainer>)
   )
