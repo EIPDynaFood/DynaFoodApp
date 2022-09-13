@@ -11,6 +11,7 @@ import Login from "./src/screens/Login";
 import Register from "./src/screens/Register";
 import Settings from "./src/screens/Settings";
 import Swiper from './src/screens/Swiper';
+import ForgotID from './src/screens/ForgotID';
 import {Icon} from "react-native-elements";
 import useJwt, {JwtProvider} from "./Jwt"
 import useLang, {LangProvider} from "./Language";
@@ -41,6 +42,7 @@ export function Navigation() {
                : <></>}
               <Stack.Screen name="Login" component={Login}/>
               <Stack.Screen name="Register" component={Register}/>
+              <Stack.Screen name="ForgotID" component={ForgotID}/>
             </Stack.Navigator>
           </NavigationContainer>) : (
           <NavigationContainer>

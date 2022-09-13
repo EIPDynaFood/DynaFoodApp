@@ -28,5 +28,10 @@
     "de": "Als Gast anmelden",
     "en": "Login as guest",
     "fr": "Se connecter en tant qu'invité"
+  },
+  "Forgot": {
+    "de": "...",
+    "en": "forgot password",
+    "fr": "mot de pass oubliè"
   }
 }

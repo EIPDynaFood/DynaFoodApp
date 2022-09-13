@@ -1,0 +1,22 @@
+{
+  "Message": {
+    "de": "...",
+    "en": "Please enter your credentials to reset your password:",
+    "fr": "Rentrez vous identifians pour reset le mot de pass:"
+  },
+  "Email": {
+    "de": "E-Mail Adresse...",
+    "en": "Email...",
+    "fr": "Email..."
+  },
+  "Reset": {
+    "de": "...",
+    "en": "Reset Password",
+    "fr": "Renouveler le mot de pass"
+  },
+  "Cancel": {
+    "de": "Zurück",
+    "en": "Cancel",
+    "fr": "Annuler"
+  }
+}

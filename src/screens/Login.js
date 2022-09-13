@@ -1,10 +1,11 @@
-import {View, TextInput, Image} from "react-native";
+import {View, TextInput, Image, Text, TouchableOpacity} from "react-native";
 import React from "react";
 import {Button} from 'react-native-elements';
 import useJwt from "../../Jwt"
 import axios from "axios";
 import {styles} from "../styles/Style";
 import useLang from "../../Language";
+import PasswordComponent from "../components/ForgotPWD";
 import LanguageDropdown from "../components/LanguageDropdown";
 
 export default function Login({navigation, route}) {
@@ -59,6 +60,10 @@ export default function Login({navigation, route}) {
                     secureTextEntry={true}
                     autoCapitalize='none'
                     />
+                <TouchableOpacity
+                    onPress={() => navigation.navigate("ForgotID")}>
+                    <Text style={styles.forgotpwd}>{translations["Forgot"][lang]}</Text>
+                </TouchableOpacity>
 
                 <Button
                     title={translations["Login"][lang]}

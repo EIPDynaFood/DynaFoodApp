@@ -120,6 +120,18 @@ export const styles = StyleSheet.create({
         fontWeight:'700',
         fontSize:30
     },
+    forgotpwd:{
+        color:"#2E4D44",
+        fontWeight:'300',
+        fontSize:10,
+        paddingLeft: 130
+    },
+    forgotpwdtxt:{
+        color:"#2E4D44",
+        fontWeight:'600',
+        fontSize:20,
+        paddingHorizontal: 30
+    },
     button:{
         backgroundColor:'#fff',
         paddingVertical: 5,
