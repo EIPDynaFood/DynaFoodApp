@@ -1,9 +1,11 @@
-import {StyleSheet, View, TextInput, Image } from "react-native";
+import {StyleSheet, View, TextInput, Image, Text } from "react-native";
 import React, { useState, useEffect } from "react";
 import { FAB, Button} from 'react-native-elements';
 import useJwt from "../../Jwt"
 import axios from "axios";
 import { styles } from "../styles/Style";
+import PasswordInput from "../components/PasswordInput";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 
 
@@ -45,14 +47,13 @@ export default function Login({navigation, route}) {
                     value={email}
                     keyboardType="email-address"
                     />
-                <TextInput
-                    placeholder="Password..."
-                    style={styles.input}
-                    onChangeText={onChangePassword}
-                    value={password}
-                    secureTextEntry={true}
-                    autoCapitalize='none'
-                    />
+                <PasswordInput
+                style={styles.inputPassword}
+                onChangeTextFunc={onChangePassword}
+                value={password}
+                viewStyle={styles.passwordView}
+                placeholder="Password..."
+                />
 
                 <Button
                     title="Login"

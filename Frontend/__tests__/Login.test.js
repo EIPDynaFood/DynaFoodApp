@@ -3,7 +3,6 @@ import {useNavigation} from "@react-navigation/native";
 import {shallow} from "enzyme";
 import Login from "../src/screens/Login"
 import JwtProvider from "../Jwt"
-import TrendBar from "../src/components/Trendbar";
 jest.useFakeTimers()
 jest.mock('@react-navigation/native');
 jest.mock("react-native-gesture-handler");
@@ -11,8 +10,9 @@ jest.mock("react-native-elements");
 
 it("fill in input", () => {
     const inst = shallow(<JwtProvider><Login/></JwtProvider>);
-    const mail = inst.find("email").first()
-    expect(mail.exists()).toBe(true);
+    inst.find("Login as guest").simulate("click")
+    const mail = inst.find("email")
+    expect(mail.exists).toBe(true)
 });
 
 it("click on login", () => {

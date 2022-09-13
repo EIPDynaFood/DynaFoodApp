@@ -1,14 +1,12 @@
-import {Button, StyleSheet, Text, View, Image, ToastAndroid} from "react-native";
+import {StyleSheet, Text, View} from "react-native";
 import React, {useState, useEffect} from "react";
 import {FAB} from 'react-native-elements';
-import {Icon} from 'react-native-elements';
 import {useNavigation} from "@react-navigation/native";
 import {RequireJwt} from "../components/RequireJwt";
-import SearchBar from "react-native-elements/dist/searchbar/SearchBar-ios";
-import { ScrollView } from "react-native-gesture-handler";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import SearchBar from "react-native-dynamic-search-bar";
 import TrendBar from "../components/Trendbar";
 import ProductHistory from "../components/ProductHistory";
+import { styles } from "../styles/Style";
 
 const axios = require('axios');
 
@@ -16,12 +14,25 @@ export default function History() {
   const navigation = useNavigation();
   const [search, setSearch] = useState(null);
 
+  const handleOnChangeText = (text) => {
+    console.log(text);
+    setSearch(text)
+  }
+  
+
   return (
       <RequireJwt>
         <View style={StyleSheet.absoluteFillObject}>
           <SearchBar
-            inputContainerStyle={styles.searchBar}
-            value={search}
+            darkMode={true}
+            style={styles.searchBar}
+            onChangeText={handleOnChangeText}
+            onSearchPress={() => {
+              console.log(search)
+              if (search == null)
+                return;
+              navigation.navigate('SearchResult');
+            }}
             placeholder="Search a product"/>
           <View style={styles.trendBar}>
             <Text style={styles.headlineStyle}>
@@ -47,28 +58,3 @@ export default function History() {
       </RequireJwt>
   );
 }
-
-const styles = StyleSheet.create({
-  headlineStyle: {
-    fontSize: 21,
-    fontWeight: 'bold',
-    padding: 5,
-  },
-  trendBar: {
-    paddingLeft: "5%",
-    width: 'auto',
-    height: 170,
-  },
-  searchBar: {
-    alignSelf: 'center',
-    width: '90%',
-    borderRadius: 10,
-    backgroundColor: '#fff',
-    padding: 5
-  },
-  FABStyle: {
-    position: "absolute",
-    bottom: 16,
-    right: 16
-  }
-});

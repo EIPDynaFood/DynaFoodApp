@@ -6,6 +6,7 @@ import {LinearGradient} from "expo-linear-gradient";
 import {assertBoolean} from "@babel/core/lib/config/validation/option-assertions";
 import { styles } from "../styles/Style";
 import AwesomeAlert from "react-native-awesome-alerts";
+import Alert from "../components/Alert";
 
 
 const axios = require('axios');
@@ -89,8 +90,6 @@ export default function ProductGeneralInfo({navigation, route}) {
 
 const [showAlert, setShowAlert] = useState(isAlert);
 
-  console.log(popAlert, isAlert);
-
   let nutriImage
   switch (productData['nutriments_scores']['total_grade']) {
     case "a":
@@ -137,19 +136,12 @@ const [showAlert, setShowAlert] = useState(isAlert);
       <RequireJwt>
         <View style={styles.wrapperStyleInfo}>
           <View>
-            <AwesomeAlert
+            <Alert
             show={showAlert}
-            showProgress={false}
-            title="Warning !"
+            title="Werning !"
             message={popAlert}
-            closeOnTouchOutside={true}
-            closeOnHardwareBackPress={false}
-            showConfirmButton={true}
-            confirmButtonColor="#FF0000"
-            confirmText="OK"
-            onConfirmPressed={() => {
-              setShowAlert(false);
-            }}
+            confText="OK"
+            func={setShowAlert(false)}
             />
             <Image source={{uri: productData['images']}}
                    style={styles.imageStyleInfo}/>

@@ -149,6 +149,20 @@ export const styles = StyleSheet.create({
         borderColor: "lightgrey",
         borderRadius: 5,
     },
+    passwordView: {
+        flexDirection: "row",
+        justifyContent: 'center',
+        alignItems: "center",
+    },
+    inputPassword: {
+        width: "60%",
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+        borderColor: "lightgrey",
+        borderRadius: 5,
+    },
     containerRegister: {
         flex: 1,
         backgroundColor: "white",
@@ -230,4 +244,29 @@ export const styles = StyleSheet.create({
         paddingLeft: 15,
         paddingRight: 15,
       },
+      headlineStyle: {
+        fontSize: 21,
+        fontWeight: 'bold',
+        padding: 5,
+      },
+      trendBar: {
+        paddingLeft: "5%",
+        width: 'auto',
+        height: 170,
+      },
+      searchBar: {
+        alignSelf: 'center',
+        top: 5,
+
+    },
+    FABStyle: {
+        position: "absolute",
+        bottom: 16,
+        right: 16
+    }
 })
+// alignSelf: 'center',
+// width: '90%',
+// borderRadius: 10,
+// backgroundColor: '#fff',
+// padding: 5

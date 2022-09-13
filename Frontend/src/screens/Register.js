@@ -5,6 +5,7 @@ import {useNavigation} from "@react-navigation/native";
 import useJwt from "../../Jwt"
 import axios from "axios";
 import { styles } from "../styles/Style";
+import PasswordInput from "../components/PasswordInput";
 
 export default function Register() {
     const navigation = useNavigation();
@@ -61,21 +62,19 @@ export default function Register() {
                 value={email}
                 keyboardType="email-address"
             />
-            <TextInput
-                placeholder="Password..."
-                style={styles.input}
-                onChangeText={onChangePassword}
-                value={password}
-                secureTextEntry={true}
-                autoCapitalize='none'
+            <PasswordInput
+            viewStyle={styles.passwordView}
+            style={styles.inputPassword}
+            onChangeTextFunc={onChangePassword}
+            value={password}
+            placeholder="Password..."
             />
-            <TextInput
-                placeholder="Confirm your Password..."
-                style={styles.input}
-                onChangeText={onChangeConPassword}
-                value={ConPassword}
-                secureTextEntry={true}
-                autoCapitalize='none'
+            <PasswordInput
+            viewStyle={styles.passwordView}
+            style={styles.inputPassword}
+            onChangeTextFunc={onChangeConPassword}
+            value={ConPassword}
+            placeholder="Confirm your Password..."
             />
             <Button
                 title="Register"
