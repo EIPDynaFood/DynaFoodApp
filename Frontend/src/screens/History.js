@@ -31,7 +31,6 @@ export default function History() {
       <RequireJwt>
         <View style={StyleSheet.absoluteFillObject}>
           <SearchBar
-            darkMode={true}
             style={styles.searchBar}
             onChangeText={handleOnChangeText}
             onSearchPress={handleOnPress}
