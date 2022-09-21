@@ -93,7 +93,7 @@ export default function Login({navigation, route}) {
                     buttonStyle={styles.secondaryButtonStyle}
                     titleStyle={{color:"#2E4D44", flex:1}}
                     onPress={() => {
-                        navigation.navigate("Register")
+                        navigation.navigate("SendEmail")
                     }}
                     />
                 <Text style={styles.textInfo}>Or</Text>
