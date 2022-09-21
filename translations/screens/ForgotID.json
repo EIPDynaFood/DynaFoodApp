@@ -1,6 +1,6 @@
 {
   "Message": {
-    "de": "...",
+    "de": "Bitte gib deine ihre E-Mail an, um ihr Passwort zurückzusetzen:",
     "en": "Please enter your credentials to reset your password:",
     "fr": "Rentrez vous identifians pour reset le mot de pass:"
   },
@@ -10,7 +10,7 @@
     "fr": "Email..."
   },
   "Reset": {
-    "de": "...",
+    "de": "Passwort zurücksetzen",
     "en": "Reset Password",
     "fr": "Renouveler le mot de pass"
   },

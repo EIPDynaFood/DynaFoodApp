@@ -1,6 +1,6 @@
 {
   "Error": {
-    "de": "Falsches Passwort oder falsche E.Mail Adresse:\n",
+    "de": "Falsches Passwort oder falsche E-Mail Adresse:\n",
     "en": "Wrong user credentials:\n",
     "fr": "Mauvaise identification de l'utilisateur :\n"
   },
@@ -30,7 +30,7 @@
     "fr": "Se connecter en tant qu'invité"
   },
   "Forgot": {
-    "de": "...",
+    "de": "Passwort vergessen",
     "en": "forgot password",
     "fr": "mot de pass oubliè"
   }

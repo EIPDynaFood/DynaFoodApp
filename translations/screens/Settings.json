@@ -40,9 +40,9 @@
     "fr": "Cacahuètes"
   },
   "PeanutsMessage": {
-    "de": "",
+    "de": "Du wirst ab jetzt eine Meldung erhalten, wenn du ein Produkt mit Erdnüssen scannst",
     "en": "You will know receive notification if our scanner finds a product with peanuts",
-    "fr" : "Vous saurez recevoir une notification si notre scanner trouve un produit contenant des arachides"
+    "fr": "Vous saurez recevoir une notification si notre scanner trouve un produit contenant des arachides"
   },
   "Vegetarian": {
     "de": "Vegetarisch",
@@ -50,7 +50,7 @@
     "fr" : "Végétarien"
   },
   "VegetarianMessage": {
-    "de": "",
+    "de": "Du wirst ab jetzt eine Meldung erhalten, wenn du ein nicht-vegetarisches Produkt scannst",
     "en": "You will know receive notification if our scanner finds non-vegetarian ingredients",
     "fr" : "Vous saurez recevoir une notification si notre scanner trouve des ingrédients non-végétariens"
   },
@@ -60,7 +60,7 @@
     "fr": "Vegan"
   },
   "VeganMessage": {
-    "de": "",
+    "de": "Du wirst ab jetzt eine Meldung erhalten, wenn du ein nicht-veganes Produkt scannst",
     "en": "You will know receive notification if our scanner finds non-vegan ingredients",
     "fr" : "Vous saurez recevoir une notification si notre scanner trouve des ingrédients non végétaliens"
   },
