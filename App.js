@@ -11,6 +11,7 @@ import Login from "./src/screens/Login";
 import Register from "./src/screens/Register";
 import Settings from "./src/screens/Settings";
 import SearchResult from './src/screens/SearchResult';
+import MissingProduct from "./src/screens/MissingProduct";
 import Swiper from './src/screens/Swiper';
 import ForgotID from './src/screens/ForgotID';
 import {Icon} from "react-native-elements";
@@ -71,6 +72,7 @@ export function Navigation() {
               <Stack.Screen name="Product" component={Product}/>
               <Stack.Screen name="Settings" component={Settings}/>
               <Stack.Screen name="Search Result" component={SearchResult}/>
+              <Stack.Screen name="MissingProduct" component={MissingProduct}/>
             </Stack.Navigator>
           </NavigationContainer>)
   )

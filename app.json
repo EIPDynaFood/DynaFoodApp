@@ -24,10 +24,18 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.oelm.Frontend"
+      "package": "com.oelm.Frontend",
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-image-picker",
+      "expo-dev-client",
+      "expo-document-picker"
+    ]
   }
 }

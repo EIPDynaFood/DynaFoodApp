@@ -408,6 +408,16 @@ export default function Settings({navigation, route}) {
                                 <Text style={[styles.textSign, { color: color}]}>{translations["Logout"][lang]}</Text>
                             </TouchableOpacity>
                         </View>
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>Missing Product</Text>
+                        <View style={[styles.button, {backgroundColor: pagecolor}]}>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate("MissingProduct")}
+                                style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
+                                    marginTop: 5, marginBottom: 9, backgroundColor: '#ffff'}]}
+                            >
+                                <Text style={[styles.textSign, { color: '#376D55'}]}>Upload Information</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
             </ScrollView>
