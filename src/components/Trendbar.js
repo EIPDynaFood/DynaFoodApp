@@ -1,10 +1,23 @@
 import {useNavigation} from "@react-navigation/native";
 import {ScrollView, TouchableWithoutFeedback} from "react-native-gesture-handler";
 import {Image, Text, View, StyleSheet, TouchableOpacity} from "react-native";
-import React from "react";
+import React, {useState, useEffect}from "react";
+import axios from "axios";
+
 
 export default function TrendBar() {
   const navigation = useNavigation();
+
+  useEffect(() => {
+    axios.get('https://dynafood-server.herokuapp.com/trend').then((res) => {
+      console.log("hello");
+  }).catch((err) => {
+      console.log('catch');
+      alert("something went wrong getting history data: " + err.message);
+      console.log(err);
+    });
+  }, []);
+
   // to change later...
   let trendingProducts = [
     {

@@ -6,6 +6,7 @@ import useJwt from "../../Jwt"
 import axios from "axios";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
+import PasswordInput from "../components/PasswordInput";
 
 export default function Register() {
     const navigation = useNavigation();
@@ -65,21 +66,19 @@ export default function Register() {
                 value={email}
                 keyboardType="email-address"
             />
-            <TextInput
-                placeholder={translations["Password"][lang]}
-                style={styles.input}
-                onChangeText={onChangePassword}
-                value={password}
-                secureTextEntry={true}
-                autoCapitalize='none'
+            <PasswordInput
+            viewStyle={styles.passwordView}
+            style={styles.inputPassword}
+            onChangeTextFunc={onChangePassword}
+            value={password}
+            placeholder={translations["Password"][lang]}
             />
-            <TextInput
-                placeholder={translations["PasswordConfirm"][lang]}
-                style={styles.input}
-                onChangeText={onChangeConPassword}
-                value={ConPassword}
-                secureTextEntry={true}
-                autoCapitalize='none'
+            <PasswordInput
+            viewStyle={styles.passwordView}
+            style={styles.inputPassword}
+            onChangeTextFunc={onChangeConPassword}
+            value={ConPassword}
+            placeholder={translations["PasswordConfirm"][lang]}
             />
             <Button
                 title={translations["Register"][lang]}

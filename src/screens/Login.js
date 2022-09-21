@@ -1,12 +1,20 @@
 import {View, TextInput, Image, Text, TouchableOpacity} from "react-native";
 import React from "react";
 import {Button} from 'react-native-elements';
+import {StyleSheet, View, TextInput, Image, Text } from "react-native";
+import React, { useState, useEffect } from "react";
+import { FAB, Button} from 'react-native-elements';
 import useJwt from "../../Jwt"
 import axios from "axios";
 import {styles} from "../styles/Style";
 import useLang from "../../Language";
 import PasswordComponent from "../components/ForgotPWD";
 import LanguageDropdown from "../components/LanguageDropdown";
+import { styles } from "../styles/Style";
+import PasswordInput from "../components/PasswordInput";
+import { TouchableOpacity } from "react-native-gesture-handler";
+
+
 
 export default function Login({navigation, route}) {
     const {login} = useJwt()
@@ -52,14 +60,13 @@ export default function Login({navigation, route}) {
                     value={email}
                     keyboardType="email-address"
                     />
-                <TextInput
-                    placeholder={translations["Password"][lang]}
-                    style={styles.input}
-                    onChangeText={onChangePassword}
-                    value={password}
-                    secureTextEntry={true}
-                    autoCapitalize='none'
-                    />
+                <PasswordInput
+                style={styles.inputPassword}
+                onChangeTextFunc={onChangePassword}
+                value={password}
+                viewStyle={styles.passwordView}
+                placeholder={translations["Password"][lang]}
+                />
                 <TouchableOpacity
                     onPress={() => navigation.navigate("ForgotID")}>
                     <Text style={styles.forgotpwd}>{translations["Forgot"][lang]}</Text>
