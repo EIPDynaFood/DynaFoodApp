@@ -12,6 +12,7 @@ import Register from "./src/screens/Register";
 import Settings from "./src/screens/Settings";
 import SearchResult from './src/screens/SearchResult';
 import MissingProduct from "./src/screens/MissingProduct";
+import Feedback from "./src/screens/Feedback";
 import Swiper from './src/screens/Swiper';
 import ForgotID from './src/screens/ForgotID';
 import {Icon} from "react-native-elements";
@@ -25,6 +26,8 @@ const Stack = createNativeStackNavigator();
 export function Navigation() {
   const {jwt} = useJwt();
   let swiper = localStorage.getItem('Swiper');
+  // console.log(swiper)
+  //setSwiper = localStorage.getItem('Swiper')
 
   return (
       jwt === null ? (
@@ -69,6 +72,7 @@ export function Navigation() {
                             })}
               />
               <Stack.Screen name="Scanner" component={Scanner}/>
+              <Stack.Screen name="Feedback" component={Feedback}/>
               <Stack.Screen name="Product" component={Product}/>
               <Stack.Screen name="Settings" component={Settings}/>
               <Stack.Screen name="Search Result" component={SearchResult}/>

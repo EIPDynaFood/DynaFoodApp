@@ -42,7 +42,7 @@ export default function Settings({navigation, route}) {
         axios(config)
             .then(function (response) {
                 for (const restriction of response.data) {
-                    console.log(restriction["restrictionname"]);
+                    // console.log(restriction["restrictionname"]);
                     if (restriction["restrictionname"] === "lactose")
                         setLactose(true)
                     if (restriction["restrictionname"] === "nuts")
@@ -395,6 +395,17 @@ export default function Settings({navigation, route}) {
                                     marginTop: 5, marginBottom: 20, backgroundColor: '#376D55'}]}
                             >
                                 <Text style={[styles.textSign, { color: '#ffff'}]}>{translations["DarkMode"][lang]}</Text>
+                            </TouchableOpacity>
+                        </View>
+
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>Feedback</Text>
+                        <View style={[styles.button, {backgroundColor: pagecolor}]}>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate("Feedback")}
+                                style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
+                                    marginTop: 5, marginBottom: 9, backgroundColor: '#ffff'}]}
+                            >
+                                <Text style={[styles.textSign, { color: '#376D55'}]}>send feedback</Text>
                             </TouchableOpacity>
                         </View>
 
