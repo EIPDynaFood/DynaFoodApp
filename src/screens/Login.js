@@ -11,6 +11,7 @@ import useLang from "../../Language";
 import PasswordComponent from "../components/ForgotPWD";
 import LanguageDropdown from "../components/LanguageDropdown";
 import { styles } from "../styles/Style";
+import {OAuthButton} from "../components/OAuthButton";
 import PasswordInput from "../components/PasswordInput";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -83,7 +84,6 @@ export default function Login({navigation, route}) {
                         sendLogin();
                     }}
                     />
-
                 <Button
                     title={translations["Register"][lang]}
                     type="outline"
@@ -96,6 +96,11 @@ export default function Login({navigation, route}) {
                         navigation.navigate("Register")
                     }}
                     />
+                <Text style={styles.textInfo}>Or</Text>
+                <View style={{flexDirection:"row"}}>
+                    <OAuthButton service={"Facebook"}/>
+                    <OAuthButton service={"Google"}/>
+                </View>
             </View>
             <Button
                 title={translations["Guest"][lang]}
