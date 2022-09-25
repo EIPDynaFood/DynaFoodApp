@@ -1,14 +1,9 @@
-import {View, TextInput, Image, Text, TouchableOpacity} from "react-native";
-import React from "react";
+import {View, TextInput, Image, Text, StyleSheet} from "react-native";
 import {Button} from 'react-native-elements';
-import {StyleSheet, View, TextInput, Image, Text } from "react-native";
 import React, { useState, useEffect } from "react";
-import { FAB, Button} from 'react-native-elements';
 import useJwt from "../../Jwt"
 import axios from "axios";
-import {styles} from "../styles/Style";
 import useLang from "../../Language";
-import PasswordComponent from "../components/ForgotPWD";
 import LanguageDropdown from "../components/LanguageDropdown";
 import { styles } from "../styles/Style";
 import {OAuthButton} from "../components/OAuthButton";

@@ -268,8 +268,7 @@ export const styles = StyleSheet.create({
       },
       searchBar: {
         alignSelf: 'center',
-        top: 5,
-
+          top: 5
     },
     FABStyle: {
         position: "absolute",

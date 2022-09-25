@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 import {FAB} from 'react-native-elements';
 import {useNavigation} from "@react-navigation/native";
 import {RequireJwt} from "../components/RequireJwt";
-import SearchBar from "react-native-dynamic-search-bar";
+//import SearchBar from "react-native-dynamic-search-bar";
 import SearchBar from "react-native-elements/dist/searchbar/SearchBar-ios";
 import TrendBar from "../components/Trendbar";
 import ProductHistory from "../components/ProductHistory";
@@ -22,7 +22,7 @@ export default function History() {
   }
 
   const handleOnPress = () => {
-    if (search.length == 0)
+    if (search.length === 0)
       return;
     localStorage.setItem("Search", search)
     navigation.navigate('Search Result');
@@ -38,11 +38,10 @@ export default function History() {
           <SearchBar
             inputContainerStyle={styles.searchBar}
             value={search}
-            placeholder={translations["SearchBar"][lang]}/>
+            placeholder={translations["SearchBar"][lang]} platform={"default"}
             style={styles.searchBar}
             onChangeText={handleOnChangeText}
-            onSearchPress={handleOnPress}
-            placeholder="Search a product"/>
+            onSearchPress={handleOnPress}/>
           <View style={styles.trendBar}>
             <Text style={styles.headlineStyle}>
               {translations["TrendText"][lang]}
