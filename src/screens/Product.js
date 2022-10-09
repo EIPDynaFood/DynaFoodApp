@@ -21,7 +21,7 @@ export default function Product({navigation, route}) {
     axios.get("https://dynafood-server.herokuapp.com/products/barcode/" + productCode).then((res) => {
       if (res.status === 204) { // no data to return
         alert("Unknown Product");
-        navigation.goBack(null);
+        navigation.navigate('MissingProduct')
       } else {
         setProductData(res.data);
         // console.log(res.data);
