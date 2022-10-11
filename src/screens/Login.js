@@ -63,10 +63,10 @@ export default function Login({navigation, route}) {
                 viewStyle={styles.passwordView}
                 placeholder={translations["Password"][lang]}
                 />
-                <TouchableOpacity
-                    onPress={() => navigation.navigate("ForgotID")}>
-                    <Text style={styles.forgotpwd}>{translations["Forgot"][lang]}</Text>
-                </TouchableOpacity>
+                    <Text style={styles.forgotpwd}
+                          onPress={() => {navigation.navigate("ResetPassword")}}>
+                        {translations["Forgot"][lang]}
+                    </Text>
 
                 <Button
                     title={translations["Login"][lang]}

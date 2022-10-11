@@ -1,0 +1,22 @@
+{
+  "Message": {
+    "de": "Dein Authentifizierungscode wurde an deine E-Mail Adresse verschickt. Dies kann einige Minuten dauern.",
+    "en": "Your authentication code was sent to your address. This can take a couple minutes.",
+    "fr": ""
+  },
+  "Code": {
+    "de": "Authentifizierungscode ...",
+    "en": "Authentication code ...",
+    "fr": ""
+  },
+  "Submit":  {
+    "de": "Prüfen",
+    "en": "Submit",
+    "fr": ""
+  },
+  "Error":  {
+    "de": "Der Authentifizierungscode ist falsch. Bitte versuche es nochmal.",
+    "en": "The authentication code is wrong. Please try again.",
+    "fr": ""
+  }
+}

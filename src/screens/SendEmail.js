@@ -12,8 +12,8 @@ export default function SendEmail({navigation}) {
             if (res.status === 204) { // no data to return
                 alert("Could not found E-Mail address");
             } else {
-                console.log(email)
                 console.log("success");
+                navigation.navigate("VerifyCode")
             }
         }).catch((err) => {
             console.log("catch");

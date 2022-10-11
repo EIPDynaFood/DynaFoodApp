@@ -21,6 +21,8 @@ import useLang, {LangProvider} from "./Language";
 import {RequireJwt} from "./src/components/RequireJwt"
 import isReadyRef from "react-native/Libraries/Components/DrawerAndroid/DrawerLayoutAndroid";
 import SendEmail from "./src/screens/SendEmail";
+import VerifyCode from "./src/screens/Authentication";
+import ResetPassword from "./src/screens/ResetPassword";
 
 const Stack = createNativeStackNavigator();
 
@@ -50,6 +52,8 @@ export function Navigation() {
               <Stack.Screen name="Register" component={Register}/>
               <Stack.Screen name="ForgotID" component={ForgotID}/>
               <Stack.Screen options={{headerShown: true, title: "Reset Password"}} name="SendEmail" component={SendEmail}/>
+                <Stack.Screen options={{headerShown: true, title: "Reset Password"}} name="VerifyCode" component={VerifyCode}/>
+                <Stack.Screen options={{headerShown: true, title: "Reset Password"}} name="ResetPassword" component={ResetPassword}/>
             </Stack.Navigator>
           </NavigationContainer>) : (
           <NavigationContainer>
