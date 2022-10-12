@@ -39,7 +39,11 @@ class FlatListItem extends Component {
 
 export default function MissingProduct({ navigation }) {
     const [images, setImages ] = useState([]);
+<<<<<<< HEAD
     const [barcode, onChangeBarcode] = useState(localStorage.getItem("productCode"));
+=======
+    const [barcode, onChangeBarcode] = useState("");
+>>>>>>> 9ba94582ef8ce3978d0d4373ce624d6772133ea1
     const [productName, onChangeProductName] = useState("");
     const [size, onChangeSize] = useState("");
     const [company, onChangeCompany] = useState("");
