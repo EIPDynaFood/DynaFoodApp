@@ -30,8 +30,11 @@ export default function ResetPassword({navigation}) {
             data : data
         };
         axios(config).then((res) => {
-                console.log("success");
-                navigation.navigate("Login")
+            if (res.status === 409) {
+                alert(translations["PasswordError"][lang])
+            }
+            console.log("success");
+            navigation.navigate("Login")
         }).catch((err) => {
             console.log("catch");
             alert(err.message)
