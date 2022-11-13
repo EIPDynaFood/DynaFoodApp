@@ -5,6 +5,7 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import ProductGeneralInfo from "./ProductGeneralInfo";
 import ProductNutritionTable from "./ProductNutritionTable";
 import {RequireJwt} from "../components/RequireJwt";
+import { Ionicons } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/Ionicons';
 import useLang from "../../Language";
 
@@ -24,7 +25,7 @@ export default function Product({navigation, route}) {
     axios.get("https://dynafood-server.herokuapp.com/products/barcode/" + productCode).then((res) => {
       if (res.status === 204) { // no data to return
         alert(translations["Unknown"][lang]);
-        navigation.goBack(null);
+        navigation.navigate('MissingProduct')
       } else {
         setProductData(res.data);
         // console.log(res.data);
