@@ -105,7 +105,7 @@ const [showAlert, setShowAlert] = useState(isAlert);
       nutriImage = require("../../assets/nutri-scores/nutri-score-E.svg");
       break;
     default:
-      nutriImage = require("../../assets/nutri-scores/nutri-score-C.svg");
+      nutriImage = require("../../assets/nutri-scores/nutri-score-unknown.png");
   }
 
   let ecoImage
@@ -126,20 +126,20 @@ const [showAlert, setShowAlert] = useState(isAlert);
       ecoImage = require("../../assets/eco-scores/eco-score-E.png");
       break;
     default:
-      ecoImage = require("../../assets/eco-scores/eco-score-C.png");
+      ecoImage = require("../../assets/eco-scores/eco-score-unknown.png");
   }
 
   return (
       <RequireJwt>
         <View style={styles.wrapperStyleInfo}>
           <View>
-            <Alert
-            show={showAlert}
-            title="Warning!"
-            message={popAlert}
-            confText="OK"
-            func={setShowAlert(false)}
-            />
+              {/*<Alert
+                  show={showAlert}
+                  title="Warning!"
+                  message={popAlert}
+                  confText="OK"
+                  func={() => setShowAlert(false)}
+              />*/}
             <Image source={{uri: productData['images']}}
                    style={styles.imageStyleInfo}/>
             <LinearGradient style={styles.gradientStyle}

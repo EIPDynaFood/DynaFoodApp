@@ -8,7 +8,7 @@ export default function SendEmail({navigation}) {
     const [email, onChangeEmail] = useState("")
 
     const sendMail = () => {
-        axios.get("https://dynafood-development.herokuapp.com/resetPassword?email=" + email).then((res) => {
+        axios.get("http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/resetPassword?email=" + email).then((res) => {
             if (res.status === 204) { // no data to return
                 alert("Could not found E-Mail address");
             } else {

@@ -9,7 +9,7 @@ export default function TrendBar() {
   const navigation = useNavigation();
 
   useEffect(() => {
-    axios.get('https://dynafood-server.herokuapp.com/trend').then((res) => {
+    axios.get('http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/trend').then((res) => {
       console.log("hello");
   }).catch((err) => {
       console.log('catch');

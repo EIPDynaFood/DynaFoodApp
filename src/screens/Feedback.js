@@ -60,7 +60,7 @@ export default function Feedback({navigation, route}) {
                                         });
                                         let config = {
                                             method: 'post',
-                                            url: 'https://dynafood-server.herokuapp.com/feedback',
+                                            url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/feedback',
                                             headers: {
                                                 'Content-Type': 'application/x-www-form-urlencoded',
                                             },
