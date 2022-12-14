@@ -1,16 +1,16 @@
-node_modules/
-.expo/
-cache/
-coverage/
-dist/
-npm-debug.*
+App/node_modules/
+App/.expo/
+App/cache/
+App/coverage/
+App/dist/
+App/npm-debug.*
 *.jks
 *.p8
 *.p12
 *.key
 *.mobileprovision
 *.orig.*
-web-build/
+App/web-build/
 
 # macOS
 .DS_Store

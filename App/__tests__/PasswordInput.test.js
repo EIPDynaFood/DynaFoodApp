@@ -1,6 +1,6 @@
 import React from "react";
 import {shallow} from "enzyme";
-import PasswordInput from "../src/components/PasswordInput";
+import PasswordInput from "../../src/components/PasswordInput";
 jest.useFakeTimers()
 jest.mock('@react-navigation/native');
 jest.mock("react-native-gesture-handler");

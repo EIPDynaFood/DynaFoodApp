@@ -1,13 +1,9 @@
 import React from "react";
 import {useNavigation} from "@react-navigation/native";
-import {FAB} from "react-native-elements";
 import {shallow} from "enzyme";
-import ProductHistory from "../src/components/ProductHistory";
-import TrendBar from "../src/components/Trendbar";
-import ProductItem from "../src/components/ProductItem";
-import SendEmail from "../src/screens/SendEmail";
 import {TextInput} from "react-native";
 import {Button} from "react-native-elements";
+import VerifyCode from "../../src/screens/Authentication";
 
 jest.useFakeTimers()
 const mockedNavigate = jest.fn();
@@ -26,15 +22,15 @@ jest.setTimeout(30000);
 
 it("success", () => {
     const navigation = useNavigation();
-    const inst = shallow(<SendEmail/>);
+    const inst = shallow(<VerifyCode/>);
     inst.find(TextInput).simulate("change", {target: {value: 'niklas.scheffler@epitech.eu'}})
     inst.find(Button).simulate("press")
     expect(mockedNavigate).toHaveBeenCalledTimes(1)
 });
 
-it("no email", () => {
+it("no code", () => {
     alert = jest.fn()
-    const inst = shallow(<SendEmail/>);
+    const inst = shallow(<VerifyCode/>);
     console.log(inst.debug())
     inst.find(Button).simulate("press")
     setTimeout(() => {
@@ -43,9 +39,9 @@ it("no email", () => {
     jest.runAllTimers
 });
 
-it("wrong email", () => {
+it("wrong code", () => {
     global.alert = jest.fn()
-    const inst = shallow(<SendEmail/>);
+    const inst = shallow(<VerifyCode/>);
     inst.find(TextInput).simulate("change", {target: {value: 'marianne is cool'}})
     inst.find(Button).simulate("press")
     setTimeout(() => {
