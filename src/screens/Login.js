@@ -27,7 +27,7 @@ export default function Login({navigation, route}) {
     const sendLogin = () => {
         var config = {
             method: 'get',
-            url: 'https://dynafood-server.herokuapp.com/login?email=' + `${email}` + '&password=' + `${password}`,
+            url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/login?email=' + `${email}` + '&password=' + `${password}`,
         };
         axios(config)
             .then(function (response) {

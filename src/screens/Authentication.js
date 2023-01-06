@@ -19,7 +19,7 @@ export default function VerifyCode({navigation}) {
         });
         var config = {
             method: 'post',
-            url: 'https://dynafood-server.herokuapp.com/verifyCode',
+            url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/verifyCode',
             data : data
         };
         axios(config).then((res) => {

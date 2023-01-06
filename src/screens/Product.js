@@ -22,7 +22,7 @@ export default function Product({navigation, route}) {
 
   useEffect(() => {
     setProductCode(localStorage.getItem("productCode"));
-    axios.get("https://dynafood-server.herokuapp.com/products/barcode/" + productCode).then((res) => {
+    axios.get("http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/products/barcode/" + productCode).then((res) => {
       if (res.status === 204) { // no data to return
         alert(translations["Unknown"][lang]);
         navigation.navigate('MissingProduct')

@@ -26,7 +26,7 @@ export default function ResetPassword({navigation}) {
         });
         var config = {
             method: 'post',
-            url: 'https://dynafood-server.herokuapp.com/resetPassword',
+            url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/resetPassword',
             data : data
         };
         axios(config).then((res) => {

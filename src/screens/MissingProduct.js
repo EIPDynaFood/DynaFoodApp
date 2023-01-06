@@ -81,7 +81,7 @@ export default function MissingProduct({ navigation }) {
                 'Content-Type': 'multipart/form-data',
                 },
             };
-            fetch('https://dynafood-server.herokuapp.com/upload', options).then(() => {
+            fetch('http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/upload', options).then(() => {
                 alert(`Missing Product information about '${productName} ${size}' by '${company}' (barcode: '${barcode}') sended. Thanks for your help!`);
                 setImages([])
                 onChangeBarcode("")
