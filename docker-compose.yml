@@ -20,10 +20,10 @@ services:
     healthcheck:
       disable: true
     environment:
-      - REACT_NATIVE_PACKAGER_HOSTNAME=192.168.50.198
+      - REACT_NATIVE_PACKAGER_HOSTNAME=192.168.178.33 # change the address to yours
       - NODE_ENV=development
     extra_hosts:
-      - "devserver:192.168.50.198"
+      - "devserver:192.168.178.33" # change the address to yours
 
 volumes:
   notused:
