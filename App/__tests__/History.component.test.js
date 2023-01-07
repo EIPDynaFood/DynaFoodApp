@@ -1,15 +1,15 @@
 import React from "react";
-import History from "../src/screens/History";
+import History from "../../src/screens/History";
 import {useNavigation} from "@react-navigation/native";
 import {FAB} from "react-native-elements";
 import {shallow} from "enzyme";
-import ProductHistory from "../src/components/ProductHistory";
-import TrendBar from "../src/components/Trendbar";
+import ProductHistory from "../../src/components/ProductHistory";
+import TrendBar from "../../src/components/Trendbar";
 import * as router from 'react-router'
 import {TouchableOpacity} from "react-native";
-import ProductItem from "../src/components/ProductItem";
-import * as LangContext from "../Language";
-import LangProvider from "../Language";
+import ProductItem from "../../src/components/ProductItem";
+import * as LangContext from "../../Language";
+import LangProvider from "../../Language";
 
 
 class LocalStorageMock {

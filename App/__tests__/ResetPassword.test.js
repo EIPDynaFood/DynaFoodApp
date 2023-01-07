@@ -3,7 +3,7 @@ import {useNavigation} from "@react-navigation/native";
 import {shallow} from "enzyme";
 import {TextInput} from "react-native";
 import {Button} from "react-native-elements";
-import VerifyCode from "../src/screens/Authentication";
+import ResetPassword from "../../src/screens/ResetPassword";
 
 jest.useFakeTimers()
 const mockedNavigate = jest.fn();
@@ -22,15 +22,15 @@ jest.setTimeout(30000);
 
 it("success", () => {
     const navigation = useNavigation();
-    const inst = shallow(<VerifyCode/>);
+    const inst = shallow(<ResetPassword/>);
     inst.find(TextInput).simulate("change", {target: {value: 'niklas.scheffler@epitech.eu'}})
     inst.find(Button).simulate("press")
     expect(mockedNavigate).toHaveBeenCalledTimes(1)
 });
 
-it("no code", () => {
+it("not matching password", () => {
     alert = jest.fn()
-    const inst = shallow(<VerifyCode/>);
+    const inst = shallow(<ResetPassword/>);
     console.log(inst.debug())
     inst.find(Button).simulate("press")
     setTimeout(() => {
@@ -39,9 +39,9 @@ it("no code", () => {
     jest.runAllTimers
 });
 
-it("wrong code", () => {
+it("wrong password", () => {
     global.alert = jest.fn()
-    const inst = shallow(<VerifyCode/>);
+    const inst = shallow(<ResetPassword/>);
     inst.find(TextInput).simulate("change", {target: {value: 'marianne is cool'}})
     inst.find(Button).simulate("press")
     setTimeout(() => {

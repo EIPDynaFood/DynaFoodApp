@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import {RequireJwt} from "../components/RequireJwt";
 import {LinearGradient} from "expo-linear-gradient";
 import { styles } from "../styles/Style";
+import AwesomeAlert from "react-native-awesome-alerts";
 import useLang from "../../Language"
 import Alert from "../components/Alert";
 
@@ -84,7 +85,7 @@ export default function ProductGeneralInfo({navigation, route}) {
       break;
   }
 
-const [showAlert, setShowAlert] = useState(false);
+const [showAlert, setShowAlert] = useState(isAlert);
 
   let nutriImage
   switch (productData['nutriments_scores']['total_grade']) {
@@ -132,12 +133,13 @@ const [showAlert, setShowAlert] = useState(false);
       <RequireJwt>
         <View style={styles.wrapperStyleInfo}>
           <View>
-            <Alert
-            show={showAlert}
-            title="Warning!"
-            message={popAlert}
-            confText="OK"
-            />
+              {/*<Alert
+                  show={showAlert}
+                  title="Warning!"
+                  message={popAlert}
+                  confText="OK"
+                  func={() => setShowAlert(false)}
+              />*/}
             <Image source={{uri: productData['images']}}
                    style={styles.imageStyleInfo}/>
             <LinearGradient style={styles.gradientStyle}

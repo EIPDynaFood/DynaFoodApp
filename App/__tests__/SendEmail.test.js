@@ -1,9 +1,13 @@
 import React from "react";
 import {useNavigation} from "@react-navigation/native";
+import {FAB} from "react-native-elements";
 import {shallow} from "enzyme";
+import ProductHistory from "../../src/components/ProductHistory";
+import TrendBar from "../../src/components/Trendbar";
+import ProductItem from "../../src/components/ProductItem";
+import SendEmail from "../../src/screens/SendEmail";
 import {TextInput} from "react-native";
 import {Button} from "react-native-elements";
-import ResetPassword from "../src/screens/ResetPassword";
 
 jest.useFakeTimers()
 const mockedNavigate = jest.fn();
@@ -22,15 +26,15 @@ jest.setTimeout(30000);
 
 it("success", () => {
     const navigation = useNavigation();
-    const inst = shallow(<ResetPassword/>);
+    const inst = shallow(<SendEmail/>);
     inst.find(TextInput).simulate("change", {target: {value: 'niklas.scheffler@epitech.eu'}})
     inst.find(Button).simulate("press")
     expect(mockedNavigate).toHaveBeenCalledTimes(1)
 });
 
-it("not matching password", () => {
+it("no email", () => {
     alert = jest.fn()
-    const inst = shallow(<ResetPassword/>);
+    const inst = shallow(<SendEmail/>);
     console.log(inst.debug())
     inst.find(Button).simulate("press")
     setTimeout(() => {
@@ -39,9 +43,9 @@ it("not matching password", () => {
     jest.runAllTimers
 });
 
-it("wrong password", () => {
+it("wrong email", () => {
     global.alert = jest.fn()
-    const inst = shallow(<ResetPassword/>);
+    const inst = shallow(<SendEmail/>);
     inst.find(TextInput).simulate("change", {target: {value: 'marianne is cool'}})
     inst.find(Button).simulate("press")
     setTimeout(() => {
