@@ -12,11 +12,11 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 
 
-export default function Login({navigation, route}) {
+export default function Login({navigation}) {
     const {login} = useJwt()
 
     const guestEmail = "i@i.com"
-    const guestPassword = "password"
+    const guestPassword = "SuperSecurePassword123-"
 
     const [email, onChangeEmail] = React.useState("");
     const [password, onChangePassword] = React.useState("");
@@ -27,7 +27,7 @@ export default function Login({navigation, route}) {
     const sendLogin = () => {
         var config = {
             method: 'get',
-            url: 'https://dynafood-server.herokuapp.com/login?email=' + `${email}` + '&password=' + `${password}`,
+            url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/login?email=' + `${email}` + '&password=' + `${password}`,
         };
         axios(config)
             .then(function (response) {
@@ -64,7 +64,7 @@ export default function Login({navigation, route}) {
                 placeholder={translations["Password"][lang]}
                 />
                 <Text style={styles.forgotpwd}
-                      onPress={() => {navigation.navigate("ResetPassword")}}>
+                      onPress={() => {navigation.navigate("SendEmail")}}>
                     {translations["Forgot"][lang]}
                 </Text>
                 <Button
@@ -87,7 +87,7 @@ export default function Login({navigation, route}) {
                     buttonStyle={styles.secondaryButtonStyle}
                     titleStyle={{color:"#2E4D44", flex:1}}
                     onPress={() => {
-                        navigation.navigate("SendEmail")
+                        navigation.navigate("Register")
                     }}
                     />
                 <Text style={styles.textInfo}>Or</Text>

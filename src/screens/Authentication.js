@@ -6,7 +6,7 @@ import axios from "axios";
 import useLang from "../../Language";
 import qs from "qs";
 
-export default function VerifyCode({navigation}) {
+export default function VerifyCode(props) {
     const [code, onChangeCode] = useState("")
 
     const translations = require("../../translations/screens/Authentication.json")
@@ -15,11 +15,12 @@ export default function VerifyCode({navigation}) {
     const checkCode = () => {
         var qs = require('qs');
         var data = qs.stringify({
-            'code': `${code}`
+            'code': `${code}`,
+            'email': `${props.route.params.email}`
         });
         var config = {
             method: 'post',
-            url: 'https://dynafood-server.herokuapp.com/verifyCode',
+            url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/verifyCode',
             data : data
         };
         axios(config).then((res) => {
@@ -27,7 +28,7 @@ export default function VerifyCode({navigation}) {
                 alert(translations["Error"][lang]);
             } else {
                 console.log("success");
-                navigation.navigate("ResetPassword")
+                props.navigation.navigate("ResetPassword")
             }
         }).catch((err) => {
             console.log("catch");

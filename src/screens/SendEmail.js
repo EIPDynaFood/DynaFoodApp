@@ -8,12 +8,13 @@ export default function SendEmail({navigation}) {
     const [email, onChangeEmail] = useState("")
 
     const sendMail = () => {
-        axios.get("https://dynafood-development.herokuapp.com/resetPassword?email=" + email).then((res) => {
+        axios.get("http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/resetPassword?email=" + email).then((res) => {
+            console.log(res.status)
             if (res.status === 204) { // no data to return
-                alert("Could not found E-Mail address");
+                alert("Could not find E-Mail address");
             } else {
                 console.log("success");
-                navigation.navigate("VerifyCode")
+                navigation.navigate("VerifyCode", {email})
             }
         }).catch((err) => {
             console.log("catch");

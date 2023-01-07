@@ -15,7 +15,7 @@ export default function ProductHistory(props) {
   const {lang} = useLang()
 
   useEffect(() => {
-    axios.get('https://dynafood-server.herokuapp.com/history').then((res) => {
+    axios.get('http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/history').then((res) => {
       setHistoryData(res.data);
     }).catch((err) => {
       console.log('catch');

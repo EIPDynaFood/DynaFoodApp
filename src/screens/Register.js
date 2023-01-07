@@ -36,7 +36,7 @@ export default function Register() {
             });
             var config = {
                 method: 'post',
-                url: 'https://dynafood-server.herokuapp.com/signup',
+                url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/signup',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },

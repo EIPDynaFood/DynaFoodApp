@@ -1,9 +1,8 @@
-import {Button, StyleSheet, Text, View, Image, FlatList, ScrollView} from "react-native";
+import {Text, View, Image} from "react-native";
 import React, {useState} from "react";
 import {RequireJwt} from "../components/RequireJwt";
 import {LinearGradient} from "expo-linear-gradient";
 import { styles } from "../styles/Style";
-import AwesomeAlert from "react-native-awesome-alerts";
 import useLang from "../../Language"
 import Alert from "../components/Alert";
 
@@ -85,7 +84,7 @@ export default function ProductGeneralInfo({navigation, route}) {
       break;
   }
 
-const [showAlert, setShowAlert] = useState(isAlert);
+const [showAlert, setShowAlert] = useState(false);
 
   let nutriImage
   switch (productData['nutriments_scores']['total_grade']) {
@@ -138,7 +137,6 @@ const [showAlert, setShowAlert] = useState(isAlert);
             title="Warning!"
             message={popAlert}
             confText="OK"
-            func={setShowAlert(false)}
             />
             <Image source={{uri: productData['images']}}
                    style={styles.imageStyleInfo}/>
