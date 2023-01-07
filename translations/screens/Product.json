@@ -2,11 +2,17 @@
   "Unknown": {
     "de": "Unbekanntes Produkt",
     "en": "Unknown product",
-    "fr": "Produit inconnu"
+    "fr": "Produit inconnu",
+    "es" : "Producto desconocido",
+    "pt" : "Produto desconhecido",
+    "it" : "Prodotto sconosciuto"
   },
   "Error": {
     "de": "Etwas ist beim Laden der Produktdaten schiefgelaufen:\n",
     "en": "Something went wrong getting data about the product:\n",
-    "fr": "Quelque chose s'est mal passé lors de l'obtention des données sur le produit :\n"
+    "fr": "Quelque chose s'est mal passé lors de l'obtention des données sur le produit :\n",
+    "es" : "Algo ha ido mal al obtener datos sobre el producto:\n",
+    "pt" : "Alguma coisa correu mal ao obter dados sobre o produto:\n",
+    "it" : "Qualcosa è andato storto nell'ottenere i dati sul prodotto:\n"
   }
 }
