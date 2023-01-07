@@ -2,7 +2,7 @@ import {useNavigation} from "@react-navigation/native";
 import axios from "axios";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {Icon} from "react-native-elements";
-import React from "react";
+import React, {useState} from "react";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
 
@@ -12,6 +12,7 @@ export default function ProductItem(itemData) {
   const translations = require("../../translations/components/ProductItem.json")
   const {lang} = useLang()
 
+    const [show, setShow] = useState(true)
   const deleteHistoryItem = () => {
     axios.delete('http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/history/' + itemData.historyId).then((res) => {
     }).catch((err) => {
@@ -19,10 +20,10 @@ export default function ProductItem(itemData) {
       alert(translations["Error"][lang] + err.message);
       console.log(err);
     });
+      setShow(false)
   };
 
-  return (
-      <View style={styles.productItem}>
+    return (show ? <View style={styles.productItem}>
         <TouchableOpacity onPress={() => {
           localStorage.setItem('productCode', itemData.barcode);
           navigation.navigate('Product');
@@ -44,6 +45,6 @@ export default function ProductItem(itemData) {
         <View style={{flex: 1, flexDirection: 'row-reverse', alignItems: 'center'}}>
           <Icon name='delete' onPress={deleteHistoryItem}/>
         </View>
-      </View>
+      </View> : <View></View>
   );
 }
