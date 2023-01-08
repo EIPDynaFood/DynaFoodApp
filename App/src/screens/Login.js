@@ -92,8 +92,8 @@ export default function Login({navigation}) {
                     />
                 <Text style={styles.textInfo}>Or</Text>
                 <View style={{flexDirection:"row"}}>
-                    <OAuthButton service={"Facebook"}/>
-                    <OAuthButton service={"Google"}/>
+                    <OAuthButton service={"Facebook"} navigation={navigation}/>
+                    <OAuthButton service={"Google"} navigation={navigation}/>
                 </View>
             </View>
             <Button

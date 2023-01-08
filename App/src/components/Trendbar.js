@@ -9,13 +9,13 @@ export default function TrendBar() {
   const navigation = useNavigation();
 
   useEffect(() => {
-    axios.get('http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/trend').then((res) => {
+    /*axios.get('http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/trend').then((res) => {
       console.log("hello");
   }).catch((err) => {
       console.log('catch');
       alert("something went wrong getting history data: " + err.message);
       console.log(err);
-    });
+    });*/
   }, []);
 
   // to change later...

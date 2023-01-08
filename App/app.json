@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Frontend",
-    "slug": "Frontend",
+    "slug": "dynafoodapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -36,6 +36,12 @@
       "expo-image-picker",
       "expo-dev-client",
       "expo-document-picker"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "c0a020fa-ad95-4f57-ab30-c54c5d3d13c6"
+      }
+    },
+    "owner": "dynafood_admin"
   }
 }
