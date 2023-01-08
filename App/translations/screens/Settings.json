@@ -102,11 +102,17 @@
   "Account": {
     "de": "Konto",
     "en": "Account",
-    "fr": "Compte"
+    "fr": "Compte",
+    "es" : "Cuenta",
+    "pt" : "Conta",
+    "it" : "Il conto"
   },
   "Logout": {
     "de": "Ausloggen",
     "en": "Logout",
-    "fr": "Déconnexion"
+    "fr": "Déconnexion",
+    "es" : "Cerrar sesión",
+    "pt" : "Sair",
+    "it" : "Disconnessione"
   }
 }

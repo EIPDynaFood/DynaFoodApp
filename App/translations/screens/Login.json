@@ -2,36 +2,57 @@
   "Error": {
     "de": "Falsches Passwort oder falsche E-Mail Adresse:\n",
     "en": "Wrong user credentials:\n",
-    "fr": "Mauvaise identification de l'utilisateur :\n"
+    "fr": "Mauvaise identification de l'utilisateur :\n",
+    "es" : "Credenciales de usuario incorrectas :\n",
+    "pt" : "Credenciais de usuário erradas :\n",
+    "it" : "Credenziali utente errate :\n"
   },
   "Email": {
     "de": "E-Mail Adresse...",
     "en": "Email...",
-    "fr": "Email..."
+    "fr": "Email...",
+    "es" : "Correo electrónico...",
+    "pt" : "Email...",
+    "it" : "Email..."
   },
   "Password": {
     "de": "Passwort...",
     "en": "Password...",
-    "fr": "Mot de passe..."
+    "fr": "Mot de passe...",
+    "es" : "Contraseña...",
+    "pt" : "Senha...",
+    "it" : "Password..."
   },
   "Login": {
     "de": "Einloggen",
     "en": "Login",
-    "fr": "Connexion"
+    "fr": "Connexion",
+    "es" : "Iniciar sesión",
+    "pt" : "Login",
+    "it" : "Accesso"
   },
   "Register": {
     "de": "Registrieren",
     "en": "Register",
-    "fr": "Enregistrez"
+    "fr": "Enregistrez",
+    "es" : "Registrarse",
+    "pt" : "Registe-se",
+    "it" : "Registrazione"
   },
   "Guest": {
     "de": "Als Gast anmelden",
     "en": "Login as guest",
-    "fr": "Se connecter en tant qu'invité"
+    "fr": "Se connecter en tant qu'invité",
+    "es" : "Iniciar sesión como invitado",
+    "pt" : "Login como convidado",
+    "it" : "Accesso come ospite"
   },
   "Forgot": {
     "de": "Passwort vergessen",
     "en": "forgot password",
-    "fr": "mot de pass oubliè"
+    "fr": "mot de passe oublié",
+    "es" : "Contraseña olvidada",
+    "pt" : "esqueci-me da senha",
+    "it" : "password dimenticata"
   }
 }

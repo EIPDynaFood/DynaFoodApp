@@ -2,16 +2,25 @@
   "SearchBar": {
     "de": "Ein Produkt suchen...",
     "en": "Search for a product...",
-    "fr" : "Rechercher un produit..."
+    "fr" : "Rechercher un produit...",
+    "es" : "Buscar un producto...",
+    "pt" : "Procurar um produto...",
+    "it" : "Ricerca di un prodotto..."
   },
   "TrendText": {
     "de": "Trends",
     "en": "Trending",
-    "fr": "Tendance"
+    "fr": "Tendance",
+    "es" : "Tendencias",
+    "pt" : "Tendência",
+    "it" : "Tendenza"
   },
   "ProductText": {
     "de": "Deine Produkte",
     "en": "Your products",
-    "fr" : "Vos produits"
+    "fr" : "Vos produits",
+    "es" : "Sus productos",
+    "pt" : "Os seus produtos",
+    "it" : "I vostri prodotti"
   }
 }

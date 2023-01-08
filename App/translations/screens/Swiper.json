@@ -2,56 +2,89 @@
   "Skip": {
     "de": "Überspringen",
     "en": "Skip",
-    "fr": "Sauter"
+    "fr": "Sauter",
+    "es" : "Saltar",
+    "pt" : "Saltar",
+    "it" : "Salto"
   },
   "Next": {
     "de": "Weiter",
     "en": "Next",
-    "fr": "Suivant"
+    "fr": "Suivant",
+    "es" : "Siguiente",
+    "pt" : "Próximo",
+    "it" : "Avanti"
   },
   "Done": {
     "de": "Fertig",
     "en": "Done",
-    "fr": "Terminé"
+    "fr": "Terminé",
+    "es" : "Hecho",
+    "pt" : "Feito",
+    "it" : "Fatto"
   },
   "Page1Title": {
     "de": "Willkommen bei DynaFood",
     "en": "Welcome to DynaFood",
-    "fr" : "Bienvenue chez DynaFood"
+    "fr" : "Bienvenue chez DynaFood",
+    "es" : "Bienvenido a DynaFood",
+    "pt" : "Bem-vindo ao DynaFood",
+    "it" : "Benvenuti a DynaFood"
   },
   "Page1Subtitle": {
     "de": "Der dynamische Scanner für deine Lebensmittel",
     "en": "The dynamic scanner for your groceries",
-    "fr" : "Le scanner dynamique pour vos courses"
+    "fr" : "Le scanner dynamique pour vos courses",
+    "es" : "El escáner dinámico para sus compras",
+    "pt" : "O scanner dinâmico para as suas compras",
+    "it" : "Lo scanner dinamico per la vostra spesa"
   },
   "Page2Title": {
     "de": "Scan",
     "en": "Scan",
-    "fr": "Scan"
+    "fr": "Scan",
+    "es" : "Escanear",
+    "pt" : "Digitalização",
+    "it" : "La scansione"
   },
   "Page2Subtitle": {
     "de": "Mit einem Klick kannst du dir alle Ernährungsinformationen eines Produkts anzeigen lassen",
     "en": "Within one click you can access all nutritional information of a product",
-    "fr" : "En un clic, vous pouvez accéder à toutes les informations nutritionnelles d'un produit"
+    "fr" : "En un clic, vous pouvez accéder à toutes les informations nutritionnelles d'un produit",
+    "es" : "Con un solo clic puede acceder a toda la información nutricional de un producto",
+    "pt" : "Com um clique você pode acessar toda a informação nutricional de um produto",
+    "it" : "Con un solo clic è possibile accedere a tutte le informazioni nutrizionali di un prodotto"
   },
   "Page3Title": {
     "de": "Auswertung",
     "en": "Evaluation",
-    "fr": "Evaluation"
+    "fr": "Evaluation",
+    "es" : "Evaluación",
+    "pt" : "Avaliação",
+    "it" : "Valutazione"
   },
   "Page3Subtitle": {
     "de": "Wir analysieren deine Lebensmittel und geben dir eine Zusammenfassung mit gesunden Alternativen",
     "en": "We evaluate your groceries and give you a summary with healthy alternatives",
-    "fr" : "Nous évaluons vos courses et vous donnons un résumé avec des alternatives saines"
+    "fr" : "Nous évaluons vos courses et vous donnons un résumé avec des alternatives saines",
+    "es" : "Evaluamos tus compras y te ofrecemos un resumen con alternativas saludables",
+    "pt" : "Nós avaliamos as suas compras e damos-lhe um resumo com alternativas saudáveis",
+    "it" : "Valutiamo la vostra spesa e vi forniamo un riepilogo con alternative salutari"
   },
   "Page4Title": {
     "de": "Personalisierte Einstellungen",
     "en": "Personalized Settings",
-    "fr" : "Paramètres personnalisés"
+    "fr" : "Paramètres personnalisés",
+    "es" : "Ajustes personalizados",
+    "pt" : "Configurações personalizadas",
+    "it" : "Impostazioni personalizzate"
   },
   "Page4Subtitle": {
     "de": "Nutze die Einstellung um eine personalisierte Analyse zu bekommen. Nur für dich!",
     "en": "Use the settings to get a personalized evaluation. Just for you!",
-    "fr" : "Utilisez les paramètres pour obtenir une évaluation personnalisée. Rien que pour vous !"
+    "fr" : "Utilisez les paramètres pour obtenir une évaluation personnalisée. Rien que pour vous !",
+    "es" : "Utilice los ajustes para obtener una evaluación personalizada. Sólo para ti",
+    "pt" : "Use as configurações para obter uma avaliação personalizada. Só para você!",
+    "it" : "Utilizzate le impostazioni per ottenere una valutazione personalizzata. Solo per voi!"
   }
 }

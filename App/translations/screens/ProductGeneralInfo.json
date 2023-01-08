@@ -2,41 +2,65 @@
   "Vegan": {
     "de": "Dieses Produkt enthält tierische Inhaltsstoffe!",
     "en": "This product contains animal related ingredients!",
-    "fr": "Ce produit contient des ingrédients liés aux animaux!"
+    "fr": "Ce produit contient des ingrédients liés aux animaux!",
+    "es" : "Este producto contiene ingredientes de origen animal.",
+    "pt" : "Este produto contém ingredientes relacionados com animais!",
+    "it" : "Questo prodotto contiene ingredienti di origine animale!"
   },
   "Vegetarian": {
     "de": "Dieses Produkt enthält Fleisch und/oder Fisch!",
     "en": "This product contains meat and/or fish!",
-    "fr": "Ce produit contient de la viande et/ou du poisson!"
+    "fr": "Ce produit contient de la viande et/ou du poisson!",
+    "es" : "Este producto contiene carne y/o pescado.",
+    "pt" : "Este produto contém carne e/ou peixe!",
+    "it" : "Questo prodotto contiene carne e/o pesce!"
   },
   "Lactose": {
     "de": "Dieses Produkt enthält Lactose!",
     "en": "This product contains lactose!",
-    "fr": "Ce produit contient du lactose!"
+    "fr": "Ce produit contient du lactose!",
+    "es" : "¡Este producto contiene lactosa!",
+    "pt" : "Este produto contém lactose!",
+    "it" : "Questo prodotto contiene lattosio!"
   },
   "Nuts": {
     "de": "Dieses Produkt enthält Nüsse!",
     "en": "This product contains nuts!",
-    "fr": "Ce produit contient des noix!"
+    "fr": "Ce produit contient des noix!",
+    "es" : "¡Este producto contiene frutos secos!",
+    "pt" : "Este produto contém nozes!",
+    "it" : "Questo prodotto contiene frutta a guscio!"
   },
   "Tomato": {
     "de": "Dieses Produkt enthält Tomaten!",
     "en": "This product contains tomatoes!",
-    "fr": "Ce produit contient des tomates!"
+    "fr": "Ce produit contient des tomates!",
+    "es" : "¡Este producto contiene tomate!",
+    "pt" : "Este produto contém tomates!",
+    "it" : "Questo prodotto contiene pomodori!"
   },
   "Gluten": {
     "de": "Dieses Produkt enthält Gluten!",
     "en": "This product contains gluten!",
-    "fr": "Ce produit contient du gluten!"
+    "fr": "Ce produit contient du gluten!",
+    "es" : "¡Este producto contiene gluten!",
+    "pt" : "Este produto contém glúten!",
+    "it" : "Questo prodotto contiene glutine!"
   },
   "Seed": {
     "de": "Dieses Produkt enthält Samen!",
     "en": "This product contains seeds!",
-    "fr": "Ce produit contient des graines!"
+    "fr": "Ce produit contient des graines!",
+    "es" : "Este producto contiene semillas",
+    "pt" : "Este produto contém sementes!",
+    "it" : "Questo prodotto contiene semi!"
   },
   "Peanut": {
     "de": "Dieses Produkt enthält Erdnüsse!",
     "en": "This product contains peanuts!",
-    "fr": "Ce produit contient des cacahuètes!"
+    "fr": "Ce produit contient des cacahuètes!",
+    "es" : "¡Este producto contiene cacahuetes!",
+    "pt" : "Este produto contém amendoins!",
+    "it" : "Questo prodotto contiene arachidi!"
   }
 }

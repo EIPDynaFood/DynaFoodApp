@@ -26,11 +26,29 @@ export default function LanguageDropdown() {
             label: "",
             value: "fr",
             icon: () => (<Image source={french} style={{width: 20, height: 20}}/>)
+        },
+        {
+            label: "",
+            value: "pt",
+            icon: () => (<Image source={portuguese} style={{width: 20, height: 20}}/>)
+        },
+        {
+            label: "",
+            value: "it",
+            icon: () => (<Image source={italian} style={{width: 20, height: 20}}/>)
+        },
+        {
+            label: "",
+            value: "es",
+            icon: () => (<Image source={spanish} style={{width: 20, height: 20}}/>)
         }
     ])
     const german = require("../../assets/flags/germany.png")
     const english = require("../../assets/flags/united-kingdom.png")
     const french = require("../../assets/flags/france.png");
+    const italian = require("../../assets/flags/italian.png")
+    const spanish = require("../../assets/flags/spanish.png")
+    const portuguese = require("../../assets/flags/portuguese.png");
 
     useEffect(
         () => {

@@ -2,31 +2,49 @@
   "Error": {
     "de": "Etwas ist beim Registrierungsprozess schiefgelaufen:\n",
     "en": "Something went wrong in your Registration process:\n",
-    "fr": "Quelque chose s'est mal passé dans votre processus d'enregistrement :\n"
+    "fr": "Quelque chose s'est mal passé dans votre processus d'enregistrement :\n",
+    "es" : "Algo ha ido mal en el proceso de registro:\n",
+    "pt" : "Alguma coisa correu mal no seu processo de registo:\n",
+    "it" : "Qualcosa è andato storto nel processo di registrazione:\n"
   },
   "Email": {
     "de": "E-Mail Adresse...",
     "en": "Email...",
-    "fr": "Email..."
+    "fr": "Email...",
+    "es" : "Correo electrónico...",
+    "pt" : "Email...",
+    "it" : "Email..."
   },
   "Password": {
     "de": "Passwort...",
     "en": "Password...",
-    "fr": "Mot de passe..."
+    "fr": "Mot de passe...",
+    "es" : "Contraseña...",
+    "pt" : "Senha...",
+    "it" : "Password di accesso..."
   },
   "PasswordConfirm": {
     "de": "Passwort bestätigen...",
     "en": "Confirm your password...",
-    "fr": "Confirmez votre mot de passe..."
+    "fr": "Confirmez votre mot de passe...",
+    "es" : "Confirme su contraseña...",
+    "pt" : "Confirme sua senha...",
+    "it" : "Confermare la password..."
   },
   "Register": {
     "de": "Registrieren",
     "en": "Register",
-    "fr": "Enregistrez"
+    "fr": "Enregistrez",
+    "es" : "Registrarse",
+    "pt" : "Registe-se",
+    "it" : "Registrazione"
   },
   "Cancel": {
     "de": "Zurück",
     "en": "Cancel",
-    "fr": "Annuler"
+    "fr": "Annuler",
+    "es" : "Cancelar",
+    "pt" : "Cancelar",
+    "it" : "Annullamento"
   }
 }

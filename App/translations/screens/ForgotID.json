@@ -2,21 +2,33 @@
   "Message": {
     "de": "Bitte gib deine ihre E-Mail an, um ihr Passwort zurückzusetzen:",
     "en": "Please enter your credentials to reset your password:",
-    "fr": "Rentrez vous identifians pour reset le mot de pass:"
+    "fr": "Rentrez vos identifiants pour réinitialiser le mot de passe:",
+    "es" : "Introduce tus credenciales para restablecer tu contraseña: ",
+    "pt" : "Por favor, introduza as suas credenciais para redefinir a sua senha:",
+    "it" : "Inserisci le tue credenziali per reimpostare la password: "
   },
   "Email": {
     "de": "E-Mail Adresse...",
     "en": "Email...",
-    "fr": "Email..."
+    "fr": "Email...",
+    "es" : "Correo electrónico...",
+    "pt" : "Email...",
+    "it" : "Email..."
   },
   "Reset": {
     "de": "Passwort zurücksetzen",
     "en": "Reset Password",
-    "fr": "Renouveler le mot de pass"
+    "fr": "Renouveler le mot de passe",
+    "es" : "Restablecer contraseña",
+    "pt" : "Redefinir senha",
+    "it" : "Reimpostare la password"
   },
   "Cancel": {
     "de": "Zurück",
     "en": "Cancel",
-    "fr": "Annuler"
+    "fr": "Annuler",
+    "es" : "Cancelar",
+    "pt" : "Cancelar",
+    "it" : "Annullamento"
   }
 }
