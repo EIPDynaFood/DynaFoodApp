@@ -2,21 +2,33 @@
   "Message": {
     "de": "Dein Authentifizierungscode wurde an deine E-Mail Adresse verschickt. Dies kann einige Minuten dauern.",
     "en": "Your authentication code was sent to your address. This can take a couple minutes.",
-    "fr": ""
+    "fr": "Votre code d'authentification a été envoyé a votre adresse mail. Cela peut prendre quelques minutes.",
+    "es" : "Su código de autenticación ha sido enviado a su dirección. Esto puede tardar un par de minutos.",
+    "pt" : "O seu código de autenticação foi enviado para a sua morada. Isto pode demorar alguns minutos.",
+    "it" : "Il codice di autenticazione è stato inviato al vostro indirizzo. Questa operazione può richiedere un paio di minuti."
   },
   "Code": {
     "de": "Authentifizierungscode ...",
     "en": "Authentication code ...",
-    "fr": ""
+    "fr": "Code d'authentification ...",
+    "es" : "Código de autenticación ...",
+    "pt" : "Código de autenticação ...",
+    "it" : "Codice di autenticazione ..."
   },
   "Submit":  {
     "de": "Prüfen",
     "en": "Submit",
-    "fr": ""
+    "fr": "Envoyé",
+    "es" : "Enviar",
+    "pt" : "Submeter",
+    "it" : "Invia"
   },
   "Error":  {
     "de": "Der Authentifizierungscode ist falsch. Bitte versuche es nochmal.",
     "en": "The authentication code is wrong. Please try again.",
-    "fr": ""
+    "fr": "Le code d'authenfication est faux. Veillez réessayer",
+    "es" : "El código de autenticación es incorrecto. Por favor, inténtelo de nuevo.",
+    "pt" : "O código de autenticação está errado. Por favor, tente novamente.",
+    "it" : "Il codice di autenticazione è sbagliato. Riprovare."
   }
 }
