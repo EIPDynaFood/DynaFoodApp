@@ -1,12 +1,12 @@
 import {View, TextInput, Image, Text, StyleSheet} from "react-native";
 import {Button} from 'react-native-elements';
 import React, { useState, useEffect } from "react";
+import { endpoint } from '../../config';
 import useJwt from "../../Jwt"
 import axios from "axios";
 import useLang from "../../Language";
 import LanguageDropdown from "../components/LanguageDropdown";
 import { styles } from "../styles/Style";
-import {OAuthButton} from "../components/OAuthButton";
 import PasswordInput from "../components/PasswordInput";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -27,8 +27,10 @@ export default function Login({navigation}) {
     const sendLogin = () => {
         var config = {
             method: 'get',
-            url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/login?email=' + `${email}` + '&password=' + `${password}`,
+            url: endpoint + 'login?email=' + `${email}` + '&password=' + `${password}`,
+            rejectUnauthorized: false,
         };
+        console.log(config.url)
         axios(config)
             .then(function (response) {
                 login(response.data)
@@ -90,11 +92,6 @@ export default function Login({navigation}) {
                         navigation.navigate("Register")
                     }}
                     />
-                <Text style={styles.textInfo}>Or</Text>
-                <View style={{flexDirection:"row"}}>
-                    <OAuthButton service={"Facebook"} navigation={navigation}/>
-                    <OAuthButton service={"Google"} navigation={navigation}/>
-                </View>
             </View>
             <Button
                 title={translations["Guest"][lang]}

@@ -3,13 +3,14 @@ import {ScrollView, TouchableWithoutFeedback} from "react-native-gesture-handler
 import {Image, Text, View, StyleSheet, TouchableOpacity} from "react-native";
 import React, {useState, useEffect}from "react";
 import axios from "axios";
+import { endpoint } from '../../config';
 
 
 export default function TrendBar() {
   const navigation = useNavigation();
 
   useEffect(() => {
-    /*axios.get('http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/trend').then((res) => {
+    /*axios.get(endpoint + 'trend').then((res) => {
       console.log("hello");
   }).catch((err) => {
       console.log('catch');

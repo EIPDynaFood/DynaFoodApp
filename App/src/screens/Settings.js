@@ -13,7 +13,7 @@ import {RequireJwt} from "../components/RequireJwt";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
 import LanguageDropdown from "../components/LanguageDropdown";
-import translations from "../../translations/screens/Settings.json";
+import { endpoint } from '../../config';
 
 export default function Settings({navigation, route}) {
     var axios = require('axios');
@@ -36,7 +36,7 @@ export default function Settings({navigation, route}) {
 
     var config = {
         method: 'get',
-        url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/settings'
+        url: endpoint + 'settings'
     };
     useEffect(() => {
         axios(config)
@@ -72,7 +72,7 @@ export default function Settings({navigation, route}) {
             });
             var config = {
                 method: 'post',
-                url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/settings',
+                url: endpoint + 'settings',
                 data : data
             };
             axios(config).then((res) => {
@@ -91,7 +91,7 @@ export default function Settings({navigation, route}) {
             });
             var config = {
                 method: 'patch',
-                url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/settings',
+                url: endpoint + 'settings',
                 data : data
             };
             axios(config).then((res) => {
@@ -116,7 +116,7 @@ export default function Settings({navigation, route}) {
             });
             var config = {
                 method: 'post',
-                url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/settings',
+                url: endpoint + 'settings',
                 data : data
             };
             axios(config).then((res) => {
@@ -135,7 +135,7 @@ export default function Settings({navigation, route}) {
             });
             var config = {
                 method: 'patch',
-                url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/settings',
+                url: endpoint + 'settings',
                 data : data
             };
             axios(config).then((res) => {
@@ -160,7 +160,7 @@ export default function Settings({navigation, route}) {
             });
             var config = {
                 method: 'post',
-                url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/settings',
+                url: endpoint + 'settings',
                 data : data
             };
             axios(config).then((res) => {
@@ -179,7 +179,7 @@ export default function Settings({navigation, route}) {
             });
             var config = {
                 method: 'patch',
-                url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/settings',
+                url: endpoint + 'settings',
                 data : data
             };
             axios(config).then((res) => {
@@ -204,7 +204,7 @@ export default function Settings({navigation, route}) {
             });
             var config = {
                 method: 'post',
-                url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/settings',
+                url: endpoint + 'settings',
                 data : data
             };
             axios(config).then((res) => {
@@ -223,7 +223,7 @@ export default function Settings({navigation, route}) {
             });
             var config = {
                 method: 'patch',
-                url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/settings',
+                url: endpoint + 'settings',
                 data : data
             };
             axios(config).then((res) => {
@@ -248,7 +248,7 @@ export default function Settings({navigation, route}) {
             });
             var config = {
                 method: 'post',
-                url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/settings',
+                url: endpoint + 'settings',
                 data : data
             };
             axios(config).then((res) => {
@@ -267,7 +267,7 @@ export default function Settings({navigation, route}) {
             });
             var config = {
                 method: 'patch',
-                url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/settings',
+                url: endpoint + 'settings',
                 data : data
             };
             axios(config).then((res) => {
@@ -292,7 +292,7 @@ export default function Settings({navigation, route}) {
             });
             var config = {
                 method: 'post',
-                url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/settings',
+                url: endpoint + 'settings',
                 data : data
             };
             axios(config).then((res) => {
@@ -311,7 +311,7 @@ export default function Settings({navigation, route}) {
             });
             var config = {
                 method: 'patch',
-                url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/settings',
+                url: endpoint + 'settings',
                 data : data
             };
             axios(config).then((res) => {

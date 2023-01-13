@@ -8,6 +8,7 @@ import {RequireJwt} from "../components/RequireJwt";
 import { Ionicons } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/Ionicons';
 import useLang from "../../Language";
+import { endpoint } from '../../config';
 
 const Tab = createMaterialTopTabNavigator();
 const axios = require('axios');
@@ -22,7 +23,7 @@ export default function Product({navigation, route}) {
 
   useEffect(() => {
     setProductCode(localStorage.getItem("productCode"));
-    axios.get("http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/products/barcode/" + productCode).then((res) => {
+    axios.get(endpoint + "products/barcode/" + productCode).then((res) => {
       if (res.status === 204) { // no data to return
         alert(translations["Unknown"][lang]);
         navigation.navigate('MissingProduct')

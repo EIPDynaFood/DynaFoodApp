@@ -5,6 +5,7 @@ import {Icon} from "react-native-elements";
 import React, {useState} from "react";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
+import { endpoint } from '../../config';
 
 export default function ProductItem(itemData) {
   const navigation = useNavigation();
@@ -14,7 +15,7 @@ export default function ProductItem(itemData) {
 
     const [show, setShow] = useState(true)
   const deleteHistoryItem = () => {
-    axios.delete('http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/history/' + itemData.historyId).then((res) => {
+    axios.delete(endpoint + 'history/' + itemData.historyId).then((res) => {
     }).catch((err) => {
       console.log('catch');
       alert(translations["Error"][lang] + err.message);

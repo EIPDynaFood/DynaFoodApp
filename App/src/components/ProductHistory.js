@@ -7,6 +7,8 @@ import {ScrollView, TouchableWithoutFeedback} from "react-native-gesture-handler
 import ProductItem from "./ProductItem";
 import { styles } from "../styles/Style";
 import useLang from "../../Language"
+import { endpoint } from '../../config';
+
 export default function ProductHistory(props) {
   const [historyData, setHistoryData] = useState(props.data);
   const navigation = useNavigation();
@@ -15,14 +17,14 @@ export default function ProductHistory(props) {
   const {lang} = useLang()
 
   useEffect(() => {
-    axios.get('http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/history').then((res) => {
+    axios.get(endpoint + 'history').then((res) => {
       setHistoryData(res.data);
     }).catch((err) => {
       console.log('catch');
       alert(translations["Error"][lang] + err.message);
       console.log(err);
     });
-  }, []);
+  }, [historyData]);
 
   return (
       <View style={{flex: 1}}>

@@ -25,7 +25,6 @@ import VerifyCode from "./src/screens/Authentication";
 import ResetPassword from "./src/screens/ResetPassword";
 
 const Stack = createNativeStackNavigator();
-
 export function Navigation() {
   const {jwt} = useJwt();
   let swiper = localStorage.getItem('Swiper');

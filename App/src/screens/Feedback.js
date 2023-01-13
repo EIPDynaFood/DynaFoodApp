@@ -5,6 +5,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import {Alert, Button, StyleSheet,Pressable, Text, View, Image, ToastAndroid, TextInput, TouchableOpacity, Modal} from "react-native";
 import {Dropdown} from "../components/DropDown"
 import RadioButtonRN from 'radio-buttons-react-native';
+import { endpoint } from '../../config';
 
 export default function Feedback({navigation, route}) {
     const qs = require('qs');
@@ -60,7 +61,7 @@ export default function Feedback({navigation, route}) {
                                         });
                                         let config = {
                                             method: 'post',
-                                            url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/feedback',
+                                            url: endpoint + 'feedback',
                                             headers: {
                                                 'Content-Type': 'application/x-www-form-urlencoded',
                                             },

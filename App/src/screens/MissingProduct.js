@@ -8,6 +8,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { Dimensions } from "react-native";
 import mime from "mime";
 import MissingProductImages from '../components/MissingProductImages'
+import { endpoint } from '../../config';
 
 
 const axios = require('axios');
@@ -81,7 +82,7 @@ export default function MissingProduct({ navigation }) {
                 'Content-Type': 'multipart/form-data',
                 },
             };
-            fetch('http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/upload', options).then(() => {
+            fetch(endpoint + 'upload', options).then(() => {
                 alert(`Missing Product information about '${productName} ${size}' by '${company}' (barcode: '${barcode}') sended. Thanks for your help!`);
                 setImages([])
                 onChangeBarcode("")

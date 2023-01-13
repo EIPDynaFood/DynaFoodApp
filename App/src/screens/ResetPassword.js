@@ -7,6 +7,7 @@ import useLang from "../../Language";
 import PasswordInput from "../components/PasswordInput";
 import translations from "../../translations/screens/ResetPassword.json";
 import qs from "qs";
+import { endpoint } from '../../config';
 
 export default function ResetPassword({navigation}) {
     const [password, onChangePassword] = useState("")
@@ -26,7 +27,7 @@ export default function ResetPassword({navigation}) {
         });
         var config = {
             method: 'post',
-            url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/resetPassword',
+            url: endpoint + 'resetPassword',
             data : data
         };
         axios(config).then((res) => {

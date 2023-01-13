@@ -7,6 +7,7 @@ import axios from "axios";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
 import PasswordInput from "../components/PasswordInput";
+import { endpoint } from '../../config';
 
 export default function Register() {
     const navigation = useNavigation();
@@ -36,7 +37,7 @@ export default function Register() {
             });
             var config = {
                 method: 'post',
-                url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/signup',
+                url: endpoint + 'signup',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },

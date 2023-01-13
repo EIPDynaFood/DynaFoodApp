@@ -5,6 +5,7 @@ import {Button} from "react-native-elements";
 import axios from "axios";
 import useLang from "../../Language";
 import qs from "qs";
+import { endpoint } from '../../config';
 
 export default function VerifyCode(props) {
     const [code, onChangeCode] = useState("")
@@ -20,7 +21,7 @@ export default function VerifyCode(props) {
         });
         var config = {
             method: 'post',
-            url: 'http://x2024dynafood545437452001.westeurope.cloudapp.azure.com:8081/verifyCode',
+            url: endpoint + 'verifyCode',
             data : data
         };
         axios(config).then((res) => {
