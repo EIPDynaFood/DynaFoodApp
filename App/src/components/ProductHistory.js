@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {useNavigation} from "@react-navigation/native";
 import axios from "axios";
-import {StyleSheet, Text, View} from "react-native";
+import {Text, View} from "react-native";
 import {FAB, Icon} from "react-native-elements";
-import {ScrollView, TouchableWithoutFeedback} from "react-native-gesture-handler";
+import {ScrollView} from "react-native-gesture-handler";
 import ProductItem from "./ProductItem";
 import { styles } from "../styles/Style";
 import useLang from "../../Language"
@@ -16,9 +16,13 @@ export default function ProductHistory(props) {
   const translations = require("../../translations/components/ProductHistory.json")
   const {lang} = useLang()
 
+  var _ = require("lodash")
+
   useEffect(() => {
     axios.get(endpoint + 'history').then((res) => {
-      setHistoryData(res.data);
+      if (!_.isEqual(res.data, historyData)) {
+        setHistoryData(res.data);
+      }
     }).catch((err) => {
       console.log('catch');
       alert(translations["Error"][lang] + err.message);
