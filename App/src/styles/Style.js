@@ -46,8 +46,21 @@ export const styles = StyleSheet.create({
     productItem: {
         backgroundColor: '#fff',
         flexDirection: "row",
-        marginTop: 10,
         padding: 10,
+        marginTop: 10,
+        marginLeft: 10,
+        marginRight: 10,
+        borderRadius: 10
+    },
+    shoppingList: {
+        backgroundColor: '#fff',
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: 10,
+        marginTop: 10,
+        marginLeft: 10,
+        marginRight: 10,
         borderRadius: 10
     },
     productHistory: {

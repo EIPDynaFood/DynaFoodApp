@@ -39,7 +39,7 @@ export default function ProductHistory(props) {
                       <View style={{marginLeft: 10, width: '60%'}}>
                         <Text
                             numberOfLines={1}
-                            style={{fontSize: 21, fontWeight: 'bold'}}>Add a new product</Text>
+                            style={{fontSize: 21, fontWeight: 'bold'}}>{translations["New"][lang]}</Text>
                       </View>
                       <View style={{flex: 1, flexDirection: 'row-reverse', alignItems: 'center'}}>
                         <Icon name='reorder' iconStyle={{transform: [{rotate: '90deg'}]}}/>

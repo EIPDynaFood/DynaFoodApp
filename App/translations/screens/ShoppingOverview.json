@@ -1,0 +1,34 @@
+{
+  "New": {
+    "de": "Neue Liste",
+    "en": "Add a new list",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "TextHeadline": {
+    "de": "Name deiner Liste",
+    "en": "Name of your Liste",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "TextPlaceholder": {
+    "de": "Name",
+    "en": "Name",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "ModalButton": {
+    "de": "Erstellen",
+    "en": "Create",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  }
+}

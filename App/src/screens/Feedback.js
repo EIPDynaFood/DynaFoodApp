@@ -3,9 +3,10 @@ import React, {useState, useEffect} from "react";
 import {RequireJwt} from "../components/RequireJwt";
 import { ScrollView } from "react-native-gesture-handler";
 import {Alert, Button, StyleSheet,Pressable, Text, View, Image, ToastAndroid, TextInput, TouchableOpacity, Modal} from "react-native";
-import {Dropdown} from "../components/DropDown"
 import RadioButtonRN from 'radio-buttons-react-native';
 import { endpoint } from '../../config';
+import useLang from "../../Language";
+
 
 export default function Feedback({navigation, route}) {
     const qs = require('qs');
@@ -13,18 +14,22 @@ export default function Feedback({navigation, route}) {
     const [modalVisible, setModalVisible] = useState(false);
     let [feedbackText, onChangeFeedbackText] = React.useState(null);
     const [selected, setSelected] = useState(undefined);
+
+    const translations = require("../../translations/screens/Feedback.json")
+    const {lang} = useLang()
+
     let colors = [
         {
-            label: 'appreciation'
+            label: translations["Appreciation"][lang]
         },
         {
-            label: 'comment'
+            label: translations["Comment"][lang]
         },
         {
-            label: 'suggestion'
+            label: translations["Suggestion"][lang]
         }, 
         {
-            label: "bug"
+            label: translations["Bug"][lang]
         }
     ];
     return (
@@ -39,7 +44,7 @@ export default function Feedback({navigation, route}) {
                         }}>
                         <View style={styles.centeredView}>
                             <View style={styles.modalView}>
-                                <Text style={[styles.tableHeadTextStyle, {fontSize: 20, fontWeight: "bold"}]}>Please Select the Type of Feedback</Text>
+                                <Text style={[styles.tableHeadTextStyle, {fontSize: 20, fontWeight: "bold"}]}>{translations["Select"][lang]}</Text>
                                 <RadioButtonRN
                                     data={colors}
                                     selectedBtn={(e) => setSelected(e)}
@@ -82,27 +87,27 @@ export default function Feedback({navigation, route}) {
                                             });
                                     }
                                 }>
-                                    <Text style={styles.textStyle}>Send</Text>
+                                    <Text style={styles.textStyle}>{translations["Send"][lang]}</Text>
                                 </Pressable>
                             </View>
                         </View>
                     </Modal>
                     <View style={{marginLeft: 15, marginTop: 10, marginBottom: 10}}>
                         <Text style={[styles.tableHeadTextStyle, {color: "rgba(0,0,0,0.6)"}]}>Feedback</Text>
-                        <Text style={[styles.text, {color: "rgba(0,0,0,0.6)", fontSize: 20, marginTop: 20, marginLeft: 15}]}>Write your Feedback</Text>
+                        <Text style={[styles.text, {color: "rgba(0,0,0,0.6)", fontSize: 20, marginTop: 20, marginLeft: 15}]}>{translations["TextHeadline"][lang]}</Text>
                         <TextInput
                             multiline={true}
                             style={styles.multilineInput}
                             onChangeText={onChangeFeedbackText}
                             value={feedbackText}
-                            placeholder="enter feedback here"
+                            placeholder={translations["TextPlaceholder"][lang]}
                         />
                         <TouchableOpacity
                             onPress={() => setModalVisible(true)}
                             style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
                                 marginTop: 5, marginBottom: 9, backgroundColor: '#ffff', width: "50%", alignSelf: "flex-end", marginEnd: 20}]}
                         >
-                            <Text style={[styles.textSign, { color: '#376D55'}]}>Send Feedback</Text>
+                            <Text style={[styles.textSign, { color: '#376D55'}]}>{translations["Send"][lang]}</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

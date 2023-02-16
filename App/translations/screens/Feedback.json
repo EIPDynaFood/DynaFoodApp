@@ -1,0 +1,66 @@
+{
+  "Appreciation": {
+    "de": "Lob",
+    "en": "Appreciation",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Comment": {
+    "de": "Kommentar",
+    "en": "Comment",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Suggestion": {
+    "de": "Vorschlag",
+    "en": "Suggestion",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Bug": {
+    "de": "Fehler",
+    "en": "Bug",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Select": {
+    "de": "Um was für ein Feedback handelt es sich?",
+    "en": "What kind of feedback do you want to give?",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Send": {
+    "de": "Senden",
+    "en": "Send",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "TextHeadline": {
+    "de": "Beschreibe dein Feedback",
+    "en": "Write your Feedback",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "TextPlaceholder": {
+    "de": "Schreib hier dein Feedback rein",
+    "en": "Enter your feedback here",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  }
+}

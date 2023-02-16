@@ -6,5 +6,13 @@
     "es" : "Algo ha ido mal al borrar los datos del historial: ",
     "pt" : "Algo correu mal ao apagar os dados do histórico: ",
     "it" : "Qualcosa è andato storto durante l'eliminazione dei dati della cronologia: "
+  },
+  "Barcode": {
+    "de": "Barcode: ",
+    "en": "Barcode: ",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
   }
 }

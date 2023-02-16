@@ -23,6 +23,8 @@ import isReadyRef from "react-native/Libraries/Components/DrawerAndroid/DrawerLa
 import SendEmail from "./src/screens/SendEmail";
 import VerifyCode from "./src/screens/Authentication";
 import ResetPassword from "./src/screens/ResetPassword";
+import ShoppingOverview from "./src/screens/ShoppingOverview";
+import ShoppingListItems from "./src/screens/ShoppingListItems";
 
 const Stack = createNativeStackNavigator();
 export function Navigation() {
@@ -68,11 +70,22 @@ export function Navigation() {
               <Stack.Screen name="History" component={History}
                             options={({navigation, route}) => ({
                               headerRight: () => (
-                                  <Icon
+                                  <View style={{display:"flex", flexDirection:"row"}}>
+                                      <View style={{right: 15}}>
+                                          <Icon
+                                          onPress={() => navigation.navigate("ShoppingOverview")}
+                                          name="list"
+                                          color="white"
+                                        />
+                                      </View>
+                                      <View>
+                                        <Icon
                                       onPress={() => navigation.navigate("Settings")}
                                       name="settings"
                                       color="white"
-                                  />
+                                        />
+                                      </View>
+                                  </View>
                               )
                             })}
               />
@@ -82,6 +95,8 @@ export function Navigation() {
               <Stack.Screen name="Settings" component={Settings}/>
               <Stack.Screen name="Search Result" component={SearchResult}/>
               <Stack.Screen name="MissingProduct" component={MissingProduct}/>
+              <Stack.Screen name="ShoppingOverview" component={ShoppingOverview}/>
+                <Stack.Screen name="ShoppingListItems" component={ShoppingListItems}/>
             </Stack.Navigator>
           </NavigationContainer>)
   )

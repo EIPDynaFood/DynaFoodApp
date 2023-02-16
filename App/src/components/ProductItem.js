@@ -39,7 +39,7 @@ export default function ProductItem(itemData) {
                   style={{fontSize: 21, fontWeight: 'bold'}}>{itemData.name}</Text>
               <Text
                   numberOfLines={1}
-                  style={{fontSize: 13}}>Barcode: {itemData.barcode}</Text>
+                  style={{fontSize: 13}}>{translations["Barcode"][lang] + itemData.barcode}</Text>
             </View>
           </View>
         </TouchableOpacity>
