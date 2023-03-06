@@ -2,6 +2,77 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 const deviceWidth = Math.round(Dimensions.get('window').width) - 80
 export const styles = StyleSheet.create({
+  alertIcon:{
+    marginTop: 15,
+    marginLeft: "45%",
+    marginRight: "40%"
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  androidBackdrop: {
+    backgroundColor: "#232f34",
+    opacity: 0.4
+  },
+  backdrop: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0
+  },
+  alertBox: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  androidAlertBox: {
+    maxWidth: 280,
+    width: '100%',
+    margin: 48,
+    elevation: 24,
+    borderRadius: 8,
+  },
+  androidTitle: {
+    margin: 24,
+  },
+  androidMessage: {
+    marginLeft: 24,
+    marginRight: 24,
+    marginBottom: 24,
+  },
+  androidButtonGroup: {
+    marginTop: 0,
+    marginLeft:"40%",
+    marginRight: "40%",
+    marginBottom: 8,
+
+  },
+  androidButton: {
+    marginTop: 12,
+    marginRight: 8,
+  },
+  androidButtonInner: {
+    padding: 10,
+
+  },
     cameraOne:{
         position: "absolute",
         alignItems: "center",

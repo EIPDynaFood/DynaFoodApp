@@ -1,9 +1,8 @@
-import {Text, View, Image} from "react-native";
+import {Text, View, Image, Modal, Pressable} from "react-native";
 import React, {useState} from "react";
 import {RequireJwt} from "../components/RequireJwt";
 import {LinearGradient} from "expo-linear-gradient";
 import { styles } from "../styles/Style";
-import AwesomeAlert from "react-native-awesome-alerts";
 import useLang from "../../Language"
 import Alert from "../components/Alert";
 
@@ -31,6 +30,8 @@ function AdjustLabel(props) {
 }
 
 export default function ProductGeneralInfo({navigation, route}) {
+  const [showAlert, setShowAlert] = useState(isAlert);
+
   const {itemId, productData} = route.params;
   const alert = "lactose"
   let isAlert = false;
@@ -46,7 +47,7 @@ export default function ProductGeneralInfo({navigation, route}) {
       ingredients += ", " + item['name']
   })
 
-  let popAlert
+
   switch (alert) {
     case "vegan":
         popAlert = translations["Vegan"][lang];
@@ -85,7 +86,6 @@ export default function ProductGeneralInfo({navigation, route}) {
       break;
   }
 
-const [showAlert, setShowAlert] = useState(isAlert);
 
   let nutriImage
   switch (productData['nutriments_scores']['total_grade']) {
@@ -128,18 +128,47 @@ const [showAlert, setShowAlert] = useState(isAlert);
     default:
       ecoImage = require("../../assets/eco-scores/eco-score-unknown.png");
   }
+  console.log(productData);
+  console.log(isAlert);
 
   return (
       <RequireJwt>
         <View style={styles.wrapperStyleInfo}>
           <View>
-              {/*<Alert
-                  show={showAlert}
-                  title="Warning!"
-                  message={popAlert}
-                  confText="OK"
-                  func={() => setShowAlert(false)}
-              />*/}
+          <Alert 
+          modalVisible={showAlert} 
+          setModalVisible={setShowAlert}
+          title={popAlert}
+          message={'This Product contains '+ alert +'. According to your settings, we warn you.'} 
+          android={{
+            container: {
+              backgroundColor: 'white'
+            },
+            title: {
+              color: 'black',
+              fontFamily: 'Roboto',
+              fontSize: 26,
+              fontWeight: 'regular',
+            },
+            message: {
+              color: 'black',
+              fontFamily: 'Roboto',
+              fontSize: 16,
+              fontWeight: 'regular',
+            },
+          }}
+          buttons={[{
+            text: 'OK',
+            styles: {
+              color: '#37DB34',
+              fontSize: 18,
+              fontWeight: 'bold',
+              fontFamily: 'Roboto',
+              textTransform: 'none',
+              
+            }
+          }]}
+      />
             <Image source={{uri: productData['images']}}
                    style={styles.imageStyleInfo}/>
             <LinearGradient style={styles.gradientStyle}
