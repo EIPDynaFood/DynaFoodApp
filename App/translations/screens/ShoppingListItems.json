@@ -1,0 +1,42 @@
+{
+  "New": {
+  "de": "Neuer Eintrag",
+  "en": "Add an item",
+  "fr": "",
+  "es": "",
+  "pt": "",
+  "it": ""
+},
+  "TextHeadline": {
+    "de": "Was brauchst du?",
+    "en": "What do you need?",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "TextPlaceholder": {
+    "de": "Name",
+    "en": "Name",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "ModalButton": {
+    "de": "Erstellen",
+    "en": "Create",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Error": {
+    "de": "Beim Laden der Einträge ist ein Fehler aufgetreten: ",
+    "en": "Something went wrong while loading the items: ",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  }
+}
