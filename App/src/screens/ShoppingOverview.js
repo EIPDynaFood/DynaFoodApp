@@ -1,16 +1,13 @@
-import {Modal, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {Modal, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import React, {useState, useEffect} from "react";
 import {FAB, Icon, Button} from "react-native-elements";
 import {RequireJwt} from "../components/RequireJwt";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
 import {ScrollView} from "react-native-gesture-handler";
-import ProductItem from "../components/ProductItem";
 import axios from "axios";
 import {endpoint} from "../../config";
 import _ from "lodash";
-import translations from "../../translations/screens/Login.json";
-import qs from "qs";
 import ShoppingList from "../components/ShoppingList";
 
 export default function ShoppingOverview({ navigation, route }) {
@@ -43,7 +40,7 @@ export default function ShoppingOverview({ navigation, route }) {
             url: endpoint + 'shoppingList',
             data : data
         };
-        axios(config).then((res) => {
+        axios(config).then(() => {
             setListData({"elements":[], "update":true});
             setListName("")
         }).catch((err) => {
@@ -60,7 +57,8 @@ export default function ShoppingOverview({ navigation, route }) {
                    visible={modalVisible}
                    onRequestClose={() => {
                        setModalVisible(!modalVisible);
-                   }}>
+                   }}
+                   statusBarTranslucent={true}>
                 <View style={styles.centeredView}>
                     <View style={[styles.modalView, {height: "35%"}]}>
                         <Text style={[styles.tableHeadTextStyle, {fontSize: 20, fontWeight: "bold"}]}>{translations["TextHeadline"][lang]}</Text>
@@ -94,7 +92,7 @@ export default function ShoppingOverview({ navigation, route }) {
                                             style={{fontSize: 21, fontWeight: 'bold'}}>{translations["New"][lang] }</Text>
                                     </View>
                                     <View style={{flex: 1, flexDirection: 'row-reverse', alignItems: 'center'}}>
-                                        <Icon name='reorder' iconStyle={{transform: [{rotate: '90deg'}]}}/>
+                                        <Icon name='add' iconStyle={{transform: [{rotate: '90deg'}]}}/>
                                     </View>
                                 </TouchableOpacity>
                             </View>

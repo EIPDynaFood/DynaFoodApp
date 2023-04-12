@@ -1,6 +1,6 @@
 import {useNavigation} from "@react-navigation/native";
 import axios from "axios";
-import {Image, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {Modal, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {Button, Icon} from "react-native-elements";
 import React, {useState} from "react";
 import { styles } from "../styles/Style";
@@ -15,7 +15,7 @@ export default function ShoppingList(props) {
     const [listName, setListName] = useState(props.name)
     const [modalVisible, setModalVisible] = useState(false)
     const deleteList = () => {
-        axios.delete(endpoint + 'shoppingList?listid=' + props.listId).then((res) => {
+        axios.delete(endpoint + 'shoppingList?listid=' + props.listId).then(() => {
             props.update({"elements":[], "update":true})
         }).catch((err) => {
             console.log('catch');
@@ -35,7 +35,7 @@ export default function ShoppingList(props) {
             url: endpoint + 'shoppingList',
             data : data
         };
-        axios(config).then((res) => {
+        axios(config).then(() => {
             props.update({"elements":[], "update":true})
         }).catch((err) => {
             console.log('catch');
@@ -50,7 +50,8 @@ export default function ShoppingList(props) {
                visible={modalVisible}
                onRequestClose={() => {
                    setModalVisible(!modalVisible);
-               }}>
+               }}
+               statusBarTranslucent={true}>
             <View style={styles.centeredView}>
                 <View style={[styles.modalView, {height: "35%"}]}>
                     <Text style={[styles.tableHeadTextStyle, {fontSize: 20, fontWeight: "bold"}]}>{translations["TextHeadline"][lang]}</Text>
@@ -77,7 +78,7 @@ export default function ShoppingList(props) {
                     console.log("Open list: " + props.listId)
                     localStorage.setItem("shoppingList", JSON.stringify(props));
                     navigation.navigate("ShoppingListItems")
-                }} style={{flexGrow: 4}}>
+                }} style={{flexGrow: 3}}>
                     <View>
                         <Text
                         numberOfLines={1}

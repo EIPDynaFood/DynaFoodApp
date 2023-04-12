@@ -356,5 +356,5 @@ export const styles = StyleSheet.create({
       radioButtonText: {
         padding: 10,
         fontSize: 20,
-      }
+      },
 })
