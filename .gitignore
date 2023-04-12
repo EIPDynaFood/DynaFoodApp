@@ -1,4 +1,5 @@
 App/node_modules/
+App/package-lock.json
 App/.expo/
 App/cache/
 App/coverage/

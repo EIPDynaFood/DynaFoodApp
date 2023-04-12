@@ -1,8 +1,7 @@
 import {useNavigation} from "@react-navigation/native";
-import { CheckBox } from 'react-native-elements'
 import axios from "axios";
 import {Modal, Text, TextInput, View} from "react-native";
-import {Button, Icon} from "react-native-elements";
+import {Button, Icon, CheckBox} from "react-native-elements";
 import React, {useState} from "react";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
@@ -15,8 +14,9 @@ export default function ShoppingItem(props) {
     const {lang} = useLang()
 
     const [itemName, setItemName] = useState(props.name)
+    const [checked, setChecked] = useState(false)
     const [modalVisible, setModalVisible] = useState(false)
-    const deleteList = () => {
+    const deleteItem = () => {
         var qs = require('qs');
         var data = qs.stringify({
             'itemid': `${props.itemID}`
@@ -35,15 +35,15 @@ export default function ShoppingItem(props) {
         });
     };
 
-    const editList = () => {
+    const editItem = () => {
         var qs = require('qs');
         var data = qs.stringify({
-            'name': `${itemName}`,
-            'listid': `${props.listId}`
+            'itemname': `${itemName}`,
+            'itemid': `${props.listId}`
         });
         var config = {
             method: 'patch',
-            url: endpoint + 'shoppingList',
+            url: endpoint + 'shoppingList/item',
             data : data
         };
         axios(config).then((res) => {
@@ -69,15 +69,15 @@ export default function ShoppingItem(props) {
                         <TextInput
                             placeholder={translations["TextPlaceholder"][lang]}
                             style={styles.input}
-                            onChangeText={setListName}
-                            value={listName}
+                            onChangeText={setItemName}
+                            value={itemName}
                         />
                         <Button
                             title={translations["ModalButton"][lang]}
                             buttonStyle={styles.primaryButtonStyle}
                             titleStyle={{color:"white", flex:1}}
                             onPress={() => {
-                                editList()
+                                editItem()
                                 setModalVisible(false);
                             }}
                         />
@@ -86,13 +86,21 @@ export default function ShoppingItem(props) {
             </Modal>
             <View style={styles.shoppingList}>
                 <CheckBox
-                    title={itemName}
-                    checked={this.state.checked}
+                    checked={checked}
+                    onPress={() => setChecked(!checked)}
                     checkedColor={"#2E4D44"}
+                    containerStyle={{padding: 0}}
                 />
+                {checked ?
+                    <Text style={{textDecorationLine: 'line-through', textDecorationStyle: 'solid', fontSize: 21, fontWeight: 'bold'}}>
+                        {props.name}
+                    </Text>
+                    : <Text
+                    numberOfLines={1}
+                    style={{fontSize: 21, fontWeight: 'bold'}}>{props.name}</Text>}
                 <View style={{flexDirection: "row"}}>
                     <Icon containerStyle={{marginRight: 15}} name='edit' onPress={() => setModalVisible(true)}/>
-                    <Icon name='delete' onPress={deleteList}/>
+                    <Icon name='delete' onPress={deleteItem}/>
                 </View>
             </View>
         </>

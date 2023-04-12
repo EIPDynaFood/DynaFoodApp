@@ -20,8 +20,8 @@ export default function ShoppingListItems() {
     const [itemName,setItemName]= useState("");
 
     useEffect(() => {
-        console.log(list);
         axios.get(endpoint + 'shoppingList/item?listid=' + list.listId).then((res) => {
+            console.log(res.data);
             if (!_.isEqual(res.data, listData)) {
                 setListData(res.data);
             }
@@ -32,11 +32,11 @@ export default function ShoppingListItems() {
         });
     }, [listData]);
 
-    function createList() {
+    function createItem() {
         var qs = require('qs');
         var data = qs.stringify({
-            'name': `${listName}`,
-            'shoppingList': `${list}`,
+            'name': `${itemName}`,
+            'shoppingList': `${list.listId}`,
         });
         var config = {
             method: 'post',
@@ -76,7 +76,7 @@ export default function ShoppingListItems() {
                             buttonStyle={styles.primaryButtonStyle}
                             titleStyle={{color:"white", flex:1}}
                             onPress={() => {
-                                createList()
+                                createItem()
                                 setModalVisible(false);
                             }}
                         />
@@ -102,8 +102,8 @@ export default function ShoppingListItems() {
                         ) : (
                             <ScrollView style={styles.productHistory}>
                                 {listData.elements.map((product) => <ShoppingItem
-                                    key={product.listid}
-                                    name={product.listname}
+                                    key={product.itemid}
+                                    name={product.productname}
                                     listId={product.listid}
                                     update={setListData}
                                 />)}
