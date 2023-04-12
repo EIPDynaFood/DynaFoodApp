@@ -11,7 +11,8 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/c0a020fa-ad95-4f57-ab30-c54c5d3d13c6"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -42,6 +43,9 @@
         "projectId": "c0a020fa-ad95-4f57-ab30-c54c5d3d13c6"
       }
     },
-    "owner": "dynafood_admin"
+    "owner": "dynafood_admin",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
   }
 }
