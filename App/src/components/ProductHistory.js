@@ -9,8 +9,6 @@ import { styles } from "../styles/Style";
 import useLang from "../../Language"
 import { endpoint } from '../../config';
 
-// this is a test
-
 export default function ProductHistory(props) {
   const [historyData, setHistoryData] = useState(props.data);
   const navigation = useNavigation();
