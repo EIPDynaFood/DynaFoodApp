@@ -205,11 +205,9 @@ export const styles = StyleSheet.create({
         height: 97.5,
         width: 180,
         marginLeft: 10,
-        bottom: 240
       },
       ecoScoreStyle: {
         marginRight: 16,
-        bottom: 240,
         width: 180,
         height: 97.5,
       },
@@ -237,7 +235,7 @@ export const styles = StyleSheet.create({
       mainContainerStyleInfo: {
         backgroundColor: "#FFFFFF",
         height: "100%",
-        top: 200,
+        top: 0,
         justifyContent: 'space-between',
       },
       imageStyleInfo: {

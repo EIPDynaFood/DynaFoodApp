@@ -1,4 +1,4 @@
-import {Text, View, Image} from "react-native";
+import {Text, View, Image, ScrollView} from "react-native";
 import React, {useState} from "react";
 import {RequireJwt} from "../components/RequireJwt";
 import {LinearGradient} from "expo-linear-gradient";
@@ -6,6 +6,7 @@ import { styles } from "../styles/Style";
 import AwesomeAlert from "react-native-awesome-alerts";
 import useLang from "../../Language"
 import Alert from "../components/Alert";
+import {ProductRating} from "../components/ProductRating";
 
 
 const axios = require('axios');
@@ -148,14 +149,15 @@ const [showAlert, setShowAlert] = useState(isAlert);
                             end={{x: 0, y: 0}}/>
             <AdjustLabel text={productData["name"]} fontSize={40} style={styles.headlineStyle}/>
           </View>
+            <ProductRating score={69}/>
           <View style={styles.mainContainerStyleInfo}>
             <Text style={styles.ingredientStyle}>{ingredients}</Text>
-          </View>
           <View style={styles.bottomContainer}>
             <Image source={nutriImage}
                    style={styles.nutriScoreStyle}/>
             <Image source={ecoImage}
                    style={styles.ecoScoreStyle}/>
+          </View>
           </View>
         </View>
       </RequireJwt>
