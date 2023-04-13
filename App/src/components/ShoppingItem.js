@@ -14,19 +14,10 @@ export default function ShoppingItem(props) {
     const {lang} = useLang()
 
     const [itemName, setItemName] = useState(props.name)
-    const [checked, setChecked] = useState(false)
+    const [checked, setChecked] = useState(props.checked)
     const [modalVisible, setModalVisible] = useState(false)
     const deleteItem = () => {
-        var qs = require('qs');
-        var data = qs.stringify({
-            'itemid': `${props.itemID}`
-        });
-        var config = {
-            method: 'delete',
-            url: endpoint + 'shoppingList/item',
-            data : data
-        };
-        axios(config).then((res) => {
+        axios.delete(endpoint + 'shoppingList/item', {headers: {}, data: {'itemid': `${props.itemId}`}}).then((res) => {
             props.update({"elements":[], "update":true})
         }).catch((err) => {
             console.log('catch');
@@ -35,19 +26,24 @@ export default function ShoppingItem(props) {
         });
     };
 
-    const editItem = () => {
+    const editItem = (done) => {
         var qs = require('qs');
         var data = qs.stringify({
             'itemname': `${itemName}`,
-            'itemid': `${props.listId}`
+            'check': `${done}`,
+            'itemid': `${props.itemId}`
         });
+        console.log(itemName);
+        console.log(checked);
+        console.log(props.itemId);
         var config = {
             method: 'patch',
             url: endpoint + 'shoppingList/item',
             data : data
         };
         axios(config).then((res) => {
-            props.update({"elements":[], "update":true})
+            props.update({"elements":[], "update":true});
+            setItemName(props.name);
         }).catch((err) => {
             console.log('catch');
             alert(translations["Error"][lang] + err.message);
@@ -77,7 +73,7 @@ export default function ShoppingItem(props) {
                             buttonStyle={styles.primaryButtonStyle}
                             titleStyle={{color:"white", flex:1}}
                             onPress={() => {
-                                editItem()
+                                editItem(checked)
                                 setModalVisible(false);
                             }}
                         />
@@ -87,7 +83,7 @@ export default function ShoppingItem(props) {
             <View style={styles.shoppingList}>
                 <CheckBox
                     checked={checked}
-                    onPress={() => setChecked(!checked)}
+                    onPress={() => {setChecked(!checked); editItem(!checked)}}
                     checkedColor={"#2E4D44"}
                     containerStyle={{padding: 0}}
                 />

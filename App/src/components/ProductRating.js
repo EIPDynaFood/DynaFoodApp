@@ -11,7 +11,7 @@ export function ProductRating(props) {
     }
 
     return (
-        <Text style={{color, fontSize: 64, fontWeight: 'bold', paddingTop: 140, textAlign: 'center'}}>
+        <Text style={{color, fontSize: 64, fontWeight: 'bold', marginTop: 137, textAlign: 'center', backgroundColor: "#FFFFFF", textDecorationLine: 'underline'}}>
             {props.score}
         </Text>
     );

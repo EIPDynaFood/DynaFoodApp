@@ -103,7 +103,9 @@ export default function ShoppingListItems() {
                             <ScrollView style={styles.productHistory}>
                                 {listData.elements.map((product) => <ShoppingItem
                                     key={product.itemid}
+                                    itemId={product.itemid}
                                     name={product.productname}
+                                    checked={product.done}
                                     listId={product.listid}
                                     update={setListData}
                                 />)}
