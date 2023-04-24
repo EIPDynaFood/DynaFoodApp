@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
     },
     cameraTwo: {
         width: "70%",
-        aspectRatio: 2 / 1,
+        aspectRatio: 2,
         borderColor: "white",
         borderWidth: 2,
         borderStyle: "dashed",
@@ -281,7 +281,8 @@ export const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         borderBottomColor: 'transparent',
         borderTopColor: 'transparent',
-        borderWidth: 0
+        borderWidth: 0,
+        paddingBottom: 0,
     },
       searchBar: {
         alignSelf: 'center',
@@ -294,6 +295,32 @@ export const styles = StyleSheet.create({
           borderBottomColor:"#2E4D44",
           borderBottomWidth:3,
           borderColor:"#2E4D44",
+          marginBottom: 0
+    },
+    productResultsContainer: {
+        alignSelf: 'center',
+        width: '78%',
+        height: 'auto',
+        backgroundColor: 'white',
+        borderBottomRightRadius: 10,
+        borderBottomLeftRadius: 10,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        padding: 10,
+    },
+    productResultsItemContainer: {
+        padding: 10,
+        borderBottomColor: '#eee',
+        borderBottomWidth: 1,
+    },
+    productResultItemText: {
+        fontSize: 16,
     },
     FABStyle: {
         position: "absolute",

@@ -1,25 +1,35 @@
-import {Text, View, FlatList, TextInput, TouchableOpacity} from "react-native";
+import {Text, View, FlatList, TouchableOpacity} from "react-native";
 import React, {useState} from "react";
 import { endpoint } from '../../config';
 import axios from "axios";
 import { styles } from "../styles/Style";
 import {SearchBar} from "react-native-elements";
+import {useNavigation} from "@react-navigation/native";
 
 export function ProductSearchBar() {
+    const navigation = useNavigation();
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
+    const [loading, setLoading] = useState(false)
 
     const handleSearch = (text) => {
         setSearchQuery(text);
-        if (text !== "") {
+        console.log('"' + text + '"')
+        if (text.length > 1) {
+            setLoading(true)
+            console.log("fetch")
             axios.get(endpoint + `searchProduct?value=${text}&count=5`).then((res) => {
-                    console.log(res.data)
-                    setSearchResults(res.data)
+                    if (text !== "")
+                        setSearchResults(res.data)
+                    else
+                        setSearchResults([])
+
                 }
             ).catch((err) =>
                 console.log(err)
-            )
+            ).finally(() => setLoading(false))
         } else {
+            console.log("clear")
             setSearchResults([])
         }
     }
@@ -33,15 +43,22 @@ export function ProductSearchBar() {
             inputContainerStyle={styles.searchBar}
             containerStyle={styles.searchBarContainer}
             />
-            <FlatList
+            {loading ?
+                <View style={styles.productResultsContainer}>
+                    <Text style={styles.productResultItemText}>Loading ...</Text>
+                </View> : searchResults.length === 0 ? <></> : <FlatList
+                style={styles.productResultsContainer}
                 data={searchResults}
                 renderItem={({ item }) => (
-                    <TouchableOpacity>
-                        <Text>{item.name}</Text>
+                    <TouchableOpacity style={styles.productResultsItemContainer}
+                                      onPress={() => {
+                                          localStorage.setItem('productCode', item.barcode);
+                                          navigation.navigate('Product');}}>
+                        <Text style={styles.productResultItemText}>{item.name}</Text>
                     </TouchableOpacity>
                 )}
                 keyExtractor={(item) => item.barcode}
-            />
+            />}
         </View>
 
     );
