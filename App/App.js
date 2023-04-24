@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 //testing test feature
-import {Text, View, StyleSheet, Button, LogBox, StatusBar, StatusBarStyle} from 'react-native';
+import {View, LogBox, StatusBar} from 'react-native';
 import Scanner from "./src/screens/Scanner";
 import Product from "./src/screens/Product";
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NavigationContainer, useNavigation} from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import 'localstorage-polyfill';
 import History from "./src/screens/History";
 import Login from "./src/screens/Login";
@@ -14,12 +14,9 @@ import SearchResult from './src/screens/SearchResult';
 import MissingProduct from "./src/screens/MissingProduct";
 import Feedback from "./src/screens/Feedback";
 import Swiper from './src/screens/Swiper';
-import ForgotID from './src/screens/ForgotID';
 import {Icon} from "react-native-elements";
 import useJwt, {JwtProvider} from "./Jwt"
-import useLang, {LangProvider} from "./Language";
-import {RequireJwt} from "./src/components/RequireJwt"
-import isReadyRef from "react-native/Libraries/Components/DrawerAndroid/DrawerLayoutAndroid";
+import {LangProvider} from "./Language";
 import SendEmail from "./src/screens/SendEmail";
 import VerifyCode from "./src/screens/Authentication";
 import ResetPassword from "./src/screens/ResetPassword";
@@ -30,8 +27,6 @@ const Stack = createNativeStackNavigator();
 export function Navigation() {
   const {jwt} = useJwt();
   let swiper = localStorage.getItem('Swiper');
-  // console.log(swiper)
-  //setSwiper = localStorage.getItem('Swiper')
 
   return (
       jwt === null ? (
@@ -51,7 +46,6 @@ export function Navigation() {
                : <></>}
               <Stack.Screen name="Login" component={Login}/>
               <Stack.Screen name="Register" component={Register}/>
-              <Stack.Screen name="ForgotID" component={ForgotID}/>
               <Stack.Screen options={{headerShown: true, title: "Reset Password"}} name="SendEmail" component={SendEmail}/>
                 <Stack.Screen options={{headerShown: true, title: "Reset Password"}} name="VerifyCode" component={VerifyCode}/>
                 <Stack.Screen options={{headerShown: true, title: "Reset Password"}} name="ResetPassword" component={ResetPassword}/>

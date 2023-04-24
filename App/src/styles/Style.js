@@ -277,9 +277,23 @@ export const styles = StyleSheet.create({
         width: 'auto',
         height: 170,
       },
+    searchBarContainer: {
+        backgroundColor: 'transparent',
+        borderBottomColor: 'transparent',
+        borderTopColor: 'transparent',
+        borderWidth: 0
+    },
       searchBar: {
         alignSelf: 'center',
-          top: 5
+          paddingLeft: 10,
+          width:"90%",
+          height:40,
+          backgroundColor:"#FFF",
+          borderRadius: 25,
+          borderWidth:3,
+          borderBottomColor:"#2E4D44",
+          borderBottomWidth:3,
+          borderColor:"#2E4D44",
     },
     FABStyle: {
         position: "absolute",

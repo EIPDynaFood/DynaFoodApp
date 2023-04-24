@@ -1,14 +1,14 @@
 import { styles } from "../styles/Style";
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {RequireJwt} from "../components/RequireJwt";
 import { ScrollView } from "react-native-gesture-handler";
-import {Alert, Button, StyleSheet,Pressable, Text, View, Image, ToastAndroid, TextInput, TouchableOpacity, Modal} from "react-native";
+import {Pressable, Text, View, TextInput, TouchableOpacity, Modal} from "react-native";
 import RadioButtonRN from 'radio-buttons-react-native';
 import { endpoint } from '../../config';
 import useLang from "../../Language";
 
 
-export default function Feedback({navigation, route}) {
+export default function Feedback({navigation}) {
     const qs = require('qs');
     const axios = require('axios');
     const [modalVisible, setModalVisible] = useState(false);
@@ -61,7 +61,7 @@ export default function Feedback({navigation, route}) {
                                     onPress={() => {
                                         setModalVisible(!modalVisible)
                                         let data = qs.stringify({
-                                            'reason': `${selected.label}`,
+                                            'reason': `${selected.label.toLowerCase()}`,
                                             'content': `${feedbackText}`,
                                         });
                                         let config = {

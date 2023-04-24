@@ -1,15 +1,13 @@
-import {Text, TextInput, View} from "react-native";
+import {Text, View} from "react-native";
 import React, {useState} from "react";
 import {styles} from "../styles/Style";
 import {Button} from "react-native-elements";
 import axios from "axios";
 import useLang from "../../Language";
 import PasswordInput from "../components/PasswordInput";
-import translations from "../../translations/screens/ResetPassword.json";
-import qs from "qs";
 import { endpoint } from '../../config';
 
-export default function ResetPassword({navigation}) {
+export default function ResetPassword(props) {
     const [password, onChangePassword] = useState("")
     const [confirm, onChangeConfirm] = useState("")
 
@@ -23,6 +21,8 @@ export default function ResetPassword({navigation}) {
         }
         var qs = require('qs');
         var data = qs.stringify({
+            'email': `${props.route.params.email}`,
+            'code': `${props.route.params.code}`,
             'password': `${password}`
         });
         var config = {
@@ -35,7 +35,7 @@ export default function ResetPassword({navigation}) {
                 alert(translations["PasswordError"][lang])
             }
             console.log("success");
-            navigation.navigate("Login")
+            props.navigation.navigate("Login")
         }).catch((err) => {
             console.log("catch");
             alert(err.message)

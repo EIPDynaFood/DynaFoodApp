@@ -4,20 +4,19 @@ import {styles} from "../styles/Style";
 import {Button} from "react-native-elements";
 import axios from "axios";
 import useLang from "../../Language";
-import qs from "qs";
 import { endpoint } from '../../config';
 
 export default function VerifyCode(props) {
     const [code, onChangeCode] = useState("")
-
+    const email = props.route.params.email
     const translations = require("../../translations/screens/Authentication.json")
     const {lang} = useLang()
 
     const checkCode = () => {
         var qs = require('qs');
         var data = qs.stringify({
-            'code': `${code}`,
-            'email': `${props.route.params.email}`
+            'email': `${props.route.params.email}`,
+            'code': `${code}`
         });
         var config = {
             method: 'post',
@@ -28,8 +27,7 @@ export default function VerifyCode(props) {
             if (res.status === 403) { // no data to return
                 alert(translations["Error"][lang]);
             } else {
-                console.log("success");
-                props.navigation.navigate("ResetPassword")
+                props.navigation.navigate("ResetPassword", {email, code})
             }
         }).catch((err) => {
             console.log("catch");

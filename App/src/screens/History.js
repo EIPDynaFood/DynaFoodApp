@@ -1,14 +1,13 @@
 import {StyleSheet, Text, View} from "react-native";
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {FAB} from 'react-native-elements';
 import {useNavigation} from "@react-navigation/native";
 import {RequireJwt} from "../components/RequireJwt";
-//import SearchBar from "react-native-dynamic-search-bar";
-import SearchBar from "react-native-elements/dist/searchbar/SearchBar-ios";
 import TrendBar from "../components/Trendbar";
 import ProductHistory from "../components/ProductHistory";
 import useLang from "../../Language";
 import { styles } from "../styles/Style";
+import {ProductSearchBar} from "../components/ProductSearchBar";
 
 const axios = require('axios');
 
@@ -35,13 +34,7 @@ export default function History() {
   return (
       <RequireJwt>
         <View style={StyleSheet.absoluteFillObject}>
-          <SearchBar
-            inputContainerStyle={styles.searchBar}
-            value={search}
-            placeholder={translations["SearchBar"][lang]} platform={"default"}
-            style={styles.searchBar}
-            onChangeText={handleOnChangeText}
-            onSearchPress={handleOnPress}/>
+          <ProductSearchBar/>
           <View style={styles.trendBar}>
             <Text style={styles.headlineStyle}>
               {translations["TrendText"][lang]}
