@@ -9,18 +9,19 @@ import { endpoint } from '../../config';
 export default function TrendBar() {
   const navigation = useNavigation();
 
-  useEffect(() => {
-    /*axios.get(endpoint + 'trend').then((res) => {
-      console.log("hello");
-  }).catch((err) => {
-      console.log('catch');
-      alert("something went wrong getting history data: " + err.message);
-      console.log(err);
-    });*/
-  }, []);
+  const [trendingData, setTrendingData] = useState();
 
-  // to change later...
-  let trendingProducts = [
+
+  useEffect(() => {
+    axios.get(endpoint + 'trendingProductsGlobal' + "?count=7").then((res) => {
+      setTrendingData(res.data);
+      console.log(trendingData);
+    }).catch((err) => {
+      console.log(err);
+    })
+  }, [trendingData]);
+
+ /* let trendingProducts = [
     {
       name: 'Coca Cola',
       barcode: '5449000214911',
@@ -71,18 +72,19 @@ export default function TrendBar() {
       barcode: '4311596435982',
       img: 'https://images.openfoodfacts.org/images/products/431/159/643/5982/front_en.11.200.jpg'
     }
-  ];
+  ]; */
+
   return (
       <ScrollView horizontal style={{width: "100%"}}>
-        {trendingProducts.map((item, index) => (
+        {trendingData.map((item, index) => (
             <TouchableOpacity key={index} style={{flex: 1}} onPress={() => {
               localStorage.setItem('productCode', item.barcode);
               navigation.navigate('Product');
             }}>
               <View style={{flex: 1, width: 85, padding: 5}}>
-                <Image source={{uri: item.img}} style={styles.itemImage}/>
+                <Image source={{uri: item.productImageLink}} style={styles.itemImage}/>
                 <View style={{flex: 1, justifyContent: 'center'}}>
-                  <Text style={{fontSize: 13, textAlign: 'center'}}>{item.name}</Text>
+                  <Text style={{fontSize: 13, textAlign: 'center'}}>{item.productName}</Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -90,6 +92,8 @@ export default function TrendBar() {
       </ScrollView>
   )
 }
+
+// productImageLink productName
 
 const styles = StyleSheet.create({
   itemImage: {
