@@ -1,40 +1,18 @@
-import {Text, View, Image, ScrollView} from "react-native";
-import React, {useState} from "react";
+import {Text, View, Image} from "react-native";
+import React, {useEffect, useRef, useState} from "react";
 import {RequireJwt} from "../components/RequireJwt";
 import {LinearGradient} from "expo-linear-gradient";
 import { styles } from "../styles/Style";
-import AwesomeAlert from "react-native-awesome-alerts";
 import useLang from "../../Language"
-import Alert from "../components/Alert";
+import {Alert} from "../components/Alert";
 import {ProductRating} from "../components/ProductRating";
+import {AdjustLabel} from "../components/AdjustLabel";
 
-
-const axios = require('axios');
-
-function AdjustLabel(props) {
-  const [currentFontSize, setCurrentFontSize] = useState(props.fontSize);
-
-  return (
-      <Text
-          numberOfLines={1}
-          adjustsFontSizeToFit
-          style={[props.style, {fontSize: currentFontSize}]}
-          onTextLayout={(e) => {
-            const {lines} = e.nativeEvent;
-            if (lines.length > 1) {
-              setCurrentFontSize(currentFontSize - 1);
-            }
-          }}
-      >
-        {props.text}
-      </Text>
-  );
-}
-
-export default function ProductGeneralInfo({navigation, route}) {
+export default function ProductGeneralInfo({route}) {
+  const [alert, setAlert] = useState("")
+  const [modalVisible, setModalVisible] = useState(false)
+  const modalVisibleRef = useRef(modalVisible)
   const {itemId, productData} = route.params;
-  const alert = "lactose"
-  let isAlert = false;
 
   const translations = require("../../translations/screens/ProductGeneralInfo.json")
   const {lang} = useLang();
@@ -47,46 +25,32 @@ export default function ProductGeneralInfo({navigation, route}) {
       ingredients += ", " + item['name']
   })
 
-  let popAlert
-  switch (alert) {
-    case "vegan":
-        popAlert = translations["Vegan"][lang];
-        isAlert = true;
-      break;
-    case "vegetarian":
-        popAlert = translations["Vegetarian"][lang];
-        isAlert = true;
-      break;
-    case "lactose":
-        popAlert = translations["Lactose"][lang];
-        isAlert = true;
-      break;
-    case "nuts":
-        popAlert = translations["Nuts"][lang];
-        isAlert = true;
-      break;
-    case "tomato":
-        popAlert = translations["Tomato"][lang];
-        isAlert = true;
-      break;
-    case "gluten":
-        popAlert = translations["Gluten"][lang];
-        isAlert = true;
-      break;
-    case "seed":
-        popAlert = translations["Seed"][lang];
-        isAlert = true;
-      break;
-    case "peanut":
-        popAlert = translations["Peanut"][lang];
-        isAlert = true;
-      break;
-    default:
-      isAlert = false
-      break;
-  }
-
-const [showAlert, setShowAlert] = useState(isAlert);
+  useEffect(() => {
+    if (modalVisibleRef.current === true || alert !== "")
+      return
+    let newAlert = ""
+    if (productData['allergen_alert'])
+        newAlert = alert + "Contains Allergens\n"
+    if (productData['vegan_alert']) {
+        newAlert = alert + "Not Vegan\n"
+    } else if (productData['vegan_alert'] === null) {
+        newAlert = alert + "Maybe Vegan\n"
+        if (productData['vegetarian_alert']) {
+            newAlert = alert + "Not Vegetarian\n"
+        } else if (productData['vegetarian_alert'] === null) {
+            newAlert = alert + "Maybe Vegetarian\n"
+        }
+    } else if (productData['vegetarian_alert']) {
+        newAlert = alert + "Not Vegetarian\n"
+    } else if (productData['vegetarian_alert'] === null) {
+        newAlert = alert + "Maybe Vegetarian\n"
+    }
+    modalVisibleRef.current = modalVisible
+    if (newAlert !== "") {
+        setAlert(newAlert)
+        setModalVisible(true)
+    }
+  }, [modalVisible])
 
   let nutriImage
   switch (productData['nutriments_scores']['total_grade']) {
@@ -134,13 +98,11 @@ const [showAlert, setShowAlert] = useState(isAlert);
       <RequireJwt>
         <View style={styles.wrapperStyleInfo}>
           <View>
-              {/*<Alert
-                  show={showAlert}
-                  title="Warning!"
-                  message={popAlert}
-                  confText="OK"
-                  func={() => setShowAlert(false)}
-              />*/}
+          <Alert
+          visible={modalVisible}
+          setModalVisible={setModalVisible}
+          message={alert}
+      />
             <Image source={{uri: productData['images']}}
                    style={styles.imageStyleInfo}/>
             <LinearGradient style={styles.gradientStyle}
@@ -149,7 +111,7 @@ const [showAlert, setShowAlert] = useState(isAlert);
                             end={{x: 0, y: 0}}/>
             <AdjustLabel text={productData["name"]} fontSize={40} style={styles.headlineStyle}/>
           </View>
-            <ProductRating score={69}/>
+            <ProductRating score={productData['score']}/>
           <View style={styles.mainContainerStyleInfo}>
             <Text style={styles.ingredientStyle}>{ingredients}</Text>
           <View style={styles.bottomContainer}>

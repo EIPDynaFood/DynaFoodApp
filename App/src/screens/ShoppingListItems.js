@@ -55,7 +55,7 @@ export default function ShoppingListItems() {
 
     return (
         <RequireJwt>
-            <Modal animationType="slide"
+            <Modal animationType="fade"
                    transparent={true}
                    visible={modalVisible}
                    onRequestClose={() => {

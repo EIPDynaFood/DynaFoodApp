@@ -44,9 +44,9 @@ export default function Register() {
                 data : data
             };
             axios(config)
-                .then(function (response) {
-                    login(JSON.stringify(response.data))
-                    navigation.navigate("History");
+                .then(function () {
+                    alert("You received an E-Mail to verify your account.")
+                    navigation.navigate("Login");
                 })
                 .catch(function (error) {
                     alert(translations["Error"][lang] + error.message)

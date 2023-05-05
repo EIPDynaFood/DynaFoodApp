@@ -1,9 +1,8 @@
-import Text from "react-native";
+import {Text} from "react-native";
 import React, {useState} from "react";
 
 export function AdjustLabel(props) {
   const [currentFontSize, setCurrentFontSize] = useState(props.fontSize);
-
   return (
       <Text
           numberOfLines={1}

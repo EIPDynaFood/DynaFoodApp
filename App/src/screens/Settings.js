@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-    Switch,
-    View,
-    ScrollView,
-    Text,
-    TouchableOpacity,
-} from 'react-native';
+import {View, ScrollView, Text, TouchableOpacity} from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 import { Divider } from "react-native-elements";
 import useJwt from "../../Jwt"
@@ -14,17 +8,13 @@ import { styles } from "../styles/Style";
 import useLang from "../../Language";
 import LanguageDropdown from "../components/LanguageDropdown";
 import { endpoint } from '../../config';
+import translations from "../../translations/screens/Settings.json";
+import ThreeStateSlider from "../components/ThreeStateSlider";
+import AllergenSearchBar from "../components/AllergenSearchBar";
 
-export default function Settings({navigation, route}) {
+export default function Settings({navigation}) {
     var axios = require('axios');
     const {logout} = useJwt()
-    let {jwt} = useJwt()
-    let [lactose, setLactose] = useState(false);
-    let [nuts, setNuts] = useState(false);
-    let [gluten, setGluten] = useState(false);
-    let [peanut, setPeanut] = useState(false);
-    let [vegetarian, setVegetarian] = useState(false);
-    let [vegan, setVegan] = useState(false);
     let [color, setColor] = useState('#376D55');
     let [bgcolor, setBgcolor] = useState('#E2E6DB');
     let [textcolor, setTextcolor] = useState('#000000');
@@ -33,313 +23,6 @@ export default function Settings({navigation, route}) {
     const isFocused = useIsFocused();
     const translations = require("../../translations/screens/Settings.json")
     const {lang} = useLang()
-
-    var config = {
-        method: 'get',
-        url: endpoint + 'settings'
-    };
-    useEffect(() => {
-        axios(config)
-            .then(function (response) {
-                for (const restriction of response.data) {
-                    // console.log(restriction["restrictionname"]);
-                    if (restriction["restrictionname"] === "lactose")
-                        setLactose(true)
-                    if (restriction["restrictionname"] === "nuts")
-                        setNuts(true)
-                    if (restriction["restrictionname"] === "peanut")
-                        setPeanut(true)
-                    if (restriction["restrictionname"] === "gluten")
-                        setGluten(true)
-                    if (restriction["restrictionname"] === "vegetarian")
-                        setVegetarian(true)
-                    if (restriction["restrictionname"] === "vegan")
-                        setVegan(true)
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }, [isFocused]);
-
-    function handleLactose() {
-        if (!lactose) {
-            alert(translations["LactoseMessage"][lang])
-            var qs = require('qs');
-            var data = qs.stringify({
-                'restrictionName': `lactose`,
-                'alertActivation': true,
-            });
-            var config = {
-                method: 'post',
-                url: endpoint + 'settings',
-                data : data
-            };
-            axios(config).then((res) => {
-                //alert("You will know receive notification if we find a scanner ingredient with such option")
-            }).catch((error) => {
-                if (error.response) {
-                    console.log(error.response)
-                }
-            })
-        } else {
-            alert(translations["AllergenDeleted"][lang])
-            var qs = require('qs');
-            var data = qs.stringify({
-                'restrictionName': `lactose`,
-                'alertActivation': true,
-            });
-            var config = {
-                method: 'patch',
-                url: endpoint + 'settings',
-                data : data
-            };
-            axios(config).then((res) => {
-                //alert("Allergen successfuly deleted")
-            }).catch((error) => {
-                if (error.response) {
-                    console.log(error.response)
-                    //alert(error.response.data.Error.details[0].message)
-                }
-            })
-        }
-        setLactose(!lactose)
-    }
-
-    function handleNuts() {
-        if (!nuts) {
-            alert(translations["NutsMessage"][lang])
-            var qs = require('qs');
-            var data = qs.stringify({
-                'restrictionName': `nuts`,
-                'alertActivation': true,
-            });
-            var config = {
-                method: 'post',
-                url: endpoint + 'settings',
-                data : data
-            };
-            axios(config).then((res) => {
-                //alert("You will know receive notification if we find a scanner ingredient with such option")
-            }).catch((error) => {
-                if (error.response) {
-                    console.log(error.response)
-                }
-            })
-        } else {
-            alert(translations["AllergenDeleted"][lang])
-            var qs = require('qs');
-            var data = qs.stringify({
-                'restrictionName': `nuts`,
-                'alertActivation': true,
-            });
-            var config = {
-                method: 'patch',
-                url: endpoint + 'settings',
-                data : data
-            };
-            axios(config).then((res) => {
-                //alert("Allergen successfuly deleted")
-            }).catch((error) => {
-                if (error.response) {
-                    console.log(error.response)
-                    //alert(error.response.data.Error.details[0].message)
-                }
-            })
-        }
-        setNuts(!nuts)
-    }
-
-    function handleGluten() {
-        if (!gluten) {
-            alert(translations["GlutenMessage"][lang])
-            var qs = require('qs');
-            var data = qs.stringify({
-                'restrictionName': `gluten`,
-                'alertActivation': true,
-            });
-            var config = {
-                method: 'post',
-                url: endpoint + 'settings',
-                data : data
-            };
-            axios(config).then((res) => {
-                //alert("You will know receive notification if we find a scanner ingredient with such option")
-            }).catch((error) => {
-                if (error.response) {
-                    console.log(error.response)
-                }
-            })
-        } else {
-            alert(translations["AllergenDeleted"][lang])
-            var qs = require('qs');
-            var data = qs.stringify({
-                'restrictionName': `gluten`,
-                'alertActivation': true,
-            });
-            var config = {
-                method: 'patch',
-                url: endpoint + 'settings',
-                data : data
-            };
-            axios(config).then((res) => {
-                //alert("Allergen successfuly deleted")
-            }).catch((error) => {
-                if (error.response) {
-                    console.log(error.response)
-                    //alert(error.response.data.Error.details[0].message)
-                }
-            })
-        }
-        setGluten(!gluten)
-    }
-
-    function handlePeanut() {
-        if (!peanut) {
-            alert(translations["PeanutsMessage"][lang])
-            var qs = require('qs');
-            var data = qs.stringify({
-                'restrictionName': `peanut`,
-                'alertActivation': true,
-            });
-            var config = {
-                method: 'post',
-                url: endpoint + 'settings',
-                data : data
-            };
-            axios(config).then((res) => {
-                //alert("You will know receive notification if we find a scanner ingredient with such option")
-            }).catch((error) => {
-                if (error.response) {
-                    console.log(error.response)
-                }
-            })
-        } else {
-            alert(translations["AllergenDeleted"][lang])
-            var qs = require('qs');
-            var data = qs.stringify({
-                'restrictionName': `peanut`,
-                'alertActivation': true,
-            });
-            var config = {
-                method: 'patch',
-                url: endpoint + 'settings',
-                data : data
-            };
-            axios(config).then((res) => {
-                //alert("Allergen successfuly deleted")
-            }).catch((error) => {
-                if (error.response) {
-                    console.log(error.response)
-                    //alert(error.response.data.Error.details[0].message)
-                }
-            })
-        }
-        setPeanut(!peanut)
-    }
-
-    function handleVegetarian() {
-        if (!nuts) {
-            alert(translations["VegetarianMessage"][lang])
-            var qs = require('qs');
-            var data = qs.stringify({
-                'restrictionName': `vegetarian`,
-                'alertActivation': true,
-            });
-            var config = {
-                method: 'post',
-                url: endpoint + 'settings',
-                data : data
-            };
-            axios(config).then((res) => {
-                //alert("You will know receive notification if we find a scanner ingredient with such option")
-            }).catch((error) => {
-                if (error.response) {
-                    console.log(error.response)
-                }
-            })
-        } else {
-            alert(translations["DietDeleted"][lang])
-            var qs = require('qs');
-            var data = qs.stringify({
-                'restrictionName': `vegetarian`,
-                'alertActivation': true,
-            });
-            var config = {
-                method: 'patch',
-                url: endpoint + 'settings',
-                data : data
-            };
-            axios(config).then((res) => {
-                //alert("Allergen successfuly deleted")
-            }).catch((error) => {
-                if (error.response) {
-                    console.log(error.response)
-                    //alert(error.response.data.Error.details[0].message)
-                }
-            })
-        }
-        setVegetarian(!vegetarian)
-    }
-
-    function handleVegan() {
-        if (!vegan) {
-            alert(translations["VeganMessage"][lang])
-            var qs = require('qs');
-            var data = qs.stringify({
-                'restrictionName': `vegan`,
-                'alertActivation': true,
-            });
-            var config = {
-                method: 'post',
-                url: endpoint + 'settings',
-                data : data
-            };
-            axios(config).then((res) => {
-                //alert("You will know receive notification if we find a scanner ingredient with such option")
-            }).catch((error) => {
-                if (error.response) {
-                    console.log(error.response)
-                }
-            })
-        } else {
-            alert(translations["DietDeleted"][lang])
-            var qs = require('qs');
-            var data = qs.stringify({
-                'restrictionName': `vegan`,
-                'alertActivation': true,
-            });
-            var config = {
-                method: 'patch',
-                url: endpoint + 'settings',
-                data : data
-            };
-            axios(config).then((res) => {
-                //alert("Allergen successfuly deleted")
-            }).catch((error) => {
-                if (error.response) {
-                    console.log(error.response)
-                    //alert(error.response.data.Error.details[0].message)
-                }
-            })
-        }
-        setVegan(!vegan)
-    }
-
-    function Linear(props) {
-        return (
-            <View style={{paddingVertical: 10, paddingHorizontal: 90, flexDirection: "row", justifyContent: "flex-end"}}>
-                <Text style={{color: textcolor, alignSelf: "center", fontSize: 14, paddingRight: 20}}>
-                    {props.text}
-                </Text>
-                <Switch
-                    trackColor={{false: "#CEE3F8", true: color}}
-                    value={props.value}
-                    onValueChange={props.onValueChange}
-                />
-            </View>
-        );
-      }
 
     function logoutUser() {
         localStorage.setItem('Swiper', true);
@@ -365,21 +48,11 @@ export default function Settings({navigation, route}) {
                         </View>
                         <Divider style={{ paddingTop: 15, paddingBottom: 2}}/>
                         <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Allergies"][lang]}</Text>
-                        <Linear text={translations["Lactose"][lang]} value={lactose} onValueChange={() => handleLactose()}/>
-                        <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-                        <Linear text={translations['Nuts'][lang]} value={nuts} onValueChange={() => handleNuts()}/>
-                        <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-                        <Linear text={translations['Gluten'][lang]} value={gluten} onValueChange={() => handleGluten()}/>
-                        <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-                        <Linear text={translations['Peanuts'][lang]} value={peanut} onValueChange={() => handlePeanut()}/>
-                        <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-
-                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Diets"][lang]}</Text>
-                        <Linear text={translations['Vegetarian'][lang]} value={vegetarian} onValueChange={() => handleVegetarian()}/>
-                        <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-                        <Linear text={translations['Vegan'][lang]} value={vegan} onValueChange={() => handleVegan()}/>
-                        <Divider style={{ paddingTop: 2, paddingBottom: 2}}/>
-
+                        <AllergenSearchBar/>
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Vegan"][lang]}</Text>
+                        <ThreeStateSlider name={"vegan"}/>
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Vegetarian"][lang]}</Text>
+                        <ThreeStateSlider name={"vegetarian"}/>
                         <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Theme"][lang]}</Text>
                         <View style={[styles.button, {backgroundColor: pagecolor}]}>
                             <TouchableOpacity

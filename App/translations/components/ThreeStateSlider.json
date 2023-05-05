@@ -1,0 +1,26 @@
+{
+  "No": {
+    "de": "Nein",
+    "en": "No",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Casual": {
+    "de": "Gelegentlich",
+    "en": "Casually",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Strict": {
+    "de": "Streng",
+    "en": "Strictly",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  }
+}

@@ -14,7 +14,6 @@ export function ProductSearchBar() {
 
     const handleSearch = (text) => {
         setSearchQuery(text);
-        console.log('"' + text + '"')
         if (text.length > 1) {
             setLoading(true)
             console.log("fetch")

@@ -52,7 +52,7 @@ export default function ShoppingOverview({ navigation, route }) {
 
     return (
         <RequireJwt>
-            <Modal animationType="slide"
+            <Modal animationType="fade"
                    transparent={true}
                    visible={modalVisible}
                    onRequestClose={() => {

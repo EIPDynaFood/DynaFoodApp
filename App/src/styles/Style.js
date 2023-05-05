@@ -2,6 +2,76 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 const deviceWidth = Math.round(Dimensions.get('window').width) - 80
 export const styles = StyleSheet.create({
+  alertIcon:{
+    marginTop: 15,
+    marginLeft: "45%",
+    marginRight: "40%"
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  androidBackdrop: {
+    backgroundColor: "#232f34",
+    opacity: 0.4
+  },
+  backdrop: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0
+  },
+  alertBox: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  androidAlertBox: {
+    maxWidth: 280,
+    width: '100%',
+    margin: 48,
+    elevation: 24,
+    borderRadius: 8,
+  },
+  androidTitle: {
+    margin: 24,
+  },
+  androidMessage: {
+    marginLeft: 24,
+    marginRight: 24,
+    marginBottom: 24,
+  },
+  androidButtonGroup: {
+    marginTop: 0,
+    marginLeft:"40%",
+    marginRight: "40%",
+    marginBottom: 8,
+
+  },
+  androidButton: {
+    marginTop: 12,
+    marginRight: 8,
+  },
+  androidButtonInner: {
+    padding: 10,
+
+  },
     cameraOne:{
         position: "absolute",
         alignItems: "center",
@@ -152,7 +222,7 @@ export const styles = StyleSheet.create({
         fontSize:20,
         paddingHorizontal: 30
     },
-    button:{
+    alertButton:{
         backgroundColor:'#fff',
         paddingVertical: 5,
         paddingHorizontal: 10
@@ -338,12 +408,6 @@ export const styles = StyleSheet.create({
         textAlignVertical: "top",
         padding: 20,
       },
-      centeredView: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 22
-      },
       modalView: {
         margin: 20,
         backgroundColor: "white",
@@ -358,7 +422,7 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
-        height: "60%",
+        height: "auto",
         width: "80%"
       },
       buttonModal: {
@@ -369,11 +433,6 @@ export const styles = StyleSheet.create({
       buttonClose: {
         backgroundColor: '#376D55',
         alignSelf: "flex-end"
-      },
-      textStyle: {
-        color: "white",
-        fontWeight: "bold",
-        textAlign: "center"
       },
       modalText: {
         marginBottom: 15,
@@ -396,4 +455,37 @@ export const styles = StyleSheet.create({
         padding: 10,
         fontSize: 20,
       },
+    sliderContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    sliderLabel: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 16,
+    },
+    slider: {
+        width: '80%',
+    },
+    allergenSelectedContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        padding: 10,
+        marginTop: 12,
+    },
+    allergenSelectedWordContainer: {
+        backgroundColor: '#376D55',
+        borderRadius: 10,
+        padding: 5,
+        margin: 5,
+        flexDirection: "row",
+    },
+    allergenSelectedWord: {
+        fontSize: 12,
+        fontWeight: 'bold',
+        color: 'white'
+    }
 })
