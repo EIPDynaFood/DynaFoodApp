@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
+    Linking,
     Switch,
     View,
     ScrollView,
@@ -61,6 +62,11 @@ export default function Settings({navigation, route}) {
                 console.log(error);
             });
     }, [isFocused]);
+
+    
+    const handleBetaLink = () => {
+        Linking.openURL("https://forms.gle/pbeV5spNzDMTKb3v7");
+      };
 
     function handleLactose() {
         if (!lactose) {
@@ -432,15 +438,12 @@ export default function Settings({navigation, route}) {
                         <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>Beta Feedback</Text>
                         <View style={[styles.button, {backgroundColor: pagecolor}]}>
                             <TouchableOpacity
-                                onPress={() => navigation.navigate("MissingProduct")}
+                                onPress={handleBetaLink}
                                 style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
                                     marginTop: 5, marginBottom: 9, backgroundColor: '#ffff'}]}
                             >
                                 <Text style={[styles.textSign, { color: '#376D55'}]}>Beta Feedback Form</Text>
                             </TouchableOpacity>
-                        </View>
-                        <View>
-                            <LinkButton url={"https://forms.gle/pbeV5spNzDMTKb3v7"} label={"Go to the feedback form"}/>
                         </View>
                     </View>
                 </View>
