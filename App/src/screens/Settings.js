@@ -7,13 +7,10 @@ import {RequireJwt} from "../components/RequireJwt";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
 import LanguageDropdown from "../components/LanguageDropdown";
-import { endpoint } from '../../config';
-import translations from "../../translations/screens/Settings.json";
 import ThreeStateSlider from "../components/ThreeStateSlider";
 import AllergenSearchBar from "../components/AllergenSearchBar";
 
 export default function Settings({navigation}) {
-    var axios = require('axios');
     const {logout} = useJwt()
     let [color, setColor] = useState('#376D55');
     let [bgcolor, setBgcolor] = useState('#E2E6DB');
@@ -49,10 +46,10 @@ export default function Settings({navigation}) {
                         <Divider style={{ paddingTop: 15, paddingBottom: 2}}/>
                         <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Allergies"][lang]}</Text>
                         <AllergenSearchBar/>
-                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Vegan"][lang]}</Text>
-                        <ThreeStateSlider name={"vegan"}/>
                         <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Vegetarian"][lang]}</Text>
                         <ThreeStateSlider name={"vegetarian"}/>
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Vegan"][lang]}</Text>
+                        <ThreeStateSlider name={"vegan"}/>
                         <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>{translations["Theme"][lang]}</Text>
                         <View style={[styles.button, {backgroundColor: pagecolor}]}>
                             <TouchableOpacity
