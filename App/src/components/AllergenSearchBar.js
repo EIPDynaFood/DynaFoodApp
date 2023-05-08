@@ -22,8 +22,12 @@ export default function AllergenSearchBar() {
         axios(config)
             .then(function (response) {
                 console.log(response.data)
-                if (!_.isEqual(response.data, selectedItems))
-                    setSelectedItems(response.data)
+                if (response.status === 204) {
+                    setSelectedItems([])
+                } else {
+                    if (!_.isEqual(response.data, selectedItems))
+                        setSelectedItems(response.data)
+                }
             })
             .catch(function (error) {
                 console.log(error);
@@ -99,7 +103,7 @@ export default function AllergenSearchBar() {
                     <Text style={styles.productResultItemText}>{result.charAt(0).toUpperCase() + result.slice(1)}</Text>
                 </TouchableOpacity>))}</View>}
             <View style={styles.allergenSelectedContainer}>
-                {selectedItems.map((item, index) => (
+                {selectedItems.filter((result) => {return ["vegan", "vegetarian"].includes(result.restrictionname) == false}).map((item, index) => (
                     <TouchableOpacity key={index.toString()} style={styles.allergenSelectedWordContainer} onPress={() => handleSelectItem(item.restrictionname)}>
                         <Text style={styles.allergenSelectedWord}>{item.restrictionname}</Text>
                         <Icon name="close" type="material" color="white" size={12} style={{paddingTop: 2}}/>
