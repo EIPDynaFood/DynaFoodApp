@@ -95,14 +95,14 @@ export default function Scanner({ navigation, route }) {
                 />
             }
             <ScannerOverlay/>
-          <FAB
-              color="black"
-              title={translations["Debug"][lang]}
-              style={{position: "absolute", bottom: 16, right: 16}}
-              onPress={() => {
-                handleBarCodeScanned({data: "5060335635266"})
-              }}
-          />
+            {/*<FAB
+                color="black"
+                title={translations["Debug"][lang]}
+                style={{position: "absolute", bottom: 16, right: 16}}
+                onPress={() => {
+                    handleBarCodeScanned({data: "5060335635266"})
+                }}
+            />*/}
         </View>
       </RequireJwt>
   );

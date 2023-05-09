@@ -93,16 +93,16 @@ export default function Login({navigation}) {
                     }}
                     />
             </View>
-            <Button
+            {/*<Button
                 title={translations["Guest"][lang]}
-                containerStyle={{margin: 15}} 
+                containerStyle={{margin: 15}}
                 buttonStyle={styles.loginAsGuest}
-                titleStyle={{color:"#FFF", flex:1}}
+                titleStyle={{color: "#FFF", flex: 1}}
                 onPress={() => {
                     onChangeEmail(guestEmail);
                     onChangePassword(guestPassword);
-                    }}
-            />
+                }}
+            />*/}
         </View>
     );
 }
