@@ -18,7 +18,7 @@ const toBase64 = file => new Promise((resolve, reject) => {
     reader.readAsDataURL(file);
     reader.onload = () => resolve(reader.result);
     reader.onerror = error => reject(error);
-}); 
+});
 
 class FlatListItem extends Component {
     render() {
@@ -29,10 +29,10 @@ class FlatListItem extends Component {
             }}>
                 <Image source={{uri: this.props.item.imageUrl}} style={{width: 100, height: 100, margin: 5}}></Image>
                 <View style={{
-                flex:1,
-                flexDirection: "column"
+                    flex:1,
+                    flexDirection: "column"
                 }}>
-                    </View><Text style={{color: "white", padding:10, fontSize:16}}>{this.props.item.name}</Text>
+                </View><Text style={{color: "white", padding:10, fontSize:16}}>{this.props.item.name}</Text>
             </View>
         )
     }
@@ -44,12 +44,12 @@ export default function MissingProduct({ navigation }) {
     const [productName, onChangeProductName] = useState("");
     const [size, onChangeSize] = useState("");
     const [company, onChangeCompany] = useState("");
-    
+
     const formData = new FormData()
 
     const onRemove = uri => e => {
         setImages(images.filter(image => image.uri !== uri));
-      };
+    };
 
     const sendData = async () => {
         try {
@@ -58,13 +58,17 @@ export default function MissingProduct({ navigation }) {
                 return
             }
             for (const image of images) {
-                formData.append(mime.getType(image.uri).split("/")[0], {
+                formData.append('files', {
                     uri : image.uri,
                     type: mime.getType(image.uri),
                     name: image.uri.split("/").pop(),
                     base64: image.base64
-                })                
+                })
             }
+            formData.append('barcode', barcode)
+            formData.append('size', size)
+            formData.append('company', company)
+            formData.append('productname', productName)
             // console.log(formData)
             // let options = {
             //     method: 'POST',
@@ -76,11 +80,7 @@ export default function MissingProduct({ navigation }) {
             // };
             let options = {
                 method: 'POST',
-                body: formData,
-                headers: {
-                Accept: 'application/json',
-                'Content-Type': 'multipart/form-data',
-                },
+                body: formData
             };
             fetch(endpoint + 'upload', options).then(() => {
                 alert(`Missing Product information about '${productName} ${size}' by '${company}' (barcode: '${barcode}') sended. Thanks for your help!`);
@@ -91,7 +91,7 @@ export default function MissingProduct({ navigation }) {
                 onChangeSize("")
                 navigation.navigate('Scanner')
             }).catch((err) => {console.log(err)})
-            
+
         }
         catch (err) {
             console.log(err)
@@ -112,11 +112,11 @@ export default function MissingProduct({ navigation }) {
                 base64: response.base64
             };
             setImages(prevImages => prevImages.concat(img));
-            
+
         }
         catch (err) {
             console.log(err)
-                throw err
+            throw err
         }
     }
 
@@ -131,15 +131,15 @@ export default function MissingProduct({ navigation }) {
         //     console.log(response.uri)
         //     console.log(response.base64.length)
         try {
-        //     const response = await DocumentPicker.getDocumentAsync({
-        //         type: "*/*",
-        //         copyToCachesDirectory: true,
-        // multiple: false,
-        //     })
-        const response = await ImagePicker.launchImageLibraryAsync({mediaTypes: ImagePicker.MediaTypeOptions.All,
-            allowsEditing: true,
-            base64: true,
-            quality: 1,})
+            //     const response = await DocumentPicker.getDocumentAsync({
+            //         type: "*/*",
+            //         copyToCachesDirectory: true,
+            // multiple: false,
+            //     })
+            const response = await ImagePicker.launchImageLibraryAsync({mediaTypes: ImagePicker.MediaTypeOptions.All,
+                allowsEditing: true,
+                base64: true,
+                quality: 1,})
             if (response.cancelled) {
                 return;
             }
@@ -151,52 +151,52 @@ export default function MissingProduct({ navigation }) {
             };
             setImages(prevImages => prevImages.concat(img));
             // setDoc(response)
-            
+
         }
         catch (err) {
             console.log(err)
-                throw err
+            throw err
         }
     }
 
     return (
         <RequireJwt>
             <View style={{alignItems: "center"}}>
-            <TextInput
+                <TextInput
                     placeholder="Barcode..."
                     style={[styles.input, {width: "85%"}]}
                     onChangeText={onChangeBarcode}
                     value={barcode}
                     keyboardType="decimal-pad"
-                    />
+                />
                 <TextInput
-                placeholder="Product Name..."
-                style={[styles.input, {width: "85%"}]}
-                onChangeText={onChangeProductName}
-                value={productName}
+                    placeholder="Product Name..."
+                    style={[styles.input, {width: "85%"}]}
+                    onChangeText={onChangeProductName}
+                    value={productName}
                 />
                 <TextInput
                     placeholder="Company..."
                     style={[styles.input, {width: "85%"}]}
                     onChangeText={onChangeCompany}
                     value={company}
-                    />
+                />
                 <TextInput
                     placeholder="Size... ex. (100g, 400ml)"
                     style={[styles.input, {width: "85%"}]}
                     onChangeText={onChangeSize}
                     value={size}
-                    />
-                </View>
-                <TouchableOpacity
-            onPress={uploaderCam}
+                />
+            </View>
+            <TouchableOpacity
+                onPress={uploaderCam}
                 style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
                     marginTop: 5, marginBottom: 9, backgroundColor: '#ffff'}]}
             >
                 <Text style={[styles.textSign, { color: '#376D55'}]}>Open Camera</Text>
             </TouchableOpacity>
             <TouchableOpacity
-            onPress={uploader}
+                onPress={uploader}
                 style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
                     marginTop: 5, marginBottom: 9, backgroundColor: '#ffff'}]}
             >
@@ -204,14 +204,14 @@ export default function MissingProduct({ navigation }) {
             </TouchableOpacity>
             <MissingProductImages onRemove={onRemove} images={images}></MissingProductImages>
             <TouchableOpacity
-            onPress={sendData}
+                onPress={sendData}
                 style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
                     marginTop: 5, marginBottom: 9, backgroundColor: '#ffff'}]}
             >
                 <Text style={[styles.textSign, { color: '#376D55'}]}>Send</Text>
             </TouchableOpacity>
         </RequireJwt>
-  );
+    );
 }
 
 const styles_here = StyleSheet.create({
