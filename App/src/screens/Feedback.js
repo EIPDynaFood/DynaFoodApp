@@ -12,23 +12,27 @@ export default function Feedback({navigation}) {
     const qs = require('qs');
     const axios = require('axios');
     const [modalVisible, setModalVisible] = useState(false);
-    let [feedbackText, onChangeFeedbackText] = React.useState(null);
+    let [feedbackText, onChangeFeedbackText] = React.useState("");
     const [selected, setSelected] = useState(undefined);
 
     const translations = require("../../translations/screens/Feedback.json")
     const {lang} = useLang()
 
-    let colors = [
+    let labels = [
         {
+            id: "appreciation",
             label: translations["Appreciation"][lang]
         },
         {
+            id: "comment",
             label: translations["Comment"][lang]
         },
         {
+            id: "suggestion",
             label: translations["Suggestion"][lang]
         }, 
         {
+            id: "bug",
             label: translations["Bug"][lang]
         }
     ];
@@ -46,7 +50,7 @@ export default function Feedback({navigation}) {
                             <View style={styles.modalView}>
                                 <Text style={[styles.tableHeadTextStyle, {fontSize: 20, fontWeight: "bold"}]}>{translations["Select"][lang]}</Text>
                                 <RadioButtonRN
-                                    data={colors}
+                                    data={labels}
                                     selectedBtn={(e) => setSelected(e)}
                                     circleSize={16}
                                     box={false}
@@ -61,7 +65,7 @@ export default function Feedback({navigation}) {
                                     onPress={() => {
                                         setModalVisible(!modalVisible)
                                         let data = qs.stringify({
-                                            'reason': `${selected.label.toLowerCase()}`,
+                                            'reason': `${selected.id}`,
                                             'content': `${feedbackText}`,
                                         });
                                         let config = {
@@ -74,7 +78,7 @@ export default function Feedback({navigation}) {
                                         };
                                         axios(config).then((res) => {
                                             if (res.status === 200) { // no data to return
-                                                alert("Thanks for your feedback!");
+                                                alert(translations["Alert"][lang]);
                                                 navigation.goBack(null);
                                             } else {
                                                 alert("Something went wrong :O" + res.data)
@@ -103,7 +107,12 @@ export default function Feedback({navigation}) {
                             placeholder={translations["TextPlaceholder"][lang]}
                         />
                         <TouchableOpacity
-                            onPress={() => setModalVisible(true)}
+                            onPress={() => {
+                                if (feedbackText !== "")
+                                    setModalVisible(true)
+                                else
+                                    alert(translations["NoContent"][lang])
+                            }}
                             style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
                                 marginTop: 5, marginBottom: 9, backgroundColor: '#ffff', width: "50%", alignSelf: "flex-end", marginEnd: 20}]}
                         >

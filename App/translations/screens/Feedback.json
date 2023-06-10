@@ -62,5 +62,21 @@
     "es": "",
     "pt": "",
     "it": ""
+  },
+  "Alert": {
+    "de": "Vielen Dank für dein Feedback!",
+    "en": "Thanks for your feedback!",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "NoContent": {
+    "de": "Bitte schreibe erst etwas!",
+    "en": "Please write something first!",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
   }
 }
