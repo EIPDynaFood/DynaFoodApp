@@ -29,7 +29,6 @@ export default function Product({navigation, route}) {
         navigation.navigate('MissingProduct')
       } else {
         setProductData(res.data);
-        // console.log(res.data);
       }
     }).catch((err) => {
       console.log("catch");

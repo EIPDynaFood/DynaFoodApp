@@ -16,7 +16,6 @@ export default function History() {
   const [search, setSearch] = useState(String);
 
   const handleOnChangeText = (text) => {
-    console.log(text);
     setSearch(text)
   }
 

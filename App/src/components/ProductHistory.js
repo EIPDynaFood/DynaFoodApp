@@ -8,8 +8,6 @@ import ProductItem from "./ProductItem";
 import { styles } from "../styles/Style";
 import useLang from "../../Language"
 import { endpoint } from '../../config';
-import _ from "lodash";
-import translations from "../../translations/components/ProductHistory.json";
 
 export default function ProductHistory(props) {
   const [historyData, setHistoryData] = useState(props.data);
@@ -32,7 +30,6 @@ export default function ProductHistory(props) {
   const getHistoryData = (() => {
     axios.get(endpoint + 'history').then((res) => {
       console.log(!_.isEqual(res.data, historyData))
-      console.log(res.data)
       if (!_.isEqual(res.data, historyData)) {
         setHistoryData(res.data);
       }

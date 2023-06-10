@@ -21,7 +21,6 @@ export default function AllergenSearchBar() {
         };
         axios(config)
             .then(function (response) {
-                console.log(response.data)
                 if (response.status === 204) {
                     setSelectedItems([])
                 } else {
@@ -39,14 +38,12 @@ export default function AllergenSearchBar() {
         setSearchQuery(text);
         axios.get(endpoint + `searchAllergen?name=${text.toLowerCase()}&language=${lang}`).then((res) => {
             setSearchResults(res.data)
-            console.log(res.data)
         })
     };
 
     const handleFocus = () => {
         axios.get(endpoint + `searchAllergen?name=&language=${lang}`).then((res) => {
             setSearchResults(res.data)
-            console.log(res.data)
         })
     };
 
@@ -66,7 +63,6 @@ export default function AllergenSearchBar() {
             };
             axios(config)
                 .then(function (response) {
-                    console.log(response.data)
                     setSelectedItems([...selectedItems, item]);
                 })
                 .catch(function (error) {
@@ -75,7 +71,6 @@ export default function AllergenSearchBar() {
         } else {
             axios.delete(endpoint + "settings", {headers: {}, data: {'restrictionName': `${item}`}})
                 .then(function (response) {
-                    console.log(response.data)
                     const newSelectedItems = [...selectedItems];
                     newSelectedItems.splice(index, 1);
                     setSelectedItems(newSelectedItems);

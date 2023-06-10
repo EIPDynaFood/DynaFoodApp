@@ -21,7 +21,6 @@ export default function ShoppingListItems() {
 
     useEffect(() => {
         axios.get(endpoint + 'shoppingList/item?listid=' + list.listId).then((res) => {
-            console.log(res.data);
             if (!_.isEqual(res.data, listData)) {
                 setListData(res.data);
             }

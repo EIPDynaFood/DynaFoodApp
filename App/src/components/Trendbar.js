@@ -13,8 +13,8 @@ export default function TrendBar() {
 
   useEffect(() => {
     axios.get(endpoint + 'trendingProductsGlobal?count=10').then((res) => {
-      console.log(res.data);
       setTrendingProducts(res.data)
+      console.log(res.data)
   }).catch((err) => {
       console.log('catch');
       alert("something went wrong getting history data: " + err.message);
