@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import {View, ScrollView, Text, TouchableOpacity} from 'react-native';
+import {
+    Linking,
+    View,
+    ScrollView,
+    Text,
+    TouchableOpacity,
+} from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 import { Divider } from "react-native-elements";
 import useJwt from "../../Jwt"
@@ -25,6 +31,10 @@ export default function Settings({navigation}) {
         localStorage.setItem('Swiper', true);
         logout()
     }
+
+    const handleBetaLink = () => {
+        Linking.openURL("https://forms.gle/pbeV5spNzDMTKb3v7");
+    };
 
     function handleTheme(color, background, textcolor, headercolor, pagecolor) {
         setColor(color);
@@ -97,6 +107,16 @@ export default function Settings({navigation}) {
                                     marginTop: 5, marginBottom: 9, backgroundColor: '#ffff'}]}
                             >
                                 <Text style={[styles.textSign, { color: '#376D55'}]}>Upload Information</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={[styles.tableHeadTextStyle, {color: headercolor}]}>Beta Feedback</Text>
+                        <View style={[styles.button, {backgroundColor: pagecolor}]}>
+                            <TouchableOpacity
+                                onPress={handleBetaLink}
+                                style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
+                                    marginTop: 5, marginBottom: 9, backgroundColor: '#ffff'}]}
+                            >
+                                <Text style={[styles.textSign, { color: '#376D55'}]}>Beta Feedback Form</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
