@@ -2,65 +2,65 @@
   "Appreciation": {
     "de": "Lob",
     "en": "Appreciation",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Appréciation",
+    "es": "Agradecimiento",
+    "pt": "Apreciação",
+    "it": "Apprezzamento"
   },
   "Comment": {
     "de": "Kommentar",
     "en": "Comment",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Commentaire",
+    "es": "Comentario",
+    "pt": "Comentário",
+    "it": "Commento"
   },
   "Suggestion": {
     "de": "Vorschlag",
     "en": "Suggestion",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Suggestion",
+    "es": "Sugerencia",
+    "pt": "Sugestão",
+    "it": "Suggerimento"
   },
   "Bug": {
     "de": "Fehler",
     "en": "Bug",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Bug",
+    "es": "Bug",
+    "pt": "Bug",
+    "it": "Bug"
   },
   "Select": {
     "de": "Um was für ein Feedback handelt es sich?",
     "en": "What kind of feedback do you want to give?",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Quel type de commentaire voulez-vous faire ?",
+    "es": "¿Qué tipo de comentario desea enviar?",
+    "pt": "Que tipo de feedback pretende dar?",
+    "it": "Che tipo di feedback vuoi dare?"
   },
   "Send": {
     "de": "Senden",
     "en": "Send",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Envoyer",
+    "es": "Enviar",
+    "pt": "Enviar",
+    "it": "Inviare"
   },
   "TextHeadline": {
     "de": "Beschreibe dein Feedback",
     "en": "Write your Feedback",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Ecrivez votre commentaire",
+    "es": "Escriba su opinión",
+    "pt": "Escreva o seu comentário",
+    "it": "Scrivi il tuo feedback"
   },
   "TextPlaceholder": {
     "de": "Schreib hier dein Feedback rein",
     "en": "Enter your feedback here",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Saisissez votre commentaire ici",
+    "es": "Escriba aquí su opinión",
+    "pt": "Introduza os seus comentários aqui",
+    "it": "Inserisci qui il tuo feedback"
   }
 }

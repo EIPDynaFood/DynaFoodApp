@@ -10,9 +10,9 @@
   "Barcode": {
     "de": "Barcode: ",
     "en": "Barcode: ",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Code-barres : ",
+    "es": "Código de barras: ",
+    "pt": "Código de barras: ",
+    "it": "Codice a barre: "
   }
 }

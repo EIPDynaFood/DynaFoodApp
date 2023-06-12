@@ -2,25 +2,25 @@
   "No": {
     "de": "Nein",
     "en": "No",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Non",
+    "es": "No",
+    "pt": "Não",
+    "it": "No"
   },
   "Casual": {
     "de": "Gelegentlich",
     "en": "Casually",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Occasionellement",
+    "es": "Casualmente",
+    "pt": "Casualmente",
+    "it": "Casualmente"
   },
   "Strict": {
     "de": "Streng",
     "en": "Strictly",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Strictement",
+    "es": "Estrictamente",
+    "pt": "Estritamente",
+    "it": "Rigorosamente"
   }
 }

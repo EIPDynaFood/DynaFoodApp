@@ -2,33 +2,33 @@
   "Error": {
     "de": "Beim Löschen der Liste ist ein Fehler aufgetreten: ",
     "en": "Something went wrong while deleting the list: ",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Un problème s'est produit lors de la suppression de la liste : ",
+    "es": "Algo ha ido mal al borrar la lista: ",
+    "pt": "Algo correu mal ao apagar a lista: ",
+    "it": "Qualcosa è andato storto durante la cancellazione dell'elenco: "
   },
   "TextHeadline": {
     "de": "Name deiner Liste",
-    "en": "Name of your Liste",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "en": "Name of your List",
+    "fr": "Nom de la liste",
+    "es": "Nombre de la lista",
+    "pt": "Nome da sua lista",
+    "it": "Nome dell'elenco"
   },
   "TextPlaceholder": {
     "de": "Name",
     "en": "Name",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Nom",
+    "es": "Nombre",
+    "pt": "Nome",
+    "it": "Nome"
   },
   "ModalButton": {
     "de": "Speichern",
     "en": "Save",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Sauvegarder",
+    "es": "Guardar",
+    "pt": "Guardar",
+    "it": "Salva"
   }
 }

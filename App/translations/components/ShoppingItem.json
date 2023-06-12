@@ -2,33 +2,33 @@
   "Error": {
     "de": "Beim Löschen des Eintrags ist ein Fehler aufgetreten: ",
     "en": "Something went wrong while deleting the item: ",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Un problème s'est produit lors de la suppression de l'élément : ",
+    "es": "Algo ha ido mal al borrar el elemento: ",
+    "pt": "Algo correu mal ao apagar o item: ",
+    "it": "Qualcosa è andato storto durante l'eliminazione dell'elemento: "
   },
   "TextHeadline": {
     "de": "Was brauchst du?",
     "en": "What do you need?",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "De quoi avez-vous besoin ?",
+    "es": "¿Qué necesitas?",
+    "pt": "O que é que precisa?",
+    "it": "Di cosa hai bisogno?"
   },
   "TextPlaceholder": {
     "de": "Name",
     "en": "Name",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Nom",
+    "es": "Nombre",
+    "pt": "Nome",
+    "it": "Nome"
   },
   "ModalButton": {
     "de": "Erstellen",
     "en": "Create",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Créer",
+    "es": "Crear",
+    "pt": "Criar",
+    "it": "Creare"
   }
 }
