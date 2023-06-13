@@ -41,7 +41,7 @@ export default function ShoppingOverview({ navigation, route }) {
             data : data
         };
         axios(config).then(() => {
-            setListData({"elements":[], "update":true});
+            setListData({elements:[...listData.elements, listName]});
             setListName("")
         }).catch((err) => {
             console.log('catch');
@@ -101,6 +101,8 @@ export default function ShoppingOverview({ navigation, route }) {
                                 {listData.elements.map((product) => <ShoppingList
                                     key={product.listid}
                                     name={product.listname}
+                                    list={listData.elements}
+                                    element={product}
                                     listId={product.listid}
                                     update={setListData}
                                 />)}

@@ -43,7 +43,7 @@ export default function ShoppingListItems() {
             data : data
         };
         axios(config).then(() => {
-            setListData({"elements":[], "update":true});
+            setListData({elements:[...listData.elements], update: true});
             setItemName("")
         }).catch((err) => {
             console.log('catch');
@@ -104,6 +104,8 @@ export default function ShoppingListItems() {
                                     key={product.itemid}
                                     itemId={product.itemid}
                                     name={product.productname}
+                                    list={listData.elements}
+                                    element={product}
                                     checked={product.done}
                                     listId={product.listid}
                                     update={setListData}

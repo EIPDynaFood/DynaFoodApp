@@ -16,7 +16,9 @@ export default function ShoppingList(props) {
     const [modalVisible, setModalVisible] = useState(false)
     const deleteList = () => {
         axios.delete(endpoint + 'shoppingList?listid=' + props.listId).then(() => {
-            props.update({"elements":[], "update":true})
+            const newList = [...props.list]
+            newList.splice(props.list.indexOf(props.product), 1);
+            props.update({"elements": [...props.list], "update": true})
         }).catch((err) => {
             console.log('catch');
             alert(translations["Error"][lang] + err.message);
@@ -36,7 +38,7 @@ export default function ShoppingList(props) {
             data : data
         };
         axios(config).then(() => {
-            props.update({"elements":[], "update":true})
+            props.update({"elements":[...props.list], "update":true})
         }).catch((err) => {
             console.log('catch');
             alert(translations["Error"][lang] + err.message);

@@ -1,4 +1,3 @@
-import {useNavigation} from "@react-navigation/native";
 import axios from "axios";
 import {Modal, Text, TextInput, View} from "react-native";
 import {Button, Icon, CheckBox} from "react-native-elements";
@@ -6,8 +5,6 @@ import React, {useState} from "react";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
 import { endpoint } from '../../config';
-import qs from "qs";
-import translations from "../../translations/components/ShoppingItem.json";
 
 export default function ShoppingItem(props) {
     const translations = require("../../translations/components/ShoppingItem.json")
@@ -18,7 +15,9 @@ export default function ShoppingItem(props) {
     const [modalVisible, setModalVisible] = useState(false)
     const deleteItem = () => {
         axios.delete(endpoint + 'shoppingList/item', {headers: {}, data: {'itemid': `${props.itemId}`}}).then((res) => {
-            props.update({"elements":[], "update":true})
+            const newItem = [...props.list]
+            newItem.splice(props.list.indexOf(props.product), 1);
+            props.update({"elements": newItem})
         }).catch((err) => {
             console.log('catch');
             alert(translations["Error"][lang] + err.message);
@@ -42,7 +41,7 @@ export default function ShoppingItem(props) {
             data : data
         };
         axios(config).then((res) => {
-            props.update({"elements":[], "update":true});
+            props.update({"elements":[...props.list], "update":true});
             setItemName(props.name);
         }).catch((err) => {
             console.log('catch');
