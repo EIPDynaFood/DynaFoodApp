@@ -9,8 +9,9 @@ import axios from "axios";
 import {endpoint} from "../../config";
 import _ from "lodash";
 import ShoppingList from "../components/ShoppingList";
+import LoadingSpinner from "../components/LoadingSpinner";
 
-export default function ShoppingOverview({ navigation, route }) {
+export default function ShoppingOverview() {
     const translations = require("../../translations/screens/ShoppingOverview.json")
     const {lang} = useLang();
     const [listData, setListData] = useState(null)
@@ -82,7 +83,7 @@ export default function ShoppingOverview({ navigation, route }) {
             </Modal>
             <View style={StyleSheet.absoluteFillObject}>
                 <View style={{flex: 1}}>
-                    {listData === null ? (<FAB color="grey" size="small" loading/>) : (
+                    {listData === null ? (<LoadingSpinner/>) : (
                         (listData.elements.length === 0) ? (
                             <View style={styles.productHistory}>
                                 <TouchableOpacity style={styles.productItem} onPress={() => {setModalVisible(true)}}>

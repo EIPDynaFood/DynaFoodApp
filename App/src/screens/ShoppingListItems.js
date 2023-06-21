@@ -9,6 +9,7 @@ import _ from "lodash";
 import {Button, FAB, Icon} from "react-native-elements";
 import {ScrollView} from "react-native-gesture-handler";
 import ShoppingItem from "../components/ShoppingItem";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function ShoppingListItems() {
     const translations = require("../../translations/screens/ShoppingListItems.json")
@@ -84,7 +85,7 @@ export default function ShoppingListItems() {
             </Modal>
             <View style={StyleSheet.absoluteFillObject}>
                 <View style={{flex: 1}}>
-                    {listData === null ? (<FAB color="grey" size="small" loading/>) : (
+                    {listData === null ? (<LoadingSpinner/>) : (
                         (listData.elements.length === 0) ? (
                             <View style={styles.productHistory}>
                                 <TouchableOpacity style={styles.productItem} onPress={() => {setModalVisible(true)}}>

@@ -487,5 +487,11 @@ export const styles = StyleSheet.create({
         fontSize: 12,
         fontWeight: 'bold',
         color: 'white'
+    },
+    loadingSpinnerContainer: {
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })

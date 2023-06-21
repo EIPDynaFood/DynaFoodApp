@@ -2,12 +2,13 @@ import React, {useEffect, useState} from "react";
 import {useIsFocused, useNavigation} from "@react-navigation/native";
 import axios from "axios";
 import {Text, View} from "react-native";
-import {FAB, Icon} from "react-native-elements";
+import {Icon} from "react-native-elements";
 import {ScrollView} from "react-native-gesture-handler";
 import ProductItem from "./ProductItem";
 import { styles } from "../styles/Style";
 import useLang from "../../Language"
 import { endpoint } from '../../config';
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function ProductHistory(props) {
   const [historyData, setHistoryData] = useState(props.data);
@@ -42,7 +43,7 @@ export default function ProductHistory(props) {
 
   return (
       <View style={{flex: 1}}>
-        {historyData === null ? (<FAB color="grey" size="small" loading/>) : (
+        {historyData === null ? (<LoadingSpinner/>) : (
             (historyData.elements.length === 0) ? (
                 <View style={styles.productHistory}>
                     <View style={styles.productItem} onPress={() => navigation.navigate('Scanner')}>

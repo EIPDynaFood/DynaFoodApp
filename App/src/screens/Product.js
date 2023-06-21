@@ -1,20 +1,19 @@
-import {Button, StyleSheet, Text, View, StatusBar} from "react-native";
+import {View} from "react-native";
 import React, {useState, useEffect} from "react";
-import {FAB} from "react-native-elements";
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import ProductGeneralInfo from "./ProductGeneralInfo";
 import ProductNutritionTable from "./ProductNutritionTable";
 import {RequireJwt} from "../components/RequireJwt";
-import { Ionicons } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/Ionicons';
 import useLang from "../../Language";
 import { endpoint } from '../../config';
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const Tab = createMaterialTopTabNavigator();
 const axios = require('axios');
 
 // Thou shall not change this file! To change content pls go into ProductGeneralInfo.js or ProductNutritionTable.js!
-export default function Product({navigation, route}) {
+export default function Product({navigation}) {
   const [productCode, setProductCode] = useState(localStorage.getItem("productCode"));
   const [productData, setProductData] = useState(null);
 
@@ -41,7 +40,7 @@ export default function Product({navigation, route}) {
   return (
       <RequireJwt>
         <View style={{flex: 1}}>
-          {productData === null ? (<FAB color="grey" size="small" loading/>) : (
+          {productData === null ? (<LoadingSpinner/>) : (
             <Tab.Navigator
               screenOptions={{
                 tabBarInactiveTintColor: 'gray',
