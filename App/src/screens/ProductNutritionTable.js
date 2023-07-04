@@ -1,11 +1,9 @@
-import { StyleSheet, Text, View, FlatList} from "react-native";
+import {Text, View, FlatList} from "react-native";
 import React from "react";
 import { Divider } from "react-native-elements";
-import {RequireJwt} from "../components/RequireJwt";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
 
-const axios = require('axios');
 
 export default function ProductNutritionTable({navigation, route}) {
   const {itemId, productData} = route.params;
@@ -16,7 +14,6 @@ export default function ProductNutritionTable({navigation, route}) {
   let arr = Object.entries(productData["nutriments_g_pro_100g"])
 
     return (
-      <RequireJwt>
         <View style={styles.wrapperStyleTable}>
           <View style={styles.tableHeadStyleTable}>
             <Text style={styles.tableHeadTextStyleTable}>{translations["Nutriments"][lang]}</Text>
@@ -34,6 +31,5 @@ export default function ProductNutritionTable({navigation, route}) {
                       ItemSeparatorComponent={(() => <Divider/>)}/>
           </View>
         </View>
-      </RequireJwt>
   );
 }

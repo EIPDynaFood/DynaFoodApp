@@ -1,11 +1,12 @@
 import { styles } from "../styles/Style";
 import React, {useState} from "react";
-import {RequireJwt} from "../components/RequireJwt";
 import { ScrollView } from "react-native-gesture-handler";
 import {Pressable, Text, View, TextInput, TouchableOpacity, Modal} from "react-native";
 import RadioButtonRN from 'radio-buttons-react-native';
 import { endpoint } from '../../config';
 import useLang from "../../Language";
+import APIRoute from "../../API";
+
 
 
 export default function Feedback({navigation}) {
@@ -37,7 +38,6 @@ export default function Feedback({navigation}) {
         }
     ];
     return (
-        <RequireJwt>
             <ScrollView style={[styles.wrapperStyle, {backgroundColor: '#E2E6DB'}]}>
                 <View style={[styles.mainContainerStyle, {backgroundColor: "#FFFFFF"}]}>
                     <Modal animationType="slide"
@@ -76,7 +76,7 @@ export default function Feedback({navigation}) {
                                             },
                                             data : data
                                         };
-                                        axios(config).then((res) => {
+                                        APIRoute(() => axios(config).then((res) => {
                                             if (res.status === 200) { // no data to return
                                                 alert(translations["Alert"][lang]);
                                                 navigation.goBack(null);
@@ -84,11 +84,14 @@ export default function Feedback({navigation}) {
                                                 alert("Something went wrong :O" + res.data)
                                             }
                                             }).catch((err) => {
+                                            if (err.response.status === 401)
+                                                throw(err);
                                             console.log("catch");
                                             alert("something went wrong on sending your feedback" + err)
                                             navigation.goBack(null);
                                             console.log(err);
-                                            });
+
+                                            }));
                                     }
                                 }>
                                     <Text style={styles.textStyle}>{translations["Send"][lang]}</Text>
@@ -121,6 +124,5 @@ export default function Feedback({navigation}) {
                     </View>
                 </View>
             </ScrollView>
-        </RequireJwt>
     );
 }

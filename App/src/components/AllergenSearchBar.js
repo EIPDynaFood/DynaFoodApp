@@ -5,6 +5,7 @@ import axios from "axios";
 import {endpoint} from "../../config";
 import useLang from "../../Language";
 import {Icon} from "react-native-elements";
+import APIRoute from "../../API";
 
 export default function AllergenSearchBar() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -19,7 +20,7 @@ export default function AllergenSearchBar() {
             method: 'get',
             url: endpoint + 'settings'
         };
-        axios(config)
+        APIRoute(() => axios(config)
             .then(function (response) {
                 if (response.status === 204) {
                     setSelectedItems([])
@@ -29,22 +30,31 @@ export default function AllergenSearchBar() {
                 }
             })
             .catch(function (error) {
+                if (error.response.status === 401)
+                    throw(error)
                 console.log(error);
-            });
+
+            }));
     }, [selectedItems]);
 
 
     const handleSearch = (text) => {
         setSearchQuery(text);
-        axios.get(endpoint + `searchAllergen?name=${text.toLowerCase()}&language=${lang}`).then((res) => {
+        APIRoute(() => axios.get(endpoint + `searchAllergen?name=${text.toLowerCase()}&language=${lang}`).then((res) => {
             setSearchResults(res.data)
-        })
+        }).catch((error) => {
+            if (error.response.status === 401)
+            throw(error)
+        }))
     };
 
     const handleFocus = () => {
-        axios.get(endpoint + `searchAllergen?name=&language=${lang}`).then((res) => {
+        APIRoute(() => axios.get(endpoint + `searchAllergen?name=&language=${lang}`).then((res) => {
             setSearchResults(res.data)
-        })
+        }).catch((error) => {
+            if (error.response.status === 401)
+                throw(error)
+        }))
     };
 
     const handleSelectItem = (item) => {
@@ -61,23 +71,27 @@ export default function AllergenSearchBar() {
                 url: endpoint + 'settings',
                 data: data,
             };
-            axios(config)
+            APIRoute(() => axios(config)
                 .then(function (response) {
                     setSelectedItems([...selectedItems, item]);
                 })
                 .catch(function (error) {
+                    if (error.response.status === 401)
+                        throw(error)
                     console.log(error);
-                });
+                }));
         } else {
-            axios.delete(endpoint + "settings", {headers: {}, data: {'restrictionName': `${item}`}})
+            APIRoute(() => axios.delete(endpoint + "settings", {headers: {}, data: {'restrictionName': `${item}`}})
                 .then(function (response) {
                     const newSelectedItems = [...selectedItems];
                     newSelectedItems.splice(index, 1);
                     setSelectedItems(newSelectedItems);
                 })
                 .catch(function (error) {
+                    if (error.response.status === 401)
+                        throw(error)
                     console.log(error);
-                });
+                }));
             }
     };
 

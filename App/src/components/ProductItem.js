@@ -1,11 +1,13 @@
 import {useNavigation} from "@react-navigation/native";
 import axios from "axios";
-import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Image, Text, TouchableOpacity, View} from "react-native";
 import {Icon} from "react-native-elements";
 import React, {useState} from "react";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
 import { endpoint } from '../../config';
+import APIRoute from "../../API";
+
 
 export default function ProductItem(itemData) {
   const navigation = useNavigation();
@@ -15,12 +17,14 @@ export default function ProductItem(itemData) {
 
     const [show, setShow] = useState(true)
   const deleteHistoryItem = () => {
-    axios.delete(endpoint + 'history/' + itemData.historyId).then((res) => {
-    }).catch((err) => {
+    APIRoute(() => axios.delete(endpoint + 'history/' + itemData.historyId).then().catch((err) => {
+      if (err.response.status === 401) {
+        throw(err)
+      }
       console.log('catch');
       alert(translations["Error"][lang] + err.message);
       console.log(err);
-    });
+    }));
       setShow(false)
   };
 

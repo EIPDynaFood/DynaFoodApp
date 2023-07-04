@@ -6,6 +6,8 @@ import React, {useState} from "react";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
 import { endpoint } from '../../config';
+import APIRoute from "../../API";
+
 
 export default function ShoppingList(props) {
     const navigation = useNavigation();
@@ -15,15 +17,18 @@ export default function ShoppingList(props) {
     const [listName, setListName] = useState(props.name)
     const [modalVisible, setModalVisible] = useState(false)
     const deleteList = () => {
-        axios.delete(endpoint + 'shoppingList?listid=' + props.listId).then(() => {
+        APIRoute(() => axios.delete(endpoint + 'shoppingList?listid=' + props.listId).then(() => {
             const newList = [...props.list]
             newList.splice(props.list.indexOf(props.product), 1);
             props.update({"elements": [...props.list], "update": true})
         }).catch((err) => {
+            if (err.response.status === 401)
+                throw(err)
             console.log('catch');
             alert(translations["Error"][lang] + err.message);
             console.log(err);
-        });
+
+        }));
     };
 
     const editList = () => {
@@ -37,13 +42,16 @@ export default function ShoppingList(props) {
             url: endpoint + 'shoppingList',
             data : data
         };
-        axios(config).then(() => {
+        APIRoute(() => axios(config).then(() => {
             props.update({"elements":[...props.list], "update":true})
         }).catch((err) => {
+            if (err.response.status === 401)
+                throw(err)
             console.log('catch');
             alert(translations["Error"][lang] + err.message);
             console.log(err);
-        });
+
+        }));
     };
 
     return (<>

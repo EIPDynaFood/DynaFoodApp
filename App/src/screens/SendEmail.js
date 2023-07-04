@@ -4,12 +4,14 @@ import {styles} from "../styles/Style";
 import {Button} from "react-native-elements";
 import axios from "axios";
 import { endpoint } from '../../config';
+import APIRoute from "../../API";
+
 
 export default function SendEmail({navigation}) {
     const [email, onChangeEmail] = useState("")
 
     const sendMail = () => {
-        axios.get(endpoint + "resetPassword?email=" + email).then((res) => {
+        APIRoute(() => axios.get(endpoint + "resetPassword?email=" + email).then((res) => {
             console.log(res.status)
             if (res.status === 204) { // no data to return
                 alert("Could not find E-Mail address");
@@ -18,10 +20,13 @@ export default function SendEmail({navigation}) {
                 navigation.navigate("VerifyCode", {email})
             }
         }).catch((err) => {
+            if (err.response.status === 401) {
+                throw(err)
+            }
             console.log("catch");
             alert(err.message)
             console.log(err);
-        });
+        }));
     }
 
     return (

@@ -1,37 +1,20 @@
 import {StyleSheet, Text, View} from "react-native";
-import React, {useState} from "react";
+import React from "react";
 import {FAB} from 'react-native-elements';
 import {useNavigation} from "@react-navigation/native";
-import {RequireJwt} from "../components/RequireJwt";
 import TrendBar from "../components/Trendbar";
 import ProductHistory from "../components/ProductHistory";
 import useLang from "../../Language";
 import { styles } from "../styles/Style";
 import {ProductSearchBar} from "../components/ProductSearchBar";
 
-const axios = require('axios');
-
 export default function History() {
   const navigation = useNavigation();
-  const [search, setSearch] = useState(String);
-
-  const handleOnChangeText = (text) => {
-    setSearch(text)
-  }
-
-  const handleOnPress = () => {
-    if (search.length === 0)
-      return;
-    localStorage.setItem("Search", search)
-    navigation.navigate('Search Result');
-  }
-
 
   const translations = require("../../translations/screens/History.json")
   const {lang} = useLang();
 
   return (
-      <RequireJwt>
         <View style={StyleSheet.absoluteFillObject}>
           <ProductSearchBar/>
           <View style={styles.trendBar}>
@@ -55,6 +38,5 @@ export default function History() {
               }}
           />
         </View>
-      </RequireJwt>
   );
 }

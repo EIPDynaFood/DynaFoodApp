@@ -3,11 +3,12 @@ import React, {useState, useEffect} from "react";
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import ProductGeneralInfo from "./ProductGeneralInfo";
 import ProductNutritionTable from "./ProductNutritionTable";
-import {RequireJwt} from "../components/RequireJwt";
 import Icon from 'react-native-vector-icons/Ionicons';
 import useLang from "../../Language";
 import { endpoint } from '../../config';
 import LoadingSpinner from "../components/LoadingSpinner";
+import APIRoute from "../../API";
+
 
 const Tab = createMaterialTopTabNavigator();
 const axios = require('axios');
@@ -22,7 +23,7 @@ export default function Product({navigation}) {
 
   useEffect(() => {
     setProductCode(localStorage.getItem("productCode"));
-    axios.get(endpoint + "products/barcode/" + productCode).then((res) => {
+    APIRoute(() => axios.get(endpoint + "products/barcode/" + productCode).then((res) => {
       if (res.status === 204) { // no data to return
         alert(translations["Unknown"][lang]);
         navigation.navigate('MissingProduct')
@@ -30,15 +31,15 @@ export default function Product({navigation}) {
         setProductData(res.data);
       }
     }).catch((err) => {
+      if (err.response.status === 401)
+        throw(err);
       console.log("catch");
       alert(translations["Error"][lang] + err.message)
-      navigation.goBack(null);
       console.log(err);
-    });
+    }));
   }, []);
 
   return (
-      <RequireJwt>
         <View style={{flex: 1}}>
           {productData === null ? (<LoadingSpinner/>) : (
             <Tab.Navigator
@@ -74,7 +75,5 @@ export default function Product({navigation}) {
            </Tab.Navigator>
           )}
         </View>
-      </RequireJwt>
-
   );
 }

@@ -1,23 +1,16 @@
-import {View, TextInput, Image, Text, StyleSheet} from "react-native";
+import {View, TextInput, Image, Text} from "react-native";
 import {Button} from 'react-native-elements';
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { endpoint } from '../../config';
-import useJwt from "../../Jwt"
 import axios from "axios";
 import useLang from "../../Language";
 import LanguageDropdown from "../components/LanguageDropdown";
 import { styles } from "../styles/Style";
 import PasswordInput from "../components/PasswordInput";
-import { TouchableOpacity } from "react-native-gesture-handler";
-
-
+import APIRoute from "../../API";
+import * as SecureStore from 'expo-secure-store';
 
 export default function Login({navigation}) {
-    const {login} = useJwt()
-
-    const guestEmail = "i@i.com"
-    const guestPassword = "SuperSecurePassword123-"
-
     const [email, onChangeEmail] = React.useState("");
     const [password, onChangePassword] = React.useState("");
 
@@ -31,15 +24,17 @@ export default function Login({navigation}) {
             rejectUnauthorized: false,
         };
         console.log(config.url)
-        axios(config)
+        APIRoute(() => axios(config)
             .then(function (response) {
-                login(response.data)
-                navigation.navigate("History")
+                SecureStore.setItemAsync('jwt', response.data["token"]);
+                SecureStore.setItemAsync('refreshToken', response.data["refresh_token"]);
+                navigation.navigate("History");
             })
-            .catch(function (error) {
+            .catch((error) => {
+                if (error.response.status === 401)
+                    throw(error)
                 alert(translations["Error"][lang] + error.message)
-                console.log(error);
-            });
+            })).catch();
     };
 
     return (
@@ -93,16 +88,6 @@ export default function Login({navigation}) {
                     }}
                     />
             </View>
-            {/*<Button
-                title={translations["Guest"][lang]}
-                containerStyle={{margin: 15}}
-                buttonStyle={styles.loginAsGuest}
-                titleStyle={{color: "#FFF", flex: 1}}
-                onPress={() => {
-                    onChangeEmail(guestEmail);
-                    onChangePassword(guestPassword);
-                }}
-            />*/}
         </View>
     );
 }

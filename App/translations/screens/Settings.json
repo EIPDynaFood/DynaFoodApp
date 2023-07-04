@@ -135,30 +135,6 @@
     "pt" : "Dietas",
     "it" : "Diete"
   },
-  "Theme": {
-    "de": "Modus",
-    "en": "Theme",
-    "fr": "Thème",
-    "es" : "Tema",
-    "pt" : "Tema",
-    "it" : "Tema"
-  },
-  "LightMode": {
-    "de": "Light-Modus",
-    "en": "Light mode",
-    "fr": "Mode d'éclairage",
-    "es" : "Modo claro",
-    "pt" : "Modo de luz",
-    "it" : "Modalità chiara"
-  },
-  "DarkMode": {
-    "de": "Dark-Modus",
-    "en": "Dark mode",
-    "fr": "mode sombre",
-    "es" : "Modo oscuro",
-    "pt" : "Modo escuro",
-    "it" : "Modalità scura"
-  },
   "Account": {
     "de": "Konto",
     "en": "Account",

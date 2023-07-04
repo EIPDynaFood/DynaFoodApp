@@ -6,6 +6,8 @@ import axios from "axios";
 import useLang from "../../Language";
 import PasswordInput from "../components/PasswordInput";
 import { endpoint } from '../../config';
+import APIRoute from "../../API";
+
 
 export default function ResetPassword(props) {
     const [password, onChangePassword] = useState("")
@@ -30,17 +32,19 @@ export default function ResetPassword(props) {
             url: endpoint + 'resetPassword',
             data : data
         };
-        axios(config).then((res) => {
+        APIRoute(() => axios(config).then((res) => {
             if (res.status === 409) {
                 alert(translations["PasswordError"][lang])
             }
             console.log("success");
             props.navigation.navigate("Login")
         }).catch((err) => {
+            if (err.response.status === 401)
+                throw(err);
             console.log("catch");
             alert(err.message)
             console.log(err);
-        });
+        }));
     }
 
     return (

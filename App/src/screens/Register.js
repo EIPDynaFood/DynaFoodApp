@@ -2,16 +2,16 @@ import {View, Image, TextInput} from "react-native";
 import React from "react";
 import { Button } from 'react-native-elements';
 import {useNavigation} from "@react-navigation/native";
-import useJwt from "../../Jwt"
 import axios from "axios";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
 import PasswordInput from "../components/PasswordInput";
 import { endpoint } from '../../config';
+import APIRoute from "../../API";
+
 
 export default function Register() {
     const navigation = useNavigation();
-    const {login} = useJwt()
 
     const firstName = "firstName"
     const lastName = "lastName"
@@ -43,17 +43,19 @@ export default function Register() {
                 },
                 data : data
             };
-            axios(config)
+            APIRoute(() => axios(config)
                 .then(function () {
                     alert("You received an E-Mail to verify your account.")
                     navigation.navigate("Login");
                 })
-                .catch(function (error) {
+                .catch((error) => {
+                    if (error.response.status === 401)
+                        throw(error);
                     alert(translations["Error"][lang] + error.message)
                     console.log(error);
                     console.log(error.response);
                     console.log("email in use");
-                });
+                }));
     }
 
     return (

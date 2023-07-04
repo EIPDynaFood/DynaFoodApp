@@ -1,6 +1,5 @@
 import {Modal, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import React, {useState, useEffect} from "react";
-import {RequireJwt} from "../components/RequireJwt";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
 import axios from "axios";
@@ -10,6 +9,8 @@ import {Button, FAB, Icon} from "react-native-elements";
 import {ScrollView} from "react-native-gesture-handler";
 import ShoppingItem from "../components/ShoppingItem";
 import LoadingSpinner from "../components/LoadingSpinner";
+import APIRoute from "../../API";
+
 
 export default function ShoppingListItems() {
     const translations = require("../../translations/screens/ShoppingListItems.json")
@@ -21,15 +22,17 @@ export default function ShoppingListItems() {
     const [itemName,setItemName]= useState("");
 
     useEffect(() => {
-        axios.get(endpoint + 'shoppingList/item?listid=' + list.listId).then((res) => {
+        APIRoute(() => axios.get(endpoint + 'shoppingList/item?listid=' + list.listId).then((res) => {
             if (!_.isEqual(res.data, listData)) {
                 setListData(res.data);
             }
         }).catch((err) => {
+            if (err.response.status === 401)
+                throw(err);
             console.log('catch');
             alert(translations["Error"][lang] + err.message);
             console.log(err);
-        });
+        }));
     }, [listData]);
 
     function createItem() {
@@ -43,18 +46,20 @@ export default function ShoppingListItems() {
             url: endpoint + 'shoppingList/item',
             data : data
         };
-        axios(config).then(() => {
+        APIRoute(() => axios(config).then(() => {
             setListData({elements:[...listData.elements], update: true});
             setItemName("")
         }).catch((err) => {
+            if (err.response.status === 401)
+                throw(err);
             console.log('catch');
             alert(translations["Error"][lang] + err.message);
             console.log(err);
-        });
+        }));
     }
 
     return (
-        <RequireJwt>
+        <View>
             <Modal animationType="fade"
                    transparent={true}
                    visible={modalVisible}
@@ -123,6 +128,6 @@ export default function ShoppingListItems() {
                     }}
                 />
             </View>
-        </RequireJwt>
+        </View>
     );
 }

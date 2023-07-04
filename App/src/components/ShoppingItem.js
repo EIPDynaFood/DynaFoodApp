@@ -5,6 +5,8 @@ import React, {useState} from "react";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
 import { endpoint } from '../../config';
+import APIRoute from "../../API";
+
 
 export default function ShoppingItem(props) {
     const translations = require("../../translations/components/ShoppingItem.json")
@@ -14,15 +16,18 @@ export default function ShoppingItem(props) {
     const [checked, setChecked] = useState(props.checked)
     const [modalVisible, setModalVisible] = useState(false)
     const deleteItem = () => {
-        axios.delete(endpoint + 'shoppingList/item', {headers: {}, data: {'itemid': `${props.itemId}`}}).then((res) => {
+        APIRoute(() => axios.delete(endpoint + 'shoppingList/item', {headers: {}, data: {'itemid': `${props.itemId}`}}).then((res) => {
             const newItem = [...props.list]
             newItem.splice(props.list.indexOf(props.product), 1);
             props.update({"elements": newItem})
         }).catch((err) => {
+            if (err.response.status === 401)
+                throw(err)
             console.log('catch');
             alert(translations["Error"][lang] + err.message);
             console.log(err);
-        });
+
+        }));
     };
 
     const editItem = (done) => {
@@ -40,14 +45,16 @@ export default function ShoppingItem(props) {
             url: endpoint + 'shoppingList/item',
             data : data
         };
-        axios(config).then((res) => {
+        APIRoute(() => axios(config).then((res) => {
             props.update({"elements":[...props.list], "update":true});
             setItemName(props.name);
         }).catch((err) => {
+            if (err.response.status === 401)
+                throw(err)
             console.log('catch');
             alert(translations["Error"][lang] + err.message);
             console.log(err);
-        });
+        }));
     };
 
     return (<>

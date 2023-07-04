@@ -9,6 +9,8 @@ import { styles } from "../styles/Style";
 import useLang from "../../Language"
 import { endpoint } from '../../config';
 import LoadingSpinner from "./LoadingSpinner";
+import APIRoute from "../../API";
+
 
 export default function ProductHistory(props) {
   const [historyData, setHistoryData] = useState(props.data);
@@ -29,16 +31,19 @@ export default function ProductHistory(props) {
   }, [isFocused]);
 
   const getHistoryData = (() => {
-    axios.get(endpoint + 'history').then((res) => {
+    APIRoute(() => axios.get(endpoint + 'history').then((res) => {
       console.log(!_.isEqual(res.data, historyData))
       if (!_.isEqual(res.data, historyData)) {
         setHistoryData(res.data);
       }
     }).catch((err) => {
+      if (err.response.status === 401) {
+        throw(err)
+      }
       console.log('catch');
       alert(translations["Error"][lang] + err.message);
       console.log(err);
-    });
+    }));
   })
 
   return (

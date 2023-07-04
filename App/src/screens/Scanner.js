@@ -1,7 +1,5 @@
 import {Text, View, useWindowDimensions} from "react-native";
 import React, {useState, useEffect} from "react";
-import {FAB} from "react-native-elements";
-import {RequireJwt} from "../components/RequireJwt";
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
@@ -76,7 +74,6 @@ export default function Scanner({ navigation, route }) {
     }
 
   return (
-      <RequireJwt>
         <View style={{
             flex: 1,
             flexDirection: 'column',
@@ -104,6 +101,5 @@ export default function Scanner({ navigation, route }) {
                 }}
             />*/}
         </View>
-      </RequireJwt>
   );
 }

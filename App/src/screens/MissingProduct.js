@@ -1,42 +1,12 @@
-import {TextInput, StyleSheet, Text, View, Image, TouchableOpacity} from "react-native";
-import React, {useState, useLayoutEffect, Component} from "react";
-import {Icon} from 'react-native-elements';
-import {RequireJwt} from "../components/RequireJwt";
-import { ScrollView } from "react-native-gesture-handler";
+import {TextInput, Text, View, TouchableOpacity} from "react-native";
+import React, {useState} from "react";
 import { styles } from "../styles/Style";
 import * as ImagePicker from 'expo-image-picker';
-import { Dimensions } from "react-native";
 import mime from "mime";
 import MissingProductImages from '../components/MissingProductImages'
 import { endpoint } from '../../config';
+import APIRoute from "../../API";
 
-
-const axios = require('axios');
-
-const toBase64 = file => new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-});
-
-class FlatListItem extends Component {
-    render() {
-        return (
-            <View style={{
-                flex:1,
-                flexDirection: "row",
-            }}>
-                <Image source={{uri: this.props.item.imageUrl}} style={{width: 100, height: 100, margin: 5}}></Image>
-                <View style={{
-                    flex:1,
-                    flexDirection: "column"
-                }}>
-                </View><Text style={{color: "white", padding:10, fontSize:16}}>{this.props.item.name}</Text>
-            </View>
-        )
-    }
-}
 
 export default function MissingProduct({ navigation }) {
     const [images, setImages ] = useState([]);
@@ -69,20 +39,11 @@ export default function MissingProduct({ navigation }) {
             formData.append('size', size)
             formData.append('company', company)
             formData.append('productname', productName)
-            // console.log(formData)
-            // let options = {
-            //     method: 'POST',
-            //     body: formData,
-            //     headers: {
-            //     Accept: 'application/json',
-            //     'Content-Type': 'application/x-www-form-urlencoded',
-            //     },
-            // };
             let options = {
                 method: 'POST',
                 body: formData
             };
-            fetch(endpoint + 'upload', options).then(() => {
+            await APIRoute(fetch(endpoint + 'upload', options).then(() => {
                 alert(`Missing Product information about '${productName} ${size}' by '${company}' (barcode: '${barcode}') sended. Thanks for your help!`);
                 setImages([])
                 onChangeBarcode("")
@@ -90,12 +51,17 @@ export default function MissingProduct({ navigation }) {
                 onChangeCompany("")
                 onChangeSize("")
                 navigation.navigate('Scanner')
-            }).catch((err) => {console.log(err)})
+            }).catch((err) => {
+                if (err.response.status === 401)
+                    throw(err);
+                console.log(err);
+            }))
 
         }
         catch (err) {
             console.log(err)
-            throw(err)
+            if (err.response.status === 401)
+    throw(err)
         }
     }
 
@@ -121,21 +87,7 @@ export default function MissingProduct({ navigation }) {
     }
 
     const uploader = async () => {
-        // const response = await ImagePicker.launchImageLibraryAsync({mediaTypes: ImagePicker.MediaTypeOptions.All,
-        //     allowsEditing: true,
-        //     base64: true,
-        //     quality: 1,})
-        //     if (response.cancelled) {
-        //         return;
-        //     }
-        //     console.log(response.uri)
-        //     console.log(response.base64.length)
         try {
-            //     const response = await DocumentPicker.getDocumentAsync({
-            //         type: "*/*",
-            //         copyToCachesDirectory: true,
-            // multiple: false,
-            //     })
             const response = await ImagePicker.launchImageLibraryAsync({mediaTypes: ImagePicker.MediaTypeOptions.All,
                 allowsEditing: true,
                 base64: true,
@@ -160,7 +112,7 @@ export default function MissingProduct({ navigation }) {
     }
 
     return (
-        <RequireJwt>
+        <View>
             <View style={{alignItems: "center"}}>
                 <TextInput
                     placeholder="Barcode..."
@@ -210,22 +162,6 @@ export default function MissingProduct({ navigation }) {
             >
                 <Text style={[styles.textSign, { color: '#376D55'}]}>Send</Text>
             </TouchableOpacity>
-        </RequireJwt>
+        </View>
     );
 }
-
-const styles_here = StyleSheet.create({
-    coverImg: {
-        width: '100%',
-        height: 200,
-        resizeMode: 'contain'
-    },
-    gridItem: {
-        width: Dimensions.get('window').width / 2,
-        height: 200
-    },
-    container: {
-        flex: 1,
-        flexDirection: "column",
-    }
-})

@@ -5,6 +5,7 @@ import {Button} from "react-native-elements";
 import axios from "axios";
 import useLang from "../../Language";
 import { endpoint } from '../../config';
+import APIRoute from "../../API";
 
 export default function VerifyCode(props) {
     const [code, onChangeCode] = useState("")
@@ -23,17 +24,20 @@ export default function VerifyCode(props) {
             url: endpoint + 'verifyCode',
             data : data
         };
-        axios(config).then((res) => {
+        APIRoute(() => axios(config).then((res) => {
             if (res.status === 403) { // no data to return
                 alert(translations["Error"][lang]);
             } else {
                 props.navigation.navigate("ResetPassword", {email, code})
             }
         }).catch((err) => {
+            if (err.response.status === 401)
+                throw(err);
             console.log("catch");
             alert(err.message)
             console.log(err);
-        });
+
+        }));
     }
 
     return (

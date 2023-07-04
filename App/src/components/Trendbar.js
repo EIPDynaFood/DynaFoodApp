@@ -4,6 +4,8 @@ import {Image, Text, View, StyleSheet, TouchableOpacity} from "react-native";
 import React, {useState, useEffect}from "react";
 import axios from "axios";
 import { endpoint } from '../../config';
+import APIRoute from "../../API";
+
 
 
 export default function TrendBar() {
@@ -12,14 +14,17 @@ export default function TrendBar() {
   "productImageLink": "https://images.openfoodfacts.org/images/products/544/900/021/4911/front_en.119.200.jpg", productName: "Loading..."}])
 
   useEffect(() => {
-    axios.get(endpoint + 'trendingProductsGlobal?count=10').then((res) => {
+    APIRoute(() => axios.get(endpoint + 'trendingProductsGlobal?count=10').then((res) => {
       setTrendingProducts(res.data)
       console.log(res.data)
   }).catch((err) => {
-      console.log('catch');
+        if (err.response.status === 401)
+            throw(err);
+        console.log('catch');
       alert("something went wrong getting history data: " + err.message);
       console.log(err);
-    });
+
+    }))
   }, []);
 
   return (

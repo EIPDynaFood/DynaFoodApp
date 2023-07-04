@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-//testing test feature
+import React from 'react';
 import {View, LogBox, StatusBar} from 'react-native';
 import Scanner from "./src/screens/Scanner";
 import Product from "./src/screens/Product";
@@ -15,7 +14,6 @@ import MissingProduct from "./src/screens/MissingProduct";
 import Feedback from "./src/screens/Feedback";
 import Swiper from './src/screens/Swiper';
 import {Icon} from "react-native-elements";
-import useJwt, {JwtProvider} from "./Jwt"
 import {LangProvider} from "./Language";
 import SendEmail from "./src/screens/SendEmail";
 import VerifyCode from "./src/screens/Authentication";
@@ -25,14 +23,11 @@ import ShoppingListItems from "./src/screens/ShoppingListItems";
 
 const Stack = createNativeStackNavigator();
 export function Navigation() {
-  const {jwt} = useJwt();
   let swiper = localStorage.getItem('Swiper');
 
   return (
-      jwt === null ? (
           <NavigationContainer>
             <Stack.Navigator screenOptions={{
-              headerShown: false,
               headerStyle: {
                 backgroundColor: '#376D55',
               },
@@ -41,28 +36,17 @@ export function Navigation() {
                 fontWeight: 'bold'
               }
             }}>
-              {swiper === null ? 
-              <Stack.Screen name="Swiper" component={Swiper}/>
-               : <></>}
-              <Stack.Screen name="Login" component={Login}/>
-              <Stack.Screen name="Register" component={Register}/>
-              <Stack.Screen options={{headerShown: true, title: "Reset Password"}} name="SendEmail" component={SendEmail}/>
+                {swiper === null ?
+                    <Stack.Screen options={{headerShown: false}} name="Swiper" component={Swiper}/>
+                    : <></>}
+                <Stack.Screen options={{headerShown: false}} name="Login" component={Login}/>
+                <Stack.Screen options={{headerShown: false}} name="Register" component={Register}/>
+                <Stack.Screen options={{headerShown: true, title: "Reset Password"}} name="SendEmail" component={SendEmail}/>
                 <Stack.Screen options={{headerShown: true, title: "Reset Password"}} name="VerifyCode" component={VerifyCode}/>
                 <Stack.Screen options={{headerShown: true, title: "Reset Password"}} name="ResetPassword" component={ResetPassword}/>
-            </Stack.Navigator>
-          </NavigationContainer>) : (
-          <NavigationContainer>
-            <Stack.Navigator screenOptions={{
-              headerStyle: {
-                backgroundColor: '#376D55',
-              },
-              headerTintColor: '#fff',
-              headerTitleStyle: {
-                fontWeight: 'bold'
-              }
-            }}>
-              <Stack.Screen name="History" component={History}
-                            options={({navigation, route}) => ({
+
+                <Stack.Screen name="History" component={History}
+                            options={({navigation}) => ({
                               headerRight: () => (
                                   <View style={{display:"flex", flexDirection:"row"}}>
                                       <View style={{right: 15}}>
@@ -93,7 +77,6 @@ export function Navigation() {
                 <Stack.Screen name="ShoppingListItems" component={ShoppingListItems}/>
             </Stack.Navigator>
           </NavigationContainer>)
-  )
 }
 
 export default function App() {
@@ -108,11 +91,9 @@ export default function App() {
               animated={true}
               backgroundColor="#2E4D44"
           />
-        <JwtProvider>
-            <LangProvider>
-                <Navigation/>
-            </LangProvider>
-        </JwtProvider>
+        <LangProvider>
+            <Navigation/>
+        </LangProvider>
       </View>
   );
 }

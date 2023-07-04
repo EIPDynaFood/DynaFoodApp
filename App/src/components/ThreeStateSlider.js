@@ -5,7 +5,8 @@ import useLang from "../../Language";
 import axios from "axios";
 import {endpoint} from "../../config";
 import { styles } from "../styles/Style";
-import _ from "lodash";
+import APIRoute from "../../API";
+
 
 export default function ThreeStateSlider(props) {
     const [sliderValue, setSliderValue] = useState(0);
@@ -23,7 +24,7 @@ export default function ThreeStateSlider(props) {
             method: 'get',
             url: endpoint + 'settings'
         };
-        axios(config)
+        APIRoute(() => axios(config)
             .then(function (response) {
                 const value = parseInt(response.data.filter((obj) => obj.restrictionname == props.name)[0].strongness)
                 console.log("value: " + value + props.name)
@@ -33,8 +34,10 @@ export default function ThreeStateSlider(props) {
                     setSliderValue(value)
             })
             .catch(function (error) {
+                if (error.response.status === 401)
+                    throw(error);
                 console.log(error);
-            });
+            }));
     })
 
     const updateState = (value) => {
@@ -53,7 +56,12 @@ export default function ThreeStateSlider(props) {
             url: endpoint + 'settings',
             data : data
         };
-        axios(config).then(() => {})
+        APIRoute(() => axios(config)
+            .then().catch((err) => {
+                if (err.response.status === 401)
+                    throw(err)
+            }))
+            
     }
     const getStateLabel = () => {
         const state = SLIDER_STATES.find((s) => s.value == sliderValue);

@@ -5,6 +5,8 @@ import axios from "axios";
 import { styles } from "../styles/Style";
 import {SearchBar} from "react-native-elements";
 import {useNavigation} from "@react-navigation/native";
+import APIRoute from "../../API";
+
 
 export function ProductSearchBar() {
     const navigation = useNavigation();
@@ -17,16 +19,18 @@ export function ProductSearchBar() {
         if (text.length > 1) {
             setLoading(true)
             console.log("fetch")
-            axios.get(endpoint + `searchProduct?value=${text}&count=5`).then((res) => {
+            APIRoute(() => axios.get(endpoint + `searchProduct?value=${text}&count=5`).then((res) => {
                     if (text !== "")
                         setSearchResults(res.data)
                     else
                         setSearchResults([])
 
                 }
-            ).catch((err) =>
+            ).catch((err) => {
+                if (err.response.status === 401)
+                    throw(err)
                 console.log(err)
-            ).finally(() => setLoading(false))
+            }).finally(() => setLoading(false)))
         } else {
             console.log("clear")
             setSearchResults([])

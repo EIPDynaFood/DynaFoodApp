@@ -1,6 +1,5 @@
 import {Text, View, Image} from "react-native";
 import React, {useEffect, useRef, useState} from "react";
-import {RequireJwt} from "../components/RequireJwt";
 import {LinearGradient} from "expo-linear-gradient";
 import { styles } from "../styles/Style";
 import useLang from "../../Language"
@@ -13,9 +12,6 @@ export default function ProductGeneralInfo({route}) {
   const [modalVisible, setModalVisible] = useState(false)
   const modalVisibleRef = useRef(modalVisible)
   const {itemId, productData} = route.params;
-
-  const translations = require("../../translations/screens/ProductGeneralInfo.json")
-  const {lang} = useLang();
 
   let ingredients = ""
   productData['ingredients']['ingredients'].map((item, index) => {
@@ -95,7 +91,6 @@ export default function ProductGeneralInfo({route}) {
   }
 
   return (
-      <RequireJwt>
         <View style={styles.wrapperStyleInfo}>
           <View>
           <Alert
@@ -122,6 +117,5 @@ export default function ProductGeneralInfo({route}) {
           </View>
           </View>
         </View>
-      </RequireJwt>
   );
 }

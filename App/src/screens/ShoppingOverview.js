@@ -1,7 +1,6 @@
 import {Modal, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import React, {useState, useEffect} from "react";
 import {FAB, Icon, Button} from "react-native-elements";
-import {RequireJwt} from "../components/RequireJwt";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
 import {ScrollView} from "react-native-gesture-handler";
@@ -10,6 +9,8 @@ import {endpoint} from "../../config";
 import _ from "lodash";
 import ShoppingList from "../components/ShoppingList";
 import LoadingSpinner from "../components/LoadingSpinner";
+import APIRoute from "../../API";
+
 
 export default function ShoppingOverview() {
     const translations = require("../../translations/screens/ShoppingOverview.json")
@@ -20,15 +21,17 @@ export default function ShoppingOverview() {
     const [listName,setListName]= useState("");
 
     useEffect(() => {
-        axios.get(endpoint + 'shoppingList').then((res) => {
+        APIRoute(() => axios.get(endpoint + 'shoppingList').then((res) => {
             if (!_.isEqual(res.data, listData)) {
-                setListData(res.data);
+                //setListData(res.data);
             }
         }).catch((err) => {
+            if (err.response.status === 401)
+                throw(err);
             console.log('catch');
             alert(translations["Error"][lang] + err.message);
             console.log(err);
-        });
+        }));
     }, [listData]);
 
     function createList() {
@@ -45,6 +48,8 @@ export default function ShoppingOverview() {
             setListData({elements:[...listData.elements, listName]});
             setListName("")
         }).catch((err) => {
+            if (err.response.status === 401)
+                throw(err);
             console.log('catch');
             alert(translations["Error"][lang] + err.message);
             console.log(err);
@@ -52,7 +57,7 @@ export default function ShoppingOverview() {
     }
 
     return (
-        <RequireJwt>
+        <View>
             <Modal animationType="fade"
                    transparent={true}
                    visible={modalVisible}
@@ -119,6 +124,6 @@ export default function ShoppingOverview() {
                     }}
                 />
             </View>
-        </RequireJwt>
+        </View>
     );
 }
