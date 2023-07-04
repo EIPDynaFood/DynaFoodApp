@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, LogBox, StatusBar} from 'react-native';
 import Scanner from "./src/screens/Scanner";
 import Product from "./src/screens/Product";
@@ -20,14 +20,15 @@ import VerifyCode from "./src/screens/Authentication";
 import ResetPassword from "./src/screens/ResetPassword";
 import ShoppingOverview from "./src/screens/ShoppingOverview";
 import ShoppingListItems from "./src/screens/ShoppingListItems";
+import * as SecureStore from "expo-secure-store";
 
 const Stack = createNativeStackNavigator();
-export function Navigation() {
+export function Navigation(props) {
   let swiper = localStorage.getItem('Swiper');
 
   return (
           <NavigationContainer>
-            <Stack.Navigator screenOptions={{
+            <Stack.Navigator initialRouteName={props.initialRoute} screenOptions={{
               headerStyle: {
                 backgroundColor: '#376D55',
               },
@@ -41,9 +42,9 @@ export function Navigation() {
                     : <></>}
                 <Stack.Screen options={{headerShown: false}} name="Login" component={Login}/>
                 <Stack.Screen options={{headerShown: false}} name="Register" component={Register}/>
-                <Stack.Screen options={{headerShown: true, title: "Reset Password"}} name="SendEmail" component={SendEmail}/>
-                <Stack.Screen options={{headerShown: true, title: "Reset Password"}} name="VerifyCode" component={VerifyCode}/>
-                <Stack.Screen options={{headerShown: true, title: "Reset Password"}} name="ResetPassword" component={ResetPassword}/>
+                <Stack.Screen options={{title: "Reset Password"}} name="SendEmail" component={SendEmail}/>
+                <Stack.Screen options={{title: "Reset Password"}} name="VerifyCode" component={VerifyCode}/>
+                <Stack.Screen options={{title: "Reset Password"}} name="ResetPassword" component={ResetPassword}/>
 
                 <Stack.Screen name="History" component={History}
                             options={({navigation}) => ({
@@ -80,20 +81,34 @@ export function Navigation() {
 }
 
 export default function App() {
-  LogBox.ignoreLogs([
+    LogBox.ignoreLogs([
     'Non-serializable values were found in the navigation state',
-  ]);
+    ]);
   // I know that this seems weird, but the maintainer of react-native-navigation suggests this fix...
 
-  return (
-      <View style={{flex: 1}}>
-          <StatusBar
-              animated={true}
-              backgroundColor="#2E4D44"
-          />
-        <LangProvider>
-            <Navigation/>
-        </LangProvider>
-      </View>
-  );
+    const [initialRoute, setInitialRoute] = useState(undefined);
+
+    useEffect(() => {
+        async function getToken() {
+            await SecureStore.getItemAsync("refreshToken").then((refreshToken) => {
+                setInitialRoute(refreshToken)
+            }).catch()
+        }
+        getToken().then(() => {})
+    });
+
+    if (initialRoute === undefined)
+        return (<></>)
+    else
+        return (
+          <View style={{flex: 1}}>
+              <StatusBar
+                  animated={true}
+                  backgroundColor="#2E4D44"
+              />
+            <LangProvider>
+                <Navigation initialRoute={initialRoute !== null ? "History" : "Login"}/>
+            </LangProvider>
+          </View>
+        );
 }

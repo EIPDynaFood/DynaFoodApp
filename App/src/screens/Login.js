@@ -26,9 +26,11 @@ export default function Login({navigation}) {
         console.log(config.url)
         APIRoute(() => axios(config)
             .then(function (response) {
-                SecureStore.setItemAsync('jwt', response.data["token"]);
-                SecureStore.setItemAsync('refreshToken', response.data["refresh_token"]);
-                navigation.navigate("History");
+                SecureStore.setItemAsync('jwt', response.data["token"]).then(() => {
+                    SecureStore.setItemAsync('refreshToken', response.data["refresh_token"]).then(() => {
+                        navigation.navigate("History");
+                    });
+                });
             })
             .catch((error) => {
                 if (error.response.status === 401)

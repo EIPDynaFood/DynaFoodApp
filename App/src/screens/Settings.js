@@ -20,9 +20,11 @@ export default function Settings({navigation}) {
 
     function logoutUser() {
         localStorage.setItem('Swiper', true);
-        SecureStore.deleteItemAsync('jwt')
-        SecureStore.deleteItemAsync('refreshToken')
-        navigation.navigate("Login")
+        SecureStore.deleteItemAsync('jwt').then(() => {
+            SecureStore.deleteItemAsync('refreshToken').then(() => {
+                navigation.navigate("Login")
+            })
+        })
     }
 
     const handleBetaLink = () => {
