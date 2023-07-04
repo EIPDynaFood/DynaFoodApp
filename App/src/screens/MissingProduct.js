@@ -112,7 +112,7 @@ export default function MissingProduct({ navigation }) {
     }
 
     return (
-        <View>
+        <>
             <View style={{alignItems: "center"}}>
                 <TextInput
                     placeholder="Barcode..."
@@ -162,6 +162,6 @@ export default function MissingProduct({ navigation }) {
             >
                 <Text style={[styles.textSign, { color: '#376D55'}]}>Send</Text>
             </TouchableOpacity>
-        </View>
+        </>
     );
 }

@@ -59,7 +59,7 @@ export default function ShoppingListItems() {
     }
 
     return (
-        <View>
+        <>
             <Modal animationType="fade"
                    transparent={true}
                    visible={modalVisible}
@@ -128,6 +128,6 @@ export default function ShoppingListItems() {
                     }}
                 />
             </View>
-        </View>
+        </>
     );
 }

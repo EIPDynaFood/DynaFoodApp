@@ -23,8 +23,6 @@ export default function ProductHistory(props) {
   var _ = require("lodash")
 
   useEffect(() => {
-    console.log("fetch history")
-
     if (isFocused){
       getHistoryData()
     }
@@ -32,7 +30,6 @@ export default function ProductHistory(props) {
 
   const getHistoryData = (() => {
     APIRoute(() => axios.get(endpoint + 'history').then((res) => {
-      console.log(!_.isEqual(res.data, historyData))
       if (!_.isEqual(res.data, historyData)) {
         setHistoryData(res.data);
       }

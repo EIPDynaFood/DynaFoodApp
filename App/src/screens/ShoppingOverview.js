@@ -23,7 +23,7 @@ export default function ShoppingOverview() {
     useEffect(() => {
         APIRoute(() => axios.get(endpoint + 'shoppingList').then((res) => {
             if (!_.isEqual(res.data, listData)) {
-                //setListData(res.data);
+                setListData(res.data);
             }
         }).catch((err) => {
             if (err.response.status === 401)
@@ -57,7 +57,7 @@ export default function ShoppingOverview() {
     }
 
     return (
-        <View>
+        <>
             <Modal animationType="fade"
                    transparent={true}
                    visible={modalVisible}
@@ -124,6 +124,6 @@ export default function ShoppingOverview() {
                     }}
                 />
             </View>
-        </View>
+        </>
     );
 }

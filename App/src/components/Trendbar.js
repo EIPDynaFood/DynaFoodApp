@@ -16,7 +16,6 @@ export default function TrendBar() {
   useEffect(() => {
     APIRoute(() => axios.get(endpoint + 'trendingProductsGlobal?count=10').then((res) => {
       setTrendingProducts(res.data)
-      console.log(res.data)
   }).catch((err) => {
         if (err.response.status === 401)
             throw(err);
