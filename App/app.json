@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "DynaFood",
-    "owner": "dynafood_admin",
+    "owner": "dynafood",
     "slug": "dynafoodapp",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -12,13 +12,15 @@
       "backgroundColor": "#E2E6DB"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/fb06bf7b-0893-41d2-8b0d-8bec7573012c"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.oelm.Frontend"
     },
     "android": {
       "adaptiveIcon": {
@@ -40,8 +42,11 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "c0a020fa-ad95-4f57-ab30-c54c5d3d13c6"
+        "projectId": "fb06bf7b-0893-41d2-8b0d-8bec7573012c"
       }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }

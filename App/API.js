@@ -22,7 +22,7 @@ export default async function APIRoute(callbackRoute) {
                 } else {
                     callbackRoute().catch((err) => {
                         if (err.response.status === 401) {
-                            console.log("refresh")
+                            console.log("still need refresh")
                             APIRoute(callbackRoute)
                         }
                     })
