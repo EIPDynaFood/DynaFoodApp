@@ -16,9 +16,11 @@ export default async function APIRoute(callbackRoute) {
                         .then((res) => {
                                 SecureStore.setItemAsync('jwt', res.data["token"]);
                                 SecureStore.setItemAsync('refreshToken', res.data["refresh_token"]);
+                                console.log("new jwt: " + res.data["token"]);
+                                console.log("new refresh token: " + res.data["refresh_token"]);
                                 APIRoute(callbackRoute);
                             }
-                        ).catch((err) => console.log(err))
+                        ).catch((err) => console.log("refresh-error: " + err))
                 } else {
                     callbackRoute().catch((err) => {
                         if (err.response.status === 401) {
