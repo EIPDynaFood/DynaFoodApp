@@ -32,7 +32,6 @@ export default function ProductHistory(props) {
 
   const getHistoryData = (() => {
     APIRoute(() => axios.get(endpoint + 'history').then((res) => {
-      console.log(!_.isEqual(res.data, historyData))
       if (!_.isEqual(res.data, historyData)) {
         setHistoryData(res.data);
       }
@@ -48,8 +47,7 @@ export default function ProductHistory(props) {
 
   return (
       <View style={{flex: 1}}>
-        {historyData === null ? (<LoadingSpinner/>) : (
-            (historyData.elements.length === 0) ? (
+        {(historyData.elements.length === 0) ? (
                 <View style={styles.productHistory}>
                     <View style={styles.productItem} onPress={() => navigation.navigate('Scanner')}>
                       <View style={{marginLeft: 10, width: '60%'}}>
@@ -71,7 +69,7 @@ export default function ProductHistory(props) {
                       barcode={product.barcode}
                       historyId={product.historyid}/>)}
                 </ScrollView>
-            ))}
+            )}
       </View>
   );
 }

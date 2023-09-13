@@ -36,7 +36,7 @@
     "@expo/ngrok": "^4.1.0",
     "@expo/vector-icons": "^13.0.0",
     "@freakycoder/react-native-bounceable": "^1.0.3",
-    "@react-native-community/slider": "^4.2.3",
+    "@react-native-community/slider": "4.2.3",
     "@react-navigation/material-top-tabs": "^6.2.2",
     "@react-navigation/native": "^6.0.11",
     "@react-navigation/native-stack": "^6.7.0",
@@ -52,7 +52,7 @@
     "expo-image-picker": "~13.3.1",
     "expo-linear-gradient": "~11.4.0",
     "expo-random": "~12.3.0",
-    "expo-secure-store": "^12.1.1",
+    "expo-secure-store": "~11.3.0",
     "jest-expo": "^46.0.0",
     "jsdom": "^19.0.0",
     "localstorage-polyfill": "^1.0.1",
@@ -80,7 +80,8 @@
     "react-native-tab-view": "^3.1.1",
     "react-native-vector-icons": "^9.2.0",
     "react-native-web": "~0.18.7",
-    "react-navigation": "^4.4.4"
+    "react-navigation": "^4.4.4",
+    "expo-updates": "~0.14.7"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
