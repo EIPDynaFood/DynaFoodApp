@@ -23,7 +23,6 @@ export default function Login({navigation}) {
             url: endpoint + 'login?email=' + `${email}` + '&password=' + `${password}`,
             rejectUnauthorized: false,
         };
-        console.log(config.url)
         APIRoute(() => axios(config)
             .then(function (response) {
                 SecureStore.setItemAsync('jwt', response.data["token"]).then(() => {

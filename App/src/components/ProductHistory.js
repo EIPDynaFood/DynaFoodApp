@@ -8,7 +8,6 @@ import ProductItem from "./ProductItem";
 import { styles } from "../styles/Style";
 import useLang from "../../Language"
 import { endpoint } from '../../config';
-import LoadingSpinner from "./LoadingSpinner";
 import APIRoute from "../../API";
 
 
@@ -23,6 +22,7 @@ export default function ProductHistory(props) {
   var _ = require("lodash")
 
   useEffect(() => {
+
     if (isFocused){
       getHistoryData()
     }
@@ -33,6 +33,7 @@ export default function ProductHistory(props) {
       if (!_.isEqual(res.data, historyData)) {
         setHistoryData(res.data);
       }
+      props.setLoaded(true)
     }).catch((err) => {
       if (err.response.status === 401) {
         throw(err)
@@ -45,8 +46,7 @@ export default function ProductHistory(props) {
 
   return (
       <View style={{flex: 1}}>
-        {historyData === null ? (<LoadingSpinner/>) : (
-            (historyData.elements.length === 0) ? (
+        {(historyData.elements.length === 0) ? (
                 <View style={styles.productHistory}>
                     <View style={styles.productItem} onPress={() => navigation.navigate('Scanner')}>
                       <View style={{marginLeft: 10, width: '60%'}}>
@@ -68,7 +68,7 @@ export default function ProductHistory(props) {
                       barcode={product.barcode}
                       historyId={product.historyid}/>)}
                 </ScrollView>
-            ))}
+            )}
       </View>
   );
 }

@@ -12,11 +12,9 @@ export default function SendEmail({navigation}) {
 
     const sendMail = () => {
         APIRoute(() => axios.get(endpoint + "resetPassword?email=" + email).then((res) => {
-            console.log(res.status)
             if (res.status === 204) { // no data to return
                 alert("Could not find E-Mail address");
             } else {
-                console.log("success");
                 navigation.navigate("VerifyCode", {email})
             }
         }).catch((err) => {

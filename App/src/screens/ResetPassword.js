@@ -36,7 +36,6 @@ export default function ResetPassword(props) {
             if (res.status === 409) {
                 alert(translations["PasswordError"][lang])
             }
-            console.log("success");
             props.navigation.navigate("Login")
         }).catch((err) => {
             if (err.response.status === 401)

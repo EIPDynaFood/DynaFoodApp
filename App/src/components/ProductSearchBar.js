@@ -32,7 +32,6 @@ export function ProductSearchBar() {
                 console.log(err)
             }).finally(() => setLoading(false)))
         } else {
-            console.log("clear")
             setSearchResults([])
         }
     }

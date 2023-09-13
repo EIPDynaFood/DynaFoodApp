@@ -85,7 +85,6 @@ export default function ShoppingList(props) {
         </Modal>
         <View style={styles.shoppingList}>
                 <TouchableOpacity onPress={() => {
-                    console.log("Open list: " + props.listId)
                     localStorage.setItem("shoppingList", JSON.stringify(props));
                     navigation.navigate("ShoppingListItems")
                 }} style={{flexGrow: 3}}>
