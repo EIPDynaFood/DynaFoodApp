@@ -6,7 +6,6 @@ export default async function APIRoute(callbackRoute) {
     await SecureStore.getItemAsync("refreshToken").then((refreshToken) => {
         callbackRoute().catch((err) => {
         if (err.response.status === 401) {
-            console.log("refreshToken:" + refreshToken)
             axios.get(endpoint + "refresh?refresh_token=" + refreshToken)
                 .then((res) => {
                         SecureStore.setItemAsync('jwt', res.data["token"]);

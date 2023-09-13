@@ -27,9 +27,6 @@ export default function ThreeStateSlider(props) {
         APIRoute(() => axios(config)
             .then(function (response) {
                 const value = parseInt(response.data.filter((obj) => obj.restrictionname == props.name)[0].strongness)
-                console.log("value: " + value + props.name)
-                console.log("sliderValue: " + sliderValue + props.name)
-                console.log(value != sliderValue)
                 if (value != sliderValue)
                     setSliderValue(value)
             })
@@ -44,7 +41,6 @@ export default function ThreeStateSlider(props) {
         if (value == sliderValue)
             return
         setSliderValue(value)
-        console.log("patch to: " + value)
         var qs = require('qs');
         var data = qs.stringify({
             'alertActivation': `${true}`,

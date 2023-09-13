@@ -20,12 +20,14 @@ import VerifyCode from "./src/screens/Authentication";
 import ResetPassword from "./src/screens/ResetPassword";
 import ShoppingOverview from "./src/screens/ShoppingOverview";
 import ShoppingListItems from "./src/screens/ShoppingListItems";
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const Stack = createNativeStackNavigator();
 export function Navigation() {
   let swiper = localStorage.getItem('Swiper');
 
   return (
+      <GestureHandlerRootView style={{flex: 1}}>
           <NavigationContainer>
             <Stack.Navigator screenOptions={{
               headerStyle: {
@@ -76,7 +78,8 @@ export function Navigation() {
               <Stack.Screen name="ShoppingOverview" component={ShoppingOverview}/>
                 <Stack.Screen name="ShoppingListItems" component={ShoppingListItems}/>
             </Stack.Navigator>
-          </NavigationContainer>)
+          </NavigationContainer>
+      </GestureHandlerRootView>)
 }
 
 export default function App() {

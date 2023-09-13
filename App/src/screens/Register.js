@@ -54,7 +54,6 @@ export default function Register() {
                     alert(translations["Error"][lang] + error.message)
                     console.log(error);
                     console.log(error.response);
-                    console.log("email in use");
                 }));
     }
 

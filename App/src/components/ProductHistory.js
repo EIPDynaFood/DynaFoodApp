@@ -8,7 +8,6 @@ import ProductItem from "./ProductItem";
 import { styles } from "../styles/Style";
 import useLang from "../../Language"
 import { endpoint } from '../../config';
-import LoadingSpinner from "./LoadingSpinner";
 import APIRoute from "../../API";
 
 
@@ -23,7 +22,6 @@ export default function ProductHistory(props) {
   var _ = require("lodash")
 
   useEffect(() => {
-    console.log("fetch history")
 
     if (isFocused){
       getHistoryData()
@@ -35,6 +33,7 @@ export default function ProductHistory(props) {
       if (!_.isEqual(res.data, historyData)) {
         setHistoryData(res.data);
       }
+      props.setLoaded(true)
     }).catch((err) => {
       if (err.response.status === 401) {
         throw(err)
