@@ -52,7 +52,7 @@ export function Navigation(props) {
                 <Stack.Screen options={{title: translations["Reset Password"][lang]}} name="ResetPassword" component={ResetPassword}/>
 
                 <Stack.Screen name="History" component={History}
-                            options={({navigation}) => ({title: "DynaFood",
+                            options={({navigation}) => ({title: "DynaFood", headerLeft: null,
                               headerRight: () => (
                                   <View style={{display:"flex", flexDirection:"row"}}>
                                       <View style={{right: 15}}>

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useIsFocused, useNavigation} from "@react-navigation/native";
 import axios from "axios";
-import {Text, View} from "react-native";
+import {Text, TouchableOpacity, View} from "react-native";
 import {Icon} from "react-native-elements";
 import {ScrollView} from "react-native-gesture-handler";
 import ProductItem from "./ProductItem";
@@ -47,8 +47,10 @@ export default function ProductHistory(props) {
   return (
       <View style={{flex: 1}}>
         {(historyData.elements.length === 0) ? (
-                <View style={styles.productHistory}>
-                    <View style={styles.productItem} onPress={() => navigation.navigate('Scanner')}>
+                <TouchableOpacity style={styles.productHistory} onPress={() => {
+                  navigation.navigate('Scanner')
+                }}>
+                    <View style={styles.productItem}>
                       <View style={{marginLeft: 10, width: '60%'}}>
                         <Text
                             numberOfLines={1}
@@ -58,16 +60,16 @@ export default function ProductHistory(props) {
                         <Icon name='reorder' iconStyle={{transform: [{rotate: '90deg'}]}}/>
                       </View>
                     </View>
-                </View>
+                </TouchableOpacity>
             ) : (
-                <ScrollView style={styles.productHistory}>
+                <View style={styles.productHistory}>
                   {historyData.elements.map((product) => <ProductItem
                       key={product.historyid}
                       name={product.productname}
                       img={product.picturelink}
                       barcode={product.barcode}
                       historyId={product.historyid}/>)}
-                </ScrollView>
+                </View>
             )}
       </View>
   );

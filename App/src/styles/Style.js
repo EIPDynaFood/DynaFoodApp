@@ -18,9 +18,6 @@ export const styles = StyleSheet.create({
     padding: 10,
     elevation: 2
   },
-  buttonOpen: {
-    backgroundColor: "#F194FF",
-  },
   textStyle: {
     color: "white",
     fontWeight: "bold",
@@ -118,8 +115,6 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         padding: 10,
         marginTop: 10,
-        marginLeft: 10,
-        marginRight: 10,
         borderRadius: 10
     },
     shoppingList: {
@@ -342,12 +337,10 @@ export const styles = StyleSheet.create({
       headlineStyle: {
         fontSize: 21,
         fontWeight: 'bold',
-        padding: 5,
       },
       trendBar: {
-        paddingLeft: "5%",
-        width: 'auto',
-        height: 170,
+        marginBottom: 10,
+        width: '100%',
       },
     searchBarContainer: {
         backgroundColor: 'transparent',
@@ -355,11 +348,13 @@ export const styles = StyleSheet.create({
         borderTopColor: 'transparent',
         borderWidth: 0,
         paddingBottom: 0,
+        width:"100%",
+        paddingHorizontal: "5%",
+        marginVertical: 10,
     },
       searchBar: {
         alignSelf: 'center',
           paddingLeft: 10,
-          width:"90%",
           height:40,
           backgroundColor:"#FFF",
           borderRadius: 25,

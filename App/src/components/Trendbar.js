@@ -9,16 +9,12 @@ export default function TrendBar(props) {
   return (
       <ScrollView horizontal style={{width: "100%"}}>
         {props.data.map((item, index) => (
-            <TouchableOpacity key={index} style={{flex: 1}} onPress={() => {
+            <TouchableOpacity key={index} style={[{flex: 1, padding: 10, maxWidth: 100}, index === 0 ? {marginLeft: 8} : null, index === props.data.length - 1 ? {marginRight: 8} : null]} onPress={() => {
               localStorage.setItem('productCode', item.barcode);
               navigation.navigate('Product');
             }}>
-              <View style={{flex: 1, width: 85, padding: 5}}>
                 <Image source={{uri: item.productImageLink}} style={styles.itemImage}/>
-                <View style={{flex: 1, justifyContent: 'center'}}>
-                  <Text style={{fontSize: 13, textAlign: 'center'}}>{item.productName}</Text>
-                </View>
-              </View>
+                <Text style={{fontSize: 13, textAlign: 'center', marginTop: 10}}>{item.productName}</Text>
             </TouchableOpacity>
         ))}
       </ScrollView>

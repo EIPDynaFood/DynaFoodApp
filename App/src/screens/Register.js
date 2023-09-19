@@ -13,6 +13,9 @@ import APIRoute from "../../API";
 export default function Register() {
     const navigation = useNavigation();
 
+    const [emailStyle, setEmailStyle] = React.useState({borderColor: "lightgrey"});
+    const [passwordStyle, setPasswordStyle] = React.useState({borderColor: "lightgrey"});
+
     const firstName = "firstName"
     const lastName = "lastName"
     const userName = "userName"
@@ -26,6 +29,14 @@ export default function Register() {
     const {lang} = useLang()
 
     const sendRegister = () => {
+        setEmailStyle({borderColor: "lightgrey"});
+        setPasswordStyle({borderColor: "lightgrey"});
+
+        if (password !== ConPassword) {
+            setPasswordStyle({borderColor: "#DB3A34"})
+            alert(translations["NoMatch"][lang])
+            return
+        }
         var qs = require('qs');
             var data = qs.stringify({
                 'firstName': `${firstName}`,
@@ -51,9 +62,11 @@ export default function Register() {
                 .catch((error) => {
                     if (error.response.status === 401)
                         throw(error);
+                    if (error.response.data.reason === "email")
+                        setEmailStyle({borderColor: "#DB3A34"})
+                    if (error.response.data.reason === "password")
+                        setPasswordStyle({borderColor: "#DB3A34"})
                     alert(translations["Error"][lang] + error.message)
-                    console.log(error);
-                    console.log(error.response);
                 }));
     }
 
@@ -63,20 +76,20 @@ export default function Register() {
                     style={styles.registerLoginLogo} resizeMode="contain"/>
             <TextInput
                 placeholder={translations["Email"][lang]}
-                style={styles.input}
+                style={[styles.input, emailStyle]}
                 onChangeText={onChangeEmail}
                 value={email}
                 keyboardType="email-address"
             />
             <PasswordInput
-            viewStyle={styles.passwordView}
+            viewStyle={[styles.passwordView, passwordStyle]}
             style={styles.inputPassword}
             onChangeTextFunc={onChangePassword}
             value={password}
             placeholder={translations["Password"][lang]}
             />
             <PasswordInput
-            viewStyle={styles.passwordView}
+            viewStyle={[styles.passwordView, passwordStyle]}
             style={styles.inputPassword}
             onChangeTextFunc={onChangeConPassword}
             value={ConPassword}

@@ -47,6 +47,14 @@
     "pt" : "",
     "it" : ""
   },
+  "NoMatch": {
+    "de": "Die Passwörter stimmen nicht überein.",
+    "en": "The passwords do not match.",
+    "fr": "",
+    "es" : "",
+    "pt" : "",
+    "it" : ""
+  },
   "Register": {
     "de": "Registrieren",
     "en": "Register",

@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from "react-native";
+import {StyleSheet, Text, View, ScrollView} from "react-native";
 import React, {useEffect, useState} from "react";
 import {FAB} from 'react-native-elements';
 import {useNavigation} from "@react-navigation/native";
@@ -62,10 +62,11 @@ export default function History() {
   return (
       <>
       { trendBarLoaded && historyLoaded ?
-          (<View style={StyleSheet.absoluteFillObject}>
+          (<View style={{height: "100%"}}>
+            <ScrollView>
         <ProductSearchBar/>
         <View style={styles.trendBar}>
-            <Text style={styles.headlineStyle}>
+            <Text style={[styles.headlineStyle, {paddingLeft: "5%"}]}>
                 {translations["TrendText"][lang]}
             </Text>
             <TrendBar data={trendBarData} setLoaded={setTrendBarLoaded}/>
@@ -76,15 +77,16 @@ export default function History() {
             </Text>
             <ProductHistory data={historyData} setLoaded={setHistoryLoaded}/>
         </View>
-        <FAB
-            color="black"
-            icon={{name: 'reorder', color: 'white'}}
-            style={styles.FABStyle}
-            onPress={() => {
+          </ScrollView>
+          <FAB
+              color="black"
+              icon={{name: 'reorder', color: 'white'}}
+              style={styles.FABStyle}
+              onPress={() => {
                 navigation.navigate('Scanner')
-            }}
-        />
-        </View>) : (<LoadingSpinner/>)}
+              }}
+          />
+          </View>) : (<LoadingSpinner/>)}
       </>
   );
 }
