@@ -1,6 +1,7 @@
-import {StyleSheet, Text, View, ScrollView} from "react-native";
+import {Text, View, ScrollView} from "react-native";
 import React, {useEffect, useState} from "react";
 import {FAB} from 'react-native-elements';
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {useNavigation} from "@react-navigation/native";
 import TrendBar from "../components/Trendbar";
 import ProductHistory from "../components/ProductHistory";
@@ -80,7 +81,7 @@ export default function History() {
           </ScrollView>
           <FAB
               color="black"
-              icon={{name: 'reorder', color: 'white'}}
+              icon={<Icon name='barcode-scan' color="white" size={20}/>}
               style={styles.FABStyle}
               onPress={() => {
                 navigation.navigate('Scanner')

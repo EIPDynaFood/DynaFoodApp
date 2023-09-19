@@ -2,8 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useIsFocused, useNavigation} from "@react-navigation/native";
 import axios from "axios";
 import {Text, TouchableOpacity, View} from "react-native";
-import {Icon} from "react-native-elements";
-import {ScrollView} from "react-native-gesture-handler";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import ProductItem from "./ProductItem";
 import { styles } from "../styles/Style";
 import useLang from "../../Language"
@@ -57,7 +56,7 @@ export default function ProductHistory(props) {
                             style={{fontSize: 21, fontWeight: 'bold'}}>{translations["New"][lang]}</Text>
                       </View>
                       <View style={{flex: 1, flexDirection: 'row-reverse', alignItems: 'center'}}>
-                        <Icon name='reorder' iconStyle={{transform: [{rotate: '90deg'}]}}/>
+                        <Icon name='barcode-scan' size={25}/>
                       </View>
                     </View>
                 </TouchableOpacity>
