@@ -49,10 +49,10 @@
   },
   "Forgot": {
     "de": "Passwort vergessen",
-    "en": "forgot password",
-    "fr": "mot de passe oublié",
+    "en": "Forgot Password",
+    "fr": "Mot de passe oublié",
     "es" : "Contraseña olvidada",
-    "pt" : "esqueci-me da senha",
-    "it" : "password dimenticata"
+    "pt" : "Esqueci-me da senha",
+    "it" : "Password dimenticata"
   }
 }

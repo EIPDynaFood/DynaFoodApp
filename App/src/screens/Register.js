@@ -1,4 +1,4 @@
-import {View, Image, TextInput} from "react-native";
+import {View, Image, TextInput, Text} from "react-native";
 import React from "react";
 import { Button } from 'react-native-elements';
 import {useNavigation} from "@react-navigation/native";
@@ -45,7 +45,7 @@ export default function Register() {
             };
             APIRoute(() => axios(config)
                 .then(function () {
-                    alert("You received an E-Mail to verify your account.")
+                    alert(translations["Success"][lang])
                     navigation.navigate("Login");
                 })
                 .catch((error) => {
@@ -60,7 +60,7 @@ export default function Register() {
     return (
         <View style={styles.containerRegister}>
             <Image source={require('../../assets/logo_frame_invisible.png')}
-                    style={styles.registerLoginLogo}/>
+                    style={styles.registerLoginLogo} resizeMode="contain"/>
             <TextInput
                 placeholder={translations["Email"][lang]}
                 style={styles.input}
@@ -82,6 +82,9 @@ export default function Register() {
             value={ConPassword}
             placeholder={translations["PasswordConfirm"][lang]}
             />
+            <Text style={{color:"#696969",width: "70%", fontStyle: "italic", fontSize: 10}}>
+                {translations["PasswordInfo"][lang]}
+            </Text>
             <Button
                 title={translations["Register"][lang]}
                 containerStyle= {{

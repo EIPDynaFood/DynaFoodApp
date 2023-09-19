@@ -24,7 +24,11 @@ const PasswordInput = (props) => {
             value={props.value}
             secureTextEntry={!showPassword}
             autoCapitalize='none'/>
-            <TouchableOpacity onPress={togglePasswordVisibility}>
+            <TouchableOpacity onPress={togglePasswordVisibility} style={{
+                padding: 8,
+                marginLeft: 0,
+                width: "15%"
+            }}>
                 <Ionicons 
                     name={showPassword ? 'eye-off-outline' : 'eye-outline'}
                     size={20}

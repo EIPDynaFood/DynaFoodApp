@@ -46,7 +46,7 @@ export default function Login({navigation}) {
             <View style={styles.container}>
 
                 <Image source={require('../../assets/logo_frame_invisible.png')}
-                        style={styles.registerLoginLogo}/>
+                        style={styles.registerLoginLogo} resizeMode="contain"/>
                 <TextInput
                     placeholder={translations["Email"][lang]}
                     style={styles.input}

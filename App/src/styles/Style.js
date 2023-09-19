@@ -101,8 +101,8 @@ export const styles = StyleSheet.create({
         left: 170,
     },
     registerLoginLogo: {
-        width: 270,
-        height: 150,
+        width: "70%",
+        maxHeight: "20%",
         marginBottom:50
     },
     cameraTwo: {
@@ -211,10 +211,11 @@ export const styles = StyleSheet.create({
         maxWidth: '80%'
     },
     forgotpwd:{
-        color:"#2E4D44",
-        fontWeight:'300',
-        fontSize:10,
-        paddingLeft: 130
+        fontSize: 12,
+        fontStyle: "italic",
+        textAlign: "right",
+        width: "70%",
+        color: "#696969",
     },
     forgotpwdtxt:{
         color:"#2E4D44",
@@ -253,21 +254,22 @@ export const styles = StyleSheet.create({
     },
     passwordView: {
         flexDirection: "row",
+        width: "70%",
+        margin: 12,
         justifyContent: 'center',
         alignItems: "center",
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: "lightgrey",
     },
     inputPassword: {
-        width: "60%",
+      width: "85%",
         height: 40,
-        margin: 12,
-        borderWidth: 1,
+        marginRight: 0,
         padding: 10,
-        borderColor: "lightgrey",
-        borderRadius: 5,
     },
     containerRegister: {
         flex: 1,
-        backgroundColor: "white",
         alignItems: "center",
         justifyContent: "center",
     },
