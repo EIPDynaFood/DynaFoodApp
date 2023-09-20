@@ -1,18 +1,18 @@
 {
-  "Error": {
-    "de": "Beim Laden des Verlaufs ist ein Fehler aufgetreten: ",
-    "en": "Something went wrong while getting history data: ",
-    "fr": "Quelque chose s'est mal passé lors de l'obtention des données de l'historique: ",
-    "es": "Algo ha ido mal al obtener los datos del historial: ",
-    "pt": "Alguma coisa correu mal ao obter dados do histórico: ",
-    "it": "Qualcosa è andato storto durante l'acquisizione dei dati della cronologia: "
-  },
-  "New": {
-    "de": "Neues Produkt",
-    "en": "Add a new product",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
-  }
+  "Error": { 
+     "de": "Beim Laden des Verlaufs ist ein Fehler aufgetreten: ", 
+     "en": "Something went wrong while getting history data: ", 
+     "fr": "Quelque chose s'est mal passé lors de l'obtention des données de l'historique: ", 
+     "es": "Algo ha ido mal al obtener los datos del historial: ", 
+     "pt": "Alguma coisa correu mal ao obter dados do histórico: ", 
+     "it": "Qualcosa è andato storto durante l'acquisizione dei dati della cronologia: " 
+   }, 
+   "New": { 
+     "de": "Neues Produkt", 
+     "en": "Add a new product", 
+     "fr": "Ajouter un nouveau produit", 
+     "es": "Añadir un nuevo producto", 
+     "pt": "Adicionar um novo produto", 
+     "it": "Aggiungere un nuovo prodotto" 
+   } 
 }

@@ -1,10 +1,10 @@
-{
-  "Button": {
-    "de": "Verstanden",
-    "en": "Understood",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
-  }
+{ 
+   "Button": { 
+     "de": "Verstanden", 
+     "en": "Understood", 
+     "fr": "Compris", 
+     "es": "Entendido", 
+     "pt": "Entendido", 
+     "it": "Capito" 
+   } 
 }

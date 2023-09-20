@@ -1,34 +1,34 @@
-{
-  "Error": {
-    "de": "Beim Löschen der Liste ist ein Fehler aufgetreten: ",
-    "en": "Something went wrong while deleting the list: ",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
-  },
-  "TextHeadline": {
-    "de": "Name deiner Liste",
-    "en": "Name of your Liste",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
-  },
-  "TextPlaceholder": {
-    "de": "Name",
-    "en": "Name",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
-  },
-  "ModalButton": {
-    "de": "Speichern",
-    "en": "Save",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
-  }
+{ 
+   "Error": { 
+     "de": "Beim Löschen der Liste ist ein Fehler aufgetreten: ", 
+     "en": "Something went wrong while deleting the list: ", 
+     "fr": "Un problème s'est produit lors de la suppression de la liste : ", 
+     "es": "Algo ha ido mal al borrar la lista: ", 
+     "pt": "Algo correu mal ao apagar a lista: ", 
+     "it": "Qualcosa è andato storto durante la cancellazione della lista: " 
+   }, 
+   "TextHeadline": { 
+     "de": "Name deiner Liste", 
+     "en": "Name of your Liste", 
+     "fr": "Nom de votre liste", 
+     "es": "Nombre de su lista", 
+     "pt": "Nome da sua lista", 
+     "it": "Nome della lista" 
+   }, 
+   "TextPlaceholder": { 
+     "de": "Name", 
+     "en": "Name", 
+     "fr": "Nom", 
+     "es": "Nombre", 
+     "pt": "Nome", 
+     "it": "Nome" 
+   }, 
+   "ModalButton": { 
+     "de": "Speichern", 
+     "en": "Save", 
+     "fr": "Sauvegarder", 
+     "es": "Guardar", 
+     "pt": "Guardar", 
+     "it": "Risparmiare" 
+   } 
 }

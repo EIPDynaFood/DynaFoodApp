@@ -2,41 +2,41 @@
   "New": {
   "de": "Neuer Eintrag",
   "en": "Add an item",
-  "fr": "",
-  "es": "",
-  "pt": "",
-  "it": ""
+  "fr": "Ajouter un article",
+  "es": "Añadir un artículo",
+  "pt": "Adicionar um item",
+  "it": "Aggiungi un articolo"
 },
   "TextHeadline": {
     "de": "Was brauchst du?",
     "en": "What do you need?",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "De quoi avez-vous besoin ?",
+    "es": "¿Qué necesita?",
+    "pt": "O que é que precisa?",
+    "it": "Di cosa hai bisogno?"
   },
   "TextPlaceholder": {
     "de": "Name",
     "en": "Name",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Nom",
+    "es": "Nombre",
+    "pt": "Nome",
+    "it": "Nome"
   },
   "ModalButton": {
     "de": "Erstellen",
     "en": "Create",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Créer",
+    "es": "Crear",
+    "pt": "Criar",
+    "it": "Creare"
   },
   "Error": {
     "de": "Beim Laden der Einträge ist ein Fehler aufgetreten: ",
     "en": "Something went wrong while loading the items: ",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Un problème s'est produit lors du chargement des articles : ",
+    "es": "Algo ha ido mal al cargar los artículos: ",
+    "pt": "Algo correu mal durante o carregamento dos itens: ",
+    "it": "Qualcosa è andato storto durante il caricamento degli articoli: "
   }
 }

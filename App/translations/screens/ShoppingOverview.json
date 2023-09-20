@@ -2,33 +2,33 @@
   "New": {
     "de": "Neue Liste",
     "en": "Add a new list",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Ajouter une nouvelle liste",
+    "es": "Añadir una nueva lista",
+    "pt": "Adicionar uma nova lista",
+    "it": "Aggiungere un nuovo elenco"
   },
   "TextHeadline": {
     "de": "Name deiner Liste",
     "en": "Name of your Liste",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Nom de votre liste",
+    "es": "Nombre de su lista",
+    "pt": "Nome da sua lista",
+    "it": "Nome della lista"
   },
   "TextPlaceholder": {
     "de": "Name",
     "en": "Name",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Nom",
+    "es": "Nombre",
+    "pt": "Nome",
+    "it": "Nome"
   },
   "ModalButton": {
     "de": "Erstellen",
     "en": "Create",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Créer",
+    "es": "Crear",
+    "pt": "Criar",
+    "it": "Creare"
   }
 }
