@@ -1,18 +1,18 @@
-{
-  "Error": {
-    "de": "Beim Löschen des Verlaufs ist ein Fehler aufgetreten: ",
-    "en": "Something went wrong while deleting history data: ",
-    "fr": "Un problème est survenu lors de la suppression des données de l'historique: ",
-    "es" : "Algo ha ido mal al borrar los datos del historial: ",
-    "pt" : "Algo correu mal ao apagar os dados do histórico: ",
-    "it" : "Qualcosa è andato storto durante l'eliminazione dei dati della cronologia: "
-  },
-  "Barcode": {
-    "de": "Barcode: ",
-    "en": "Barcode: ",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
-  }
+{ 
+   "Error": { 
+     "de": "Beim Löschen des Verlaufs ist ein Fehler aufgetreten: ", 
+     "en": "Something went wrong while deleting history data: ", 
+     "fr": "Un problème est survenu lors de la suppression des données de l'historique: ", 
+     "es" : "Algo ha ido mal al borrar los datos del historial: ", 
+     "pt" : "Algo correu mal ao apagar os dados do histórico: ", 
+     "it" : "Qualcosa è andato storto durante l'eliminazione dei dati della cronologia: " 
+   }, 
+   "Barcode": { 
+     "de": "Barcode: ", 
+     "en": "Barcode: ", 
+     "fr": "Code barre : ", 
+     "es": "Código de barras: ", 
+     "pt": "Código de barras: ", 
+     "it": "Codice a barre: " 
+   } 
 }

@@ -96,6 +96,7 @@ export default function App() {
     useEffect(() => {
         async function getToken() {
             await SecureStore.getItemAsync("refreshToken").then((refreshToken) => {
+                console.log("token: " + refreshToken)
                 setInitialRoute(refreshToken)
             }).catch()
         }

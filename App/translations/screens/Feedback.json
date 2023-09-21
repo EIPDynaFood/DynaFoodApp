@@ -2,81 +2,81 @@
   "Appreciation": {
     "de": "Lob",
     "en": "Appreciation",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Appreciation",
+    "es": "Evaluación",
+    "pt": "Avaliação",
+    "it": "Valutazione"
   },
   "Comment": {
     "de": "Kommentar",
     "en": "Comment",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Commentaire",
+    "es": "Comentario",
+    "pt": "Comentário",
+    "it": "Commento"
   },
   "Suggestion": {
     "de": "Vorschlag",
     "en": "Suggestion",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Suggestion",
+    "es": "Sugerencia",
+    "pt": "Sugestão",
+    "it": "Suggerimento"
   },
   "Bug": {
     "de": "Fehler",
     "en": "Bug",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Erreur",
+    "es": "Error",
+    "pt": "Erro",
+    "it": "Errore"
   },
   "Select": {
     "de": "Um was für ein Feedback handelt es sich?",
     "en": "What kind of feedback do you want to give?",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Quel type de feedback souhaitez-vous donner ?",
+    "es": "¿Qué tipo de respuesta quiere dar?",
+    "pt": "Que tipo de feedback pretende dar?",
+    "it": "Che tipo di feedback volete dare?"
   },
   "Send": {
     "de": "Senden",
     "en": "Send",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Envoyer",
+    "es": "Enviar",
+    "pt": "Enviar",
+    "it": "Inviare"
   },
   "TextHeadline": {
     "de": "Beschreibe dein Feedback",
     "en": "Write your Feedback",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Écrivez votre commentaire",
+    "es": "Escriba su opinión",
+    "pt": "Escreva o seu comentário",
+    "it": "Scrivete il vostro feedback"
   },
   "TextPlaceholder": {
     "de": "Schreib hier dein Feedback rein",
     "en": "Enter your feedback here",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Saisissez votre avis ici",
+    "es": "Escriba aquí sus comentarios",
+    "pt": "Introduza aqui os seus comentários",
+    "it": "Inserite qui il vostro feedback"
   },
   "Alert": {
     "de": "Vielen Dank für dein Feedback!",
     "en": "Thanks for your feedback!",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Merci de nous faire part de vos commentaires !",
+    "es": "Gracias por sus comentarios.",
+    "pt": "Obrigado pelos seus comentários!",
+    "it": "Grazie per il tuo feedback!"
   },
   "NoContent": {
     "de": "Bitte schreibe erst etwas!",
     "en": "Please write something first!",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Veuillez d'abord écrire quelque chose !",
+    "es": "Por favor, ¡escriba algo primero!",
+    "pt": "Por favor, escreva algo primeiro!",
+    "it": "Per favore, scrivi qualcosa prima!"
   }
 }

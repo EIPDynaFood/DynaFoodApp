@@ -268,23 +268,38 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
+    mainContainerStyleInfo: {
+      backgroundColor:"#FFFFFF",
+        height:"100%",
+        width: "100%",
+        top:0,
+    },
+    imageStyleInfo: {
+      height: 100,
+        width: 100,
+        resizeMode: "contain",
+    },
     nutriScoreStyle: {
-        height: 97.5,
-        width: 180,
-        marginLeft: 10,
+        height: 70,
+        width: 145,
+        resizeMode: "contain",
+        flex: 1,
       },
       ecoScoreStyle: {
-        marginRight: 16,
-        width: 180,
-        height: 97.5,
+        width: 50,
+        height: 70,
+          flex: 1,
       },
       ingredientStyle: {
-        padding: 16,
+        paddingHorizontal: 16,
         color: "rgba(0,0,0,0.6)"
       },
       bottomContainer: {
-        flexDirection: "row",
-        flex: 1,
+          flexDirection: 'row',
+          justifyContent: 'space-evenly',
+          alignItems: 'center',
+          marginVertical: 10,
+          paddingHorizontal: 20,
       },
       gradientStyle: {
         backgroundColor: "transparent",
@@ -296,28 +311,14 @@ export const styles = StyleSheet.create({
       wrapperStyleInfo: {
         paddingLeft: 16,
         paddingRight: 16,
-        paddingTop: 16,
+        paddingTop: 91,
         backgroundColor: "#E2E6DB",
-      },
-      mainContainerStyleInfo: {
-        backgroundColor: "#FFFFFF",
-        height: "100%",
-        top: 0,
-        justifyContent: 'space-between',
-      },
-      imageStyleInfo: {
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-        position: "absolute",
-        top: 0,
-        resizeMode: "cover",
-        width: "100%",
-        height: 200,
+
       },
       wrapperStyleTable: {
-        paddingLeft: 15,
-        paddingRight: 15,
-        paddingTop: 15,
+        paddingLeft: 16,
+        paddingRight: 16,
+        paddingTop: 16,
         backgroundColor: "#E2E6DB",
       },
       tableHeadStyleTable: {
