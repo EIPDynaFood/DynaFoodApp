@@ -46,6 +46,7 @@ export default function Product({navigation}) {
               screenOptions={{
                 tabBarInactiveTintColor: 'gray',
                 tabBarActiveTintColor: 'white',
+                tabBarIndicatorStyle: { height: 0 },
               }}
             >
                <Tab.Screen

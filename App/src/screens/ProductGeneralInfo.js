@@ -1,4 +1,4 @@
-import {Text, View, Image} from "react-native";
+import {Text, View, Image, TouchableWithoutFeedback, Modal} from "react-native";
 import React, {useEffect, useRef, useState} from "react";
 import {LinearGradient} from "expo-linear-gradient";
 import { styles } from "../styles/Style";
@@ -6,12 +6,18 @@ import useLang from "../../Language"
 import {Alert} from "../components/Alert";
 import {ProductRating} from "../components/ProductRating";
 import {AdjustLabel} from "../components/AdjustLabel";
+import ProgressBar from "../components/ProgressBar";
 
 export default function ProductGeneralInfo({route}) {
   const [alert, setAlert] = useState("")
   const [modalVisible, setModalVisible] = useState(false)
   const modalVisibleRef = useRef(modalVisible)
   const {itemId, productData} = route.params;
+  const [isImageEnlarged, setIsImageEnlarged] = useState(false);
+
+  const toggleImageSize = () => {
+    setIsImageEnlarged((prevState) => !prevState);
+  };
 
   let ingredients = ""
   productData['ingredients']['ingredients'].map((item, index) => {
@@ -91,31 +97,60 @@ export default function ProductGeneralInfo({route}) {
   }
 
   return (
-        <View style={styles.wrapperStyleInfo}>
-          <View>
-          <Alert
-          visible={modalVisible}
-          setModalVisible={setModalVisible}
-          message={alert}
-      />
-            <Image source={{uri: productData['images']}}
-                   style={styles.imageStyleInfo}/>
-            <LinearGradient style={styles.gradientStyle}
-                            colors={['rgba(0,0,0,0.6)', 'transparent']}
-                            start={{x: 0, y: 1}}
-                            end={{x: 0, y: 0}}/>
-            <AdjustLabel text={productData["name"]} fontSize={40} style={styles.headlineStyle}/>
-          </View>
-            <ProductRating score={productData['score']}/>
-          <View style={styles.mainContainerStyleInfo}>
-            <Text style={styles.ingredientStyle}>{ingredients}</Text>
+      <>
+        <View style={{flex: 1,
+          position: 'absolute',
+          top: 16,
+          left: "50%",
+          marginLeft: -75,
+          zIndex: 1,
+        }}>
+        <ProgressBar progress={productData['score']}/>
+        </View>
+      <View style={styles.wrapperStyleInfo}>
+        <View style={{
+          width: '100%',
+          height: '100%',
+          borderTopLeftRadius: 10,
+          borderTopRightRadius: 10,
+          backgroundColor: '#FFFFFF',
+          alignItems: 'center',
+        }}>
+          <Text numberOfLines={1}
+                adjustsFontSizeToFit
+                style={styles.headlineStyle}>{productData["name"]}</Text>
           <View style={styles.bottomContainer}>
             <Image source={nutriImage}
                    style={styles.nutriScoreStyle}/>
             <Image source={ecoImage}
                    style={styles.ecoScoreStyle}/>
           </View>
-          </View>
+          <View style={styles.mainContainerStyleInfo}>
+            <Text style={[styles.ingredientStyle, {fontWeight: "bold", paddingTop: 16}]}>Ingredients:</Text>
+            <Text style={styles.ingredientStyle}>{ingredients}</Text>
+            <Text style={[styles.ingredientStyle, {fontWeight: "bold", paddingTop: 16}]}>Pictures:</Text>
+            <TouchableWithoutFeedback onPress={toggleImageSize}>
+              <Image source={{uri: productData['images']}}
+                     style={styles.imageStyleInfo}
+              resizeMode={"contain"}/>
+            </TouchableWithoutFeedback>
+            </View>
+          <Modal visible={isImageEnlarged} transparent={true} onRequestClose={toggleImageSize}>
+            <TouchableWithoutFeedback onPress={toggleImageSize}>
+              <View style={{flex: 1,
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              justifyContent: 'center',
+              alignItems: 'center',}}>
+              <Image
+                  source={{uri: productData['images']}}
+                  style={{ width: '100%', height: '100%', resizeMode: 'contain' }}
+              />
+            </View>
+            </TouchableWithoutFeedback>
+          </Modal>
         </View>
+      </View>
+      </>
+
   );
 }
