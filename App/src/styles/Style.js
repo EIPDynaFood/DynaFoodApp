@@ -81,7 +81,7 @@ export const styles = StyleSheet.create({
         width:"50%",
         borderRadius:10,
         backgroundColor:"#FFF",
-        borderWidth:3,
+        borderWidth:1,
         borderColor:"#2E4D44",
     },
     primaryButtonStyle: {
@@ -359,9 +359,9 @@ export const styles = StyleSheet.create({
           height:40,
           backgroundColor:"#FFF",
           borderRadius: 25,
-          borderWidth:3,
+          borderWidth:1,
           borderBottomColor:"#2E4D44",
-          borderBottomWidth:3,
+          borderBottomWidth:1,
           borderColor:"#2E4D44",
           marginBottom: 0
     },

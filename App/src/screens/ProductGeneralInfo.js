@@ -1,11 +1,6 @@
 import {Text, View, Image, TouchableWithoutFeedback, Modal} from "react-native";
 import React, {useEffect, useRef, useState} from "react";
-import {LinearGradient} from "expo-linear-gradient";
 import { styles } from "../styles/Style";
-import useLang from "../../Language"
-import {Alert} from "../components/Alert";
-import {ProductRating} from "../components/ProductRating";
-import {AdjustLabel} from "../components/AdjustLabel";
 import ProgressBar from "../components/ProgressBar";
 import {MaterialIcons} from "@expo/vector-icons";
 
