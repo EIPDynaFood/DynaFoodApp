@@ -121,8 +121,9 @@ export default function ProductGeneralInfo({route}) {
                 adjustsFontSizeToFit
                 style={styles.headlineStyle}>{productData["name"]}</Text>
           <View style={{flexDirection: "row"}}>
-            <MaterialIcons name="warning" size={32} color="#DB3A34" />
-            <Text>{alert}</Text>
+            {alert !== "" ?
+                [<MaterialIcons name="warning" size={20} color="#DB3A34" />,
+            <Text> {alert}</Text>] : null}
           </View>
           <View style={styles.bottomContainer}>
             <Image source={nutriImage}
@@ -132,7 +133,8 @@ export default function ProductGeneralInfo({route}) {
           </View>
           <View style={styles.mainContainerStyleInfo}>
             <Text style={[styles.ingredientStyle, {fontWeight: "bold", paddingTop: 16}]}>Ingredients:</Text>
-            <Text style={styles.ingredientStyle}>{ingredients}</Text>
+            {ingredients !== "" ? <Text style={styles.ingredientStyle}>{ingredients}</Text> :
+                <Text style={styles.ingredientStyle}>/</Text>}
             <Text style={[styles.ingredientStyle, {fontWeight: "bold", paddingTop: 16}]}>Pictures:</Text>
             <TouchableWithoutFeedback onPress={toggleImageSize}>
               <Image source={{uri: productData['images']}}
