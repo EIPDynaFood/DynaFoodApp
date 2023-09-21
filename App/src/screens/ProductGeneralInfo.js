@@ -7,6 +7,7 @@ import {Alert} from "../components/Alert";
 import {ProductRating} from "../components/ProductRating";
 import {AdjustLabel} from "../components/AdjustLabel";
 import ProgressBar from "../components/ProgressBar";
+import {MaterialIcons} from "@expo/vector-icons";
 
 export default function ProductGeneralInfo({route}) {
   const [alert, setAlert] = useState("")
@@ -119,6 +120,10 @@ export default function ProductGeneralInfo({route}) {
           <Text numberOfLines={1}
                 adjustsFontSizeToFit
                 style={styles.headlineStyle}>{productData["name"]}</Text>
+          <View style={{flexDirection: "row"}}>
+            <MaterialIcons name="warning" size={32} color="#DB3A34" />
+            <Text>{alert}</Text>
+          </View>
           <View style={styles.bottomContainer}>
             <Image source={nutriImage}
                    style={styles.nutriScoreStyle}/>

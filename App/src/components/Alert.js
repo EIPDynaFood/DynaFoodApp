@@ -19,8 +19,8 @@ export function Alert(props) {
              statusBarTranslucent={true}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-              <MaterialIcons name="warning" size={32} color="orange" />
-              <Text style={[styles.tableHeadTextStyle, {fontSize: 20, fontWeight: "bold"}]}>Warning!</Text>
+              <MaterialIcons name="warning" size={32} color="#DB3A34" />
+              <Text style={[styles.tableHeadTextStyle, {fontSize: 20, fontWeight: "bold"}]}>{translations["Warning"][lang]}</Text>
             <Text>{props.message}</Text>
               <Button
                   title={translations["Button"][lang]}

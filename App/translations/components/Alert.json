@@ -1,4 +1,12 @@
-{ 
+{
+  "Warning": {
+    "de": "Warnung!",
+    "en": "Warning!",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
    "Button": { 
      "de": "Verstanden", 
      "en": "Understood", 
