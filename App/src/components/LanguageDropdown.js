@@ -61,9 +61,9 @@ export default function LanguageDropdown() {
             items={items} setItems={setItems}
          open={open} value={value}
         setOpen={setOpen} setValue={setValue}
-        placeholder={""} style={{borderColor: "#2E4D44", borderWidth: 3}}
-            containerStyle={{width: "25%"}}
-         dropDownContainerStyle={{borderColor: "#2E4D44", borderWidth: 2}}
+        placeholder={""} style={{borderColor: "#2E4D44", borderWidth: 1}}
+            containerStyle={{width: 75}}
+         dropDownContainerStyle={{borderColor: "#2E4D44", borderWidth: 1}}
             nestedScrollEnabled = {true} listMode="SCROLLVIEW"/>
     )
 }

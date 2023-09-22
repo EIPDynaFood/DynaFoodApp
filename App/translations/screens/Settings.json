@@ -7,70 +7,6 @@
     "pt" : "Idioma",
     "it" : "Lingua"
   },
-  "Lactose": {
-    "de": "Laktose",
-    "en": "Lactose",
-    "fr": "Lactose",
-    "es" : "Lactosa",
-    "pt" : "Lactose",
-    "it" : "Lattosio"
-  },
-  "LactoseMessage": {
-    "de": "Du wirst ab jetzt eine Benachrichtigung bekommen, wenn unser Scanner ein Produkt mit Laktose findet",
-    "en": "You will know receive notification if our scanner finds a product with lactose",
-    "fr" : "Vous saurez recevoir une notification si notre scanner trouve un produit contenant du lactose",
-    "es" : "Recibirá una notificación si nuestro escáner detecta un producto con lactosa.",
-    "pt" : "Saberá receber uma notificação se o nosso scanner encontrar um produto com lactose",
-    "it" : "Riceverete una notifica se il nostro scanner trova un prodotto con lattosio."
-  },
-  "Nuts": {
-    "de": "Nüsse",
-    "en": "Nuts",
-    "fr": "Noix",
-    "es" : "Frutos de cáscara",
-    "pt" : "Nozes",
-    "it" : "Frutta a guscio"
-  },
-  "NutsMessage": {
-    "de": "Du wirst ab jetzt eine Benachrichtigung bekommen, wenn unser Scanner ein Produkt mit Nüssen findet",
-    "en": "You will know receive notification if our scanner finds a product with nuts",
-    "fr" : "Vous recevrez une notification si notre scanner trouve un produit contenant des noix",
-    "es" : "Recibirá una notificación si nuestro escáner encuentra un producto con frutos secos.",
-    "pt" : "Saberá que receberá uma notificação se o nosso scanner encontrar um produto com nozes",
-    "it" : "Riceverete una notifica se il nostro scanner trova un prodotto con frutta a guscio"
-  },
-  "Gluten": {
-    "de": "Gluten",
-    "en": "Gluten",
-    "fr": "Gluten",
-    "es" : "Gluten",
-    "pt" : "Glúten",
-    "it" : "Glutine"
-  },
-  "GlutenMessage": {
-    "de": "Du wirst ab jetzt eine Benachrichtigung bekommen, wenn unser Scanner ein Produkt mit Gluten findet",
-    "en": "You will know receive notification if our scanner finds a product with gluten",
-    "fr" : "Vous saurez recevoir une notification si notre scanner trouve un produit contenant du gluten",
-    "es" : "Recibirá una notificación si nuestro escáner encuentra un producto con gluten",
-    "pt" : "Saberá receber uma notificação se o nosso scanner encontrar um produto com glúten",
-    "it" : "Riceverete una notifica se il nostro scanner trova un prodotto con glutine"
-  },
-  "Peanuts": {
-    "de": "Erdnüsse",
-    "en": "Peanuts",
-    "fr": "Cacahuètes",
-    "es" : "Cacahuetes",
-    "pt" : "Amendoins",
-    "it" : "Arachidi"
-  },
-  "PeanutsMessage": {
-    "de": "Du wirst ab jetzt eine Meldung erhalten, wenn du ein Produkt mit Erdnüssen scannst",
-    "en": "You will know receive notification if our scanner finds a product with peanuts",
-    "fr": "Vous saurez recevoir une notification si notre scanner trouve un produit contenant des arachides",
-    "es" : "Recibirá una notificación si nuestro escáner encuentra un producto con cacahuetes.",
-    "pt" : "Saberá receber uma notificação se o nosso scanner encontrar um produto com amendoins",
-    "it" : "Riceverete una notifica se il nostro scanner trova un prodotto con arachidi"
-  },
   "Vegetarian": {
     "de": "Vegetarisch",
     "en": "Vegetarian",
@@ -79,14 +15,6 @@
     "pt" : "Vegetariano",
     "it" : "Vegetariano"
   },
-  "VegetarianMessage": {
-    "de": "Du wirst ab jetzt eine Meldung erhalten, wenn du ein nicht-vegetarisches Produkt scannst",
-    "en": "You will know receive notification if our scanner finds non-vegetarian ingredients",
-    "fr" : "Vous saurez recevoir une notification si notre scanner trouve des ingrédients non-végétariens",
-    "es" : "Recibirá una notificación si nuestro escáner encuentra ingredientes no vegetarianos.",
-    "pt" : "Saberá que receberá uma notificação se o nosso scanner encontrar ingredientes não vegetarianos",
-    "it" : "Riceverete una notifica se il nostro scanner trova ingredienti non vegetariani."
-  },
   "Vegan": {
     "de": "Vegan",
     "en": "Vegan",
@@ -94,30 +22,6 @@
     "es" : "Vegano",
     "pt" : "Vegan",
     "it" : "Vegano"
-  },
-  "VeganMessage": {
-    "de": "Du wirst ab jetzt eine Meldung erhalten, wenn du ein nicht-veganes Produkt scannst",
-    "en": "You will know receive notification if our scanner finds non-vegan ingredients",
-    "fr" : "Vous saurez recevoir une notification si notre scanner trouve des ingrédients non végétaliens",
-    "es" : "Recibirá una notificación si nuestro escáner encuentra ingredientes no veganos.",
-    "pt" : "Saberá que receberá uma notificação se o nosso scanner encontrar ingredientes que não sejam víboras",
-    "it" : "Riceverete una notifica se il nostro scanner trova ingredienti non vegani."
-  },
-  "AllergenDeleted": {
-    "de": "Allergen erfolgreich entfernt",
-    "en": "Allergen successfully deleted",
-    "fr" : "Allergène supprimé avec succès",
-    "es" : "Alérgeno eliminado con éxito",
-    "pt" : "Alergénio eliminado com sucesso",
-    "it" : "Allergeni cancellati con successo"
-  },
-  "DietDeleted": {
-    "de": "Diät erfolgreich entfernt",
-    "en": "Diet successfully deleted",
-    "fr" : "Régime supprimé avec succès",
-    "es" : "Dieta eliminada con éxito",
-    "pt" : "Dieta eliminada com sucesso",
-    "it" : "Dieta cancellata con successo"
   },
   "Allergies": {
     "de": "Allergien",
@@ -135,6 +39,22 @@
     "pt" : "Dietas",
     "it" : "Diete"
   },
+  "General": {
+    "de": "Allgemein",
+    "en": "General",
+    "fr": "",
+    "es" : "",
+    "pt" : "",
+    "it" : ""
+  },
+  "Feedback": {
+    "de": "Rückmeldung",
+    "en": "Feedback",
+    "fr": "",
+    "es" : "",
+    "pt" : "",
+    "it" : ""
+  },
   "Account": {
     "de": "Konto",
     "en": "Account",
@@ -143,6 +63,22 @@
     "pt" : "Conta",
     "it" : "Il conto"
   },
+  "Missing Product": {
+    "de": "Fehlendes Produkt",
+    "en": "Missing Product",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Beta": {
+    "de": "Beta Bewertung",
+    "en": "Beta Feedback",
+    "fr": "",
+    "es" : "",
+    "pt" : "",
+    "it" : ""
+  },
   "Logout": {
     "de": "Ausloggen",
     "en": "Logout",
@@ -150,5 +86,13 @@
     "es" : "Cerrar sesión",
     "pt" : "Sair",
     "it" : "Disconnessione"
+  },
+  "Delete": {
+    "de": "Konto löschen",
+    "en": "Delete Account",
+    "fr": "",
+    "es" : "",
+    "pt" : "",
+    "it" : ""
   }
 }

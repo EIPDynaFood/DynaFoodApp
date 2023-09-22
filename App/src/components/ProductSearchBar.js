@@ -48,7 +48,7 @@ export function ProductSearchBar() {
             {loading ?
                 <View style={styles.productResultsContainer}>
                     <Text style={styles.productResultItemText}>Loading ...</Text>
-                </View> : searchResults.length === 0 ? <></> : <FlatList
+                </View> : searchResults.length === 0 ? <View style={{marginBottom: 10}}></View> : <FlatList
                 style={styles.productResultsContainer}
                 data={searchResults}
                 renderItem={({ item }) => (

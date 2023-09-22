@@ -20,6 +20,7 @@ export default function ThreeStateSlider(props) {
     ];
 
     useEffect(() => {
+        console.log("get")
         const config = {
             method: 'get',
             url: endpoint + 'settings'
@@ -35,9 +36,10 @@ export default function ThreeStateSlider(props) {
                     throw(error);
                 console.log(error);
             }));
-    })
+    }, [])
 
     const updateState = (value) => {
+        console.log("change")
         if (value == sliderValue)
             return
         setSliderValue(value)
@@ -59,14 +61,9 @@ export default function ThreeStateSlider(props) {
             }))
             
     }
-    const getStateLabel = () => {
-        const state = SLIDER_STATES.find((s) => s.value == sliderValue);
-        return state ? state.label : '';
-    };
 
     return (
         <View style={styles.sliderContainer}>
-            <Text style={styles.sliderLabel}>{getStateLabel()}</Text>
             <Slider
                 style={styles.slider}
                 minimumValue={0}
@@ -75,7 +72,13 @@ export default function ThreeStateSlider(props) {
                 value={sliderValue}
                 onValueChange={updateState}
                 thumbTintColor={'#376D55'}
+                minimumTrackTintColor={'#376D55'}
             />
+            <View style={{flexDirection: "row", justifyContent:"space-between", alignItems: "center", width: "85%"}}>
+                <Text style={{flex: 1, textAlign: "left"}}>{SLIDER_STATES[0].label}</Text>
+                <Text style={{flex: 1, textAlign: "center"}}>{SLIDER_STATES[1].label}</Text>
+                <Text style={{flex: 1, textAlign: "right"}}>{SLIDER_STATES[2].label}</Text>
+            </View>
         </View>
     );
 }

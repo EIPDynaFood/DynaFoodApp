@@ -151,7 +151,7 @@ export const styles = StyleSheet.create({
     wrapperStyle: {
         paddingLeft: 20,
         paddingRight: 20,
-        paddingTop: 30,
+        paddingTop: 20,
         paddingBottom: 90,
         backgroundColor: "#E2E6DB",
         },
@@ -174,9 +174,7 @@ export const styles = StyleSheet.create({
     tableHeadTextStyle: {
         color: "rgba(0,0,0,0.6)",
         paddingTop: 20,
-        paddingLeft: 20,
-        paddingRight: 15,
-        fontSize: 30,
+        fontSize: 20,
         paddingBottom: 20,
         textAlign: "center",
     },
@@ -351,7 +349,7 @@ export const styles = StyleSheet.create({
         paddingBottom: 0,
         width:"100%",
         paddingHorizontal: "5%",
-        marginVertical: 10,
+        marginTop: 10,
     },
       searchBar: {
         alignSelf: 'center',
@@ -381,9 +379,10 @@ export const styles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
         padding: 10,
+        marginBottom: 10
     },
     productResultsItemContainer: {
-        padding: 10,
+      padding: 10,
         borderBottomColor: '#eee',
         borderBottomWidth: 1,
     },
@@ -464,21 +463,22 @@ export const styles = StyleSheet.create({
         marginBottom: 16,
     },
     slider: {
-        width: '80%',
+        width: '95%',
     },
     allergenSelectedContainer: {
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignItems: 'center',
         backgroundColor: 'white',
-        padding: 10,
         marginTop: 12,
+        width: "100%"
     },
     allergenSelectedWordContainer: {
         backgroundColor: '#376D55',
         borderRadius: 10,
         padding: 5,
-        margin: 5,
+        marginRight: 5,
+        marginBottom: 5,
         flexDirection: "row",
     },
     allergenSelectedWord: {
