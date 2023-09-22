@@ -86,7 +86,6 @@ export default function Feedback({navigation}) {
                                             }).catch((err) => {
                                             if (err.response.status === 401)
                                                 throw(err);
-                                            console.log("catch");
                                             alert("something went wrong on sending your feedback" + err)
                                             navigation.goBack(null);
                                             console.log(err);

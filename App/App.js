@@ -21,7 +21,6 @@ import ShoppingOverview from "./src/screens/ShoppingOverview";
 import ShoppingListItems from "./src/screens/ShoppingListItems";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as SecureStore from "expo-secure-store";
-import translations from "./translations/App.json";
 
 const Stack = createNativeStackNavigator();
 export function Navigation(props) {
@@ -96,7 +95,6 @@ export default function App() {
     useEffect(() => {
         async function getToken() {
             await SecureStore.getItemAsync("refreshToken").then((refreshToken) => {
-                console.log("token: " + refreshToken)
                 setInitialRoute(refreshToken)
             }).catch()
         }

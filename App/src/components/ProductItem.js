@@ -21,7 +21,6 @@ export default function ProductItem(itemData) {
       if (err.response.status === 401) {
         throw(err)
       }
-      console.log('catch');
       alert(translations["Error"][lang] + err.message);
       console.log(err);
     }));

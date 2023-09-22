@@ -20,7 +20,6 @@ export default function ThreeStateSlider(props) {
     ];
 
     useEffect(() => {
-        console.log("get")
         const config = {
             method: 'get',
             url: endpoint + 'settings'
@@ -39,7 +38,6 @@ export default function ThreeStateSlider(props) {
     }, [])
 
     const updateState = (value) => {
-        console.log("change")
         if (value == sliderValue)
             return
         setSliderValue(value)

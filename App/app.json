@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "DynaFood",
-    "owner": "dynafood_admin",
+    "owner": "dynafood",
     "slug": "dynafoodapp",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,7 +13,7 @@
     },
     "updates": {
       "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/c0a020fa-ad95-4f57-ab30-c54c5d3d13c6"
+      "url": "https://u.expo.dev/fb06bf7b-0893-41d2-8b0d-8bec7573012c"
     },
     "assetBundlePatterns": [
       "**/*"

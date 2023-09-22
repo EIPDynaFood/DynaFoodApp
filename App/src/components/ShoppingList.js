@@ -24,7 +24,6 @@ export default function ShoppingList(props) {
         }).catch((err) => {
             if (err.response.status === 401)
                 throw(err)
-            console.log('catch');
             alert(translations["Error"][lang] + err.message);
             console.log(err);
 
@@ -47,14 +46,13 @@ export default function ShoppingList(props) {
         }).catch((err) => {
             if (err.response.status === 401)
                 throw(err)
-            console.log('catch');
             alert(translations["Error"][lang] + err.message);
             console.log(err);
 
         }));
     };
 
-    return (<>
+    return (<View key={props.key}>
         <Modal animationType="slide"
                transparent={true}
                visible={modalVisible}
@@ -99,6 +97,6 @@ export default function ShoppingList(props) {
                 <Icon name='delete' onPress={deleteList}/>
                 </View>
         </View>
-        </>
+        </View>
     );
 }

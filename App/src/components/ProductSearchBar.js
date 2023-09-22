@@ -1,4 +1,4 @@
-import {Text, View, FlatList, TouchableOpacity} from "react-native";
+import {Text, View, TouchableOpacity} from "react-native";
 import React, {useState} from "react";
 import { endpoint } from '../../config';
 import axios from "axios";
@@ -18,7 +18,6 @@ export function ProductSearchBar() {
         setSearchQuery(text);
         if (text.length > 1) {
             setLoading(true)
-            console.log("fetch")
             APIRoute(() => axios.get(endpoint + `searchProduct?value=${text}&count=5`).then((res) => {
                     if (text !== "")
                         setSearchResults(res.data)
@@ -48,19 +47,16 @@ export function ProductSearchBar() {
             {loading ?
                 <View style={styles.productResultsContainer}>
                     <Text style={styles.productResultItemText}>Loading ...</Text>
-                </View> : searchResults.length === 0 ? <View style={{marginBottom: 10}}></View> : <FlatList
-                style={styles.productResultsContainer}
-                data={searchResults}
-                renderItem={({ item }) => (
+                </View> : searchResults.length === 0 ? <View style={{marginBottom: 10}}></View> : (<View style={styles.productResultsContainer}>{searchResults.map((item, index) => (
                     <TouchableOpacity style={styles.productResultsItemContainer}
                                       onPress={() => {
                                           localStorage.setItem('productCode', item.barcode);
-                                          navigation.navigate('Product');}}>
+                                          navigation.navigate('Product');}}
+                    key={index}>
                         <Text style={styles.productResultItemText}>{item.name}</Text>
                     </TouchableOpacity>
-                )}
-                keyExtractor={(item) => item.barcode}
-            />}
+                ))}</View>)
+            }
         </View>
 
     );

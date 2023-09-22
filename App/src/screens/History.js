@@ -35,7 +35,6 @@ export default function History() {
       if (err.response.status === 401) {
         throw(err)
       }
-      console.log('catch');
       alert(translations["Error"][lang] + err.message);
       console.log(err);
     }));
@@ -48,7 +47,6 @@ export default function History() {
     }).catch((err) => {
       if (err.response.status === 401)
         throw(err);
-      console.log('catch');
       alert("something went wrong getting history data: " + err.message);
       console.log(err);
 

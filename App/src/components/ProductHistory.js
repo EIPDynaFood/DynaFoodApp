@@ -37,7 +37,6 @@ export default function ProductHistory(props) {
       if (err.response.status === 401) {
         throw(err)
       }
-      console.log('catch');
       alert(translations["Error"][lang] + err.message);
       console.log(err);
     }));

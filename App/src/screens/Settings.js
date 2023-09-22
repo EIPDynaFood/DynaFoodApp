@@ -12,7 +12,6 @@ import LanguageDropdown from "../components/LanguageDropdown";
 import ThreeStateSlider from "../components/ThreeStateSlider";
 import AllergenSearchBar from "../components/AllergenSearchBar";
 import * as SecureStore from 'expo-secure-store';
-import translations from "../../translations/screens/Settings.json";
 
 export default function Settings({navigation}) {
     const translations = require("../../translations/screens/Settings.json")
@@ -34,7 +33,7 @@ export default function Settings({navigation}) {
     return (
             <ScrollView style={styles.wrapperStyle} nestedScrollEnabled = {true}>
                 <View style={[styles.mainContainerStyle, {backgroundColor: '#FFFFFF'}]}>
-                    <View style={{marginLeft: 15, marginTop: 15, marginBottom: 15}}>
+                    <View style={{marginTop: 15, marginBottom: 15}}>
                         <View style={{flexDirection: "row", alignItems:"center", justifyContent: "center"}}>
                             <Text style={[styles.tableHeadTextStyle, {paddingRight: 15}]}>{translations["Language"][lang]}</Text>
                             <LanguageDropdown/>
