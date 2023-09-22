@@ -150,5 +150,21 @@
     "es" : "Cerrar sesión",
     "pt" : "Sair",
     "it" : "Disconnessione"
+  },
+  "Delete": {
+    "de": "Lösche deinen Account",
+    "en": "Delete your account",
+    "fr": "Supprimer votre compte",
+    "es" : "Eliminar tu cuenta",
+    "pt" : "Deletar sua conta",
+    "it" : "Cancella il tuo account"
+  },
+  "ErrorDel": {
+    "de": "Beim Löschen Ihres Kontos ist ein Fehler aufgetreten",
+    "en": "Something went wrong while deleting your account",
+    "fr": "Une erreur s'est produite lors de la suppression de votre compte",
+    "es" : "Algo salió mal al eliminar tu cuenta",
+    "pt" : "Algo deu errado ao excluir sua conta",
+    "it" : "Qualcosa è andato storto durante l'eliminazione del tuo account"
   }
 }

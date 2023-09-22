@@ -6,6 +6,8 @@ import { styles } from "../styles/Style";
 import {SearchBar} from "react-native-elements";
 import {useNavigation} from "@react-navigation/native";
 import APIRoute from "../../API";
+import useLang from "../../Language";
+
 
 
 export function ProductSearchBar() {
@@ -13,6 +15,9 @@ export function ProductSearchBar() {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [loading, setLoading] = useState(false)
+
+    const translations = require("../../translations/components/ProductSearchBar.json")
+    const {lang} = useLang();
 
     const handleSearch = (text) => {
         setSearchQuery(text);
@@ -30,6 +35,7 @@ export function ProductSearchBar() {
                 if (err.response.status === 401)
                     throw(err)
                 console.log(err)
+                alert(translations["ErrorSearch"][lang] + '\n' + err.message);
             }).finally(() => setLoading(false)))
         } else {
             setSearchResults([])

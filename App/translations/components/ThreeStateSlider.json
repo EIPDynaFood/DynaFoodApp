@@ -22,5 +22,13 @@
      "es": "Estrictamente", 
      "pt": "Estritamente", 
      "it": "Rigorosamente" 
-   } 
+   },
+   "Error": {
+    "de": "Beim Festlegen Ihrer Einstellungen ist ein Fehler aufgetreten",
+    "en": "Something went wrong while setting your preferences",
+    "fr": "Une erreur s'est produite lors de la définition de vos préférences",
+    "es" : "Algo salió mal al configurar tus preferencias",
+    "pt" : "Algo deu errado ao definir suas preferências",
+    "it" : "Qualcosa è andato storto durante l'impostazione delle tue preferenze"
+  }
 }

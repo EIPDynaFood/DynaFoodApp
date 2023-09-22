@@ -11,6 +11,7 @@ export default function AllergenSearchBar() {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [selectedItems, setSelectedItems] = useState([]);
+    const translations = require("../../translations/components/AllergenSearchBar.json")
     const {lang} = useLang()
     let _ = require("lodash")
 
@@ -32,6 +33,7 @@ export default function AllergenSearchBar() {
             .catch(function (error) {
                 if (error.response.status === 401)
                     throw(error)
+                alert(translations["ErrorAllergen"][lang] + '\n' + error.message);
                 console.log(error);
 
             }));
@@ -44,7 +46,8 @@ export default function AllergenSearchBar() {
             setSearchResults(res.data)
         }).catch((error) => {
             if (error.response.status === 401)
-            throw(error)
+                throw(error)
+            alert(translations["ErrorAllergen"][lang] + '\n' + error.message);
         }))
     };
 
@@ -54,6 +57,7 @@ export default function AllergenSearchBar() {
         }).catch((error) => {
             if (error.response.status === 401)
                 throw(error)
+            alert(translations["ErrorAllergen"][lang] + '\n' + error.message);
         }))
     };
 
@@ -78,6 +82,7 @@ export default function AllergenSearchBar() {
                 .catch(function (error) {
                     if (error.response.status === 401)
                         throw(error)
+                    alert(translations["ErrorSet"][lang] + '\n' + error.message);
                     console.log(error);
                 }));
         } else {
@@ -90,6 +95,7 @@ export default function AllergenSearchBar() {
                 .catch(function (error) {
                     if (error.response.status === 401)
                         throw(error)
+                    alert(translations["ErrorSet"][lang] + '\n' + error.message);
                     console.log(error);
                 }));
             }

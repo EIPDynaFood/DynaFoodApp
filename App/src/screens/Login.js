@@ -23,6 +23,8 @@ export default function Login({navigation}) {
             url: endpoint + 'login?email=' + `${email}` + '&password=' + `${password}`,
             rejectUnauthorized: false,
         };
+        localStorage.setItem('email', email)
+        console.log(config.url);
         APIRoute(() => axios(config)
             .then(function (response) {
                 SecureStore.setItemAsync('jwt', response.data["token"]).then(() => {
