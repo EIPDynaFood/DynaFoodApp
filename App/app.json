@@ -27,10 +27,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#E2E6DB"
       },
-      "package": "com.oelm.Frontend",
-      "permissions": [
-        "android.permission.RECORD_AUDIO"
-      ]
+      "package": "com.oelm.Frontend"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -38,7 +35,14 @@
     "plugins": [
       "expo-image-picker",
       "expo-dev-client",
-      "expo-document-picker"
+      "expo-document-picker",
+      ["expo-build-properties",
+      {
+        "android": {
+          "usesCleartextTraffic": true
+        }
+      }
+        ]
     ],
     "extra": {
       "eas": {
