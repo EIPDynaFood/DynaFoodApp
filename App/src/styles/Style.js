@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     marginRight: "40%"
   },
   centeredView: {
-    flex: 1,
+    flex: 0.7,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 22

@@ -1,6 +1,6 @@
 import {useNavigation} from "@react-navigation/native";
 import axios from "axios";
-import {Modal, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {Modal, Text, TextInput, TouchableOpacity, Alert, View, TouchableWithoutFeedback} from "react-native";
 import {Button, Icon} from "react-native-elements";
 import React, {useState} from "react";
 import { styles } from "../styles/Style";
@@ -17,6 +17,7 @@ export default function ShoppingList(props) {
     const [listName, setListName] = useState(props.name)
     const [modalVisible, setModalVisible] = useState(false)
     const deleteList = () => {
+        
         APIRoute(() => axios.delete(endpoint + 'shoppingList?listid=' + props.listId).then(() => {
             const newList = [...props.list]
             newList.splice(props.list.indexOf(props.product), 1);
@@ -62,26 +63,28 @@ export default function ShoppingList(props) {
                    setModalVisible(!modalVisible);
                }}
                statusBarTranslucent={true}>
-            <View style={styles.centeredView}>
-                <View style={[styles.modalView, {height: "35%"}]}>
-                    <Text style={[styles.tableHeadTextStyle, {fontSize: 20, fontWeight: "bold"}]}>{translations["TextHeadline"][lang]}</Text>
-                    <TextInput
-                        placeholder={translations["TextPlaceholder"][lang]}
-                        style={styles.input}
-                        onChangeText={setListName}
-                        value={listName}
-                    />
-                    <Button
-                        title={translations["ModalButton"][lang]}
-                        buttonStyle={styles.primaryButtonStyle}
-                        titleStyle={{color:"white", flex:1}}
-                        onPress={() => {
-                            editList()
-                            setModalVisible(false);
-                        }}
-                    />
-                </View>
-            </View>
+                <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
+                    <View style={styles.centeredView}>
+                        <View style={[styles.modalView, {height: "35%"}]}>
+                            <Text style={[styles.tableHeadTextStyle, {fontSize: 20, fontWeight: "bold"}]}>{translations["TextHeadline"][lang]}</Text>
+                            <TextInput
+                                placeholder={translations["TextPlaceholder"][lang]}
+                                style={styles.input}
+                                onChangeText={setListName}
+                                value={listName}
+                            />
+                            <Button
+                                title={translations["ModalButton"][lang]}
+                                buttonStyle={styles.primaryButtonStyle}
+                                titleStyle={{color:"white", flex:1}}
+                                onPress={() => {
+                                    editList()
+                                    setModalVisible(false);
+                                }}
+                            />
+                        </View>
+                    </View>
+            </TouchableWithoutFeedback>
         </Modal>
         <View style={styles.shoppingList}>
                 <TouchableOpacity onPress={() => {
@@ -96,7 +99,28 @@ export default function ShoppingList(props) {
                 </TouchableOpacity>
                 <View style={{flexDirection: "row"}}>
                 <Icon containerStyle={{marginRight: 15}} name='edit' onPress={() => setModalVisible(true)}/>
-                <Icon name='delete' onPress={deleteList}/>
+                <Icon name='delete' onPress={() => {
+                    Alert.alert(
+                        'Are you sur ?',
+                        'You are about to delete an entire list.',
+                        [
+                          {
+                            text: 'No',
+                            onPress: () => {
+                              console.log('Button 1 pressed');
+                              return;
+                            },
+                          },
+                          {
+                            text: 'Yes',
+                            onPress: () => {
+                              deleteList()
+                            },
+                          },
+                        ],
+                        { cancelable: false }
+                      );
+                }}/>
                 </View>
         </View>
         </>

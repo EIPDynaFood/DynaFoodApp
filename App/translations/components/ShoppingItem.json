@@ -16,12 +16,12 @@
      "it": "Di cosa avete bisogno?" 
    }, 
    "TextPlaceholder": { 
-     "de": "Name", 
-     "en": "Name", 
-     "fr": "Nom", 
-     "es": "Nombre", 
-     "pt": "Nome", 
-     "it": "Nome" 
+     "de": "Produkt", 
+     "en": "Product", 
+     "fr": "Produit", 
+     "es": "Producto", 
+     "pt": "Produtos", 
+     "it": "Prodotto" 
    }, 
    "ModalButton": { 
      "de": "Erstellen", 

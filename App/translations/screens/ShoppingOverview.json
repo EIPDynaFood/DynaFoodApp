@@ -16,12 +16,12 @@
     "it": "Nome della lista"
   },
   "TextPlaceholder": {
-    "de": "Name",
-    "en": "Name",
-    "fr": "Nom",
-    "es": "Nombre",
-    "pt": "Nome",
-    "it": "Nome"
+    "de": "Aufführen",
+    "en": "List",
+    "fr": "Liste",
+    "es": "Lista",
+    "pt": "Lista",
+    "it": "Elenco"
   },
   "ModalButton": {
     "de": "Erstellen",

@@ -1,4 +1,4 @@
-import {Modal, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {Modal, StyleSheet, Text, TextInput, TouchableOpacity, View, TouchableWithoutFeedback } from "react-native";
 import React, {useState, useEffect} from "react";
 import {FAB, Icon, Button} from "react-native-elements";
 import { styles } from "../styles/Style";
@@ -65,26 +65,28 @@ export default function ShoppingOverview() {
                        setModalVisible(!modalVisible);
                    }}
                    statusBarTranslucent={true}>
-                <View style={styles.centeredView}>
-                    <View style={[styles.modalView, {height: "35%"}]}>
-                        <Text style={[styles.tableHeadTextStyle, {fontSize: 20, fontWeight: "bold"}]}>{translations["TextHeadline"][lang]}</Text>
-                        <TextInput
-                            placeholder={translations["TextPlaceholder"][lang]}
-                            style={styles.input}
-                            onChangeText={setListName}
-                            value={listName}
-                        />
-                        <Button
-                            title={translations["ModalButton"][lang]}
-                            buttonStyle={styles.primaryButtonStyle}
-                            titleStyle={{color:"white", flex:1}}
-                            onPress={() => {
-                                createList()
-                                setModalVisible(false);
-                            }}
-                        />
+                <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
+                    <View style={styles.centeredView}>
+                        <View style={[styles.modalView, {height: "35%"}]}>
+                            <Text style={[styles.tableHeadTextStyle, {fontSize: 20, fontWeight: "bold"}]}>{translations["TextHeadline"][lang]}</Text>
+                            <TextInput
+                                placeholder={translations["TextPlaceholder"][lang]}
+                                style={styles.input}
+                                onChangeText={setListName}
+                                value={listName}
+                            />
+                            <Button
+                                title={translations["ModalButton"][lang]}
+                                buttonStyle={styles.primaryButtonStyle}
+                                titleStyle={{color:"white", flex:1}}
+                                onPress={() => {
+                                    createList()
+                                    setModalVisible(false);
+                                }}
+                            />
+                        </View>
                     </View>
-                </View>
+                </TouchableWithoutFeedback>
             </Modal>
             <View style={StyleSheet.absoluteFillObject}>
                 <View style={{flex: 1}}>
