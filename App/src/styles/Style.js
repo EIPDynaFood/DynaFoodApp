@@ -130,7 +130,7 @@ export const styles = StyleSheet.create({
     },
     productHistory: {
         flex: 1,
-        width: '100%',
+        width: '90%',
         alignSelf: 'center',
     },
     container: {
