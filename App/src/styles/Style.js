@@ -18,9 +18,6 @@ export const styles = StyleSheet.create({
     padding: 10,
     elevation: 2
   },
-  buttonOpen: {
-    backgroundColor: "#F194FF",
-  },
   textStyle: {
     color: "white",
     fontWeight: "bold",
@@ -84,7 +81,7 @@ export const styles = StyleSheet.create({
         width:"50%",
         borderRadius:10,
         backgroundColor:"#FFF",
-        borderWidth:3,
+        borderWidth:1,
         borderColor:"#2E4D44",
     },
     primaryButtonStyle: {
@@ -101,8 +98,8 @@ export const styles = StyleSheet.create({
         left: 170,
     },
     registerLoginLogo: {
-        width: 270,
-        height: 150,
+        width: "70%",
+        maxHeight: "20%",
         marginBottom:50
     },
     cameraTwo: {
@@ -118,8 +115,6 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         padding: 10,
         marginTop: 10,
-        marginLeft: 10,
-        marginRight: 10,
         borderRadius: 10
     },
     shoppingList: {
@@ -156,7 +151,7 @@ export const styles = StyleSheet.create({
     wrapperStyle: {
         paddingLeft: 20,
         paddingRight: 20,
-        paddingTop: 30,
+        paddingTop: 20,
         paddingBottom: 90,
         backgroundColor: "#E2E6DB",
         },
@@ -179,9 +174,7 @@ export const styles = StyleSheet.create({
     tableHeadTextStyle: {
         color: "rgba(0,0,0,0.6)",
         paddingTop: 20,
-        paddingLeft: 20,
-        paddingRight: 15,
-        fontSize: 30,
+        fontSize: 20,
         paddingBottom: 20,
         textAlign: "center",
     },
@@ -211,10 +204,11 @@ export const styles = StyleSheet.create({
         maxWidth: '80%'
     },
     forgotpwd:{
-        color:"#2E4D44",
-        fontWeight:'300',
-        fontSize:10,
-        paddingLeft: 130
+        fontSize: 12,
+        fontStyle: "italic",
+        textAlign: "right",
+        width: "70%",
+        color: "#696969",
     },
     forgotpwdtxt:{
         color:"#2E4D44",
@@ -253,21 +247,22 @@ export const styles = StyleSheet.create({
     },
     passwordView: {
         flexDirection: "row",
+        width: "70%",
+        margin: 12,
         justifyContent: 'center',
         alignItems: "center",
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: "lightgrey",
     },
     inputPassword: {
-        width: "60%",
+      width: "85%",
         height: 40,
-        margin: 12,
-        borderWidth: 1,
+        marginRight: 0,
         padding: 10,
-        borderColor: "lightgrey",
-        borderRadius: 5,
     },
     containerRegister: {
         flex: 1,
-        backgroundColor: "white",
         alignItems: "center",
         justifyContent: "center",
     },
@@ -341,12 +336,10 @@ export const styles = StyleSheet.create({
       headlineStyle: {
         fontSize: 21,
         fontWeight: 'bold',
-        padding: 5,
       },
       trendBar: {
-        paddingLeft: "5%",
-        width: 'auto',
-        height: 170,
+        marginBottom: 10,
+        width: '100%',
       },
     searchBarContainer: {
         backgroundColor: 'transparent',
@@ -354,17 +347,19 @@ export const styles = StyleSheet.create({
         borderTopColor: 'transparent',
         borderWidth: 0,
         paddingBottom: 0,
+        width:"100%",
+        paddingHorizontal: "5%",
+        marginTop: 10,
     },
       searchBar: {
         alignSelf: 'center',
           paddingLeft: 10,
-          width:"90%",
           height:40,
           backgroundColor:"#FFF",
           borderRadius: 25,
-          borderWidth:3,
+          borderWidth:1,
           borderBottomColor:"#2E4D44",
-          borderBottomWidth:3,
+          borderBottomWidth:1,
           borderColor:"#2E4D44",
           marginBottom: 0
     },
@@ -384,9 +379,10 @@ export const styles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
         padding: 10,
+        marginBottom: 10
     },
     productResultsItemContainer: {
-        padding: 10,
+      padding: 10,
         borderBottomColor: '#eee',
         borderBottomWidth: 1,
     },
@@ -467,21 +463,22 @@ export const styles = StyleSheet.create({
         marginBottom: 16,
     },
     slider: {
-        width: '80%',
+        width: '95%',
     },
     allergenSelectedContainer: {
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignItems: 'center',
         backgroundColor: 'white',
-        padding: 10,
         marginTop: 12,
+        width: "100%"
     },
     allergenSelectedWordContainer: {
         backgroundColor: '#376D55',
         borderRadius: 10,
         padding: 5,
-        margin: 5,
+        marginRight: 5,
+        marginBottom: 5,
         flexDirection: "row",
     },
     allergenSelectedWord: {

@@ -29,7 +29,6 @@ export default function ShoppingListItems() {
         }).catch((err) => {
             if (err.response.status === 401)
                 throw(err);
-            console.log('catch');
             alert(translations["Error"][lang] + err.message);
             console.log(err);
         }));
@@ -52,7 +51,6 @@ export default function ShoppingListItems() {
         }).catch((err) => {
             if (err.response.status === 401)
                 throw(err);
-            console.log('catch');
             alert(translations["Error"][lang] + err.message);
             console.log(err);
         }));

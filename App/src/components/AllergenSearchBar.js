@@ -102,14 +102,17 @@ export default function AllergenSearchBar() {
     };
 
     return (
-        <View style={styles.searchBarContainer}>
+        <View style={[styles.searchBarContainer, {width: "100%"}]}>
             <TextInput
-                style={styles.searchBar}
+                style={[styles.searchBar, {width: "100%"}]}
                 placeholder="Search..."
                 value={searchQuery}
                 onChangeText={handleSearch}
                 onFocus={handleFocus}
             />
+            <TouchableOpacity style={{position: "absolute", top: 8, right: 25}} onPress={() => {setSearchQuery(""); setSearchResults([])}}>
+                <Icon name={"close"}/>
+            </TouchableOpacity>
             {searchResults.length === 0 ? <></> : <View style={styles.productResultsContainer}>{searchResults.map((result) => (
                 <TouchableOpacity key={result}
                     style={[styles.productResultsItemContainer]}

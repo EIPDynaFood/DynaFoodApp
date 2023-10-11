@@ -1,12 +1,8 @@
 import {Text, View, Image, TouchableWithoutFeedback, Modal} from "react-native";
 import React, {useEffect, useRef, useState} from "react";
-import {LinearGradient} from "expo-linear-gradient";
 import { styles } from "../styles/Style";
-import useLang from "../../Language"
-import {Alert} from "../components/Alert";
-import {ProductRating} from "../components/ProductRating";
-import {AdjustLabel} from "../components/AdjustLabel";
 import ProgressBar from "../components/ProgressBar";
+import {MaterialIcons} from "@expo/vector-icons";
 
 export default function ProductGeneralInfo({route}) {
   const [alert, setAlert] = useState("")
@@ -119,6 +115,11 @@ export default function ProductGeneralInfo({route}) {
           <Text numberOfLines={1}
                 adjustsFontSizeToFit
                 style={styles.headlineStyle}>{productData["name"]}</Text>
+          <View style={{flexDirection: "row"}}>
+            {alert !== "" ?
+                [<MaterialIcons name="warning" size={20} color="#DB3A34" />,
+            <Text> {alert}</Text>] : null}
+          </View>
           <View style={styles.bottomContainer}>
             <Image source={nutriImage}
                    style={styles.nutriScoreStyle}/>
@@ -127,7 +128,8 @@ export default function ProductGeneralInfo({route}) {
           </View>
           <View style={styles.mainContainerStyleInfo}>
             <Text style={[styles.ingredientStyle, {fontWeight: "bold", paddingTop: 16}]}>Ingredients:</Text>
-            <Text style={styles.ingredientStyle}>{ingredients}</Text>
+            {ingredients !== "" ? <Text style={styles.ingredientStyle}>{ingredients}</Text> :
+                <Text style={styles.ingredientStyle}>/</Text>}
             <Text style={[styles.ingredientStyle, {fontWeight: "bold", paddingTop: 16}]}>Pictures:</Text>
             <TouchableWithoutFeedback onPress={toggleImageSize}>
               <Image source={{uri: productData['images']}}

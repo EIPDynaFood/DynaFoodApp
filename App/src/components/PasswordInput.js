@@ -8,8 +8,6 @@ import { size } from "lodash";
 const PasswordInput = (props) => {
     
     const [showPassword, setShowPassword] = useState(false);
-    const [isSecureEntry, setSecureEntry]=useState(true)
-    const [textTouchable, setText]= useState("Show")
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -19,12 +17,16 @@ const PasswordInput = (props) => {
         <View style={props.viewStyle}>
             <TextInput
             placeholder={props.placeholder}
-            style={props.style}
+            style={[props.style]}
             onChangeText={props.onChangeTextFunc}
             value={props.value}
             secureTextEntry={!showPassword}
             autoCapitalize='none'/>
-            <TouchableOpacity onPress={togglePasswordVisibility}>
+            <TouchableOpacity onPress={togglePasswordVisibility} style={{
+                padding: 8,
+                marginLeft: 0,
+                width: "15%"
+            }}>
                 <Ionicons 
                     name={showPassword ? 'eye-off-outline' : 'eye-outline'}
                     size={20}

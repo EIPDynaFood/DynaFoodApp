@@ -33,7 +33,6 @@ export default function Product({navigation}) {
     }).catch((err) => {
       if (err.response.status === 401)
         throw(err);
-      console.log("catch");
       alert(translations["Error"][lang] + err.message)
       console.log(err);
     }));

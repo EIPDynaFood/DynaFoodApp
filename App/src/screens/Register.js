@@ -1,4 +1,4 @@
-import {View, Image, TextInput} from "react-native";
+import {View, Image, TextInput, Text} from "react-native";
 import React from "react";
 import { Button } from 'react-native-elements';
 import {useNavigation} from "@react-navigation/native";
@@ -13,6 +13,9 @@ import APIRoute from "../../API";
 export default function Register() {
     const navigation = useNavigation();
 
+    const [emailStyle, setEmailStyle] = React.useState({borderColor: "lightgrey"});
+    const [passwordStyle, setPasswordStyle] = React.useState({borderColor: "lightgrey"});
+
     const firstName = "firstName"
     const lastName = "lastName"
     const userName = "userName"
@@ -26,6 +29,14 @@ export default function Register() {
     const {lang} = useLang()
 
     const sendRegister = () => {
+        setEmailStyle({borderColor: "lightgrey"});
+        setPasswordStyle({borderColor: "lightgrey"});
+
+        if (password !== ConPassword) {
+            setPasswordStyle({borderColor: "#DB3A34"})
+            alert(translations["NoMatch"][lang])
+            return
+        }
         var qs = require('qs');
             var data = qs.stringify({
                 'firstName': `${firstName}`,
@@ -45,43 +56,48 @@ export default function Register() {
             };
             APIRoute(() => axios(config)
                 .then(function () {
-                    alert("You received an E-Mail to verify your account.")
+                    alert(translations["Success"][lang])
                     navigation.navigate("Login");
                 })
                 .catch((error) => {
                     if (error.response.status === 401)
                         throw(error);
+                    if (error.response.data.reason === "email")
+                        setEmailStyle({borderColor: "#DB3A34"})
+                    if (error.response.data.reason === "password")
+                        setPasswordStyle({borderColor: "#DB3A34"})
                     alert(translations["Error"][lang] + error.message)
-                    console.log(error);
-                    console.log(error.response);
                 }));
     }
 
     return (
         <View style={styles.containerRegister}>
             <Image source={require('../../assets/logo_frame_invisible.png')}
-                    style={styles.registerLoginLogo}/>
+                    style={styles.registerLoginLogo} resizeMode="contain"/>
             <TextInput
                 placeholder={translations["Email"][lang]}
-                style={styles.input}
+                style={[styles.input, emailStyle]}
                 onChangeText={onChangeEmail}
                 value={email}
                 keyboardType="email-address"
             />
             <PasswordInput
-            viewStyle={styles.passwordView}
+            viewStyle={[styles.passwordView, passwordStyle]}
             style={styles.inputPassword}
             onChangeTextFunc={onChangePassword}
             value={password}
             placeholder={translations["Password"][lang]}
             />
             <PasswordInput
-            viewStyle={styles.passwordView}
+            viewStyle={[styles.passwordView, passwordStyle]}
             style={styles.inputPassword}
             onChangeTextFunc={onChangeConPassword}
             value={ConPassword}
             placeholder={translations["PasswordConfirm"][lang]}
             />
+            <Text style={{color:"#696969",width: "70%", fontStyle: "italic", fontSize: 10}}>
+                {translations["PasswordInfo"][lang]}
+            </Text>
             <Button
                 title={translations["Register"][lang]}
                 containerStyle= {{

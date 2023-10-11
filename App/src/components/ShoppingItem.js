@@ -16,14 +16,13 @@ export default function ShoppingItem(props) {
     const [checked, setChecked] = useState(props.checked)
     const [modalVisible, setModalVisible] = useState(false)
     const deleteItem = () => {
-        APIRoute(() => axios.delete(endpoint + 'shoppingList/item', {headers: {}, data: {'itemid': `${props.itemId}`}}).then((res) => {
+        APIRoute(() => axios.delete(endpoint + 'shoppingList/item', {headers: {}, data: {'itemid': `${props.itemId}`}}).then(() => {
             const newItem = [...props.list]
             newItem.splice(props.list.indexOf(props.product), 1);
             props.update({"elements": newItem})
         }).catch((err) => {
             if (err.response.status === 401)
                 throw(err)
-            console.log('catch');
             alert(translations["Error"][lang] + err.message);
             console.log(err);
 
@@ -37,21 +36,17 @@ export default function ShoppingItem(props) {
             'check': `${done}`,
             'itemid': `${props.itemId}`
         });
-        console.log(itemName);
-        console.log(checked);
-        console.log(props.itemId);
         var config = {
             method: 'patch',
             url: endpoint + 'shoppingList/item',
             data : data
         };
-        APIRoute(() => axios(config).then((res) => {
+        APIRoute(() => axios(config).then(() => {
             props.update({"elements":[...props.list], "update":true});
             setItemName(props.name);
         }).catch((err) => {
             if (err.response.status === 401)
                 throw(err)
-            console.log('catch');
             alert(translations["Error"][lang] + err.message);
             console.log(err);
         }));

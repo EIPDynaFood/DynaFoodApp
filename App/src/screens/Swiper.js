@@ -7,7 +7,6 @@ import useLang from "../../Language";
 const Swiper = ({navigation}) => {
     const translations = require( "../../translations/screens/Swiper.json")
     const {lang} = useLang()
-    console.log(lang)
 
     const Skip = ({...props}) => (
         <Button

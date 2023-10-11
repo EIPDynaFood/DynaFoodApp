@@ -1,0 +1,90 @@
+{
+  "Welcome": {
+    "de": "Willkommen",
+    "en": "Welcome",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Login": {
+    "de": "Login",
+    "en": "Anmelden",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Register": {
+    "de": "Registrierung",
+    "en": "Register",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Reset Password": {
+    "de": "Passwort zurücksetzen",
+    "en": "Reset Password",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Scanner": {
+    "de": "Scanner",
+    "en": "Scanner",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Feedback": {
+    "de": "Rückmeldung",
+    "en": "Feedback",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Product": {
+    "de": "Produkt",
+    "en": "Product",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Settings": {
+    "de": "Einstellungen",
+    "en": "Settings",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Missing Product": {
+    "de": "Fehlendes Produkt",
+    "en": "Missing Product",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Shopping Lists": {
+    "de": "Einkaufslisten",
+    "en": "Shopping Lists",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "Shopping Items": {
+    "de": "Einkaufsartikel",
+    "en": "Shopping Items",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  }
+}

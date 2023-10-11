@@ -21,7 +21,6 @@ export default function ProductItem(itemData) {
       if (err.response.status === 401) {
         throw(err)
       }
-      console.log('catch');
       alert(translations["Error"][lang] + err.message);
       console.log(err);
     }));
@@ -40,7 +39,7 @@ export default function ProductItem(itemData) {
             <View style={{marginLeft: 10, width: '60%'}}>
               <Text
                   numberOfLines={1}
-                  style={{fontSize: 21, fontWeight: 'bold'}}>{itemData.name}</Text>
+                  style={{fontSize: 15, fontWeight: 'bold'}}>{itemData.name}</Text>
               <Text
                   numberOfLines={1}
                   style={{fontSize: 13}}>{translations["Barcode"][lang] + itemData.barcode}</Text>

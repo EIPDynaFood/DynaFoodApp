@@ -9,19 +9,19 @@
   },
   "TrendText": {
     "de": "Trends",
-    "en": "Trending",
+    "en": "Trends",
     "fr": "Tendance",
     "es" : "Tendencias",
     "pt" : "Tendência",
     "it" : "Tendenza"
   },
   "ProductText": {
-    "de": "Deine Produkte",
-    "en": "Your products",
-    "fr" : "Vos produits",
-    "es" : "Sus productos",
-    "pt" : "Os seus produtos",
-    "it" : "I vostri prodotti"
+    "de": "Verlauf",
+    "en": "History",
+    "fr" : "",
+    "es" : "",
+    "pt" : "",
+    "it" : ""
   },
   "ErrorHist": {
     "de": "Beim Abrufen Ihres Verlaufs ist ein Fehler aufgetreten",
