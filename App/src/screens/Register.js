@@ -7,7 +7,6 @@ import { styles } from "../styles/Style";
 import useLang from "../../Language";
 import PasswordInput from "../components/PasswordInput";
 import { endpoint } from '../../config';
-import APIRoute from "../../API";
 
 
 export default function Register() {
@@ -32,6 +31,11 @@ export default function Register() {
         setEmailStyle({borderColor: "lightgrey"});
         setPasswordStyle({borderColor: "lightgrey"});
 
+        if (email === "") {
+            setEmailStyle({borderColor: "#DB3A34"})
+            alert(translations["NoMatch"][lang])
+            return
+        }
         if (password !== ConPassword) {
             setPasswordStyle({borderColor: "#DB3A34"})
             alert(translations["NoMatch"][lang])
@@ -54,20 +58,18 @@ export default function Register() {
                 },
                 data : data
             };
-            APIRoute(() => axios(config)
+           axios(config)
                 .then(function () {
                     alert(translations["Success"][lang])
                     navigation.navigate("Login");
                 })
                 .catch((error) => {
-                    if (error.response.status === 401)
-                        throw(error);
                     if (error.response.data.reason === "email")
                         setEmailStyle({borderColor: "#DB3A34"})
                     if (error.response.data.reason === "password")
                         setPasswordStyle({borderColor: "#DB3A34"})
                     alert(translations["Error"][lang] + error.message)
-                }));
+                })
     }
 
     return (

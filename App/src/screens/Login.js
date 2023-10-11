@@ -7,7 +7,6 @@ import useLang from "../../Language";
 import LanguageDropdown from "../components/LanguageDropdown";
 import { styles } from "../styles/Style";
 import PasswordInput from "../components/PasswordInput";
-import APIRoute from "../../API";
 import * as SecureStore from 'expo-secure-store';
 
 export default function Login({navigation}) {
@@ -24,19 +23,19 @@ export default function Login({navigation}) {
             rejectUnauthorized: false,
         };
         localStorage.setItem('email', email)
-        APIRoute(() => axios(config)
+        axios(config)
             .then(function (response) {
                 SecureStore.setItemAsync('jwt', response.data["token"]).then(() => {
                     SecureStore.setItemAsync('refreshToken', response.data["refresh_token"]).then(() => {
+                        onChangeEmail("");
+                        onChangePassword("");
                         navigation.navigate("History");
                     });
                 });
             })
             .catch((error) => {
-                if (error.response.status === 401)
-                    throw(error)
-                alert(translations["Error"][lang] + error.message)
-            })).catch();
+                alert(translations["Error"][lang] + error.response.data["Error"])
+            })
     };
 
     return (

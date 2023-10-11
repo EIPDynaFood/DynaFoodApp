@@ -3,6 +3,7 @@ import {Text, Button, Image, TouchableOpacity} from 'react-native';
 import Onboarding from "react-native-onboarding-swiper";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
+import asyncStorage from "@react-native-async-storage/async-storage/src/AsyncStorage";
 
 const Swiper = ({navigation}) => {
     const translations = require( "../../translations/screens/Swiper.json")
@@ -38,8 +39,16 @@ const Swiper = ({navigation}) => {
             SkipButtonComponent={Skip}
             NextButtonComponent={Next}
             DoneButtonComponent={Done}
-            onSkip={() => navigation.replace("Login")}
-            onDone={() => navigation.replace("Login")}
+            onSkip={async () => {
+                await asyncStorage.setItem('Swiper', "true").then(() =>
+                    navigation.replace("Login")
+                );
+            }}
+            onDone={async () => {
+                await asyncStorage.setItem('Swiper', "true").then(() =>
+                    navigation.replace("Login")
+                );
+            }}
             pages={[
                 {
                     backgroundColor: '#E2E6DB',

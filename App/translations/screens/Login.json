@@ -1,7 +1,7 @@
 {
   "Error": {
     "de": "Falsches Passwort oder falsche E-Mail Adresse:\n",
-    "en": "Wrong user credentials:\n",
+    "en": "Login failed:\n",
     "fr": "Mauvaise identification de l'utilisateur :\n",
     "es" : "Credenciales de usuario incorrectas :\n",
     "pt" : "Credenciais de usuário erradas :\n",

@@ -21,68 +21,88 @@ import ShoppingOverview from "./src/screens/ShoppingOverview";
 import ShoppingListItems from "./src/screens/ShoppingListItems";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as SecureStore from "expo-secure-store";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import LoadingSpinner from "./src/components/LoadingSpinner";
 
 const Stack = createNativeStackNavigator();
 export function Navigation(props) {
-  let swiper = localStorage.getItem('Swiper');
-  console.log(swiper)
 
-    const translations = require("./translations/App.json")
-    const {lang} = useLang()
+    const translations = require("./translations/App.json");
+    const [loading, setLoading] = useState(true);
+    const [showSwiper, setShowSwiper] = useState(null);
+    const {lang} = useLang();
 
-  return (
-      <GestureHandlerRootView style={{flex: 1}}>
-          <NavigationContainer>
-            <Stack.Navigator initialRouteName={props.initialRoute} screenOptions={{
-              headerStyle: {
-                backgroundColor: '#376D55',
-              },
-              headerTintColor: '#fff',
-              headerTitleStyle: {
-                fontWeight: 'bold'
-              }
-            }}>
-                {swiper === null ?
-                    <Stack.Screen options={{headerShown: false, title: translations["Welcome"][lang]}} name="Swiper" component={Swiper}/>
-                    : <></>}
-                <Stack.Screen options={{headerShown: false, title: translations["Login"][lang]}} name="Login" component={Login}/>
-                <Stack.Screen options={{headerShown: false, title: translations["Register"][lang]}} name="Register" component={Register}/>
-                <Stack.Screen options={{title: translations["Reset Password"][lang]}} name="SendEmail" component={SendEmail}/>
-                <Stack.Screen options={{title: translations["Reset Password"][lang]}} name="VerifyCode" component={VerifyCode}/>
-                <Stack.Screen options={{title: translations["Reset Password"][lang]}} name="ResetPassword" component={ResetPassword}/>
 
-                <Stack.Screen name="History" component={History}
-                            options={({navigation}) => ({title: "DynaFood", headerLeft: null,
-                              headerRight: () => (
-                                  <View style={{display:"flex", flexDirection:"row"}}>
-                                      <View style={{right: 15}}>
-                                          <Icon
-                                          onPress={() => navigation.navigate("ShoppingOverview")}
-                                          name="list"
-                                          color="white"
-                                        />
-                                      </View>
-                                      <View>
-                                        <Icon
-                                      onPress={() => navigation.navigate("Settings")}
-                                      name="settings"
-                                      color="white"
-                                        />
-                                      </View>
-                                  </View>
-                              )
-                            })}
-              />
-              <Stack.Screen options={{title: translations["Scanner"][lang]}} name="Scanner" component={Scanner}/>
-              <Stack.Screen options={{title: translations["Feedback"][lang]}} name="Feedback" component={Feedback}/>
-              <Stack.Screen options={{title: translations["Product"][lang]}} name="Product" component={Product}/>
-              <Stack.Screen options={{title: translations["Settings"][lang]}} name="Settings" component={Settings}/>
-              <Stack.Screen options={{title: translations["Missing Product"][lang]}} name="MissingProduct" component={MissingProduct}/>
-              <Stack.Screen options={{title: translations["Shopping Lists"][lang]}} name="ShoppingOverview" component={ShoppingOverview}/>
-              <Stack.Screen options={{title: translations["Shopping Items"][lang]}} name="ShoppingListItems" component={ShoppingListItems}/>
-            </Stack.Navigator>
-          </NavigationContainer>
-      </GestureHandlerRootView>)
+    useEffect( () => {
+        AsyncStorage.getItem('Swiper').then((value) => {
+            setShowSwiper(value)
+            setLoading(false)
+        });
+    }, [])
+
+    return (
+        loading === true ? <LoadingSpinner/> :
+        <GestureHandlerRootView style={{flex: 1}}>
+            <NavigationContainer>
+                <Stack.Navigator initialRouteName={showSwiper === null ? "Swiper" : props.initialRoute} screenOptions={{
+                    headerStyle: {
+                        backgroundColor: '#376D55',
+                    },
+                    headerTintColor: '#fff',
+                    headerTitleStyle: {
+                        fontWeight: 'bold'
+                    }
+                }}>
+                    <Stack.Screen options={{headerShown: false, title: translations["Welcome"][lang]}} name="Swiper"
+                                  component={Swiper}/>
+                    <Stack.Screen options={{headerShown: false, title: translations["Login"][lang]}} name="Login"
+                                  component={Login}/>
+                    <Stack.Screen options={{headerShown: false, title: translations["Register"][lang]}} name="Register"
+                                  component={Register}/>
+                    <Stack.Screen options={{title: translations["Reset Password"][lang]}} name="SendEmail"
+                                  component={SendEmail}/>
+                    <Stack.Screen options={{title: translations["Reset Password"][lang]}} name="VerifyCode"
+                                  component={VerifyCode}/>
+                    <Stack.Screen options={{title: translations["Reset Password"][lang]}} name="ResetPassword"
+                                  component={ResetPassword}/>
+                    <Stack.Screen name="History" component={History}
+                                  options={({navigation}) => ({
+                                      title: "DynaFood", headerLeft: null,
+                                      headerRight: () => (
+                                          <View style={{display: "flex", flexDirection: "row"}}>
+                                              <View style={{right: 15}}>
+                                                  <Icon
+                                                      onPress={() => navigation.navigate("ShoppingOverview")}
+                                                      name="list"
+                                                      color="white"
+                                                  />
+                                              </View>
+                                              <View>
+                                                  <Icon
+                                                      onPress={() => navigation.navigate("Settings")}
+                                                      name="settings"
+                                                      color="white"
+                                                  />
+                                              </View>
+                                          </View>
+                                      )
+                                  })}
+                    />
+                    <Stack.Screen options={{title: translations["Scanner"][lang]}} name="Scanner" component={Scanner}/>
+                    <Stack.Screen options={{title: translations["Feedback"][lang]}} name="Feedback"
+                                  component={Feedback}/>
+                    <Stack.Screen options={{title: translations["Product"][lang]}} name="Product" component={Product}/>
+                    <Stack.Screen options={{title: translations["Settings"][lang]}} name="Settings"
+                                  component={Settings}/>
+                    <Stack.Screen options={{title: translations["Missing Product"][lang]}} name="MissingProduct"
+                                  component={MissingProduct}/>
+                    <Stack.Screen options={{title: translations["Shopping Lists"][lang]}} name="ShoppingOverview"
+                                  component={ShoppingOverview}/>
+                    <Stack.Screen options={{title: translations["Shopping Items"][lang]}} name="ShoppingListItems"
+                                  component={ShoppingListItems}/>
+                </Stack.Navigator>
+            </NavigationContainer>
+        </GestureHandlerRootView>)
 }
 
 export default function App() {

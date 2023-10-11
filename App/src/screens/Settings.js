@@ -22,7 +22,6 @@ export default function Settings({navigation}) {
     const {lang} = useLang()
 
     function logoutUser() {
-        localStorage.setItem('Swiper', true);
         SecureStore.deleteItemAsync('jwt').then(() => {
             SecureStore.deleteItemAsync('refreshToken').then(() => {
                 navigation.navigate("Login")
