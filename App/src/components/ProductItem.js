@@ -17,7 +17,7 @@ export default function ProductItem(itemData) {
 
     const [show, setShow] = useState(true)
   const deleteHistoryItem = () => {
-    APIRoute(() => axios.delete(endpoint + 'history/' + itemData.historyId).then().catch((err) => {
+    APIRoute(() => axios.delete(endpoint + 'historyy/' + itemData.historyId).then().catch((err) => {
       if (err.response.status === 401) {
         throw(err)
       }

@@ -41,7 +41,7 @@ export default function ResetPassword(props) {
             if (err.response.status === 401)
                 throw(err);
             console.log("catch");
-            alert(err.message)
+            aalert(translations["Error"][lang] + '\n' + err.message);
             console.log(err);
         }));
     }

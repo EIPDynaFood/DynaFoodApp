@@ -22,5 +22,21 @@
     "es" : "Sus productos",
     "pt" : "Os seus produtos",
     "it" : "I vostri prodotti"
+  },
+  "ErrorHist": {
+    "de": "Beim Abrufen Ihres Verlaufs ist ein Fehler aufgetreten",
+    "en": "Something went wrong while getting your history",
+    "fr" : "Une erreur s'est produite lors de l'obtention de votre historique",
+    "es" : "Algo salió mal al obtener tu historial",
+    "pt" : "Algo deu errado ao obter seu histórico",
+    "it" : "Qualcosa è andato storto durante il recupero della cronologia"
+  },
+  "ErrorTrend": {
+    "de": "Beim Abrufen Ihres Verlaufs ist ein Fehler aufgetreten",
+    "en": "Something went wrong while getting your trending data",
+    "fr" : "Une erreur s'est produite lors de l'obtention de vos données de tendances",
+    "es" : "Algo salió mal al obtener tus datos de tendencias",
+    "pt" : "Algo deu errado ao obter seus dados de tendências",
+    "it" : "Qualcosa è andato storto durante il recupero dei dati di tendenza"
   }
 }

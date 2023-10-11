@@ -28,15 +28,15 @@ export default function History() {
     APIRoute(() => axios.get(endpoint + 'history').then((res) => {
       if (!_.isEqual(res.data, historyData)) {
         setHistoryData(res.data);
+        console.log(res.data);
       }
       setHistoryLoaded(true)
     }).catch((err) => {
       if (err.response.status === 401) {
         throw(err)
       }
-      console.log('catch');
-      alert(translations["Error"][lang] + err.message);
       console.log(err);
+      alert(translations["ErrorHist"][lang] + '\n' + err.message);
     }));
   })
 
@@ -44,11 +44,12 @@ export default function History() {
     APIRoute(() => axios.get(endpoint + 'trendingProductsGlobal?count=10').then((res) => {
       setTrendBarData(res.data)
       setTrendBarLoaded(true)
+      console.log(res.data);
     }).catch((err) => {
       if (err.response.status === 401)
         throw(err);
       console.log('catch');
-      alert("something went wrong getting history data: " + err.message);
+      alert(translations["ErrorTrend"][lang] + '\n' + err.message);
       console.log(err);
 
     }))
