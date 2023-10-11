@@ -6,7 +6,7 @@ import useLang from "../../Language";
 
 
 export default function ProductNutritionTable({navigation, route}) {
-  const {itemId, productData} = route.params;
+  const {productData} = route.params;
 
   const translations = require("../../translations/screens/ProductNutritionTable.json")
   const {lang} = useLang();

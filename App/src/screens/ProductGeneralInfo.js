@@ -8,7 +8,7 @@ export default function ProductGeneralInfo({route}) {
   const [alert, setAlert] = useState("")
   const [modalVisible, setModalVisible] = useState(false)
   const modalVisibleRef = useRef(modalVisible)
-  const {itemId, productData} = route.params;
+  const {productData} = route.params;
   const [isImageEnlarged, setIsImageEnlarged] = useState(false);
 
   const toggleImageSize = () => {
@@ -53,19 +53,19 @@ export default function ProductGeneralInfo({route}) {
   let nutriImage
   switch (productData['nutriments_scores']['total_grade']) {
     case "a":
-      nutriImage = require("../../assets/nutri-scores/nutri-score-A.svg");
+      nutriImage = require("../../assets/nutri-scores/nutri-score-A.png");
       break;
     case "b":
-      nutriImage = require("../../assets/nutri-scores/nutri-score-B.svg");
+      nutriImage = require("../../assets/nutri-scores/nutri-score-B.png");
       break;
     case "c":
-      nutriImage = require("../../assets/nutri-scores/nutri-score-C.svg");
+      nutriImage = require("../../assets/nutri-scores/nutri-score-C.png");
       break;
     case "d":
-      nutriImage = require("../../assets/nutri-scores/nutri-score-D.svg");
+      nutriImage = require("../../assets/nutri-scores/nutri-score-D.png");
       break;
     case "e":
-      nutriImage = require("../../assets/nutri-scores/nutri-score-E.svg");
+      nutriImage = require("../../assets/nutri-scores/nutri-score-E.png");
       break;
     default:
       nutriImage = require("../../assets/nutri-scores/nutri-score-unknown.png");
