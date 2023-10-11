@@ -5,7 +5,7 @@ import { styles } from "../styles/Style";
 import useLang from "../../Language";
 
 
-export default function ProductNutritionTable({navigation, route}) {
+export default function ProductNutritionTable({route}) {
   const {productData} = route.params;
 
   const translations = require("../../translations/screens/ProductNutritionTable.json")
