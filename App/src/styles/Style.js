@@ -124,13 +124,11 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         padding: 10,
         marginTop: 10,
-        marginLeft: 10,
-        marginRight: 10,
         borderRadius: 10
     },
     productHistory: {
         flex: 1,
-        width: '90%',
+        width: '100%',
         alignSelf: 'center',
     },
     container: {

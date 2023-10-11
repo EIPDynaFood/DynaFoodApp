@@ -87,7 +87,7 @@ export default function ShoppingOverview() {
                 </TouchableWithoutFeedback>
             </Modal>
             <View style={StyleSheet.absoluteFillObject}>
-                <View style={{flex: 1}}>
+                <View style={{alignSelf: 'center', width: '90%', flex: 1}}>
                     {listData === null ? (<LoadingSpinner/>) : (
                         (listData.elements.length === 0) ? (
                             <View style={styles.productHistory}>

@@ -100,7 +100,7 @@ export default function ShoppingList(props) {
                 <Icon name='delete' onPress={() => {
                     Alert.alert(
                         'Are you sure?',
-                        'You are about to delete an entire list.',
+                        'You are about to delete an entire list.', //translation missing??
                         [
                           {
                             text: 'No',

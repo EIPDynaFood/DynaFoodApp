@@ -25,6 +25,7 @@ import * as SecureStore from "expo-secure-store";
 const Stack = createNativeStackNavigator();
 export function Navigation(props) {
   let swiper = localStorage.getItem('Swiper');
+  console.log(swiper)
 
     const translations = require("./translations/App.json")
     const {lang} = useLang()
