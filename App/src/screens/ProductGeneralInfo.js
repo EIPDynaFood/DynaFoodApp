@@ -3,6 +3,7 @@ import React, {useEffect, useRef, useState} from "react";
 import { styles } from "../styles/Style";
 import ProgressBar from "../components/ProgressBar";
 import {MaterialIcons} from "@expo/vector-icons";
+import {Alert} from "../components/Alert";
 
 export default function ProductGeneralInfo({route}) {
   const [alert, setAlert] = useState("")
@@ -94,6 +95,10 @@ export default function ProductGeneralInfo({route}) {
 
   return (
       <>
+        {alert !== "" ? <Alert message={alert} setModalVisible={setModalVisible}
+                               visible={modalVisible}/>
+            : <></>
+        }
         <View style={{flex: 1,
           position: 'absolute',
           top: 16,
@@ -101,6 +106,7 @@ export default function ProductGeneralInfo({route}) {
           marginLeft: -75,
           zIndex: 1,
         }}>
+
         <ProgressBar progress={productData['score']}/>
         </View>
       <View style={styles.wrapperStyleInfo}>
@@ -112,6 +118,7 @@ export default function ProductGeneralInfo({route}) {
           backgroundColor: '#FFFFFF',
           alignItems: 'center',
         }}>
+
           <Text numberOfLines={1}
                 adjustsFontSizeToFit
                 style={styles.headlineStyle}>{productData["name"]}</Text>
@@ -137,6 +144,7 @@ export default function ProductGeneralInfo({route}) {
               resizeMode={"contain"}/>
             </TouchableWithoutFeedback>
             </View>
+
           <Modal visible={isImageEnlarged} transparent={true} onRequestClose={toggleImageSize}>
             <TouchableWithoutFeedback onPress={toggleImageSize}>
               <View style={{flex: 1,

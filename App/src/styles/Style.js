@@ -8,10 +8,11 @@ export const styles = StyleSheet.create({
     marginRight: "40%"
   },
   centeredView: {
-    flex: 0.7,
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+    marginTop: 22,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)'
   },
   button: {
     borderRadius: 20,
