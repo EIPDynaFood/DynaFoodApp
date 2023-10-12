@@ -34,10 +34,13 @@ export function Navigation(props) {
 
 
     useEffect( () => {
-        AsyncStorage.getItem('Swiper').then((value) => {
-            setShowSwiper(value)
-            setLoading(false)
-        });
+        const fetchShowSwiper = async () => {
+            await AsyncStorage.getItem('Swiper').then((value) => {
+                setShowSwiper(value)
+                setLoading(false)
+            }).catch((error) => console.log(error));
+        }
+        fetchShowSwiper().then(() => {}).catch((error) => console.log(error))
     }, [])
 
     return (
