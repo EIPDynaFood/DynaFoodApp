@@ -97,7 +97,7 @@ export default function ProductGeneralInfo({route}) {
       <>
         {alert !== "" ? <Alert message={alert} setModalVisible={setModalVisible}
                                visible={modalVisible}/>
-            : <></>
+            : null
         }
         <View style={{flex: 1,
           position: 'absolute',
@@ -124,8 +124,8 @@ export default function ProductGeneralInfo({route}) {
                 style={styles.headlineStyle}>{productData["name"]}</Text>
           <View style={{flexDirection: "row"}}>
             {alert !== "" ?
-                [<MaterialIcons name="warning" size={20} color="#DB3A34" />,
-            <Text> {alert}</Text>] : null}
+                [<MaterialIcons name="warning" key="icon" size={20} color="#DB3A34" />,
+            <Text key="text"> {alert}</Text>] : null}
           </View>
           <View style={styles.bottomContainer}>
             <Image source={nutriImage}
