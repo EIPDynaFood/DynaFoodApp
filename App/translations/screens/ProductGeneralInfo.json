@@ -1,39 +1,39 @@
 {
   "AllergenAlert": {
-    "de": "Das Produkt enthält Allergene!",
-    "en": "This product contains allergens!",
+    "de": "Das Produkt enthält Allergene!\n",
+    "en": "This product contains allergens!\n",
     "fr": "",
     "es" : "",
     "pt" : "",
     "it" : ""
   },
   "VegetarianAlert": {
-    "de": "Das Produkt ist nicht vegetarisch!",
-    "en": "This product is not vegetarian!",
+    "de": "Das Produkt ist nicht vegetarisch!\n",
+    "en": "This product is not vegetarian!\n",
     "fr": "",
     "es" : "",
     "pt" : "",
     "it" : ""
   },
   "MaybeVegetarianAlert": {
-    "de": "Das Produkt ist vielleicht nicht vegetarisch!",
-    "en": "This product is maybe not vegetarian!",
+    "de": "Das Produkt ist vielleicht nicht vegetarisch!\n",
+    "en": "This product is maybe not vegetarian!\n",
     "fr": "",
     "es" : "",
     "pt" : "",
     "it" : ""
   },
   "MaybeVeganAlert": {
-    "de": "Das Produkt ist vielleicht nicht vegan!",
-    "en": "This product is maybe not vegan!",
+    "de": "Das Produkt ist vielleicht nicht vegan!\n",
+    "en": "This product is maybe not vegan!\n",
     "fr": "",
     "es" : "",
     "pt" : "",
     "it" : ""
   },
   "VeganAlert": {
-    "de": "Das Produkt ist nicht vegan!",
-    "en": "This product is not vegan!",
+    "de": "Das Produkt ist nicht vegan!\n",
+    "en": "This product is not vegan!\n",
     "fr": "",
     "es" : "",
     "pt" : "",

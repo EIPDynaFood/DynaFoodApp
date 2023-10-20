@@ -99,15 +99,15 @@ export default function ShoppingList(props) {
                 <Icon containerStyle={{marginRight: 15}} name='edit' onPress={() => setModalVisible(true)}/>
                 <Icon name='delete' onPress={() => {
                     Alert.alert(
-                        'Are you sure?',
-                        'You are about to delete an entire list.', //translation missing??
+                        translations["AlertTitle"][lang],
+                        translations["AlertMessage"][lang],
                         [
                           {
-                            text: 'No',
+                            text: translations["AlertNo"][lang],
                             onPress: () => {},
                           },
                           {
-                            text: 'Yes',
+                            text: translations["AlertYes"][lang],
                             onPress: () => {
                               deleteList()
                             },

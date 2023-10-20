@@ -78,6 +78,8 @@ export default function AllergenSearchBar() {
             APIRoute(() => axios(config)
                 .then(function (response) {
                     setSelectedItems([...selectedItems, item]);
+                    setSearchQuery("");
+                    setSearchResults([]);
                 })
                 .catch(function (error) {
                     if (error.response.status === 401)
@@ -91,6 +93,8 @@ export default function AllergenSearchBar() {
                     const newSelectedItems = [...selectedItems];
                     newSelectedItems.splice(index, 1);
                     setSelectedItems(newSelectedItems);
+                    setSearchQuery("");
+                    setSearchResults([]);
                 })
                 .catch(function (error) {
                     if (error.response.status === 401)

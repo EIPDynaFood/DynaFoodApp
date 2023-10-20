@@ -4,6 +4,7 @@ import { styles } from "../styles/Style";
 import ProgressBar from "../components/ProgressBar";
 import {MaterialIcons} from "@expo/vector-icons";
 import {Alert} from "../components/Alert";
+import useLang from "../../Language";
 
 export default function ProductGeneralInfo({route}) {
   const [alert, setAlert] = useState("")
@@ -11,6 +12,9 @@ export default function ProductGeneralInfo({route}) {
   const modalVisibleRef = useRef(modalVisible)
   const {productData} = route.params;
   const [isImageEnlarged, setIsImageEnlarged] = useState(false);
+
+  const translations = require("../../translations/screens/ProductGeneralInfo.json")
+  const {lang} = useLang()
 
   const toggleImageSize = () => {
     setIsImageEnlarged((prevState) => !prevState);
@@ -29,20 +33,20 @@ export default function ProductGeneralInfo({route}) {
       return
     let newAlert = ""
     if (productData['allergen_alert'])
-        newAlert = alert + "Contains Allergens\n"
+        newAlert = alert + translations["AllergenAlert"][lang];
     if (productData['vegan_alert']) {
-        newAlert = alert + "Not Vegan\n"
+        newAlert = alert + translations["VeganAlert"][lang];
     } else if (productData['vegan_alert'] === null) {
-        newAlert = alert + "Maybe Vegan\n"
+        newAlert = alert + translations["MaybeVeganAlert"][lang];
         if (productData['vegetarian_alert']) {
-            newAlert = alert + "Not Vegetarian\n"
+            newAlert = alert + translations["VegetarianAlert"][lang];
         } else if (productData['vegetarian_alert'] === null) {
-            newAlert = alert + "Maybe Vegetarian\n"
+            newAlert = alert + translations["MaybeVegetarianAlert"][lang];
         }
     } else if (productData['vegetarian_alert']) {
-        newAlert = alert + "Not Vegetarian\n"
+        newAlert = alert + translations["VegetarianAlert"][lang]
     } else if (productData['vegetarian_alert'] === null) {
-        newAlert = alert + "Maybe Vegetarian\n"
+        newAlert = alert + translations["MaybeVegetarianAlert"][lang]
     }
     modalVisibleRef.current = modalVisible
     if (newAlert !== "") {

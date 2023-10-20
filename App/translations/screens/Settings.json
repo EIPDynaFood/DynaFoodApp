@@ -102,5 +102,37 @@
     "es" : "",
     "pt" : "",
     "it" : ""
+  },
+  "AlertTitle": {
+  "de": "Bist du sicher?",
+  "en": "Are you sure?",
+  "fr": "",
+  "es": "",
+  "pt": "",
+  "it": ""
+},
+  "AlertMessage": {
+    "de": "Du löscht gerade deinen Account!",
+    "en": "You are about to delete your account!",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "AlertYes": {
+    "de": "Ja",
+    "en": "Yes",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "AlertNo": {
+    "de": "Nein",
+    "en": "No",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
   }
 }
