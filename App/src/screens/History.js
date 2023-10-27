@@ -13,6 +13,7 @@ import APIRoute from "../../API";
 import axios from "axios";
 import {endpoint} from "../../config";
 import _ from "lodash";
+import BookmarkSwitch from "../components/BookmarkSwitch";
 
 export default function History() {
   const navigation = useNavigation();
@@ -20,10 +21,11 @@ export default function History() {
   const translations = require("../../translations/screens/History.json")
   const {lang} = useLang();
 
-  const [historyData, setHistoryData] = useState(null)
-  const [trendBarData, setTrendBarData] = useState(null)
+  const [historyData, setHistoryData] = useState(null);
+  const [trendBarData, setTrendBarData] = useState(null);
   const [trendBarLoaded, setTrendBarLoaded] = useState(false);
   const [historyLoaded, setHistoryLoaded] = useState(false);
+  const [showBookmarks, setShowBookmarks] = useState(false);
 
   const getHistoryData = (() => {
     APIRoute(() => axios.get(endpoint + 'history').then((res) => {
@@ -56,7 +58,7 @@ export default function History() {
   useEffect(() => {
     getHistoryData()
     getTrendBarData()
-  }, [])
+  }, [showBookmarks])
 
   return (
       <>
@@ -71,10 +73,13 @@ export default function History() {
             <TrendBar data={trendBarData} setLoaded={setTrendBarLoaded}/>
         </View>
         <View style={{alignSelf: 'center', width: '90%', flex: 1}}>
+          <View style={{flexDirection: "row", alignItems: "center"}}>
             <Text style={styles.headlineStyle}>
-                {translations["ProductText"][lang]}
+              {translations[showBookmarks ? "BookmarkText" : "ProductText"][lang]}
             </Text>
-            <ProductHistory data={historyData} setLoaded={setHistoryLoaded}/>
+            <BookmarkSwitch set={setShowBookmarks}/>
+          </View>
+          <ProductHistory data={historyData} bookmarked={showBookmarks}/>
         </View>
           </ScrollView>
           <FAB

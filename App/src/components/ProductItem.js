@@ -13,7 +13,7 @@ export default function ProductItem(itemData) {
   const navigation = useNavigation();
 
   const translations = require("../../translations/components/ProductItem.json");
-  const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(itemData.bookmarked);
   const {lang} = useLang()
 
     const [show, setShow] = useState(true)
@@ -29,7 +29,27 @@ export default function ProductItem(itemData) {
   };
 
   const setBookmark = () => {
-    setIsBookmarked(!isBookmarked);
+    if (!isBookmarked) {
+      APIRoute(() => axios.post(endpoint + 'bookmark/' + itemData.barcode).then(() =>
+          setIsBookmarked(!isBookmarked)
+      ).catch((err) => {
+        if (err.response.status === 401) {
+          throw(err)
+        }
+        alert(translations["Error"][lang] + err.message);
+        console.log(err);
+      }));
+    } else {
+      APIRoute(() => axios.delete(endpoint + 'bookmark/' + itemData.barcode).then(() =>
+          setIsBookmarked(!isBookmarked)
+      ).catch((err) => {
+        if (err.response.status === 401) {
+          throw(err)
+        }
+        alert(translations["Error"][lang] + err.message);
+        console.log(err);
+      }));
+    }
   }
 
     return (show ? <View style={styles.productItem}>
