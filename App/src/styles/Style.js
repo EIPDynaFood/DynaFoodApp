@@ -295,7 +295,8 @@ export const styles = StyleSheet.create({
           flexDirection: 'row',
           justifyContent: 'space-evenly',
           alignItems: 'center',
-          marginVertical: 10,
+          marginTop: 35,
+          marginBottom: 10,
           paddingHorizontal: 20,
       },
       gradientStyle: {
@@ -310,7 +311,7 @@ export const styles = StyleSheet.create({
         paddingRight: 16,
         paddingTop: 91,
         backgroundColor: "#E2E6DB",
-
+        height: "100%",
       },
       wrapperStyleTable: {
         paddingLeft: 16,
@@ -333,7 +334,7 @@ export const styles = StyleSheet.create({
         paddingRight: 15,
       },
       headlineStyle: {
-        fontSize: 21,
+        fontSize: 24,
         fontWeight: 'bold',
       },
       trendBar: {

@@ -14,6 +14,7 @@ import axios from "axios";
 import {endpoint} from "../../config";
 import _ from "lodash";
 import BookmarkSwitch from "../components/BookmarkSwitch";
+import {MaterialIcons} from "@expo/vector-icons";
 
 export default function History() {
   const navigation = useNavigation();
@@ -81,10 +82,14 @@ export default function History() {
           </View>
           <ProductHistory data={historyData} bookmarked={showBookmarks}/>
         </View>
+              <View style={{marginTop: 10, width: "100%", backgroundColor: "#FFFFFF", borderTopWidth: 1, borderColor: "#2E4D44"}}>
+                <Text style={{fontWeight: 'bold', textAlign: "center", paddingVertical: 10}}>Made with <MaterialIcons name="favorite" size={15} color="#DB3A34" /> in Epitech Berlin!</Text>
+              </View>
           </ScrollView>
           <FAB
-              color="black"
-              icon={<Icon name='barcode-scan' color="white" size={20}/>}
+              color="#376D55"
+
+              icon={<Icon name='barcode-scan' color="white" size={24}/>}
               style={styles.FABStyle}
               onPress={() => {
                 navigation.navigate('Scanner')

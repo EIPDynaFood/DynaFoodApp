@@ -1,4 +1,4 @@
-import {Text, View, Image, TouchableWithoutFeedback, Modal} from "react-native";
+import {Text, View, Image, TouchableWithoutFeedback, Modal, ScrollView} from "react-native";
 import React, {useEffect, useRef, useState} from "react";
 import { styles } from "../styles/Style";
 import ProgressBar from "../components/ProgressBar";
@@ -94,7 +94,8 @@ export default function ProductGeneralInfo({route}) {
   }
 
   return (
-      <>
+      <View style={{flex: 1, height: '100%', justifyContent: "space-around"}}>
+      <ScrollView style={{flex: 1, height: '100%'}} contentContainerStyle={{flexGrow: 1}}>
         {alert !== "" ? <Alert message={alert} setModalVisible={setModalVisible}
                                visible={modalVisible}/>
             : <></>
@@ -119,13 +120,14 @@ export default function ProductGeneralInfo({route}) {
           alignItems: 'center',
         }}>
 
-          <Text numberOfLines={1}
+          <Text numberOfLines={2}
                 adjustsFontSizeToFit
-                style={styles.headlineStyle}>{productData["name"]}</Text>
-          <View style={{flexDirection: "row"}}>
+                style={[styles.headlineStyle, {paddingTop: 10, textAlign: 'center'}]}>{productData["name"]}</Text>
+          <View style={{flexDirection: "row", paddingTop: 0,}}>
             {alert !== "" ?
                 [<MaterialIcons name="warning" size={20} color="#DB3A34" />,
             <Text> {alert}</Text>] : null}
+
           </View>
           <View style={styles.bottomContainer}>
             <Image source={nutriImage}
@@ -133,7 +135,7 @@ export default function ProductGeneralInfo({route}) {
             <Image source={ecoImage}
                    style={styles.ecoScoreStyle}/>
           </View>
-          <View style={styles.mainContainerStyleInfo}>
+          <View style={[styles.mainContainerStyleInfo, {marginBottom: 10}]}>
             <Text style={[styles.ingredientStyle, {fontWeight: "bold", paddingTop: 16}]}>Ingredients:</Text>
             {ingredients !== "" ? <Text style={styles.ingredientStyle}>{ingredients}</Text> :
                 <Text style={styles.ingredientStyle}>/</Text>}
@@ -144,10 +146,13 @@ export default function ProductGeneralInfo({route}) {
               resizeMode={"contain"}/>
             </TouchableWithoutFeedback>
             </View>
+        </View>
+      </View>
+      </ScrollView>
 
-          <Modal visible={isImageEnlarged} transparent={true} onRequestClose={toggleImageSize}>
-            <TouchableWithoutFeedback onPress={toggleImageSize}>
-              <View style={{flex: 1,
+        <Modal visible={isImageEnlarged} transparent={true} onRequestClose={toggleImageSize}>
+          <TouchableWithoutFeedback onPress={toggleImageSize}>
+            <View style={{flex: 1,
               backgroundColor: 'rgba(0, 0, 0, 0.7)',
               justifyContent: 'center',
               alignItems: 'center',}}>
@@ -156,11 +161,8 @@ export default function ProductGeneralInfo({route}) {
                   style={{ width: '100%', height: '100%', resizeMode: 'contain' }}
               />
             </View>
-            </TouchableWithoutFeedback>
-          </Modal>
-        </View>
+          </TouchableWithoutFeedback>
+        </Modal>
       </View>
-      </>
-
   );
 }

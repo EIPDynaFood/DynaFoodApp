@@ -5,9 +5,9 @@ import { Svg, Path } from 'react-native-svg';
 const ProgressBar = ({ progress }) => {
     let color = '#3E8D6F';
 
-    if (progress < 30) {
+    if (progress < 33) {
         color = '#D93636';
-    } else if (progress >= 30 && progress <= 70) {
+    } else if (progress >= 33 && progress <= 66) {
         color = '#E6B82F';
     }
 

@@ -19,7 +19,6 @@ export default function ProductNutritionTable({route}) {
             <Text style={styles.tableHeadTextStyleTable}>{translations["Nutriments"][lang]}</Text>
             <Text style={styles.tableHeadTextStyleTable}>{translations["Unit"][lang]}</Text>
           </View>
-          <Divider/>
           <View style={styles.mainContainerStyle}>
             <FlatList data={arr}
                       keyExtractor={item => item[0]}

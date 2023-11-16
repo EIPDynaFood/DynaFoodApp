@@ -7,6 +7,7 @@ import { styles } from "../styles/Style";
 import useLang from "../../Language";
 import { endpoint } from '../../config';
 import APIRoute from "../../API";
+import RoundProgressBar from "./RoundProgressBar";
 
 
 export default function ProductItem(itemData) {
@@ -58,10 +59,13 @@ export default function ProductItem(itemData) {
           navigation.navigate('Product');
         }}>
           <View style={{flexDirection: "row", alignItems: "center"}}>
-            <Image
-                style={{width: 60, height: 60}}
-                source={{uri: itemData.img}}/>
-            <View style={{marginLeft: 10, width: '60%'}}>
+            <View style={{ position: 'relative' }}>
+              <RoundProgressBar progress={itemData.score} />
+              <Image
+                  style={{ position: 'absolute', top: 5, left: 5, width: 65, height: 65, borderRadius: 50 }}
+                  source={{ uri: itemData.img }}
+              />
+            </View><View style={{marginLeft: 10, width: '60%'}}>
               <Text
                   numberOfLines={2}
                   style={{fontSize: 15, fontWeight: 'bold', textAlignVertical: "center"}}>{itemData.name}</Text>

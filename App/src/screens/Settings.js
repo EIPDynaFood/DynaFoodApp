@@ -112,7 +112,7 @@ export default function Settings({navigation}) {
                             buttonStyle={[styles.secondaryButtonStyle, {width: "95%", alignSelf: "center"}]}
                             titleStyle={{color:"#376D55", flex:1}}
                             onPress={() => {
-                                navigation.navigate("Missing")
+                                navigation.navigate("MissingProduct")
                             }}
                         />
 
