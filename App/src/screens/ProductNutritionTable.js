@@ -12,6 +12,21 @@ export default function ProductNutritionTable({route}) {
   const {lang} = useLang();
 
   let arr = Object.entries(productData["nutriments_g_pro_100g"])
+    console.log(arr);
+
+  const getColor = (color) => {
+      switch (color) {
+          case 0:
+              return "#D93636";
+          case 1:
+              return "#E6B82F";
+          case 2:
+              return "#3E8D6F";
+              default:
+                  return "#000000";
+
+      }
+    }
 
     return (
         <View style={styles.wrapperStyleTable}>
@@ -25,7 +40,10 @@ export default function ProductNutritionTable({route}) {
                       renderItem={(({item}) =>
                         <View style={{flexDirection: "row", justifyContent: "space-between"}}>
                           <Text style={styles.nutrimentsTextStyle}>{item[1]["name"]}</Text>
-                          <Text style={styles.valuesTextStyle}>{item[1]["score"]}</Text>
+                          <Text style={[
+                              styles.valuesTextStyle,
+                              { color: item[1]["color"] ? getColor(item[1]["color"]) : "#000000" },
+                          ]}>{item[1]["score"]}</Text>
                         </View>)}
                       ItemSeparatorComponent={(() => <Divider/>)}/>
           </View>
