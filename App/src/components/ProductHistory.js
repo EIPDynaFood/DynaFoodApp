@@ -22,7 +22,7 @@ export default function ProductHistory(props) {
 
   useEffect(() => {
 
-    if (isFocused){
+    if (isFocused) {
       getHistoryData();
     }
   }, [isFocused, props.bookmarked]);

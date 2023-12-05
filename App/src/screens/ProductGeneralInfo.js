@@ -4,6 +4,11 @@ import { styles } from "../styles/Style";
 import ProgressBar from "../components/ProgressBar";
 import {MaterialIcons} from "@expo/vector-icons";
 import {Alert} from "../components/Alert";
+import {Icon} from "react-native-elements";
+import APIRoute from "../../API";
+import axios from "axios";
+import {endpoint} from "../../config";
+import useLang from "../../Language";
 
 export default function ProductGeneralInfo({route}) {
   const [alert, setAlert] = useState("")
@@ -11,6 +16,10 @@ export default function ProductGeneralInfo({route}) {
   const modalVisibleRef = useRef(modalVisible)
   const {productData} = route.params;
   const [isImageEnlarged, setIsImageEnlarged] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(productData['bookmarked']);
+
+  const translations = require("../../translations/components/ProductItem.json");
+  const {lang} = useLang()
 
   const toggleImageSize = () => {
     setIsImageEnlarged((prevState) => !prevState);
@@ -93,6 +102,31 @@ export default function ProductGeneralInfo({route}) {
       ecoImage = require("../../assets/eco-scores/eco-score-unknown.png");
   }
 
+  const setBookmark = () => {
+      const barcode = localStorage.getItem("productCode");
+    if (!isBookmarked) {
+      APIRoute(() => axios.post(endpoint + 'bookmark/' + barcode).then(() =>
+          setIsBookmarked(!isBookmarked)
+      ).catch((err) => {
+        if (err.response.status === 401) {
+          throw(err)
+        }
+        alert(translations["Error"][lang] + err.message);
+        console.log(err);
+      }));
+    } else {
+      APIRoute(() => axios.delete(endpoint + 'bookmark/' + barcode).then(() =>
+          setIsBookmarked(!isBookmarked)
+      ).catch((err) => {
+        if (err.response.status === 401) {
+          throw(err)
+        }
+        alert(translations["Error"][lang] + err.message);
+        console.log(err);
+      }));
+    }
+  }
+
   return (
       <View style={{flex: 1, height: '100%', justifyContent: "space-around"}}>
       <ScrollView style={{flex: 1, height: '100%'}} contentContainerStyle={{flexGrow: 1}}>
@@ -119,11 +153,13 @@ export default function ProductGeneralInfo({route}) {
           backgroundColor: '#FFFFFF',
           alignItems: 'center',
         }}>
-
+        <View style={{flexDirection: "row", alignItems: "center", marginHorizontal: 20}}>
           <Text numberOfLines={2}
                 adjustsFontSizeToFit
                 style={[styles.headlineStyle, {paddingTop: 10, textAlign: 'center'}]}>{productData["name"]}</Text>
-          <View style={{flexDirection: "row", paddingTop: 0,}}>
+          <Icon name={isBookmarked ? 'bookmark' : 'bookmark-outline'} size={25} containerStyle={{marginLeft: 5, paddingTop: 10}} onPress={setBookmark}/>
+        </View>
+          <View style={{flexDirection: "row", paddingTop: 0}}>
             {alert !== "" ?
                 [<MaterialIcons name="warning" size={20} color="#DB3A34" />,
             <Text> {alert}</Text>] : null}

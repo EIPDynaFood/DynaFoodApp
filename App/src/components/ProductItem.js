@@ -2,7 +2,7 @@ import {useNavigation} from "@react-navigation/native";
 import axios from "axios";
 import {Image, Text, TouchableOpacity, View} from "react-native";
 import {Icon} from "react-native-elements";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { styles } from "../styles/Style";
 import useLang from "../../Language";
 import { endpoint } from '../../config';
@@ -15,7 +15,11 @@ export default function ProductItem(itemData) {
 
   const translations = require("../../translations/components/ProductItem.json");
   const [isBookmarked, setIsBookmarked] = useState(itemData.bookmarked);
-  const {lang} = useLang()
+  const {lang} = useLang();
+
+  useEffect(() => {
+    setIsBookmarked(itemData.bookmarked)
+  }, [itemData.bookmarked]);
 
     const [show, setShow] = useState(true)
   const deleteHistoryItem = () => {
