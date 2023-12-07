@@ -1,10 +1,10 @@
-import {Text, View, Image, TouchableWithoutFeedback, Modal, ScrollView} from "react-native";
+import {Text, View, Image, TouchableWithoutFeedback, Modal, ScrollView, FlatList} from "react-native";
 import React, {useEffect, useRef, useState} from "react";
 import { styles } from "../styles/Style";
 import ProgressBar from "../components/ProgressBar";
 import {MaterialIcons} from "@expo/vector-icons";
 import {Alert} from "../components/Alert";
-import {Icon} from "react-native-elements";
+import {Divider, Icon} from "react-native-elements";
 import APIRoute from "../../API";
 import axios from "axios";
 import {endpoint} from "../../config";
@@ -16,9 +16,10 @@ export default function ProductGeneralInfo({route}) {
   const modalVisibleRef = useRef(modalVisible)
   const {productData} = route.params;
   const [isImageEnlarged, setIsImageEnlarged] = useState(false);
+  const [scoreDescriptionShowed, setScoreDescriptionShowed] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(productData['bookmarked']);
 
-  const translations = require("../../translations/components/ProductItem.json");
+  const translations = require("../../translations/screens/ProductGeneralInfo.json");
   const {lang} = useLang()
 
   const toggleImageSize = () => {
@@ -127,6 +128,20 @@ export default function ProductGeneralInfo({route}) {
     }
   }
 
+  const showDetails = () => {
+    console.log(productData);
+    setScoreDescriptionShowed(!scoreDescriptionShowed);
+  }
+
+  const getColor = (value) => {
+    if (value.startsWith("+"))
+      return "#3E8D6F";
+    else if (value.startsWith("-"))
+      return "#D93636";
+    else
+        return "#000000";
+  }
+
   return (
       <View style={{flex: 1, height: '100%', justifyContent: "space-around"}}>
       <ScrollView style={{flex: 1, height: '100%'}} contentContainerStyle={{flexGrow: 1}}>
@@ -142,7 +157,7 @@ export default function ProductGeneralInfo({route}) {
           zIndex: 1,
         }}>
 
-        <ProgressBar progress={productData['score']}/>
+        <ProgressBar progress={productData['score']} onPress={showDetails}/>
         </View>
       <View style={styles.wrapperStyleInfo}>
         <View style={{
@@ -157,7 +172,7 @@ export default function ProductGeneralInfo({route}) {
           <Text numberOfLines={2}
                 adjustsFontSizeToFit
                 style={[styles.headlineStyle, {paddingTop: 10, textAlign: 'center'}]}>{productData["name"]}</Text>
-          <Icon name={isBookmarked ? 'bookmark' : 'bookmark-outline'} size={25} containerStyle={{marginLeft: 5, paddingTop: 10}} onPress={setBookmark}/>
+          <Icon name={isBookmarked ? 'bookmark' : 'bookmark-outline'} size={25} containerStyle={{marginLeft: 7, paddingTop: 10}} onPress={setBookmark}/>
         </View>
           <View style={{flexDirection: "row", paddingTop: 0}}>
             {alert !== "" ?
@@ -186,7 +201,8 @@ export default function ProductGeneralInfo({route}) {
       </View>
       </ScrollView>
 
-        <Modal visible={isImageEnlarged} transparent={true} onRequestClose={toggleImageSize}>
+        <Modal animationType="fade" visible={isImageEnlarged} transparent={true} onRequestClose={toggleImageSize}
+               statusBarTranslucent={true}>
           <TouchableWithoutFeedback onPress={toggleImageSize}>
             <View style={{flex: 1,
               backgroundColor: 'rgba(0, 0, 0, 0.7)',
@@ -197,6 +213,35 @@ export default function ProductGeneralInfo({route}) {
                   style={{ width: '100%', height: '100%', resizeMode: 'contain' }}
               />
             </View>
+          </TouchableWithoutFeedback>
+        </Modal>
+
+        <Modal animationType="fade"
+               transparent={true}
+               visible={scoreDescriptionShowed}
+               onRequestClose={() => {
+                 setScoreDescriptionShowed(!scoreDescriptionShowed);
+               }}
+               statusBarTranslucent={true}>
+          <TouchableWithoutFeedback onPress={() => setScoreDescriptionShowed(!scoreDescriptionShowed)}>
+          <View style={styles.centeredView}>
+            <View style={[styles.modalView, {height: "66%"}]}>
+              <Text style={[styles.tableHeadTextStyle, {fontSize: 20, fontWeight: "bold", width: '100%',
+                borderBottomWidth: 1,}]}>{translations["ScoreDescriptionHeadline"][lang]}</Text>
+              <Divider/>
+              <FlatList data={productData["score_description"]}
+                        keyExtractor={item => item[0]}
+                        renderItem={(({item}) =>
+                            <View style={{flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
+                              <Text style={[styles.nutrimentsTextStyle, {paddingLeft: 0 }]}>{item["reason"]}</Text>
+                              <Text style={[
+                                styles.valuesTextStyle,
+                                { color: getColor(item["value"]), paddingRight: 5 },
+                              ]}>{item["value"]}</Text>
+                            </View>)}
+                        ItemSeparatorComponent={(() => <Divider/>)}/>
+            </View>
+          </View>
           </TouchableWithoutFeedback>
         </Modal>
       </View>

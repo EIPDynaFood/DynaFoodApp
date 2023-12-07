@@ -38,5 +38,13 @@
     "es" : "",
     "pt" : "",
     "it" : ""
+  },
+  "ScoreDescriptionHeadline": {
+    "de": "Wie ist der Score berechnet?",
+    "en": "How is the score calculated?",
+    "fr": "",
+    "es" : "",
+    "pt" : "",
+    "it" : ""
   }
 }

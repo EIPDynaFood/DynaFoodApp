@@ -23,7 +23,6 @@ export default function ProductNutritionTable({route}) {
               return "#3E8D6F";
               default:
                   return "#000000";
-
       }
     }
 

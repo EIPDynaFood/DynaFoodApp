@@ -1,17 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import { Svg, Path } from 'react-native-svg';
+import {Icon} from "react-native-elements";
 
-const ProgressBar = ({ progress }) => {
+const ProgressBar = (props) => {
     let color = '#3E8D6F';
 
-    if (progress < 33) {
+    if (props.progress < 33) {
         color = '#D93636';
-    } else if (progress >= 33 && progress <= 66) {
+    } else if (props.progress >= 33 && props.progress <= 66) {
         color = '#E6B82F';
     }
 
-    const angle = (progress / 100) * 180;
+    const angle = (props.progress / 100) * 180;
     const x1 = 50 + 50 * Math.cos((180 * Math.PI) / 180);
     const y1 = 50 + 50 * Math.sin((180 * Math.PI) / 180);
     const x2 = 50 + 50 * Math.cos((180 + angle) * (Math.PI / 180));
@@ -21,9 +22,11 @@ const ProgressBar = ({ progress }) => {
     const path = `M${x1} ${y1} A50 50 0 ${angle > 180 ? 1 : 0} 1 ${x2} ${y2}`;
 
     return (
+        <TouchableOpacity onPress={props.onPress}>
         <View style={styles.container}>
             <View style={styles.background}>
-                <Text style={[styles.progressText, {color: color}]}>{progress}</Text>
+                <Text style={[styles.progressText, {color: color}]}>{props.progress}</Text>
+                <Icon name={'info-outline'} size={20} color={"#a9a9a9"} containerStyle={{marginLeft: 2}}/>
             </View>
             <Svg width="100%" height="100%" viewBox="0 0 100 100">
                 <Path
@@ -34,6 +37,7 @@ const ProgressBar = ({ progress }) => {
                 />
             </Svg>
         </View>
+        </TouchableOpacity>
     );
 };
 
@@ -58,10 +62,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         justifyContent: 'center',
         alignItems: 'center',
+        flexDirection: "row"
     },
     progressText: {
         fontSize: 36,
         fontWeight: 'bold',
+        paddingLeft: 22
     },
 });
 

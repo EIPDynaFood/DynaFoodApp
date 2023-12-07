@@ -157,8 +157,6 @@ export const styles = StyleSheet.create({
     mainContainerStyle: {
         backgroundColor: "#FFFFFF",
         height: "100%",
-        // flexDirection: "row",
-        // justifyContent: 'space-between',
         },
     tableHeadStyle: {
         fontSize: 20,
@@ -179,6 +177,7 @@ export const styles = StyleSheet.create({
     },
     nutrimentsTextStyle: {
         padding: 15,
+        maxWidth: "70%"
         },
     valuesTextStyle: {
         padding: 15,
