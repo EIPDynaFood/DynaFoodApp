@@ -149,17 +149,16 @@ export default function ProductGeneralInfo({route}) {
                                visible={modalVisible}/>
             : <></>
         }
+
+      <View style={styles.wrapperStyleInfo}>
         <View style={{flex: 1,
           position: 'absolute',
           top: 16,
           left: "50%",
-          marginLeft: -75,
-          zIndex: 1,
+          marginLeft: -59,
         }}>
-
-        <ProgressBar progress={productData['score']} onPress={showDetails}/>
+          <ProgressBar progress={productData['score']} onPress={showDetails}/>
         </View>
-      <View style={styles.wrapperStyleInfo}>
         <View style={{
           width: '100%',
           height: '100%',
@@ -167,12 +166,13 @@ export default function ProductGeneralInfo({route}) {
           borderTopRightRadius: 10,
           backgroundColor: '#FFFFFF',
           alignItems: 'center',
+          position: "relative",
         }}>
         <View style={{flexDirection: "row", alignItems: "center", marginHorizontal: 20}}>
           <Text numberOfLines={2}
                 adjustsFontSizeToFit
                 style={[styles.headlineStyle, {paddingTop: 10, textAlign: 'center'}]}>{productData["name"]}</Text>
-          <Icon name={isBookmarked ? 'bookmark' : 'bookmark-outline'} size={25} containerStyle={{marginLeft: 7, paddingTop: 10}} onPress={setBookmark}/>
+          <Icon name={isBookmarked ? 'bookmark' : 'bookmark-outline'} size={25} containerStyle={{marginLeft: 7, paddingTop: 10, zIndex: 99}} onPress={setBookmark}/>
         </View>
           <View style={{flexDirection: "row", paddingTop: 0}}>
             {alert !== "" ?

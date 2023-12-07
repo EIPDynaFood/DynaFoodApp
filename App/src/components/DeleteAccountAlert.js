@@ -2,8 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet, Modal, TouchableOpacity } from 'react-native';
 import useLang from "../../Language";
 
-
-
 const DeleteAccountAlert = ({ visible, onCancel, onConfirm }) => {
     const {lang} = useLang()
     const translations = require("../../translations/components/DeleteAccountAlert.json")
@@ -17,10 +15,10 @@ const DeleteAccountAlert = ({ visible, onCancel, onConfirm }) => {
           <Text style={styles.message}>{translations["Question"][lang]}</Text>
           <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} onPress={onCancel}>
-              <Text style={styles.buttonText}>{translations["Cancel"][lang]}</Text>
+              <Text style={styles.buttonTextCancel}>{translations["Cancel"][lang]}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={onConfirm}>
-              <Text style={styles.buttonText}>{translations["Confirm"][lang]}</Text>
+              <Text style={styles.buttonTextConfirm}>{translations["Confirm"][lang]}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -58,10 +56,15 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     paddingVertical: 10,
   },
-  buttonText: {
+  buttonTextConfirm: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: 'blue',
+    color: '#DB3A34',
+  },
+  buttonTextCancel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#376D55',
   },
 });
 

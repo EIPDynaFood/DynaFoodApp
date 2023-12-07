@@ -140,7 +140,7 @@ export default function Settings({navigation}) {
                             buttonStyle={[styles.secondaryButtonStyle, {width: "95%", alignSelf: "center", borderColor: "#DB3A34"}]}
                             titleStyle={{color:"#DB3A34", flex:1}}
                             onPress={() => {
-                                handleDeleteAccount()
+                                setShowAlert(true);
                             }}
                         />
 

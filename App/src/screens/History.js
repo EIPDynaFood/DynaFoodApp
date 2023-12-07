@@ -64,8 +64,8 @@ export default function History() {
   return (
       <>
       { trendBarLoaded && historyLoaded ?
-          (<View style={{height: "100%"}}>
-            <ScrollView>
+          (<View style={{height: "100%", flex: 1}}>
+            <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <ProductSearchBar/>
         <View style={styles.trendBar}>
             <Text style={[styles.headlineStyle, {paddingLeft: "5%"}]}>
@@ -82,8 +82,8 @@ export default function History() {
           </View>
           <ProductHistory data={historyData} bookmarked={showBookmarks}/>
         </View>
-              <View style={{marginTop: 10, width: "100%", backgroundColor: "#FFFFFF", borderTopWidth: 1, borderColor: "#2E4D44"}}>
-                <Text style={{fontWeight: 'bold', textAlign: "center", paddingVertical: 10}}>Made with <MaterialIcons name="favorite" size={15} color="#DB3A34" /> in Epitech Berlin!</Text>
+              <View style={{marginTop: 10, width: "100%", backgroundColor: "#FFFFFF", borderTopWidth: 1, borderColor: "#2E4D44", justifyContent: "flex-end"}}>
+                <Text style={{fontWeight: 'bold', textAlign: "center", paddingVertical: 10}}>Made with <MaterialIcons name="favorite" size={15} color="#DB3A34"/> in Epitech Berlin!</Text>
               </View>
           </ScrollView>
           <FAB

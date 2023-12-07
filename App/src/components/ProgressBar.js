@@ -22,11 +22,10 @@ const ProgressBar = (props) => {
     const path = `M${x1} ${y1} A50 50 0 ${angle > 180 ? 1 : 0} 1 ${x2} ${y2}`;
 
     return (
-        <TouchableOpacity onPress={props.onPress}>
         <View style={styles.container}>
             <View style={styles.background}>
-                <Text style={[styles.progressText, {color: color}]}>{props.progress}</Text>
-                <Icon name={'info-outline'} size={20} color={"#a9a9a9"} containerStyle={{marginLeft: 2}}/>
+                    <Text style={[styles.progressText, { color: color }]}>{props.progress}</Text>
+                    <Icon name={'info-outline'} size={20} color={"#a9a9a9"} containerStyle={{ marginLeft: 2 }} />
             </View>
             <Svg width="100%" height="100%" viewBox="0 0 100 100">
                 <Path
@@ -36,8 +35,14 @@ const ProgressBar = (props) => {
                     strokeWidth="12"
                 />
             </Svg>
+            <TouchableOpacity onPress={props.onPress} style={{ position: 'absolute',
+                paddingTop: 15,
+                top: 0,
+                width: 150,
+                height: 75,
+                borderTopLeftRadius: 75,
+                borderTopRightRadius: 75,}}/>
         </View>
-        </TouchableOpacity>
     );
 };
 
