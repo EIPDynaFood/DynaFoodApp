@@ -157,8 +157,6 @@ export const styles = StyleSheet.create({
     mainContainerStyle: {
         backgroundColor: "#FFFFFF",
         height: "100%",
-        // flexDirection: "row",
-        // justifyContent: 'space-between',
         },
     tableHeadStyle: {
         fontSize: 20,
@@ -179,6 +177,7 @@ export const styles = StyleSheet.create({
     },
     nutrimentsTextStyle: {
         padding: 15,
+        maxWidth: "70%"
         },
     valuesTextStyle: {
         padding: 15,
@@ -295,7 +294,8 @@ export const styles = StyleSheet.create({
           flexDirection: 'row',
           justifyContent: 'space-evenly',
           alignItems: 'center',
-          marginVertical: 10,
+          marginTop: 35,
+          marginBottom: 10,
           paddingHorizontal: 20,
       },
       gradientStyle: {
@@ -310,7 +310,7 @@ export const styles = StyleSheet.create({
         paddingRight: 16,
         paddingTop: 91,
         backgroundColor: "#E2E6DB",
-
+        height: "100%",
       },
       wrapperStyleTable: {
         paddingLeft: 16,
@@ -333,7 +333,7 @@ export const styles = StyleSheet.create({
         paddingRight: 15,
       },
       headlineStyle: {
-        fontSize: 21,
+        fontSize: 24,
         fontWeight: 'bold',
       },
       trendBar: {

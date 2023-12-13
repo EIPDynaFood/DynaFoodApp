@@ -22,17 +22,16 @@ export default function ProductHistory(props) {
 
   useEffect(() => {
 
-    if (isFocused){
-      getHistoryData()
+    if (isFocused) {
+      getHistoryData();
     }
-  }, [isFocused]);
+  }, [isFocused, props.bookmarked]);
 
   const getHistoryData = (() => {
-    APIRoute(() => axios.get(endpoint + 'history').then((res) => {
+    APIRoute(() => axios.get(endpoint + 'history?bookmarked=' + props.bookmarked).then((res) => {
       if (!_.isEqual(res.data, historyData)) {
         setHistoryData(res.data);
       }
-      props.setLoaded(true)
     }).catch((err) => {
       if (err.response.status === 401) {
         throw(err)
@@ -45,9 +44,7 @@ export default function ProductHistory(props) {
   return (
       <View style={{flex: 1}}>
         {(historyData.elements.length === 0) ? (
-                <TouchableOpacity style={styles.productHistory} onPress={() => {
-                  navigation.navigate('Scanner')
-                }}>
+                <TouchableOpacity style={styles.productHistory} onPress={() => navigation.navigate('Scanner')}>
                     <View style={styles.productItem}>
                       <View style={{marginLeft: 10, width: '60%'}}>
                         <Text
@@ -64,9 +61,11 @@ export default function ProductHistory(props) {
                   {historyData.elements.map((product) => <ProductItem
                       key={product.historyid}
                       name={product.productname}
+                      score={product.score}
                       img={product.picturelink}
                       barcode={product.barcode}
-                      historyId={product.historyid}/>)}
+                      historyId={product.historyid}
+                  bookmarked={product.bookmarked}/>)}
                 </View>
             )}
       </View>
