@@ -6,7 +6,6 @@ import mime from "mime";
 import MissingProductImages from '../components/MissingProductImages'
 import { endpoint } from '../../config';
 import APIRoute from "../../API";
-import useLang from "../../Language";
 
 
 export default function MissingProduct({ navigation }) {
@@ -18,17 +17,14 @@ export default function MissingProduct({ navigation }) {
 
     const formData = new FormData()
 
-    const translations = require("../../translations/screens/MissingProduct.json")
-    const {lang} = useLang()
-
-    const onRemove = uri => e => {
+    const onRemove = uri => () => {
         setImages(images.filter(image => image.uri !== uri));
     };
 
     const sendData = async () => {
         try {
             if (!barcode || !productName || !company || !size || !images) {
-                alert(translations["AlertFailure"][lang])
+                alert("Please fill 'Barcode', 'Product Name', 'Company', 'Size' and upload at least one picture to send information about a missing product.")
                 return
             }
             for (const image of images) {
@@ -48,7 +44,7 @@ export default function MissingProduct({ navigation }) {
                 body: formData
             };
             await APIRoute(fetch(endpoint + 'upload', options).then(() => {
-                alert(translations["AlertSuccess"][lang]);
+                alert(`Missing Product information about '${productName} ${size}' by '${company}' (barcode: '${barcode}') sended. Thanks for your help!`);
                 setImages([])
                 onChangeBarcode("")
                 onChangeProductName("")
@@ -106,6 +102,8 @@ export default function MissingProduct({ navigation }) {
                 base64: response.base64
             };
             setImages(prevImages => prevImages.concat(img));
+            // setDoc(response)
+
         }
         catch (err) {
             console.log(err)
@@ -117,26 +115,26 @@ export default function MissingProduct({ navigation }) {
         <>
             <View style={{alignItems: "center"}}>
                 <TextInput
-                    placeholder={translations["Barcode"][lang]}
+                    placeholder="Barcode..."
                     style={[styles.input, {width: "85%"}]}
                     onChangeText={onChangeBarcode}
                     value={barcode}
                     keyboardType="decimal-pad"
                 />
                 <TextInput
-                    placeholder={translations["ProductName"][lang]}
+                    placeholder="Product Name..."
                     style={[styles.input, {width: "85%"}]}
                     onChangeText={onChangeProductName}
                     value={productName}
                 />
                 <TextInput
-                    placeholder={translations["Company"][lang]}
+                    placeholder="Company..."
                     style={[styles.input, {width: "85%"}]}
                     onChangeText={onChangeCompany}
                     value={company}
                 />
                 <TextInput
-                    placeholder={translations["Size"][lang]}
+                    placeholder="Size... ex. (100g, 400ml)"
                     style={[styles.input, {width: "85%"}]}
                     onChangeText={onChangeSize}
                     value={size}
@@ -147,14 +145,14 @@ export default function MissingProduct({ navigation }) {
                 style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
                     marginTop: 5, marginBottom: 9, backgroundColor: '#ffff'}]}
             >
-                <Text style={[styles.textSign, { color: '#376D55'}]}>{translations["OpenCamera"][lang]}</Text>
+                <Text style={[styles.textSign, { color: '#376D55'}]}>Open Camera</Text>
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={uploader}
                 style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
                     marginTop: 5, marginBottom: 9, backgroundColor: '#ffff'}]}
             >
-                <Text style={[styles.textSign, { color: '#376D55'}]}>{translations["UploadPicture"][lang]}</Text>
+                <Text style={[styles.textSign, { color: '#376D55'}]}>Upload Image</Text>
             </TouchableOpacity>
             <MissingProductImages onRemove={onRemove} images={images}></MissingProductImages>
             <TouchableOpacity
@@ -162,7 +160,7 @@ export default function MissingProduct({ navigation }) {
                 style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
                     marginTop: 5, marginBottom: 9, backgroundColor: '#ffff'}]}
             >
-                <Text style={[styles.textSign, { color: '#376D55'}]}>{translations["Submit"][lang]}</Text>
+                <Text style={[styles.textSign, { color: '#376D55'}]}>Send</Text>
             </TouchableOpacity>
         </>
     );

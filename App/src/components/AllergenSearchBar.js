@@ -76,10 +76,8 @@ export default function AllergenSearchBar() {
                 data: data,
             };
             APIRoute(() => axios(config)
-                .then(function (response) {
+                .then(function () {
                     setSelectedItems([...selectedItems, item]);
-                    setSearchQuery("");
-                    setSearchResults([]);
                 })
                 .catch(function (error) {
                     if (error.response.status === 401)
@@ -89,12 +87,10 @@ export default function AllergenSearchBar() {
                 }));
         } else {
             APIRoute(() => axios.delete(endpoint + "settings", {headers: {}, data: {'restrictionName': `${item}`}})
-                .then(function (response) {
+                .then(function () {
                     const newSelectedItems = [...selectedItems];
                     newSelectedItems.splice(index, 1);
                     setSelectedItems(newSelectedItems);
-                    setSearchQuery("");
-                    setSearchResults([]);
                 })
                 .catch(function (error) {
                     if (error.response.status === 401)
