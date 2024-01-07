@@ -30,5 +30,37 @@
      "es": "Guardar", 
      "pt": "Guardar", 
      "it": "Risparmiare" 
-   } 
+   },
+  "AlertTitle": {
+    "de": "Bist du sicher?",
+    "en": "Are you sure?",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "AlertMessage": {
+    "de": "Du löscht gerade deine ganze Liste.",
+    "en": "You are about to delete your entire list.",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "AlertYes": {
+    "de": "Ja",
+    "en": "Yes",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  },
+  "AlertNo": {
+    "de": "Nein",
+    "en": "No",
+    "fr": "",
+    "es": "",
+    "pt": "",
+    "it": ""
+  }
 }
