@@ -26,7 +26,8 @@ export default function Product({navigation}) {
     APIRoute(() => axios.get(endpoint + "products/barcode/" + productCode).then((res) => {
       if (res.status === 204) { // no data to return
         alert(translations["Unknown"][lang]);
-        navigation.navigate('MissingProduct')
+        navigation.pop();
+        navigation.navigate('MissingProduct');
       } else {
         setProductData(res.data);
       }
