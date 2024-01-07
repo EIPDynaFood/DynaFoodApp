@@ -12,6 +12,7 @@ export default function ProductNutritionTable({route}) {
   const {lang} = useLang();
 
   let arr = Object.entries(productData["nutriments_g_pro_100g"])
+    console.log(arr)
 
     return (
         <View style={styles.wrapperStyleTable}>
