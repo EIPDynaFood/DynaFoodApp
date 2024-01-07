@@ -1,17 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import { Svg, Path } from 'react-native-svg';
+import {Icon} from "react-native-elements";
 
-const ProgressBar = ({ progress }) => {
+const ProgressBar = (props) => {
     let color = '#3E8D6F';
 
-    if (progress < 30) {
+    if (props.progress < 33) {
         color = '#D93636';
-    } else if (progress >= 30 && progress <= 70) {
+    } else if (props.progress >= 33 && props.progress <= 66) {
         color = '#E6B82F';
     }
 
-    const angle = (progress / 100) * 180;
+    const angle = (props.progress / 100) * 180;
     const x1 = 50 + 50 * Math.cos((180 * Math.PI) / 180);
     const y1 = 50 + 50 * Math.sin((180 * Math.PI) / 180);
     const x2 = 50 + 50 * Math.cos((180 + angle) * (Math.PI / 180));
@@ -23,7 +24,8 @@ const ProgressBar = ({ progress }) => {
     return (
         <View style={styles.container}>
             <View style={styles.background}>
-                <Text style={[styles.progressText, {color: color}]}>{progress}</Text>
+                    <Text style={[styles.progressText, { color: color }]}>{props.progress}</Text>
+                    <Icon name={'info-outline'} size={20} color={"#a9a9a9"} containerStyle={{ marginLeft: 2 }} />
             </View>
             <Svg width="100%" height="100%" viewBox="0 0 100 100">
                 <Path
@@ -33,6 +35,13 @@ const ProgressBar = ({ progress }) => {
                     strokeWidth="12"
                 />
             </Svg>
+            <TouchableOpacity onPress={props.onPress} style={{ position: 'absolute',
+                paddingTop: 15,
+                top: 0,
+                width: 150,
+                height: 75,
+                borderTopLeftRadius: 75,
+                borderTopRightRadius: 75,}}/>
         </View>
     );
 };
@@ -58,10 +67,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         justifyContent: 'center',
         alignItems: 'center',
+        flexDirection: "row"
     },
     progressText: {
         fontSize: 36,
         fontWeight: 'bold',
+        paddingLeft: 22
     },
 });
 

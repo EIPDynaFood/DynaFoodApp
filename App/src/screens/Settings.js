@@ -1,9 +1,9 @@
-import {React} from "react";
+import {React, useState} from "react";
 import {
     Linking,
     View,
     ScrollView,
-    Text, Alert,
+    Text,
 } from 'react-native';
 import {Button, Divider} from "react-native-elements";
 import { styles } from "../styles/Style";
@@ -12,6 +12,7 @@ import { endpoint } from '../../config';
 import LanguageDropdown from "../components/LanguageDropdown";
 import ThreeStateSlider from "../components/ThreeStateSlider";
 import AllergenSearchBar from "../components/AllergenSearchBar";
+import DeleteAccountAlert from "../components/DeleteAccountAlert";
 import * as SecureStore from 'expo-secure-store';
 import axios from "axios";
 import APIRoute from "../../API";
@@ -28,6 +29,7 @@ export default function Settings({navigation}) {
         })
     }
 
+    const [showAlert, setShowAlert] = useState(false);
 
     const handleDeleteAccount = () => {
         var email = localStorage.getItem('email');
@@ -58,6 +60,7 @@ export default function Settings({navigation}) {
 
     return (
             <ScrollView style={styles.wrapperStyle} nestedScrollEnabled = {true}>
+                <DeleteAccountAlert visible={showAlert} onCancel={() => {setShowAlert(false)}} onConfirm={handleDeleteAccount}/>
                 <View style={[styles.mainContainerStyle, {backgroundColor: '#FFFFFF'}]}>
                     <View style={{marginTop: 15, marginBottom: 15}}>
                         <View style={{flexDirection: "row", alignItems:"center", justifyContent: "center"}}>
@@ -137,23 +140,7 @@ export default function Settings({navigation}) {
                             buttonStyle={[styles.secondaryButtonStyle, {width: "95%", alignSelf: "center", borderColor: "#DB3A34"}]}
                             titleStyle={{color:"#DB3A34", flex:1}}
                             onPress={() => {
-                                Alert.alert(
-                                    translations["AlertTitle"][lang],
-                                    translations["AlertMessage"][lang],
-                                    [
-                                        {
-                                            text: translations["AlertNo"][lang],
-                                            onPress: () => {},
-                                        },
-                                        {
-                                            text: translations["AlertYes"][lang],
-                                            onPress: () => {
-                                                handleDeleteAccount();
-                                            },
-                                        },
-                                    ],
-                                    { cancelable: false }
-                                );
+                                setShowAlert(true);
                             }}
                         />
 

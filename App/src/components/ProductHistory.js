@@ -22,7 +22,7 @@ export default function ProductHistory(props) {
 
   useEffect(() => {
 
-    if (isFocused){
+    if (isFocused) {
       getHistoryData();
     }
   }, [isFocused, props.bookmarked]);
@@ -61,6 +61,7 @@ export default function ProductHistory(props) {
                   {historyData.elements.map((product) => <ProductItem
                       key={product.historyid}
                       name={product.productname}
+                      score={product.score}
                       img={product.picturelink}
                       barcode={product.barcode}
                       historyId={product.historyid}

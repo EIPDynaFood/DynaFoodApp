@@ -44,8 +44,8 @@ export default function Product({navigation}) {
           {productData === null ? (<LoadingSpinner/>) : (
             <Tab.Navigator
               screenOptions={{
-                tabBarInactiveTintColor: 'gray',
-                tabBarActiveTintColor: 'white',
+                tabBarInactiveTintColor: '#a9a9a9',
+                tabBarActiveTintColor: '#FFFFFF',
                 tabBarIndicatorStyle: { height: 0 },
               }}
             >
