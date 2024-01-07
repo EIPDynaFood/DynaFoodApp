@@ -17,7 +17,7 @@ export default function ShoppingList(props) {
     const [listName, setListName] = useState(props.name)
     const [modalVisible, setModalVisible] = useState(false)
     const deleteList = () => {
-        
+
         APIRoute(() => axios.delete(endpoint + 'shoppingList?listid=' + props.listId).then(() => {
             const newList = [...props.list]
             newList.splice(props.list.indexOf(props.product), 1);
@@ -54,13 +54,13 @@ export default function ShoppingList(props) {
     };
 
     return (<View key={props.key}>
-        <Modal animationType="slide"
-               transparent={true}
-               visible={modalVisible}
-               onRequestClose={() => {
-                   setModalVisible(!modalVisible);
-               }}
-               statusBarTranslucent={true}>
+            <Modal animationType="slide"
+                   transparent={true}
+                   visible={modalVisible}
+                   onRequestClose={() => {
+                       setModalVisible(!modalVisible);
+                   }}
+                   statusBarTranslucent={true}>
                 <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
                     <View style={styles.centeredView}>
                         <View style={[styles.modalView, {height: "35%"}]}>
@@ -82,42 +82,42 @@ export default function ShoppingList(props) {
                             />
                         </View>
                     </View>
-            </TouchableWithoutFeedback>
-        </Modal>
-        <View style={styles.shoppingList}>
+                </TouchableWithoutFeedback>
+            </Modal>
+            <View style={styles.shoppingList}>
                 <TouchableOpacity onPress={() => {
                     localStorage.setItem("shoppingList", JSON.stringify(props));
                     navigation.navigate("ShoppingListItems")
                 }} style={{flexGrow: 3}}>
                     <View>
                         <Text
-                        numberOfLines={1}
-                        style={{fontSize: 21, fontWeight: 'bold'}}>{props.name}</Text>
+                            numberOfLines={1}
+                            style={{fontSize: 21, fontWeight: 'bold'}}>{props.name}</Text>
                     </View>
                 </TouchableOpacity>
                 <View style={{flexDirection: "row"}}>
-                <Icon containerStyle={{marginRight: 15}} name='edit' onPress={() => setModalVisible(true)}/>
-                <Icon name='delete' onPress={() => {
-                    Alert.alert(
-                        'Are you sure?',
-                        'You are about to delete an entire list.', //translation missing??
-                        [
-                          {
-                            text: 'No',
-                            onPress: () => {},
-                          },
-                          {
-                            text: 'Yes',
-                            onPress: () => {
-                              deleteList()
-                            },
-                          },
-                        ],
-                        { cancelable: false }
-                      );
-                }}/>
+                    <Icon containerStyle={{marginRight: 15}} name='edit' onPress={() => setModalVisible(true)}/>
+                    <Icon name='delete' onPress={() => {
+                        Alert.alert(
+                            translations["AlertTitle"][lang],
+                            translations["AlertMessage"][lang],
+                            [
+                                {
+                                    text: translations["AlertNo"][lang],
+                                    onPress: () => {},
+                                },
+                                {
+                                    text: translations["AlertYes"][lang],
+                                    onPress: () => {
+                                        deleteList()
+                                    },
+                                },
+                            ],
+                            { cancelable: false }
+                        );
+                    }}/>
                 </View>
-        </View>
+            </View>
         </View>
     );
 }

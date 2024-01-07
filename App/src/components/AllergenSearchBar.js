@@ -76,8 +76,10 @@ export default function AllergenSearchBar() {
                 data: data,
             };
             APIRoute(() => axios(config)
-                .then(function () {
+                .then(function (response) {
                     setSelectedItems([...selectedItems, item]);
+                    setSearchQuery("");
+                    setSearchResults([]);
                 })
                 .catch(function (error) {
                     if (error.response.status === 401)
@@ -87,10 +89,12 @@ export default function AllergenSearchBar() {
                 }));
         } else {
             APIRoute(() => axios.delete(endpoint + "settings", {headers: {}, data: {'restrictionName': `${item}`}})
-                .then(function () {
+                .then(function (response) {
                     const newSelectedItems = [...selectedItems];
                     newSelectedItems.splice(index, 1);
                     setSelectedItems(newSelectedItems);
+                    setSearchQuery("");
+                    setSearchResults([]);
                 })
                 .catch(function (error) {
                     if (error.response.status === 401)
@@ -98,7 +102,7 @@ export default function AllergenSearchBar() {
                     alert(translations["ErrorSet"][lang] + '\n' + error.message);
                     console.log(error);
                 }));
-            }
+        }
     };
 
     return (
@@ -115,8 +119,8 @@ export default function AllergenSearchBar() {
             </TouchableOpacity>
             {searchResults.length === 0 ? <></> : <View style={styles.productResultsContainer}>{searchResults.map((result) => (
                 <TouchableOpacity key={result}
-                    style={[styles.productResultsItemContainer]}
-                    onPress={() => handleSelectItem(result)}
+                                  style={[styles.productResultsItemContainer]}
+                                  onPress={() => handleSelectItem(result)}
                 >
                     <Text style={styles.productResultItemText}>{result.charAt(0).toUpperCase() + result.slice(1)}</Text>
                 </TouchableOpacity>))}</View>}
