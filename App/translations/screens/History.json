@@ -23,6 +23,14 @@
     "pt" : "",
     "it" : ""
   },
+  "BookmarkText": {
+    "de": "Gespeichert",
+    "en": "Bookmarks",
+    "fr" : "",
+    "es" : "",
+    "pt" : "",
+    "it" : ""
+  },
   "ErrorHist": {
     "de": "Beim Abrufen Ihres Verlaufs ist ein Fehler aufgetreten",
     "en": "Something went wrong while getting your history",
