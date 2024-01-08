@@ -2,49 +2,49 @@
   "AllergenAlert": {
     "de": "Das Produkt enthält Allergene!",
     "en": "This product contains allergens!",
-    "fr": "",
-    "es" : "",
-    "pt" : "",
-    "it" : ""
+    "fr": "Ce produit contient des allergènes !",
+    "es" : "¡Este producto contiene alérgenos!",
+    "pt" : "Este produto contém alergénios!",
+    "it" : "Questo prodotto contiene allergeni!"
   },
   "VegetarianAlert": {
     "de": "Das Produkt ist nicht vegetarisch!",
     "en": "This product is not vegetarian!",
-    "fr": "",
-    "es" : "",
-    "pt" : "",
-    "it" : ""
+    "fr": "Ce produit n'est pas végétarien !",
+    "es" : "¡Este producto no es vegetariano!",
+    "pt" : "Este produto não é vegetariano!",
+    "it" : "Questo prodotto non è vegetariano!"
   },
   "MaybeVegetarianAlert": {
     "de": "Das Produkt ist vielleicht nicht vegetarisch!",
     "en": "This product is maybe not vegetarian!",
-    "fr": "",
-    "es" : "",
-    "pt" : "",
-    "it" : ""
+    "fr": "Ce produit n'est peut-être pas végétarien !",
+    "es" : "Este producto puede no ser vegetariano",
+    "pt" : "Este produto pode não ser vegetariano!",
+    "it" : "Questo prodotto forse non è vegetariano!"
   },
   "MaybeVeganAlert": {
     "de": "Das Produkt ist vielleicht nicht vegan!",
     "en": "This product is maybe not vegan!",
-    "fr": "",
-    "es" : "",
-    "pt" : "",
-    "it" : ""
+    "fr": "Ce produit n'est peut-être pas végétalien !",
+    "es" : "¡Este producto puede no ser vegano!",
+    "pt" : "Este produto pode não ser vegan!",
+    "it" : "Questo prodotto forse non è vegano!"
   },
   "VeganAlert": {
     "de": "Das Produkt ist nicht vegan!",
     "en": "This product is not vegan!",
-    "fr": "",
-    "es" : "",
-    "pt" : "",
-    "it" : ""
+    "fr": "Ce produit n'est pas végétalien !",
+    "es" : "¡Este producto no es vegano!",
+    "pt" : "Este produto não é vegan!",
+    "it" : "Questo prodotto non è vegano!"
   },
   "ScoreDescriptionHeadline": {
     "de": "Wie ist der Score berechnet?",
     "en": "How is the score calculated?",
-    "fr": "",
-    "es" : "",
-    "pt" : "",
-    "it" : ""
+    "fr": "Comment le score est-il calculé ?",
+    "es" : "¿Cómo se calcula la puntuación?",
+    "pt" : "Como é calculada a pontuação?",
+    "it" : "Come viene calcolato il punteggio?"
   }
 }

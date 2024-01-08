@@ -18,18 +18,18 @@
   "ProductText": {
     "de": "Verlauf",
     "en": "History",
-    "fr" : "",
-    "es" : "",
-    "pt" : "",
-    "it" : ""
+    "fr" : "Histoire",
+    "es" : "Historia",
+    "pt" : "História",
+    "it" : "La storia"
   },
   "BookmarkText": {
     "de": "Gespeichert",
     "en": "Bookmarks",
-    "fr" : "",
-    "es" : "",
-    "pt" : "",
-    "it" : ""
+    "fr" : "Signets",
+    "es" : "Marcadores",
+    "pt" : "Marcadores",
+    "it" : "Segnalibri"
   },
   "ErrorHist": {
     "de": "Beim Abrufen Ihres Verlaufs ist ein Fehler aufgetreten",

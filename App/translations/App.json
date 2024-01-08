@@ -2,89 +2,89 @@
   "Welcome": {
     "de": "Willkommen",
     "en": "Welcome",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Accueil",
+    "es": "Bienvenido",
+    "pt": "Bem-vindo",
+    "it": "Benvenuti"
   },
   "Login": {
-    "de": "Login",
-    "en": "Anmelden",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "de": "Anmelden",
+    "en": "Login",
+    "fr": "Connexion",
+    "es" : "Iniciar sesión",
+    "pt" : "Iniciar sessão",
+    "it" : "Accesso"
   },
   "Register": {
-    "de": "Registrierung",
+    "de": "Registrieren",
     "en": "Register",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Enregistrez",
+    "es" : "Registrarse",
+    "pt" : "Registe-se",
+    "it" : "Registrazione"
   },
   "Reset Password": {
     "de": "Passwort zurücksetzen",
     "en": "Reset Password",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Réinitialiser le mot de passe",
+    "es": "Restablecer contraseña",
+    "pt": "Repor a palavra-passe",
+    "it": "Ripristinare la password"
   },
   "Scanner": {
     "de": "Scanner",
     "en": "Scanner",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Scanner",
+    "es": "Escáner",
+    "pt": "Scanner",
+    "it": "Scanner"
   },
   "Feedback": {
     "de": "Rückmeldung",
     "en": "Feedback",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Retour d'information",
+    "es": "Comentarios",
+    "pt": "Feedback",
+    "it": "Feedback"
   },
   "Product": {
     "de": "Produkt",
     "en": "Product",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Produit",
+    "es": "Producto",
+    "pt": "Produtos",
+    "it": "Prodotto"
   },
   "Settings": {
     "de": "Einstellungen",
     "en": "Settings",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Paramètres",
+    "es": "Configuración",
+    "pt": "Definições",
+    "it": "Impostazioni"
   },
   "Missing Product": {
     "de": "Fehlendes Produkt",
     "en": "Missing Product",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Produit manquant",
+    "es": "Producto perdido",
+    "pt": "Produto em falta",
+    "it": "Prodotto mancante"
   },
   "Shopping Lists": {
     "de": "Einkaufslisten",
     "en": "Shopping Lists",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Listes d'achats",
+    "es": "Listas de la compra",
+    "pt": "Listas de compras",
+    "it": "Elenchi degli acquisti"
   },
   "Shopping Items": {
     "de": "Einkaufsartikel",
     "en": "Shopping Items",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Articles d'achat",
+    "es": "Artículos de la compra",
+    "pt": "Itens de compras",
+    "it": "Articoli per lo shopping"
   }
 }

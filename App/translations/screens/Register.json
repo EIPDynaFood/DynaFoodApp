@@ -10,10 +10,10 @@
   "Success": {
     "de": "Du hast eine E-Mail erhalten, um deinen Account zu verifizieren.",
     "en": "You received an E-Mail to verify your account.",
-    "fr": "",
-    "es" : "",
-    "pt" : "",
-    "it" : ""
+    "fr": "Vous avez reçu un courriel pour vérifier votre compte.",
+    "es" : "Ha recibido un correo electrónico para verificar su cuenta.",
+    "pt" : "Recebeu um e-mail para verificar a sua conta.",
+    "it" : "Avete ricevuto un'e-mail per verificare il vostro account."
   },
   "Email": {
     "de": "E-Mail Adresse...",
@@ -42,18 +42,18 @@
   "PasswordInfo": {
     "de": "Dein Passwort bruacht mindestens 8 Zeichen mit einem Großbuchstaben, Kleinbuchstaben, Sonderzeichen und einer Nummer.",
     "en": "Your password need at least 8 characters with an uppercase letter, lowercase letter, special character and a number.",
-    "fr": "",
-    "es" : "",
-    "pt" : "",
-    "it" : ""
+    "fr": "Votre mot de passe doit comporter au moins 8 caractères dont une lettre majuscule, une lettre minuscule, un caractère spécial et un chiffre.",
+    "es" : "Su contraseña necesita al menos 8 caracteres con una letra mayúscula, una letra minúscula, un carácter especial y un número.",
+    "pt" : "A sua palavra-passe tem de ter pelo menos 8 caracteres com uma letra maiúscula, uma letra minúscula, um carácter especial e um número.",
+    "it" : "La password deve essere composta da almeno 8 caratteri con una lettera maiuscola, una lettera minuscola, un carattere speciale e un numero."
   },
   "NoMatch": {
     "de": "Die Passwörter stimmen nicht überein.",
     "en": "The passwords do not match.",
-    "fr": "",
-    "es" : "",
-    "pt" : "",
-    "it" : ""
+    "fr": "Les mots de passe ne correspondent pas.",
+    "es" : "Las contraseñas no coinciden.",
+    "pt" : "As palavras-passe não coincidem.",
+    "it" : "Le password non corrispondono."
   },
   "Register": {
     "de": "Registrieren",

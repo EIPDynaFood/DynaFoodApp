@@ -42,18 +42,18 @@
   "General": {
     "de": "Allgemein",
     "en": "General",
-    "fr": "",
-    "es" : "",
-    "pt" : "",
-    "it" : ""
+    "fr": "Général",
+    "es" : "General",
+    "pt" : "Geral",
+    "it" : "Generale"
   },
   "Feedback": {
     "de": "Rückmeldung",
     "en": "Feedback",
-    "fr": "",
-    "es" : "",
-    "pt" : "",
-    "it" : ""
+    "fr": "Retour d'information",
+    "es" : "Comentarios",
+    "pt" : "Feedback",
+    "it" : "Feedback"
   },
   "Account": {
     "de": "Konto",
@@ -66,18 +66,18 @@
   "Missing Product": {
     "de": "Fehlendes Produkt",
     "en": "Missing Product",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Produit manquant",
+    "es": "Falta producto",
+    "pt": "Produto em falta",
+    "it": "Prodotto mancante"
   },
   "Beta": {
     "de": "Beta Bewertung",
     "en": "Beta Feedback",
-    "fr": "",
-    "es" : "",
-    "pt" : "",
-    "it" : ""
+    "fr": "Commentaires sur la version bêta",
+    "es" : "Beta Feedback",
+    "pt" : "Comentários sobre a versão beta",
+    "it" : "Feedback sulla beta"
   },
   "Logout": {
     "de": "Ausloggen",
@@ -98,9 +98,9 @@
   "Delete": {
     "de": "Konto löschen",
     "en": "Delete Account",
-    "fr": "",
-    "es" : "",
-    "pt" : "",
-    "it" : ""
+    "fr": "Supprimer un compte",
+    "es" : "Eliminar cuenta",
+    "pt" : "Eliminar conta",
+    "it" : "Eliminazione dell'account"
   }
 }

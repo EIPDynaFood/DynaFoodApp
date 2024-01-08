@@ -2,10 +2,10 @@
   "Warning": {
     "de": "Warnung!",
     "en": "Warning!",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Attention!",
+    "es": "¡Atención!",
+    "pt": "Aviso!",
+    "it": "Attenzione!"
   },
    "Button": { 
      "de": "Verstanden", 

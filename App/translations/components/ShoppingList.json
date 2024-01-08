@@ -42,25 +42,25 @@
   "AlertMessage": {
     "de": "Du löscht gerade deine ganze Liste.",
     "en": "You are about to delete your entire list.",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Vous êtes sur le point de supprimer toute votre liste.",
+    "es": "Está a punto de borrar toda su lista.",
+    "pt": "Está prestes a apagar toda a sua lista.",
+    "it": "State per cancellare l'intero elenco."
   },
   "AlertYes": {
     "de": "Ja",
     "en": "Yes",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Oui",
+    "es": "Sí",
+    "pt": "Sim",
+    "it": "Sì"
   },
   "AlertNo": {
     "de": "Nein",
     "en": "No",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Non",
+    "es": "No",
+    "pt": "Não",
+    "it": "No"
   }
 }
