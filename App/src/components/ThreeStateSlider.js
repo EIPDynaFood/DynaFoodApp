@@ -33,7 +33,7 @@ export default function ThreeStateSlider(props) {
             .catch(function (error) {
                 if (error.response.status === 401)
                     throw(error);
-                alert(translations["Error"][lang] + '\n' + error.message);
+                alert(translations["Error"][lang] + '\n' + error.response.data.Error);
                 console.log(error);
             }));
     }, [])
@@ -57,7 +57,7 @@ export default function ThreeStateSlider(props) {
             .then().catch((err) => {
                 if (err.response.status === 401)
                     throw(err)
-                alert(translations["Error"][lang] + '\n' + error.message);
+                alert(translations["Error"][lang] + '\n' + error.response.data.Error);
             }))
             
     }

@@ -68,7 +68,7 @@ export default function Register() {
                         setEmailStyle({borderColor: "#DB3A34"})
                     if (error.response.data.reason === "password")
                         setPasswordStyle({borderColor: "#DB3A34"})
-                    alert(translations["Error"][lang] + error.message)
+                    alert(translations["Error"][lang] + error.response.data.Error)
                 })
     }
 

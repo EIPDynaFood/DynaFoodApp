@@ -33,7 +33,7 @@ export default function AllergenSearchBar() {
             .catch(function (error) {
                 if (error.response.status === 401)
                     throw(error)
-                alert(translations["ErrorAllergen"][lang] + '\n' + error.message);
+                alert(translations["ErrorAllergen"][lang] + '\n' + error.response.data.Error);
                 console.log(error);
 
             }));
@@ -47,7 +47,7 @@ export default function AllergenSearchBar() {
         }).catch((error) => {
             if (error.response.status === 401)
                 throw(error)
-            alert(translations["ErrorAllergen"][lang] + '\n' + error.message);
+            alert(translations["ErrorAllergen"][lang] + '\n' + error.response.data.Error);
         }))
     };
 
@@ -57,7 +57,7 @@ export default function AllergenSearchBar() {
         }).catch((error) => {
             if (error.response.status === 401)
                 throw(error)
-            alert(translations["ErrorAllergen"][lang] + '\n' + error.message);
+            alert(translations["ErrorAllergen"][lang] + '\n' + error.response.data.Error);
         }))
     };
 
@@ -84,7 +84,7 @@ export default function AllergenSearchBar() {
                 .catch(function (error) {
                     if (error.response.status === 401)
                         throw(error)
-                    alert(translations["ErrorSet"][lang] + '\n' + error.message);
+                    alert(translations["ErrorSet"][lang] + '\n' + error.response.data.Error);
                     console.log(error);
                 }));
         } else {
@@ -99,7 +99,7 @@ export default function AllergenSearchBar() {
                 .catch(function (error) {
                     if (error.response.status === 401)
                         throw(error)
-                    alert(translations["ErrorSet"][lang] + '\n' + error.message);
+                    alert(translations["ErrorSet"][lang] + '\n' + error.response.data.Error);
                     console.log(error);
                 }));
         }

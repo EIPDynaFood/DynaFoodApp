@@ -50,7 +50,7 @@ export default function Settings({navigation}) {
         }).catch((error) => {
             if (error.response.status === 401)
                     throw(error);
-            alert(translations["ErrorDel"][lang] + '\n' + error.message);
+            alert(translations["ErrorDel"][lang] + '\n' + error.response.data.Error);
         })).catch();
       };
 
