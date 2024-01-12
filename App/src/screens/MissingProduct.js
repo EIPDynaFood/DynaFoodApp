@@ -7,6 +7,7 @@ import MissingProductImages from '../components/MissingProductImages'
 import { endpoint } from '../../config';
 import APIRoute from "../../API";
 import useLang from "../../Language";
+import CameraCapture from "../components/CameraCapture";
 
 
 export default function MissingProduct({ navigation }) {
@@ -15,6 +16,7 @@ export default function MissingProduct({ navigation }) {
     const [productName, onChangeProductName] = useState("");
     const [size, onChangeSize] = useState("");
     const [company, onChangeCompany] = useState("");
+    const [cameraOpen, setCameraOpen] = useState(false);
 
     const formData = new FormData()
 
@@ -47,14 +49,13 @@ export default function MissingProduct({ navigation }) {
                 method: 'POST',
                 body: formData
             };
-            await APIRoute(fetch(endpoint + 'upload', options).then(() => {
+            await APIRoute(() => fetch(endpoint + 'upload', options).then(() => {
                 alert(translations["AlertSuccess"][lang]);
                 setImages([])
                 onChangeBarcode("")
                 onChangeProductName("")
                 onChangeCompany("")
                 onChangeSize("")
-                navigation.navigate('Scanner')
             }).catch((err) => {
                 if (err.response.status === 401)
                     throw(err);
@@ -69,41 +70,35 @@ export default function MissingProduct({ navigation }) {
         }
     }
 
-    const uploaderCam = async () => {
-        try {
-            const response = await ImagePicker.launchCameraAsync({quality: 1, mediaTypes: ImagePicker.MediaTypeOptions.All, allowsEditing: true, base64: true})
-            if (response.cancelled) {
-                return;
-            }
+    const openCamera = () => {
+        setCameraOpen(true);
+    }
+
+    const handleCapture = (capturedImage) => {
             const img = {
-                uri: response.uri,
-                name: response.uri.split('/').pop(),
-                type: response.type,
-                base64: response.base64
+                uri: capturedImage.uri,
+                name: capturedImage.uri.split('/').pop(),
+                type: `image/${capturedImage.uri.split('.').pop()}`, // Assuming the file extension is a valid image extension
+                base64: capturedImage.base64,
             };
             setImages(prevImages => prevImages.concat(img));
-
-        }
-        catch (err) {
-            console.log(err)
-            throw err
-        }
+            setCameraOpen(false);
     }
 
     const uploader = async () => {
         try {
-            const response = await ImagePicker.launchImageLibraryAsync({mediaTypes: ImagePicker.MediaTypeOptions.All,
+            const response = await ImagePicker.launchImageLibraryAsync({mediaTypes: ImagePicker.MediaTypeOptions.Images,
                 allowsEditing: true,
                 base64: true,
                 quality: 1,})
-            if (response.cancelled) {
+            if (response.canceled) {
                 return;
             }
             const img = {
-                uri: response.uri,
-                name: response.uri.split('/').pop(),
-                type: response.type,
-                base64: response.base64
+                uri: response.assets[0]["uri"],
+                name: response.assets[0]["uri"].split('/').pop(),
+                type: response.assets[0]["type"],
+                base64: response.assets[0]["base64"]
             };
             setImages(prevImages => prevImages.concat(img));
         }
@@ -114,7 +109,8 @@ export default function MissingProduct({ navigation }) {
     }
 
     return (
-        <>
+        <View style={{ flex: 1 }}>
+        {cameraOpen ? (<CameraCapture onCapture={handleCapture}/>) : (<>
             <View style={{alignItems: "center"}}>
                 <TextInput
                     placeholder={translations["Barcode"][lang]}
@@ -143,7 +139,7 @@ export default function MissingProduct({ navigation }) {
                 />
             </View>
             <TouchableOpacity
-                onPress={uploaderCam}
+                onPress={openCamera}
                 style={[styles.signIn, {borderColor: '#376D55', borderWidth: 1,
                     marginTop: 5, marginBottom: 9, backgroundColor: '#ffff'}]}
             >
@@ -164,6 +160,9 @@ export default function MissingProduct({ navigation }) {
             >
                 <Text style={[styles.textSign, { color: '#376D55'}]}>{translations["Submit"][lang]}</Text>
             </TouchableOpacity>
+
         </>
+        )}
+        </View>
     );
 }

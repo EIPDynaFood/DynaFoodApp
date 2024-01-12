@@ -490,5 +490,25 @@ export const styles = StyleSheet.create({
         height: '100%',
         justifyContent: 'center',
         alignItems: 'center'
-    }
+    },
+    camera: {
+        flex: 1,
+    },
+    captureButtonContainer: {
+        flex: 1,
+        backgroundColor: 'transparent',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginBottom: 20,
+    },
+    captureButton: {
+        width: 70,
+        height: 70,
+        borderRadius: 35,
+        backgroundColor: '#fff',
+        alignSelf: 'flex-end',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 20,
+    },
 })
