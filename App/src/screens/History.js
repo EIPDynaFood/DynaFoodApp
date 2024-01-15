@@ -30,11 +30,8 @@ export default function History() {
   const [currentPage, setCurrentPage] = useState(0);
 
   const getHistoryData = (() => {
-    APIRoute(() => axios.get(`${endpoint}history?bookmarked=${showBookmarks}&wanted=4&offset=0`).then((res) => {
-      if (!_.isEqual(res.data, historyData)) {
-        setHistoryData(res.data);
-      }
-      console.log("load outside");
+    APIRoute(() => axios.get(`${endpoint}history?bookmarked=${showBookmarks}&wanted=8&offset=0`).then((res) => {
+      setHistoryData(res.data)
       setHistoryLoaded(true);
     }).catch((err) => {
       if (err.response.status === 401) {
@@ -73,7 +70,6 @@ export default function History() {
           (<View style={{height: "100%", flex: 1}}>
             <ScrollView contentContainerStyle={{ flexGrow: 1 }} onScroll={({nativeEvent})=>{
               if(isCloseToBottom(nativeEvent)){
-                console.log("bottom reached");
                 setCurrentPage((prevPage) => prevPage + 1);
               }
             }} onEndReachedThreshold={0.1}>
@@ -82,7 +78,7 @@ export default function History() {
             <Text style={[styles.headlineStyle, {paddingLeft: "5%"}]}>
                 {translations["TrendText"][lang]}
             </Text>
-            <TrendBar data={trendBarData} setLoaded={setTrendBarLoaded}/>
+            <TrendBar data={trendBarData}/>
         </View>
         <View style={{alignSelf: 'center', width: '90%', flex: 1}}>
           <View style={{flexDirection: "row", alignItems: "center"}}>
@@ -91,7 +87,7 @@ export default function History() {
             </Text>
             <BookmarkSwitch set={setShowBookmarks}/>
           </View>
-          <ProductHistory bookmarked={showBookmarks} offset={currentPage} setOffset={setCurrentPage}/>
+          <ProductHistory data={historyData} bookmarked={showBookmarks} offset={currentPage} setOffset={setCurrentPage} setLoaded={setHistoryLoaded}/>
         </View>
               <View style={{marginTop: 10, width: "100%", backgroundColor: "#FFFFFF", borderTopWidth: 1, borderColor: "#2E4D44", justifyContent: "flex-end"}}>
                 <Text style={{fontWeight: 'bold', textAlign: "center", paddingVertical: 10}}>Made with <MaterialIcons name="favorite" size={15} color="#DB3A34"/> in Epitech Berlin!</Text>
