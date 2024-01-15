@@ -24,7 +24,10 @@ export default function Settings({navigation}) {
     function logoutUser() {
         SecureStore.deleteItemAsync('jwt').then(() => {
             SecureStore.deleteItemAsync('refreshToken').then(() => {
-                navigation.navigate("Login")
+                navigation.reset({
+                    index: 0,
+                    routes: [{ name: 'Login' }],
+                });
             })
         })
     }
@@ -43,7 +46,10 @@ export default function Settings({navigation}) {
                 setShowAlert(false);
                 SecureStore.deleteItemAsync('jwt').then(() => {
                     SecureStore.deleteItemAsync('refreshToken')});
-                navigation.navigate("Login");
+                navigation.reset({
+                    index: 0,
+                    routes: [{ name: 'Login' }],
+                });
             } else {
                 console.log(response.status)
             }

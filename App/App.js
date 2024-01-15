@@ -70,7 +70,7 @@ export function Navigation(props) {
                                   component={ResetPassword}/>
                     <Stack.Screen name="History" component={History}
                                   options={({navigation}) => ({
-                                      title: "DynaFood", headerLeft: () => null,
+                                      title: "DynaFood", headerLeft: null, headerBackVisible: false,
                                       headerRight: () => (
                                           <View style={{display: "flex", flexDirection: "row"}}>
                                               <View style={{right: 15}}>

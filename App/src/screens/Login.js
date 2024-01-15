@@ -29,7 +29,10 @@ export default function Login({navigation}) {
                     SecureStore.setItemAsync('refreshToken', response.data["refresh_token"]).then(() => {
                         onChangeEmail("");
                         onChangePassword("");
-                        navigation.navigate("History");
+                        navigation.reset({
+                            index: 0,
+                            routes: [{ name: 'History' }],
+                        });
                     });
                 });
             })
