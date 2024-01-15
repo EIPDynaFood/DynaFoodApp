@@ -1,10 +1,7 @@
 import useLang from "../../Language"
 import React, {useEffect, useState} from "react";
 import DropDownPicker from 'react-native-dropdown-picker'
-import {Image, SafeAreaView} from "react-native";
-import german from "../../assets/flags/germany.png";
-import english from "../../assets/flags/united-kingdom.png";
-import french from "../../assets/flags/france.png";
+import {Image} from "react-native";
 
 export default function LanguageDropdown() {
     const {lang, translate} = useLang()
@@ -41,6 +38,11 @@ export default function LanguageDropdown() {
             label: "",
             value: "es",
             icon: () => (<Image source={spanish} style={{width: 20, height: 20}}/>)
+        },
+        {
+            label: "",
+            value: "nt",
+            icon: () => (<Image source={dutch} style={{width: 20, height: 20}}/>)
         }
     ])
     const german = require("../../assets/flags/germany.png")
@@ -49,6 +51,7 @@ export default function LanguageDropdown() {
     const italian = require("../../assets/flags/italian.png")
     const spanish = require("../../assets/flags/spanish.png")
     const portuguese = require("../../assets/flags/portuguese.png");
+    const dutch = require("../../assets/flags/netherlands.png")
 
     useEffect(
         () => {
