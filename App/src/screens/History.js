@@ -2,7 +2,7 @@ import {Text, View, ScrollView} from "react-native";
 import React, {useEffect, useState} from "react";
 import {FAB} from 'react-native-elements';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import {useIsFocused, useNavigation} from "@react-navigation/native";
+import {useNavigation} from "@react-navigation/native";
 import TrendBar from "../components/Trendbar";
 import ProductHistory from "../components/ProductHistory";
 import useLang from "../../Language";
@@ -12,7 +12,6 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import APIRoute from "../../API";
 import axios from "axios";
 import {endpoint} from "../../config";
-import _ from "lodash";
 import BookmarkSwitch from "../components/BookmarkSwitch";
 import {MaterialIcons} from "@expo/vector-icons";
 
