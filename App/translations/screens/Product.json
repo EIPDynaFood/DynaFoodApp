@@ -5,7 +5,9 @@
     "fr": "Produit inconnu",
     "es" : "Producto desconocido",
     "pt" : "Produto desconhecido",
-    "it" : "Prodotto sconosciuto"
+    "it" : "Prodotto sconosciuto",
+    "nt": "Onbekend product"
+
   },
   "Error": {
     "de": "Etwas ist beim Laden der Produktdaten schiefgelaufen:\n",
@@ -13,6 +15,7 @@
     "fr": "Quelque chose s'est mal passé lors de l'obtention des données sur le produit :\n",
     "es" : "Algo ha ido mal al obtener datos sobre el producto:\n",
     "pt" : "Alguma coisa correu mal ao obter dados sobre o produto:\n",
-    "it" : "Qualcosa è andato storto nell'ottenere i dati sul prodotto:\n"
+    "it" : "Qualcosa è andato storto nell'ottenere i dati sul prodotto:\n",
+    "nt": "Er is iets misgegaan bij het verkrijgen van gegevens over het product:\n"
   }
 }

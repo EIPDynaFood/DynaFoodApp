@@ -5,7 +5,8 @@
     "fr": "Mauvaise identification de l'utilisateur :\n",
     "es" : "Credenciales de usuario incorrectas :\n",
     "pt" : "Credenciais de usuário erradas :\n",
-    "it" : "Credenziali utente errate :\n"
+    "it" : "Credenziali utente errate :\n",
+    "nt": "Inloggen mislukt:\n"
   },
   "Email": {
     "de": "E-Mail Adresse...",
@@ -13,7 +14,9 @@
     "fr": "Email...",
     "es" : "Correo electrónico...",
     "pt" : "Email...",
-    "it" : "Email..."
+    "it" : "Email...",
+    "nt": "E-mail..."
+
   },
   "Password": {
     "de": "Passwort...",
@@ -21,7 +24,9 @@
     "fr": "Mot de passe...",
     "es" : "Contraseña...",
     "pt" : "Senha...",
-    "it" : "Password..."
+    "it" : "Password...",
+    "nt": "Wachtwoord..."
+
   },
   "Login": {
     "de": "Einloggen",
@@ -29,7 +34,9 @@
     "fr": "Connexion",
     "es" : "Iniciar sesión",
     "pt" : "Login",
-    "it" : "Accesso"
+    "it" : "Accesso",
+    "nt": "Inloggen"
+
   },
   "Register": {
     "de": "Registrieren",
@@ -37,7 +44,9 @@
     "fr": "Enregistrez",
     "es" : "Registrarse",
     "pt" : "Registe-se",
-    "it" : "Registrazione"
+    "it" : "Registrazione",
+    "nt": "Registreren"
+
   },
   "Guest": {
     "de": "Als Gast anmelden",
@@ -45,7 +54,9 @@
     "fr": "Se connecter en tant qu'invité",
     "es" : "Iniciar sesión como invitado",
     "pt" : "Login como convidado",
-    "it" : "Accesso come ospite"
+    "it" : "Accesso come ospite",
+    "nt": "Inloggen als gast"
+
   },
   "Forgot": {
     "de": "Passwort vergessen",
@@ -53,6 +64,7 @@
     "fr": "Mot de passe oublié",
     "es" : "Contraseña olvidada",
     "pt" : "Esqueci-me da senha",
-    "it" : "Password dimenticata"
+    "it" : "Password dimenticata",
+    "nt": "Wachtwoord vergeten"
   }
 }

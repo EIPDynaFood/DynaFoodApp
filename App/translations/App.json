@@ -5,7 +5,9 @@
     "fr": "Accueil",
     "es": "Bienvenido",
     "pt": "Bem-vindo",
-    "it": "Benvenuti"
+    "it": "Benvenuti",
+    "nt": "Welkom"
+
   },
   "Login": {
     "de": "Anmelden",
@@ -13,7 +15,9 @@
     "fr": "Connexion",
     "es" : "Iniciar sesión",
     "pt" : "Iniciar sessão",
-    "it" : "Accesso"
+    "it" : "Accesso",
+    "nt": "Inloggen"
+
   },
   "Register": {
     "de": "Registrieren",
@@ -21,7 +25,9 @@
     "fr": "Enregistrez",
     "es" : "Registrarse",
     "pt" : "Registe-se",
-    "it" : "Registrazione"
+    "it" : "Registrazione",
+    "nt": "Registreren"
+
   },
   "Reset Password": {
     "de": "Passwort zurücksetzen",
@@ -29,7 +35,9 @@
     "fr": "Réinitialiser le mot de passe",
     "es": "Restablecer contraseña",
     "pt": "Repor a palavra-passe",
-    "it": "Ripristinare la password"
+    "it": "Ripristinare la password",
+    "nt": "Reset wachtwoord"
+
   },
   "Scanner": {
     "de": "Scanner",
@@ -37,7 +45,9 @@
     "fr": "Scanner",
     "es": "Escáner",
     "pt": "Scanner",
-    "it": "Scanner"
+    "it": "Scanner",
+    "nt": "Scanner"
+
   },
   "Feedback": {
     "de": "Rückmeldung",
@@ -45,7 +55,9 @@
     "fr": "Retour d'information",
     "es": "Comentarios",
     "pt": "Feedback",
-    "it": "Feedback"
+    "it": "Feedback",
+    "nt": "Feedback"
+
   },
   "Product": {
     "de": "Produkt",
@@ -53,7 +65,9 @@
     "fr": "Produit",
     "es": "Producto",
     "pt": "Produtos",
-    "it": "Prodotto"
+    "it": "Prodotto",
+    "nt": "Product"
+
   },
   "Settings": {
     "de": "Einstellungen",
@@ -61,7 +75,9 @@
     "fr": "Paramètres",
     "es": "Configuración",
     "pt": "Definições",
-    "it": "Impostazioni"
+    "it": "Impostazioni",
+    "nt": "Instellingen"
+
   },
   "Missing Product": {
     "de": "Fehlendes Produkt",
@@ -69,7 +85,9 @@
     "fr": "Produit manquant",
     "es": "Producto perdido",
     "pt": "Produto em falta",
-    "it": "Prodotto mancante"
+    "it": "Prodotto mancante",
+    "nt": "Ontbrekend product"
+
   },
   "Shopping Lists": {
     "de": "Einkaufslisten",
@@ -77,7 +95,9 @@
     "fr": "Listes d'achats",
     "es": "Listas de la compra",
     "pt": "Listas de compras",
-    "it": "Elenchi degli acquisti"
+    "it": "Elenchi degli acquisti",
+    "nt": "Winkellijsten"
+
   },
   "Shopping Items": {
     "de": "Einkaufsartikel",
@@ -85,6 +105,8 @@
     "fr": "Articles d'achat",
     "es": "Artículos de la compra",
     "pt": "Itens de compras",
-    "it": "Articoli per lo shopping"
+    "it": "Articoli per lo shopping",
+    "nt": "Artikelen winkelen"
+
   }
 }

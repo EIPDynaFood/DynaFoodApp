@@ -5,7 +5,8 @@
      "fr": "Non", 
      "es": "No", 
      "pt": "Não", 
-     "it": "No" 
+     "it": "No",
+     "nt": "Nee"
    }, 
    "Casual": { 
      "de": "Gelegentlich", 
@@ -13,7 +14,8 @@
      "fr": "Occasionnellement", 
      "es": "Casualmente", 
      "pt": "Casualmente", 
-     "it": "Casualmente" 
+     "it": "Casualmente" ,
+     "nt": "Terloops"
    }, 
    "Strict": { 
      "de": "Streng", 
@@ -21,7 +23,8 @@
      "fr": "Strictement", 
      "es": "Estrictamente", 
      "pt": "Estritamente", 
-     "it": "Rigorosamente" 
+     "it": "Rigorosamente",
+     "nt": "Strikt" 
    },
    "Error": {
     "de": "Beim Festlegen Ihrer Einstellungen ist ein Fehler aufgetreten",
@@ -29,6 +32,7 @@
     "fr": "Une erreur s'est produite lors de la définition de vos préférences",
     "es" : "Algo salió mal al configurar tus preferencias",
     "pt" : "Algo deu errado ao definir suas preferências",
-    "it" : "Qualcosa è andato storto durante l'impostazione delle tue preferenze"
+    "it" : "Qualcosa è andato storto durante l'impostazione delle tue preferenze",
+    "nt": "Er is iets misgegaan bij het instellen van je voorkeuren"
   }
 }

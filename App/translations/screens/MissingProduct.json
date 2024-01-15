@@ -5,7 +5,9 @@
     "fr": "Veuillez remplir les champs 'Code-barres', 'Nom du produit', 'Société', 'Taille' et télécharger au moins une photo pour envoyer des informations sur un produit manquant.",
     "es": "Rellene 'Código de barras', 'Nombre del producto', 'Empresa', 'Talla' y cargue al menos una foto para enviar información sobre un producto que falta.",
     "pt": "Preencha 'Código de barras', 'Nome do produto', 'Empresa', 'Tamanho' e carregue pelo menos uma fotografia para enviar informações sobre um produto em falta.",
-    "it": "Compilare 'Codice a barre', 'Nome prodotto', 'Azienda', 'Taglia' e caricare almeno una foto per inviare informazioni su un prodotto mancante."
+    "it": "Compilare 'Codice a barre', 'Nome prodotto', 'Azienda', 'Taglia' e caricare almeno una foto per inviare informazioni su un prodotto mancante.",
+    "nt": "Vul 'Barcode', 'Productnaam', 'Bedrijf', 'Maat' in en upload minstens één foto om informatie over een ontbrekend product te versturen."
+
   },
   "AlertSuccess": {
     "de": "Information zum fehlenden Produkt abgeschickt. Vielen Dank für deine Hilfe!",
@@ -13,7 +15,9 @@
     "fr": "Les informations manquantes sur le produit ont été envoyées. Merci beaucoup pour votre aide !",
     "es": "Falta información del producto enviado. Muchas gracias por su ayuda.",
     "pt": "Informação do produto em falta enviada. Muito obrigado pela vossa ajuda!",
-    "it": "Informazioni sul prodotto mancante inviate. Grazie mille per il vostro aiuto!"
+    "it": "Informazioni sul prodotto mancante inviate. Grazie mille per il vostro aiuto!",
+    "nt": "Ontbrekende productinformatie verzonden. Hartelijk dank voor uw hulp!"
+
   },
   "Barcode": {
     "de": "Barcode ...",
@@ -21,7 +25,9 @@
     "fr": "Code-barres ...",
     "es": "Código de barras ...",
     "pt": "Código de barras ...",
-    "it": "Codice a barre ..."
+    "it": "Codice a barre ...",
+    "nt": "Barcode ..."
+
   },
   "ProductName": {
     "de": "Produktname ...",
@@ -29,7 +35,9 @@
     "fr": "Nom du produit ...",
     "es": "Nombre del producto ...",
     "pt": "Nome do produto ...",
-    "it": "Nome prodotto ..."
+    "it": "Nome prodotto ...",
+    "nt": "Productnaam ..."
+
   },
   "Company": {
     "de": "Hersteller ...",
@@ -37,7 +45,9 @@
     "fr": "Societe ...",
     "es": "Empresa ...",
     "pt": "Empresa ...",
-    "it": "Azienda ..."
+    "it": "Azienda ...",
+    "nt": "Bedrijf ..."
+
   },
   "Size": {
     "de": "Größe ... z.B. (100g, 400ml)",
@@ -45,7 +55,9 @@
     "fr": "Taille ... ex. (100g, 400ml)",
     "es": "Talla ... ex. (100g, 400ml)",
     "pt": "Tamanho ... ex. (100g, 400ml)",
-    "it": "Taglia ... ex. (100g, 400ml)"
+    "it": "Taglia ... ex. (100g, 400ml)",
+    "nt": "Maat ... bijv. (100g, 400ml)"
+
   },
   "OpenCamera": {
     "de": "Kamera öffnen",
@@ -53,7 +65,9 @@
     "fr": "Ouvrir la camera",
     "es": "Cámara abierta",
     "pt": "Câmara aberta",
-    "it": "Telecamera aperta"
+    "it": "Telecamera aperta",
+    "nt": "Camera openen"
+
   },
   "UploadPicture": {
     "de": "Bild hochladen",
@@ -61,7 +75,9 @@
     "fr": "Télécharger l'image",
     "es": "Cargar imagen",
     "pt": "Carregar imagem",
-    "it": "Carica immagine"
+    "it": "Carica immagine",
+    "nt": "Afbeelding uploaden"
+
   },
   "Submit":  {
     "de": "Prüfen",
@@ -69,6 +85,7 @@
     "fr": "Envoyé",
     "es" : "Enviar",
     "pt" : "Submeter",
-    "it" : "Invia"
+    "it" : "Invia",
+    "nt": "Verzenden"
   }
 }

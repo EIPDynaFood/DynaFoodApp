@@ -5,7 +5,8 @@
         "fr": "Confirmer",
         "es": "Confirmar",
         "pt": "Confirme",
-        "it": "Confermare"
+        "it": "Confermare",
+        "nt": "Bevestig"
     },
     "Cancel": {
         "de": "Stornieren",
@@ -13,7 +14,8 @@
         "fr": "Annuler",
         "es": "Cancelar",
         "pt": "Cancelar",
-        "it": "Annulla"
+        "it": "Annulla",
+        "nt": "Annuleren"
     },
     "Title": {
         "de": "Konto löschen",
@@ -21,7 +23,8 @@
         "fr": "Supprimer le compte",
         "es": "Borrar cuenta",
         "pt": "Deletar conta",
-        "it": "Eliminare l'account"
+        "it": "Eliminare l'account",
+        "nt": "Account verwijderen"
     },
     "Question": {
         "de": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten?",
@@ -29,7 +32,8 @@
         "fr": "Êtes-vous sûr de vouloir supprimer votre compte ?",
         "es": "¿Estás seguro de que quieres eliminar tu cuenta?",
         "pt": "Tem certeza de que deseja excluir sua conta?",
-        "it": "Sei sicuro di voler eliminare il tuo account?"
+        "it": "Sei sicuro di voler eliminare il tuo account?",
+        "nt": "Weet je zeker dat je je account wilt verwijderen?"
     }
 
 }

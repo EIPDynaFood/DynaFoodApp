@@ -5,7 +5,9 @@
     "fr": "Pas d'accès à la caméra",
     "es" : "No hay acceso a la cámara",
     "pt" : "Sem acesso à câmera",
-    "it" : "Nessun accesso alla telecamera"
+    "it" : "Nessun accesso alla telecamera",
+    "nt": "Geen toegang tot camera"
+
   },
   "Debug": {
     "de": "Debug Code benutzen",
@@ -13,6 +15,7 @@
     "fr": "utiliser le code de débugage",
     "es" : "utilizar código de depuración",
     "pt" : "usar código de depuração",
-    "it" : "utilizzare il codice di debug"
+    "it" : "utilizzare il codice di debug",
+    "nt": "gebruik debug-code"
   }
 }

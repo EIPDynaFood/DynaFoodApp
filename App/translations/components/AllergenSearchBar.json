@@ -5,7 +5,8 @@
         "fr": "Quelque chose s'est mal passé lors de la recherche d'un allergène",
         "es" : "Algo salió mal mientras buscaba alérgenos",
         "pt" : "Algo deu errado ao procurar o alérgeno",
-        "it" : "Qualcosa è andato storto durante la ricerca dell'allergene"
+        "it" : "Qualcosa è andato storto durante la ricerca dell'allergene",
+        "nt": "Er ging iets mis bij het zoeken naar allergenen"
       },
       "ErrorSet": {
         "de": "Beim Festlegen Ihrer Einstellungen ist ein Fehler aufgetreten",
@@ -13,6 +14,7 @@
         "fr": "Une erreur s'est produite lors de la définition de vos préférences",
         "es" : "Algo salió mal al configurar tus preferencias",
         "pt" : "Algo deu errado ao definir suas preferências",
-        "it" : "Qualcosa è andato storto durante l'impostazione delle tue preferenze"
+        "it" : "Qualcosa è andato storto durante l'impostazione delle tue preferenze",
+        "nt": "Er ging iets mis bij het instellen van je voorkeuren"
       }
 }

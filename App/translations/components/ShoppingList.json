@@ -5,7 +5,8 @@
      "fr": "Un problème s'est produit lors de la suppression de la liste : ", 
      "es": "Algo ha ido mal al borrar la lista: ", 
      "pt": "Algo correu mal ao apagar a lista: ", 
-     "it": "Qualcosa è andato storto durante la cancellazione della lista: " 
+     "it": "Qualcosa è andato storto durante la cancellazione della lista: ",
+     "nt": "Er is iets misgegaan bij het verwijderen van de lijst:"
    }, 
    "TextHeadline": { 
      "de": "Name deiner Liste", 
@@ -13,7 +14,8 @@
      "fr": "Nom de votre liste", 
      "es": "Nombre de su lista", 
      "pt": "Nome da sua lista", 
-     "it": "Nome della lista" 
+     "it": "Nome della lista",
+     "nt": "Naam van je lijst" 
    }, 
    "TextPlaceholder": { 
      "de": "Name", 
@@ -21,7 +23,8 @@
      "fr": "Nom", 
      "es": "Nombre", 
      "pt": "Nome", 
-     "it": "Nome" 
+     "it": "Nome",
+     "nt": "Naam"
    }, 
    "ModalButton": { 
      "de": "Speichern", 
@@ -29,15 +32,17 @@
      "fr": "Sauvegarder", 
      "es": "Guardar", 
      "pt": "Guardar", 
-     "it": "Risparmiare" 
+     "it": "Risparmiare",
+     "nt": "Opslaan"
    },
   "AlertTitle": {
     "de": "Bist du sicher?",
     "en": "Are you sure?",
-    "fr": "",
-    "es": "",
-    "pt": "",
-    "it": ""
+    "fr": "Êtes-vous sûr ?",
+    "es": "¿Seguro?",
+    "pt": "Tens a certeza?",
+    "it": "Sei sicuro?",
+    "nt": "Weet je het zeker?"
   },
   "AlertMessage": {
     "de": "Du löscht gerade deine ganze Liste.",
@@ -45,7 +50,8 @@
     "fr": "Vous êtes sur le point de supprimer toute votre liste.",
     "es": "Está a punto de borrar toda su lista.",
     "pt": "Está prestes a apagar toda a sua lista.",
-    "it": "State per cancellare l'intero elenco."
+    "it": "State per cancellare l'intero elenco.",
+    "nt": "Je staat op het punt om je hele lijst te verwijderen."
   },
   "AlertYes": {
     "de": "Ja",
@@ -53,7 +59,8 @@
     "fr": "Oui",
     "es": "Sí",
     "pt": "Sim",
-    "it": "Sì"
+    "it": "Sì",
+    "nt": "Ja"
   },
   "AlertNo": {
     "de": "Nein",
@@ -61,6 +68,7 @@
     "fr": "Non",
     "es": "No",
     "pt": "Não",
-    "it": "No"
+    "it": "No",
+    "nt": "Nee"
   }
 }

@@ -5,7 +5,8 @@
      "fr": "Un problème s'est produit lors de la suppression de l'élément : ", 
      "es": "Algo ha ido mal al borrar el elemento: ", 
      "pt": "Algo correu mal ao apagar o item: ", 
-     "it": "Qualcosa è andato storto durante l'eliminazione dell'elemento: " 
+     "it": "Qualcosa è andato storto durante l'eliminazione dell'elemento: ",
+     "nt": "Er ging iets mis bij het verwijderen van het item:"
    }, 
    "TextHeadline": { 
      "de": "Was brauchst du?", 
@@ -13,7 +14,8 @@
      "fr": "De quoi avez-vous besoin ?", 
      "es": "¿Qué necesita?", 
      "pt": "O que é que precisa?", 
-     "it": "Di cosa avete bisogno?" 
+     "it": "Di cosa avete bisogno?",
+     "nt": "Wat heb je nodig?"
    }, 
    "TextPlaceholder": { 
      "de": "Produkt", 
@@ -21,7 +23,8 @@
      "fr": "Produit", 
      "es": "Producto", 
      "pt": "Produtos", 
-     "it": "Prodotto" 
+     "it": "Prodotto" ,
+     "nt": "Product"
    }, 
    "ModalButton": { 
      "de": "Erstellen", 
@@ -29,6 +32,7 @@
      "fr": "Créer", 
      "es": "Cree", 
      "pt": "Criar", 
-     "it": "Creare" 
+     "it": "Creare",
+     "nt": "Maak"
    } 
 }

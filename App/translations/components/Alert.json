@@ -5,7 +5,8 @@
     "fr": "Attention!",
     "es": "¡Atención!",
     "pt": "Aviso!",
-    "it": "Attenzione!"
+    "it": "Attenzione!",
+    "nt": "Waarschuwing!"
   },
    "Button": { 
      "de": "Verstanden", 
@@ -13,6 +14,7 @@
      "fr": "Compris", 
      "es": "Entendido", 
      "pt": "Entendido", 
-     "it": "Capito" 
+     "it": "Capito",
+     "nt": "Begrepen"
    } 
 }

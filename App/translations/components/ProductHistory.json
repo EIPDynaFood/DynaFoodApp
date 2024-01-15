@@ -5,7 +5,8 @@
      "fr": "Quelque chose s'est mal passé lors de l'obtention des données de l'historique: ", 
      "es": "Algo ha ido mal al obtener los datos del historial: ", 
      "pt": "Alguma coisa correu mal ao obter dados do histórico: ", 
-     "it": "Qualcosa è andato storto durante l'acquisizione dei dati della cronologia: " 
+     "it": "Qualcosa è andato storto durante l'acquisizione dei dati della cronologia: ",
+     "nt": "Er ging iets mis bij het ophalen van de geschiedenisgegevens:"
    }, 
    "New": { 
      "de": "Neues Produkt", 
@@ -13,6 +14,7 @@
      "fr": "Ajouter un nouveau produit", 
      "es": "Añadir un nuevo producto", 
      "pt": "Adicionar um novo produto", 
-     "it": "Aggiungere un nuovo prodotto" 
+     "it": "Aggiungere un nuovo prodotto",
+     "nt": "Een nieuw product toevoegen"
    } 
 }
