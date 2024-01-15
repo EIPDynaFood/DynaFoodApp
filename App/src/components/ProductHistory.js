@@ -11,7 +11,7 @@ import APIRoute from "../../API";
 
 
 export default function ProductHistory(props) {
-  const [historyData, setHistoryData] = useState(props.data);
+  const [historyData, setHistoryData] = useState({elements: []});
   const navigation = useNavigation();
   const isFocused = useIsFocused()
 
@@ -21,16 +21,28 @@ export default function ProductHistory(props) {
   var _ = require("lodash")
 
   useEffect(() => {
-
     if (isFocused) {
       getHistoryData();
+    } else {
+      setHistoryData({elements: []})
+      props.setOffset(0)
     }
-  }, [isFocused, props.bookmarked]);
+  }, [isFocused, props.bookmarked, props.offset]);
+
+  useEffect( () => {
+    setHistoryData({elements: []})
+    props.setOffset(0)
+  }, [props.bookmarked])
 
   const getHistoryData = (() => {
-    APIRoute(() => axios.get(endpoint + 'history?bookmarked=' + props.bookmarked).then((res) => {
+    APIRoute(() => axios.get(`${endpoint}history?bookmarked=${props.bookmarked}&wanted=8&offset=${props.offset * 8}`).then((res) => {
       if (!_.isEqual(res.data, historyData)) {
-        setHistoryData(res.data);
+
+        console.log("load inside");
+        setHistoryData((prevData) => ({
+          ...prevData,
+          elements: [...prevData.elements, ...res.data.elements],
+        }));
       }
     }).catch((err) => {
       if (err.response.status === 401) {
