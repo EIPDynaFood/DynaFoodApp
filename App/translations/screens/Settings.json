@@ -5,7 +5,9 @@
     "fr": "Langue",
     "es" : "Idioma",
     "pt" : "Idioma",
-    "it" : "Lingua"
+    "it" : "Lingua",
+    "nt": "Taal"
+
   },
   "Vegetarian": {
     "de": "Vegetarisch",
@@ -13,7 +15,9 @@
     "fr" : "Végétarien",
     "es" : "Vegetariano",
     "pt" : "Vegetariano",
-    "it" : "Vegetariano"
+    "it" : "Vegetariano",
+    "nt": "Vegetarisch"
+
   },
   "Vegan": {
     "de": "Vegan",
@@ -21,7 +25,9 @@
     "fr": "Vegan",
     "es" : "Vegano",
     "pt" : "Vegan",
-    "it" : "Vegano"
+    "it" : "Vegano",
+    "nt": "Veganistisch"
+
   },
   "Allergies": {
     "de": "Allergien",
@@ -29,7 +35,9 @@
     "fr": "Allergies",
     "es" : "Alergias",
     "pt" : "Alergias",
-    "it" : "Allergie"
+    "it" : "Allergie",
+    "nt": "Allergieën"
+
   },
   "Diets": {
     "de": "Diäten",
@@ -37,7 +45,9 @@
     "fr": "Régimes",
     "es" : "Dietas",
     "pt" : "Dietas",
-    "it" : "Diete"
+    "it" : "Diete",
+    "nt": "Diëten"
+
   },
   "General": {
     "de": "Allgemein",
@@ -45,7 +55,9 @@
     "fr": "Général",
     "es" : "General",
     "pt" : "Geral",
-    "it" : "Generale"
+    "it" : "Generale",
+    "nt": "Algemeen"
+
   },
   "Feedback": {
     "de": "Rückmeldung",
@@ -53,7 +65,9 @@
     "fr": "Retour d'information",
     "es" : "Comentarios",
     "pt" : "Feedback",
-    "it" : "Feedback"
+    "it" : "Feedback",
+    "nt": "Feedback"
+
   },
   "Account": {
     "de": "Konto",
@@ -61,7 +75,9 @@
     "fr": "Compte",
     "es" : "Cuenta",
     "pt" : "Conta",
-    "it" : "Il conto"
+    "it" : "Il conto",
+    "nt": "Account"
+
   },
   "Missing Product": {
     "de": "Fehlendes Produkt",
@@ -69,7 +85,9 @@
     "fr": "Produit manquant",
     "es": "Falta producto",
     "pt": "Produto em falta",
-    "it": "Prodotto mancante"
+    "it": "Prodotto mancante",
+    "nt": "Ontbrekend product"
+
   },
   "Beta": {
     "de": "Beta Bewertung",
@@ -77,7 +95,9 @@
     "fr": "Commentaires sur la version bêta",
     "es" : "Beta Feedback",
     "pt" : "Comentários sobre a versão beta",
-    "it" : "Feedback sulla beta"
+    "it" : "Feedback sulla beta",
+    "nt": "Beta feedback"
+
   },
   "Logout": {
     "de": "Ausloggen",
@@ -85,7 +105,9 @@
     "fr": "Déconnexion",
     "es" : "Cerrar sesión",
     "pt" : "Sair",
-    "it" : "Disconnessione"
+    "it" : "Disconnessione",
+    "nt": "Afmelden"
+
   },
   "ErrorDel": {
     "de": "Beim Löschen Ihres Kontos ist ein Fehler aufgetreten",
@@ -93,7 +115,9 @@
     "fr": "Une erreur s'est produite lors de la suppression de votre compte",
     "es" : "Algo salió mal al eliminar tu cuenta",
     "pt" : "Algo deu errado ao excluir sua conta",
-    "it" : "Qualcosa è andato storto durante l'eliminazione del tuo account"
+    "it" : "Qualcosa è andato storto durante l'eliminazione del tuo account",
+    "nt": "Er is iets misgegaan bij het verwijderen van uw account"
+
   },
   "Delete": {
     "de": "Konto löschen",
@@ -101,6 +125,7 @@
     "fr": "Supprimer un compte",
     "es" : "Eliminar cuenta",
     "pt" : "Eliminar conta",
-    "it" : "Eliminazione dell'account"
+    "it" : "Eliminazione dell'account",
+    "nt": "Account verwijderen"
   }
 }

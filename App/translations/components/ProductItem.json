@@ -5,7 +5,8 @@
      "fr": "Un problème est survenu lors de la suppression des données de l'historique: ", 
      "es" : "Algo ha ido mal al borrar los datos del historial: ", 
      "pt" : "Algo correu mal ao apagar os dados do histórico: ", 
-     "it" : "Qualcosa è andato storto durante l'eliminazione dei dati della cronologia: " 
+     "it" : "Qualcosa è andato storto durante l'eliminazione dei dati della cronologia: ",
+     "nt": "Er ging iets mis tijdens het verwijderen van geschiedenisgegevens:"
    }, 
    "Barcode": { 
      "de": "Barcode: ", 
@@ -13,6 +14,7 @@
      "fr": "Code barre : ", 
      "es": "Código de barras: ", 
      "pt": "Código de barras: ", 
-     "it": "Codice a barre: " 
+     "it": "Codice a barre: " ,
+     "nt": "Barcode:"
    } 
 }

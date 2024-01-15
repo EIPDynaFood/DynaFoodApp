@@ -5,7 +5,9 @@
     "fr": "Rentrez vos identifiants pour réinitialiser le mot de passe:",
     "es" : "Introduce tus credenciales para restablecer tu contraseña: ",
     "pt" : "Por favor, introduza as suas credenciais para redefinir a sua senha:",
-    "it" : "Inserisci le tue credenziali per reimpostare la password: "
+    "it" : "Inserisci le tue credenziali per reimpostare la password: ",
+    "nt": "Voer je gegevens in om je wachtwoord opnieuw in te stellen:"
+
   },
   "Email": {
     "de": "E-Mail Adresse...",
@@ -13,7 +15,9 @@
     "fr": "Email...",
     "es" : "Correo electrónico...",
     "pt" : "Email...",
-    "it" : "Email..."
+    "it" : "Email...",
+    "nt": "E-mail..."
+
   },
   "Reset": {
     "de": "Passwort zurücksetzen",
@@ -21,7 +25,9 @@
     "fr": "Renouveler le mot de passe",
     "es" : "Restablecer contraseña",
     "pt" : "Redefinir senha",
-    "it" : "Reimpostare la password"
+    "it" : "Reimpostare la password",
+    "nt": "Wachtwoord resetten"
+
   },
   "Cancel": {
     "de": "Zurück",
@@ -29,6 +35,7 @@
     "fr": "Annuler",
     "es" : "Cancelar",
     "pt" : "Cancelar",
-    "it" : "Annullamento"
+    "it" : "Annullamento",
+    "nt": "Annuleren"
   }
 }

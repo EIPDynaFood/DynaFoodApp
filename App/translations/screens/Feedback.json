@@ -5,7 +5,9 @@
     "fr": "Appreciation",
     "es": "Evaluación",
     "pt": "Avaliação",
-    "it": "Valutazione"
+    "it": "Valutazione",
+    "nt": "Waardering"
+
   },
   "Comment": {
     "de": "Kommentar",
@@ -13,7 +15,9 @@
     "fr": "Commentaire",
     "es": "Comentario",
     "pt": "Comentário",
-    "it": "Commento"
+    "it": "Commento",
+    "nt": "Opmerking"
+
   },
   "Suggestion": {
     "de": "Vorschlag",
@@ -21,7 +25,9 @@
     "fr": "Suggestion",
     "es": "Sugerencia",
     "pt": "Sugestão",
-    "it": "Suggerimento"
+    "it": "Suggerimento",
+    "nt": "Suggestie"
+
   },
   "Bug": {
     "de": "Fehler",
@@ -29,7 +35,9 @@
     "fr": "Erreur",
     "es": "Error",
     "pt": "Erro",
-    "it": "Errore"
+    "it": "Errore",
+    "nt": "Bug"
+
   },
   "Select": {
     "de": "Um was für ein Feedback handelt es sich?",
@@ -37,7 +45,9 @@
     "fr": "Quel type de feedback souhaitez-vous donner ?",
     "es": "¿Qué tipo de respuesta quiere dar?",
     "pt": "Que tipo de feedback pretende dar?",
-    "it": "Che tipo di feedback volete dare?"
+    "it": "Che tipo di feedback volete dare?",
+    "nt": "Wat voor soort feedback wil je geven?"
+
   },
   "Send": {
     "de": "Senden",
@@ -45,7 +55,9 @@
     "fr": "Envoyer",
     "es": "Enviar",
     "pt": "Enviar",
-    "it": "Inviare"
+    "it": "Inviare",
+    "nt": "Stuur"
+
   },
   "TextHeadline": {
     "de": "Beschreibe dein Feedback",
@@ -53,7 +65,9 @@
     "fr": "Écrivez votre commentaire",
     "es": "Escriba su opinión",
     "pt": "Escreva o seu comentário",
-    "it": "Scrivete il vostro feedback"
+    "it": "Scrivete il vostro feedback",
+    "nt": "Schrijf je feedback"
+
   },
   "TextPlaceholder": {
     "de": "Schreib hier dein Feedback rein",
@@ -61,7 +75,9 @@
     "fr": "Saisissez votre avis ici",
     "es": "Escriba aquí sus comentarios",
     "pt": "Introduza aqui os seus comentários",
-    "it": "Inserite qui il vostro feedback"
+    "it": "Inserite qui il vostro feedback",
+    "nt": "Geef hier je feedback"
+
   },
   "Alert": {
     "de": "Vielen Dank für dein Feedback!",
@@ -69,7 +85,9 @@
     "fr": "Merci de nous faire part de vos commentaires !",
     "es": "Gracias por sus comentarios.",
     "pt": "Obrigado pelos seus comentários!",
-    "it": "Grazie per il tuo feedback!"
+    "it": "Grazie per il tuo feedback!",
+    "nt": "Bedankt voor je feedback!"
+
   },
   "NoContent": {
     "de": "Bitte schreibe erst etwas!",
@@ -77,6 +95,7 @@
     "fr": "Veuillez d'abord écrire quelque chose !",
     "es": "Por favor, ¡escriba algo primero!",
     "pt": "Por favor, escreva algo primeiro!",
-    "it": "Per favore, scrivi qualcosa prima!"
+    "it": "Per favore, scrivi qualcosa prima!",
+    "nt": "Schrijf eerst iets!"
   }
 }

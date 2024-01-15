@@ -5,7 +5,9 @@
     "fr": "Nutriments",
     "es" : "Nutrimentos",
     "pt" : "Nutrição",
-    "it" : "Nutrimenti"
+    "it" : "Nutrimenti",
+    "nt": "Voedingsstoffen"
+
   },
   "Unit": {
     "de": "pro 100g/ml",
@@ -13,6 +15,7 @@
     "fr": "par 100g/ml",
     "es" : "por 100g/ml",
     "pt" : "por 100g/ml",
-    "it" : "per 100g/ml"
+    "it" : "per 100g/ml",
+    "nt": "per 100g/ml"
   }
 }

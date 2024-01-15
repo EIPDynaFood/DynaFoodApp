@@ -5,7 +5,9 @@
     "fr" : "Rechercher un produit...",
     "es" : "Buscar un producto...",
     "pt" : "Procurar um produto...",
-    "it" : "Ricerca di un prodotto..."
+    "it" : "Ricerca di un prodotto...",
+    "nt": "Een product zoeken..."
+
   },
   "TrendText": {
     "de": "Trends",
@@ -13,7 +15,9 @@
     "fr": "Tendance",
     "es" : "Tendencias",
     "pt" : "Tendência",
-    "it" : "Tendenza"
+    "it" : "Tendenza",
+    "nt": "Trends"
+
   },
   "ProductText": {
     "de": "Verlauf",
@@ -21,7 +25,9 @@
     "fr" : "Histoire",
     "es" : "Historia",
     "pt" : "História",
-    "it" : "La storia"
+    "it" : "La storia",
+    "nt": "Geschiedenis"
+
   },
   "BookmarkText": {
     "de": "Gespeichert",
@@ -29,7 +35,9 @@
     "fr" : "Signets",
     "es" : "Marcadores",
     "pt" : "Marcadores",
-    "it" : "Segnalibri"
+    "it" : "Segnalibri",
+    "nt": "Bladwijzers"
+
   },
   "ErrorHist": {
     "de": "Beim Abrufen Ihres Verlaufs ist ein Fehler aufgetreten",
@@ -37,7 +45,9 @@
     "fr" : "Une erreur s'est produite lors de l'obtention de votre historique",
     "es" : "Algo salió mal al obtener tu historial",
     "pt" : "Algo deu errado ao obter seu histórico",
-    "it" : "Qualcosa è andato storto durante il recupero della cronologia"
+    "it" : "Qualcosa è andato storto durante il recupero della cronologia",
+    "nt": "Er ging iets mis bij het ophalen van je geschiedenis"
+
   },
   "ErrorTrend": {
     "de": "Beim Abrufen Ihres Verlaufs ist ein Fehler aufgetreten",
@@ -45,6 +55,7 @@
     "fr" : "Une erreur s'est produite lors de l'obtention de vos données de tendances",
     "es" : "Algo salió mal al obtener tus datos de tendencias",
     "pt" : "Algo deu errado ao obter seus dados de tendências",
-    "it" : "Qualcosa è andato storto durante il recupero dei dati di tendenza"
+    "it" : "Qualcosa è andato storto durante il recupero dei dati di tendenza",
+    "nt": "Er ging iets mis bij het ophalen van je trendgegevens"
   }
 }

@@ -5,7 +5,9 @@
   "fr": "Ajouter un article",
   "es": "Añadir un artículo",
   "pt": "Adicionar um item",
-  "it": "Aggiungi un articolo"
+  "it": "Aggiungi un articolo",
+  "nt": "Een item toevoegen"
+
 },
   "TextHeadline": {
     "de": "Was brauchst du?",
@@ -13,7 +15,9 @@
     "fr": "De quoi avez-vous besoin ?",
     "es": "¿Qué necesita?",
     "pt": "O que é que precisa?",
-    "it": "Di cosa hai bisogno?"
+    "it": "Di cosa hai bisogno?",
+    "nt": "Wat heb je nodig?"
+
   },
   "TextPlaceholder": {
     "de": "Name",
@@ -21,7 +25,9 @@
     "fr": "Nom",
     "es": "Nombre",
     "pt": "Nome",
-    "it": "Nome"
+    "it": "Nome",
+    "nt": "Naam"
+
   },
   "ModalButton": {
     "de": "Erstellen",
@@ -29,7 +35,9 @@
     "fr": "Créer",
     "es": "Crear",
     "pt": "Criar",
-    "it": "Creare"
+    "it": "Creare",
+    "nt": "Maak"
+
   },
   "Error": {
     "de": "Beim Laden der Einträge ist ein Fehler aufgetreten: ",
@@ -37,6 +45,7 @@
     "fr": "Un problème s'est produit lors du chargement des articles : ",
     "es": "Algo ha ido mal al cargar los artículos: ",
     "pt": "Algo correu mal durante o carregamento dos itens: ",
-    "it": "Qualcosa è andato storto durante il caricamento degli articoli: "
+    "it": "Qualcosa è andato storto durante il caricamento degli articoli: ",
+    "nt": "Er is iets misgegaan bij het laden van de items:"
   }
 }

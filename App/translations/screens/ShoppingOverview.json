@@ -5,7 +5,9 @@
     "fr": "Ajouter une nouvelle liste",
     "es": "Añadir una nueva lista",
     "pt": "Adicionar uma nova lista",
-    "it": "Aggiungere un nuovo elenco"
+    "it": "Aggiungere un nuovo elenco",
+    "nt": "Een nieuwe lijst toevoegen"
+
   },
   "TextHeadline": {
     "de": "Name deiner Liste",
@@ -13,7 +15,9 @@
     "fr": "Nom de votre liste",
     "es": "Nombre de su lista",
     "pt": "Nome da sua lista",
-    "it": "Nome della lista"
+    "it": "Nome della lista",
+    "nt": "Naam van je lijst"
+
   },
   "TextPlaceholder": {
     "de": "Aufführen",
@@ -21,7 +25,9 @@
     "fr": "Liste",
     "es": "Lista",
     "pt": "Lista",
-    "it": "Elenco"
+    "it": "Elenco",
+    "nt": "Lijst"
+
   },
   "ModalButton": {
     "de": "Erstellen",
@@ -29,6 +35,7 @@
     "fr": "Créer",
     "es": "Crear",
     "pt": "Criar",
-    "it": "Creare"
+    "it": "Creare",
+    "nt": "Aanmaken"
   }
 }

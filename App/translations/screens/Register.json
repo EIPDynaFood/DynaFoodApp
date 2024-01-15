@@ -5,7 +5,8 @@
     "fr": "Quelque chose s'est mal passé dans votre processus d'enregistrement :\n",
     "es" : "Algo ha ido mal en el proceso de registro:\n",
     "pt" : "Alguma coisa correu mal no seu processo de registo:\n",
-    "it" : "Qualcosa è andato storto nel processo di registrazione:\n"
+    "it" : "Qualcosa è andato storto nel processo di registrazione:\n",
+    "nt": "Er is iets misgegaan bij je registratie:\n"
   },
   "Success": {
     "de": "Du hast eine E-Mail erhalten, um deinen Account zu verifizieren.",
@@ -13,7 +14,9 @@
     "fr": "Vous avez reçu un courriel pour vérifier votre compte.",
     "es" : "Ha recibido un correo electrónico para verificar su cuenta.",
     "pt" : "Recebeu um e-mail para verificar a sua conta.",
-    "it" : "Avete ricevuto un'e-mail per verificare il vostro account."
+    "it" : "Avete ricevuto un'e-mail per verificare il vostro account.",
+    "nt": "Je hebt een e-mail ontvangen om je account te verifiëren."
+
   },
   "Email": {
     "de": "E-Mail Adresse...",
@@ -21,7 +24,9 @@
     "fr": "Email...",
     "es" : "Correo electrónico...",
     "pt" : "Email...",
-    "it" : "Email..."
+    "it" : "Email...",
+    "nt": "E-mail..."
+
   },
   "Password": {
     "de": "Passwort...",
@@ -29,7 +34,9 @@
     "fr": "Mot de passe...",
     "es" : "Contraseña...",
     "pt" : "Senha...",
-    "it" : "Password di accesso..."
+    "it" : "Password di accesso...",
+    "nt": "Wachtwoord..."
+
   },
   "PasswordConfirm": {
     "de": "Passwort bestätigen...",
@@ -37,7 +44,9 @@
     "fr": "Confirmez votre mot de passe...",
     "es" : "Confirme su contraseña...",
     "pt" : "Confirme sua senha...",
-    "it" : "Confermare la password..."
+    "it" : "Confermare la password...",
+    "nt": "Bevestig je wachtwoord..."
+
   },
   "PasswordInfo": {
     "de": "Dein Passwort bruacht mindestens 8 Zeichen mit einem Großbuchstaben, Kleinbuchstaben, Sonderzeichen und einer Nummer.",
@@ -45,7 +54,9 @@
     "fr": "Votre mot de passe doit comporter au moins 8 caractères dont une lettre majuscule, une lettre minuscule, un caractère spécial et un chiffre.",
     "es" : "Su contraseña necesita al menos 8 caracteres con una letra mayúscula, una letra minúscula, un carácter especial y un número.",
     "pt" : "A sua palavra-passe tem de ter pelo menos 8 caracteres com uma letra maiúscula, uma letra minúscula, um carácter especial e um número.",
-    "it" : "La password deve essere composta da almeno 8 caratteri con una lettera maiuscola, una lettera minuscola, un carattere speciale e un numero."
+    "it" : "La password deve essere composta da almeno 8 caratteri con una lettera maiuscola, una lettera minuscola, un carattere speciale e un numero.",
+    "nt": "Je wachtwoord moet minstens 8 tekens bevatten met een hoofdletter, kleine letter, speciaal teken en een cijfer."
+
   },
   "NoMatch": {
     "de": "Die Passwörter stimmen nicht überein.",
@@ -53,7 +64,9 @@
     "fr": "Les mots de passe ne correspondent pas.",
     "es" : "Las contraseñas no coinciden.",
     "pt" : "As palavras-passe não coincidem.",
-    "it" : "Le password non corrispondono."
+    "it" : "Le password non corrispondono.",
+    "nt": "De wachtwoorden komen niet overeen."
+
   },
   "Register": {
     "de": "Registrieren",
@@ -61,7 +74,9 @@
     "fr": "Enregistrez",
     "es" : "Registrarse",
     "pt" : "Registe-se",
-    "it" : "Registrazione"
+    "it" : "Registrazione",
+    "nt": "Registreren"
+
   },
   "Cancel": {
     "de": "Zurück",
@@ -69,6 +84,7 @@
     "fr": "Annuler",
     "es" : "Cancelar",
     "pt" : "Cancelar",
-    "it" : "Annullamento"
+    "it" : "Annullamento",
+    "nt": "Annuleren"
   }
 }
