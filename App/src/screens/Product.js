@@ -23,7 +23,7 @@ export default function Product({navigation}) {
 
   useEffect(() => {
     setProductCode(localStorage.getItem("productCode"));
-    APIRoute(() => axios.get(endpoint + "products/barcode/" + productCode).then((res) => {
+    APIRoute(() => axios.get(`${endpoint}products/barcode/${productCode}?language=${lang}`).then((res) => {
       if (res.status === 204) { // no data to return
         alert(translations["Unknown"][lang]);
         navigation.pop();
