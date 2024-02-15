@@ -39,20 +39,20 @@ export default function ProductGeneralInfo({route}) {
       return
     let newAlert = ""
     if (productData['allergen_alert'])
-        newAlert = alert + "Contains Allergens\n"
+        newAlert = newAlert + " Contains Allergens\n"
     if (productData['vegan_alert']) {
-        newAlert = alert + "Not Vegan\n"
+        newAlert = newAlert + " Not Vegan\n"
     } else if (productData['vegan_alert'] === null) {
-        newAlert = alert + "Maybe Vegan\n"
+        newAlert = newAlert + " Maybe Vegan\n"
         if (productData['vegetarian_alert']) {
-            newAlert = alert + "Not Vegetarian\n"
+            newAlert = newAlert + " Not Vegetarian\n"
         } else if (productData['vegetarian_alert'] === null) {
-            newAlert = alert + "Maybe Vegetarian\n"
+            newAlert = newAlert + " Maybe Vegetarian\n"
         }
     } else if (productData['vegetarian_alert']) {
-        newAlert = alert + "Not Vegetarian\n"
+        newAlert = newAlert + " Not Vegetarian\n"
     } else if (productData['vegetarian_alert'] === null) {
-        newAlert = alert + "Maybe Vegetarian\n"
+        newAlert = newAlert + " Maybe Vegetarian\n"
     }
     modalVisibleRef.current = modalVisible
     if (newAlert !== "") {
@@ -174,10 +174,10 @@ export default function ProductGeneralInfo({route}) {
                 style={[styles.headlineStyle, {paddingTop: 10, textAlign: 'center'}]}>{productData["name"]}</Text>
           <Icon name={isBookmarked ? 'bookmark' : 'bookmark-outline'} size={25} containerStyle={{marginLeft: 7, paddingTop: 10, zIndex: 99}} onPress={setBookmark}/>
         </View>
-          <View style={{flexDirection: "row", paddingTop: 0}}>
+          <View style={{flexDirection: "row", paddingTop: 0, justifyContent: "center"}}>
             {alert !== "" ?
                 [<MaterialIcons name="warning" size={20} color="#DB3A34" />,
-            <Text> {alert}</Text>] : null}
+            <Text>{alert}</Text>] : null}
 
           </View>
           <View style={styles.bottomContainer}>
